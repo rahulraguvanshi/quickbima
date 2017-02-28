@@ -1,0 +1,86 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "bootstrap";
+@import "include-media";
+@import "fonts";
+
+
+$theme:#3a4855;
+$logo-blue:#4fbbb2;
+$logo-red:#e6253c;
+
+
+@include font-face(Nobel-ExtraLight, "../fonts/Nobel-ExtraLight/Nobel-ExtraLight");
+@include font-face(Nobel-Light, "../fonts/Nobel-Light/Nobel-Light");
+@include font-face(Nobel-Book, "../fonts/Nobel-Book/Nobel-Book");
+@include font-face(Nobel-Regular, "../fonts/Nobel-Regular/Nobel-Regular");
+@include font-face(Nobel-Bold, "../fonts/Nobel-Bold/Nobel-Bold");
+
+body, html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+	font-family: 'Nobel-Light';
+	text-rendering: optimizeLegibility;
+	text-rendering: geometricPrecision;
+	font-smooth: always;
+	font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-moz-font-smoothing: subpixel-antialiased; 
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-o-font-smoothing: subpixel-antialiased;
+	-ms-font-smoothing: subpixel-antialiased;
+}
+
+a:focus {
+	outline:none;
+	text-decoration:none;
+}
+a:active {
+	outline:none;
+	text-decoration:none;
+}
+
+/*--------------Mixins------------------*/
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+@mixin border-radius($radius: none) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+.container {
+    width: 95%;
+}
+
+header {
+    background: $theme;
+    .navbar-default {
+        background: transparent;
+        border: 1px solid rgba(0,0,0,0);
+        .navbar-nav > li > a {
+            color:$body-bg;
+        }
+        .navbar-brand > img {
+            width: 160px;
+        }
+    }
+}
