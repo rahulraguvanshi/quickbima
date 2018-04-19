@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53.25px"
+	 height="53.125px" viewBox="0 0 53.25 53.125" enable-background="new 0 0 53.25 53.125" xml:space="preserve">
+<g id="Layer_2">
+	<circle fill="#FF293A" cx="26.146" cy="26.146" r="26.146"/>
+	<g>
+		<defs>
+			<polygon id="SVGID_1_" points="62.562,38.312 35.3,65.404 10.352,40.302 33.875,28.188 43.891,19.484 			"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+		<circle opacity="0.2" clip-path="url(#SVGID_2_)" cx="26.146" cy="26.146" r="26.146"/>
+	</g>
+</g>
+<g id="Layer_1" display="none">
+	
+		<image display="inline" overflow="visible" width="53" height="53" xlink:href="edit-icon.png"  transform="matrix(1 0 0 1 0 0.125)">
+	</image>
+</g>
+<g id="Layer_3">
+	
+		<rect x="25.341" y="14.675" transform="matrix(0.7149 -0.6992 0.6992 0.7149 -1.9686 26.1875)" fill="#FFFFFF" width="11.582" height="1.666"/>
+	
+		<rect x="28.029" y="17.363" transform="matrix(0.7149 -0.6992 0.6992 0.7149 -3.0815 28.8328)" fill="#FFFFFF" width="11.582" height="1.665"/>
+	
+		<rect x="30.716" y="20.05" transform="matrix(0.7149 -0.6992 0.6992 0.7149 -4.1945 31.4779)" fill="#FFFFFF" width="11.582" height="1.665"/>
+	<path fill="#FFFFFF" d="M31.562,8.125l-8.062,8L10.375,39.188c0,0-0.562,2.25,1.438,1.875c1.292-0.242,23.25-12.375,23.25-12.375
+		l9.625-8.438L43,18.625l-9.375,8.625l-12.5,6.812l-3.438-3.812l7.438-12.5l8.125-8.062L31.562,8.125z"/>
+</g>
+</svg>
