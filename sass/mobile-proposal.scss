@@ -1,0 +1,1285 @@
+@import "compass/reset";
+@import "bootstrap";
+
+@import "animate";
+@import "include-media";
+@import "fonts";
+@import "select-media";
+@import "datepicker";
+
+a:focus {
+	outline:none;
+	text-decoration:none;
+}
+a:active {
+	outline:none;
+	text-decoration:none;
+}
+
+@include font-face(Nobel-ExtraLight, "../fonts/Nobel-ExtraLight/Nobel-ExtraLight");
+@include font-face(Nobel-Light, "../fonts/Nobel-Light/Nobel-Light");
+@include font-face(Nobel-Book, "../fonts/Nobel-Book/Nobel-Book");
+@include font-face(Nobel-Regular, "../fonts/Nobel-Regular/Nobel-Regular");
+@include font-face(Nobel-Bold, "../fonts/Nobel-Bold/Nobel-Bold");
+
+$font-small:   ceil(($font-size-base * 1.1)) !default; // ~16px
+$font-h4:      ceil(($font-size-base * 1.55)) !default; // ~22px
+
+//== Colors
+$theme:#3a4855;
+$logo-blue:#4fbbb2;
+$logo-red:#e6253c;
+
+.themebg {
+    background: $theme;
+}
+.themecolor {
+    color: $theme;
+}
+.greybg {
+    background:#f2f2f2;
+}
+
+@mixin appearance(){
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+@mixin border-radius($radius: none) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin border($style, $color, $sides) {
+    @if ($style != "") {
+        @if ($sides == "") {
+            border: $style $color;
+        } @else {
+            @each $side in $sides {
+               @if ($side == 'top' or
+                    $side == 'right' or
+                    $side == 'bottom' or
+                    $side == 'left') {
+                    border-#{$side}: $style $color;
+                }
+            }
+        }  
+    }
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+// Horizontal gradient, from left to right
+//@include gradient-horizontal($brand-primary, $logo-blue);
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    .uneditable-input:focus {   
+      border-color:none!important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+      outline: 0 none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus
+select:focus {
+    background-color: transparent !important;
+}
+
+body{
+	font-family: 'Nobel-Light';
+	text-rendering: optimizeLegibility;
+	text-rendering: geometricPrecision;
+	font-smooth: always;
+	font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-moz-font-smoothing: subpixel-antialiased; 
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-o-font-smoothing: subpixel-antialiased;
+	-ms-font-smoothing: subpixel-antialiased;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.container-fluid {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn.focus:active, .btn.active:focus, .btn.active.focus {
+    outline:none;
+}
+a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus {
+    outline:none;
+}
+
+.mob-proposal-section {
+    @include padding(null, null, 90px, null);
+    position: relative;
+    .container {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+    .mob-proposal-header {
+        background: $theme;
+        @include padding(6px, 10px, 6px, 10px);
+        color: $body-bg;
+        h4 {
+            @include margin(10px, null, 10px, null);
+            font-family: 'Nobel-Book';
+            font-size: 17px;
+        }
+        .premium-title{
+            margin-bottom: 0;
+            .fa-inr{
+                color: #e6253c;
+                margin-right: 5px;
+            }
+        }
+        .pay-back {
+            float: left;
+            width: 30px;
+            height:35px;
+            display: inline-block;
+            position: relative;
+            z-index: 9;
+            &:before {
+                position: absolute;
+                top: 5px;
+                left: 0px;
+                content: '\f104';
+                font-family: 'FontAwesome';
+                color: #fff;
+                font-size: 18px;
+            }
+        }
+        .back-quotes {
+            @include padding(2px, 12px, 3px, 20px);
+            @include margin(3px, null, 10px, null);
+            @include border-radius(50px);
+            @include box-shadow(0px 3px 6px rgba(0,0,0,0.1));
+            background: lighten($theme, 5%);
+            border: none;
+            position: absolute;
+            left: 10px;
+            color: lighten($theme, 50%);
+            &:before {
+                @include position(absolute, $top:4px, $left:10px);
+                content: '\f104';
+                font-family: 'FontAwesome';
+                font-size: $font-size-base;
+            }
+        }
+        .qicon {
+            height: 28px;
+            float: left;
+            margin-top: 5px;
+        }
+        .insurer {
+            height: 45px;
+            @include margin(10px, null, 8px, null);
+        }
+        .plan-name {
+            @include margin(null, null, 4px, null);
+            color: lighten($theme, 50%);
+            font-size: $font-size-small;
+        }
+        .full-details {
+            @include margin(20px, null, null, 10px);
+            @include padding(4px, null, null, null);
+            background: lighten($theme, 5%);
+            @include border-radius(50px);
+            @include box-shadow(0px 2px 4px rgba(0,0,0,0.5));
+            color: lighten($theme, 50%);
+            display: inline-block;
+            text-align: center;
+            height: 27px;
+            width: 27px;
+        }
+        .premium {
+            @include margin(15px, null, 0px, null);
+            color: $logo-red;
+            font-family: 'Nobel-Regular';
+            font-size: $font-size-h3;
+        }
+        p {
+            font-size: $font-size-base + 2px;
+            small {
+                font-size: 65%;
+            }
+        }
+        .modal-dialog {
+            margin: 0px;
+            @include border-radius(0px);
+            height: 100%;
+            .modal-content {
+                @include border-radius(0px);
+                background: lighten($theme, 67%);
+                height: 100%;
+                .close {
+                    @include position(absolute, $top:10px, $right:10px);
+                    @include box-shadow(0px 3px 6px rgba(0,0,0,0.1));
+                    background: $body-bg url("../images/cross.svg") no-repeat center/25px;
+                    opacity: 1;
+                    @include border-radius(50px);
+                    height: 40px;
+                    width: 40px;
+                    z-index: 999;
+                }
+                .modal-body {
+                    color: $theme;
+                    padding-top: 20px;
+                    img {
+                        @include margin(20px, null, 20px, null);
+                    }
+                    h3 {
+                        span {
+                            font-family: 'Nobel-Regular';
+                        }
+                    }
+                    h4 span {
+                        font-size: $font-size-h3;
+                    }
+                    .premium {
+                        color: $logo-red;
+                        font-size: $font-size-h3;
+                        font-family: 'Nobel-Regular';
+                    }
+                    .fa {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+    }
+    .progress-bar {
+        @include gradient-horizontal($brand-primary, $logo-blue);
+    }
+    [class*="col-"] {
+        position: relative;
+        .title-label {
+            @include position(absolute, $top:20px, $left:15px);
+            color: $logo-blue;
+            font-size: $font-size-base;
+        }
+        .error {
+            @include position(absolute, $bottom:-18px, $left:15px);
+            @include padding(null, 15px, 2px, 0px);
+            background: url("../images/warning-icon.svg") no-repeat center right/12px;
+            color: $logo-red;
+            font-size: $font-size-base;
+            text-align: right;
+            line-height: 14px;
+            height: 15px;
+            width: calc(100% - 30px);
+        }
+    }
+    select {
+        background: url(../images/arrow-down.svg) no-repeat right 16px/13px;
+        border-top:none; 
+        border-left:none; 
+        border-right:none; 
+        border-bottom: 1px solid lighten($theme, 45%);
+        @include border-radius(0px);
+        font-size: $font-size-large - 2px;
+        font-family: 'Nobel-Book';
+        padding-left:0px;
+        margin-top: 30px;
+        width: 100%;
+        height: 40px;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+    }
+    .choose-nominee-title {
+        @include margin(30px, null, 15px, null);
+        font-family: 'Nobel-Book';
+    }
+    .progress {
+        @include margin(null, null, 20px, null);
+        @include border-radius(0px);
+        background: lighten($theme, 55%);
+        height: 4px;
+        width:100%;
+        font-family: 'Nobel-Book';
+        .prog-bg {
+            opacity: 0.8;
+        }
+        .bar-step {
+            position:absolute;
+            margin-top:-13px;
+            z-index:1;
+            font-size:12px;
+        }
+        .label-txt {
+            float: left;
+            font-size: $font-size-small - 2px;
+        }
+        .label-line {
+            float: right;
+            background: #000;
+            height:16px;
+            width:1px;
+            margin-left: 5px;
+        }
+        .label-percent {
+            float: right;
+            margin-left: 5px;
+            color: $brand-primary;
+            font-size: $font-size-small - 2px;
+        }
+    }
+    .addons {
+        position: relative;
+        @include margin(null, null, 20px, null);
+        @include padding(null, 0px, 15px, 0px);
+        &:before {
+            @include position(absolute, $bottom:0px, $left:10px);
+            border-bottom: 1px solid lighten($theme, 60%);
+            width: calc(100% - 17px);
+            z-index: 9;
+        }
+        [class*="col-"] {
+            @include padding(null, 5px, null, 5px);
+        }
+        .display-box {
+            width: 100%;
+            display: inline-block!important;
+        }
+        .membername {
+            @include margin (12px, null, 5px, null);
+            font-family: 'Nobel-Book';
+            color: $theme;
+        }
+        h4 {
+            font-family: 'Nobel-Book';
+        }
+        h5 {
+            font-size: $font-size-large;
+            font-family: 'Nobel-Book';
+            color: $logo-blue;
+            z-index: 99;
+            position: relative;
+        }
+        .droplist {
+            margin-top: 10px;
+            border-top:none; 
+            border-left:none; 
+            border-right:none; 
+            border-bottom: 1px solid lighten($theme, 45%);
+            @include border-radius(0px);
+            padding-left: 0px;
+            padding-top: 5px;
+        }
+        .select-title {
+            position: absolute;
+            color: $logo-blue;
+        }
+        .error {
+            border-top:1px solid $logo-red;
+            left: 5px;
+            bottom: -14px;
+            padding-top: 2px;
+            width: calc(100% - 10px);
+            z-index: 9;
+        }
+        select {
+            background: transparent;
+            border: 1px solid lighten($theme, 60%);
+            @include border-radius(4px);
+            font-size: $font-size-large - 2px;
+            font-family: 'Nobel-Book';
+            padding-left: 10px;
+            width: 100%;
+            height: 40px;
+            margin-top: 10px;
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+        }
+        .addonicons {
+            font-size: $font-size-large;
+            font-family: 'Nobel-Book';
+            color: $theme;
+            position: relative;
+            @include padding(null, null, null, 40px);
+            @include margin(0px, null, null, null);
+            &:before {
+                @include position(absolute, $top:0px, $left:0px);
+                background: url("../images/addon-covers.svg") no-repeat;
+                background-size: 140px;
+                content: '';
+                height: 28px;
+                width: 30px;
+            }
+        }
+        .recharge {
+            @extend .addonicons;
+        }
+        .for-care {
+            @extend .addonicons;
+            &:before {
+                background-position: -36px 0px!important;
+            }
+        }
+        .bonus{
+            @extend .addonicons;
+            &:before {
+                background-position: -70px 0px!important;
+            }
+        }
+        .protect-family{
+            @extend .addonicons;
+            &:before {
+                background-position: -109px 4px!important;
+            }
+        }
+        .illness {
+            @extend .addonicons;
+            &:before {
+                background-position: 6px -28px!important;
+            }
+        }
+        .copay {
+            @extend .addonicons;
+            &:before {
+                background-position: -33px -55px!important;
+            }
+        }
+        .cash {
+            @extend .addonicons;
+            &:before {
+                background-position: -30px -28px!important;
+            }
+        }
+        .discount {
+            @extend .addonicons;
+            &:before {
+                background-position: 6px -58px!important;
+            }
+        }
+        p {
+            color:$gray-light;
+            font-size: $font-size-base;
+            line-height: 16px;
+        }
+        .toggle {
+              margin-left: -9999px;
+              position: absolute;
+              visibility: hidden;
+              + label {
+                background: transparent;
+                @include border-radius(100px);
+                cursor: pointer;
+                display: block;
+                height:38px;
+                overflow: hidden;
+                padding: 2px;
+                position: relative;
+                width: 76px;
+                max-width: 76px;
+                font-size:$font-size-base - 1px;
+                @include margin(null, auto, null, auto);
+                text-align: left;
+                &::before, &::after {
+                  @include border-radius(100px);
+                  color: $theme;
+                  display: block;
+                  @include padding(3px, 0px, 3px, 0px);
+                  @include position(absolute, $top:4px, $left:0px, $bottom:3px);
+                }
+                &::before {
+                  content: "Added";
+                  right:0px;
+                  text-indent: -208px;
+                  padding: 5px 16px;
+                  border: 1px solid lighten($theme, 45%);
+                }
+                &::after {
+                  background-color:lighten($theme, 10%);
+                  content: "Add";
+                  @include margin(9px, 2px, 9px, 9px);
+                  text-indent: 24px;
+                  line-height: 11px;
+                  width:12px;
+                  height:12px;
+                }
+              }
+              &:checked + label {
+                  background: transparent;
+                &::before {
+                  background-color:$logo-blue;
+                  border: none;
+                  text-indent: 0px;
+                  color: #fff;
+                  padding: 8px 12px;
+                }
+                &::after {
+                  margin-left:56px;
+                  background-color:$body-bg; 
+                }
+              }
+              + label {
+                &::before, &::after {
+                  transition: all 0.5s ease 0s;
+                }
+              }
+            }
+        .family {
+            .toggle {
+              + label {
+                &::before {
+                  content: "Yes";
+                }
+                &::after {
+                  content: "No";
+                  text-indent: 29px;
+                }
+              }
+              &:checked + label {
+                &::before {
+                  text-indent: 13px;
+                }
+              }
+            }
+        }
+        .subDetails {
+            display: inline-block;
+            width: calc(100% - 50px);
+            margin-left: 25px;
+            h4 {
+                font-size: $font-size-large - 2px;
+            }
+        }
+        .input-effect {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    }
+    
+    input[type="checkbox"] {
+      display: none;
+      + label {
+        transition: all 300ms ease;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 60px;
+        background: #ecf0f1;
+        padding: 7px 16px 7px 16px;
+        display: inline-block;
+        font-family: 'Nobel-Book';
+        // Suggested by @zizzo to prevent text selection
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      &:checked + label {
+        transition: all 300ms ease;
+        background: #4fbbb2 url("../images/radio2.svg") no-repeat 12px 12px;
+        padding-left: 32px;
+        color: #fff;
+      }
+    }
+    input[type="radio"] {
+      display: none;
+      + label {
+        transition: all 300ms ease;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 60px;
+        background: #ecf0f1;
+        padding: 7px 16px 7px 16px;
+        display: inline-block;
+        font-family: 'Nobel-Book';
+        // Suggested by @zizzo to prevent text selection
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      &:checked + label {
+        transition: all 300ms ease;
+        background: #4fbbb2 url("../images/radio2.svg") no-repeat 12px 12px;
+        padding-left: 32px;
+        color: #fff;
+      }
+    }
+
+    .input-effect {
+        position: relative;
+        margin-top: 30px;
+        height: 40px;
+        .effect {
+          border:none;
+          @include padding(10px, 0px, 5px, 0px);
+          border-bottom: 1px solid lighten($theme, 45%);
+          background-color: transparent;
+          width: 100%;
+          height: 40px;
+          font-size:$font-size-large - 2px;
+          font-family: 'Nobel-Book';
+          @include border-radius(0px);
+          @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+          @include position (absolute, $left:0px, $top:0px);
+          z-index: 9;
+          ~ .focus-border {
+            position: absolute;
+            bottom: 0;
+            left:0px;
+            width: 0;
+            height: 1px;
+            background-color:$theme;
+            transition: 0.4s;
+            z-index: 9;
+          }
+          &:focus ~ .focus-border {
+            width: 100%;
+            transition: 0.4s;
+          }
+          ~ label {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top:10px;
+            font-size:$font-size-large - 2px;
+            color: lighten($theme, 40%);
+            transition: 0.3s;
+          }
+          &:focus ~ label {
+            top: -12px;
+            left: 0;
+            font-size:$font-size-base;
+            color:$theme;
+            transition: 0.3s;
+            z-index: 99;
+          }
+        }
+        .has-content.effect ~ label {
+          top: -12px;
+          font-size:$font-size-base;
+          color: $logo-blue;
+          transition: 0.3s;
+        }
+    }
+    
+    input.checkbox {
+          &:empty {
+            display: none;
+            ~ label {
+              background: transparent;
+              position: relative;
+              font-size:$font-size-h4 - 2px;
+              line-height:16px;
+              text-indent:0px;
+              cursor: pointer;
+              color: $theme;
+              @include user-select(none);
+              @include padding(3px, null, null, 28px);
+              width: 100%;
+              &:before {
+                position: absolute;
+                display:inline-block;
+                top:0px;
+                left: 0px;
+                content: '';
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                border:1px solid lighten($theme, 30%);
+                @include border-radius(3px);
+              }
+            }
+          }
+          &:checked ~ label {
+            &:before {
+              content: url("../images/radio2.svg");
+              text-indent: 3px;
+              border:1px solid $logo-blue;
+              background-color:$logo-blue;
+            }
+          }
+        }
+    .state {
+        margin-top: 36px;
+        font-family: 'Nobel-Book';
+    }
+    .ui {
+      &.selection {
+        &.dropdown {
+          border: none;
+          background: transparent;
+          background-size: 18px;
+          border-bottom:1px solid lighten($theme, 45%);
+          min-width: 70px;
+          height: 40px;
+          font-size:$font-small;
+          @include border-radius(0px);
+          @include padding(16px, 10px, null, 0px);
+          @include margin(26.5px, null, null, null);
+          width: 100%;
+            .default.text {
+                color: lighten($theme, 40%);
+                font-family: 'Nobel-Book';
+            }
+            .text {
+                font-family: 'Nobel-Book';
+                color: $theme;
+            }
+        }
+        &.active.dropdown {
+            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+          .menu {
+            border: none !important;
+          }
+          &:hover {
+            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+          }
+        }
+      }
+      &.search.dropdown.visible > input.search {
+        padding: 14px 10px 10px 4px !important;
+        @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+      }
+      &.search.selection.dropdown > input.search {
+        padding: 14px 10px 10px 4px;
+      }
+      &.selection.dropdown .menu > .item {
+        padding: 11px 10px 10px 5px !important;
+        font-size:$font-small;
+      }
+      &.dropdown .menu .active.item {
+        color: $logo-blue;
+      }
+      &.selection.dropdown > {
+        .dropdown.icon, .search.icon {
+          display: none;
+        }
+      }
+    }
+    .name-title {
+        .ui {
+            &.selection {
+            &.dropdown {
+              background: url(../images/arrow-down.svg) no-repeat 36px 22px/13px;
+              border-bottom:1px solid lighten($theme, 45%);
+              min-width: 20px;
+              @include padding(16px, null, null, 0px);
+              @include margin(26.5px, null, null, null);
+              float: left;
+              width: 55px;
+            }
+  
+          }
+        }
+        .input-effect {
+            width: calc(100% - 55px);
+            float: left;  
+        }
+    }
+    .proposer-member {
+        p {
+            @include margin(20px, null, null, null);
+            color: $theme;
+            font-family: 'Nobel-Book';
+            font-size: $font-size-large - 2px;
+        }
+    }
+    .height {
+        border-bottom: 1px solid lighten($theme, 45%);
+        width: calc(50% - 15px);
+        p {
+            @include position(absolute, $top:18px, $left:0px);
+            color: $theme;
+            font-family: 'Nobel-Book';
+            font-size: $font-size-base;
+        }
+        select {
+            background: transparent;
+            border: none;
+            @include border-radius(4px);
+            font-size: $font-size-large - 2px;
+            font-family: 'Nobel-Book';
+            padding-left: 10px;
+            width: 68px;
+            height: 35px;
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            float: left;
+            margin-top: 34px;
+            margin-left: -10px;
+            padding-left: 0px;
+        }
+    }
+    .notop-margin {
+        margin-top: 0px;
+    }
+    .prev-details {
+        position: relative;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        [class*="col-"] {
+            @include padding(null, 7px, null, 7px);
+            position: relative;
+            .title-label {
+                @include position(absolute, $top:20px, $left:11px);
+                color: $logo-blue;
+                font-size: $font-size-base;
+            }
+        }
+        .box-details {
+            border: 1px solid lighten($theme, 60%);
+            @include padding(10px, null, 3px, null);
+            @include border-radius(6px);
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            [class*="col-"] {
+                min-height: 50px;
+            }
+            .edit {
+                @include position(absolute, $top:6px, $right:8px);
+                background: lighten($theme, 60%);
+                @include padding(3px, 14px, 2px, 14px);
+                @include border-radius(30px);
+                color: $theme;
+                font-size: $font-size-base;
+                font-family: 'Nobel-Book';
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+            }
+            .update {
+                @extend .edit;
+                background: $logo-blue;
+                color: #fff; 
+            }
+            h4 {
+                font-family: 'Nobel-Regular';
+                margin: 0px 0px 8px 7px;
+                font-size: 16px;
+            }
+            p {
+                font-family: 'Nobel-Light';
+                margin-bottom: 0px;
+                span {
+                    font-family: 'Nobel-Book';
+                    display: block;
+                    word-wrap: break-word;
+                    line-height: 12px;
+                    margin-top: 4px;
+                }
+            }
+            .ui.selection.dropdown {
+                margin-top:6.5px;
+            }
+            .input-effect {
+                margin-top:10px;
+            }
+            .disease-detail {
+                margin-bottom: 10px;
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+    .mob-proposal-footer {
+        background: $body-bg;
+        @include position(fixed, $bottom:0px, $left:0px);
+        @include padding(15px, 10px, 15px, 10px);
+        @include box-shadow(0 -6px 10px -5px rgba(0,0,0,0.15));
+        width: 100%;
+        z-index: 99;
+        .back {
+            color: $theme;
+            font-family: 'Nobel-Book';
+            font-size: $font-size-large;
+            @include margin(null, 10px, null, null);
+        }
+        .continue {
+            @include padding(7px, 25px, 6px, 25px);
+            @include border-radius(6px);
+            background:$logo-red;
+            border:none;
+            color:#fff;
+            font-family: 'Nobel-Book';
+            font-size: $font-size-large;
+        }
+        .makepayment {
+            @extend .continue;
+            @include padding(6px, 25px, 5px, 25px);
+            margin-top: -4px;
+            background: $logo-red;
+            color: $body-bg;
+        }
+        .termscondition {
+            font-size: $font-size-small - 4px;
+            margin-bottom: -8px;
+            margin-top: 6px;
+            width: 100%;
+            text-align: center;
+            //@include position (absolute, $bottom:6px, $left:0px);
+        }
+    }
+}
+
+.paymentgateway {
+    background: lighten($theme, 65%);
+    min-height: 100%;
+    .sr-only {
+        display: none!important;
+    }
+    .pagetitle {
+        position: relative;
+        width: calc(100% - 30px);
+    }
+    .animated {
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+    }
+    .inner-section {
+        padding-left: 8px;
+        padding-right: 8px;
+        h4 {
+            margin-top: 15px;
+            font-family: 'Nobel-Book';
+        }
+        p {
+            font-family: 'Nobel-Book';
+        }
+        $banks: BAIRNB, BADBB, BAXIB, BBOIB, BBOMB, BCABB,BCSBN,BCBIB,BCITIRDR,BCITNB,BCUBB,BCRPB,BCSMSNB,BDCBB, BDCBCORP,BDENN,BDSHB,BDLSB,BFEDB,BHDFB,BICIB,BIDBB,BIDFCNB,BINDB,BINOB,BINIB,BINGB,BJAKB,BJSBNB, BKRKB,BKRVBC,BKRVB,B162B,BLVCB,BLVRB,BOBCB,BPMNB,BPSBNB,BCPNB,BPNBB,BSRSWT,BSVCNB,BSOIB,BSBHB,BSBIB, BSBPB,BSYNDB,BTMBB,BBHNB,BTBON,BUCOB,BUBIBC,BUBIB,BUNIB,BVJYB,BYESB,BHSBC,BRBL,BSCB,BAMEX;
+        $k: 0;
+        @each $tiles in $banks {
+            $bacRightP: $k * 39.99;
+            $k: $k + 1;
+            .#{$tiles} {
+                background: url("../images/allbanks.svg") no-repeat;
+                background-size:2400px;
+                background-position: -#{$bacRightP}px 1px;
+                width: 35px;
+                height: 30px;
+                margin-right: 8px;
+                margin-top: 5px;
+                margin-left: -6px;
+                display: inline-block;
+                float: left;
+                position: relative;
+            }
+        }
+        .secure {
+            color: #25a932;
+            position: relative;
+            padding-left: 16px;
+            margin-top: 17px;
+            &:before {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                content: '\f023';
+                font-family: 'FontAwesome';
+            }
+        }
+        .details-part {
+            background: #fff;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            margin-top: 5px;
+            @include box-shadow(0px 4px 6px rgba(0,0,0,0.1));
+            .selected-emi {
+                border-bottom: 1px solid lighten($theme, 60%);
+                padding-top: 5px;
+                margin-bottom: 25px;
+                label {
+                    font-size: 16px !important;
+                    font-family: 'Nobel-Regular';
+                    padding-top: 2px;
+                    border: none;
+                }
+            }
+            label {
+                font-size: 14px!important;
+                padding-right: 0px;
+                border-bottom: 1px solid lighten($theme, 60%);
+                @include border-radius(0px);
+                padding-bottom: 8px;
+                margin-top: 5px;
+                [class*="col-"] {
+                    padding-left: 4px;
+                    padding-right: 4px;
+                }
+                p {
+                    color: #777;
+                    font-size: 12px;
+                    margin-bottom: 0px;
+                    margin-top: -9px;
+                    .fa {
+                        color: $theme;
+                    }
+                    span {
+                        display: inline-block;
+                        margin-top: 2px;
+                        font-size: 14px;
+                        color: $theme;
+                    }
+                }
+            }
+            .icon {
+                display: inline-block;
+                float: left;
+                width: 50px;
+                font-size:17px;
+                color: #999;
+                height: 70px;
+                padding-top:14px;
+                padding-left:10px;
+            }
+            .p-mode {
+                display: inline-block;
+                width: calc(100% - 50px);
+                float: left;
+                position: relative;
+                padding-right: 15px;
+                color: #777;
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+                &:before {
+                    position: absolute;
+                    right:4px;
+                    top: calc(50% - 23px);
+                    font-size: 18px;
+                    content: '\f105';
+                    font-family:'FontAwesome';
+                }
+                h4 {
+                    color: $theme;
+                    text-transform: uppercase;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    font-size: 16px;
+                    font-family: 'Nobel-Regular';
+                }
+                p {
+                    color: #777;
+                    border-bottom: 1px solid #cfcfcf;
+                    padding-bottom: 10px;
+                    margin-top: 5px;
+                }
+            }
+            .expiration {
+                border-bottom: 1px solid lighten($theme, 45%);
+                display: inline-block;
+                margin-top: 30px;
+                width: 100%;
+                p {
+                    float: left;
+                    margin-right: 10px;
+                    margin-top: 10px;
+                }
+                .tilt {
+                    display: inline-block;
+                    margin-top:11px;
+                    float: left;
+                }
+                input {
+                    border: none;
+                    width: 40px;
+                    height: 30px;
+                    margin-top: 6px;
+                    float: left;
+                    text-align: center;
+                    &:last-child {
+                        width: 60px;
+                    }
+                }
+            }
+            .allbanks {
+                margin: 0px;
+                padding: 0px;
+                > li {
+                    display: inline-block;
+                    width: 100%;
+                    a {
+                        color: $theme;
+                        border-bottom: 1px solid #cfcfcf;
+                        width: calc(100% - 40px);
+                        padding-top: 7px;
+                        padding-bottom: 10px;
+                        margin-bottom: 6px;
+                        display: inline-block;
+                        font-family: 'Nobel-Regular';
+                        font-size: 14px;
+                    }
+                    input.checkbox {
+                      &:empty {
+                        display: none;
+                        ~ label {
+                          background: transparent;
+                          position: relative;
+                          font-size: 14px!important;
+                          line-height:16px;
+                          text-indent:0px;
+                          cursor: pointer;
+                          color: $theme;
+                          border-bottom: 1px solid #cfcfcf;
+                          @include border-radius(0px);
+                          @include user-select(none);
+                          @include padding(4px, 20px, 12px, 0px);
+                          margin-bottom: 0px;
+                          float: left;
+                          width: calc(100% - 40px);
+                          &:before {
+                            position: absolute;
+                            display:inline-block;
+                            top:2px;
+                            right: 5px;
+                            left: auto;
+                            content: '';
+                            width: 20px;
+                            height: 20px;
+                            background-color: transparent;
+                            border: none;
+                          }
+                        }
+                      }
+                      &:checked ~ label {
+                        &:before {
+                          content: url("../images/right-tick.svg");
+                          text-indent: 3px;
+                          border:none;
+                          background-color:transparent;
+                        }
+                      }
+                    }
+                }
+            }
+        }
+        .debitcard {
+            background: url("../images/payment-logos.svg") no-repeat top right/250px;
+            height: 25px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .creditcard {
+            @extend .debitcard;
+            background-position: right -45px;
+        }
+        .verified {
+            @extend .debitcard;
+            background-position: center -90px;
+            margin-top: 40px;
+        }
+        .search {
+            position: relative;
+            margin-left: 10px;
+            margin-right: 10px;
+            .search-box {
+                border-top:none;
+                border-left:none;
+                border-right:none;
+                border-bottom: 1px solid lighten($theme, 45%);
+                @include border-radius(0);
+                background: transparent;
+                font-family: 'Nobel-Book';
+                height: 35px;
+                padding-top: 8px;
+                padding-left:0px;
+                margin-top: 10px;
+                font-size: 18px;
+                margin-bottom: 10px;
+                width: 100%;
+                &:not(:valid) ~ .reset-btn {
+                    display: none;
+                }
+            }
+            .reset-btn {
+                background: #fff url("../images/cross.svg") no-repeat center/12px;
+                @include border-radius(100%);
+                @include box-shadow(0px 2px 4px rgba(0,0,0,0.15));
+                border: none;
+                position: absolute;
+                padding: 0px;
+                top: 16px;
+                right: 4px;
+                display: inline-block;
+                height: 20px;
+                width: 20px;
+                z-index: 99;
+            }
+        }
+    }
+}
+

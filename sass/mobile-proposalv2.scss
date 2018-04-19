@@ -1,0 +1,1241 @@
+@import "compass/reset";
+@import "bootstrap";
+
+@import "animate";
+@import "include-media";
+@import "fonts";
+@import "select-media";
+@import "datepicker";
+
+a:focus {
+	outline:none;
+	text-decoration:none;
+}
+a:active {
+	outline:none;
+	text-decoration:none;
+}
+
+@include font-face(Nobel-ExtraLight, "../fonts/Nobel-ExtraLight/Nobel-ExtraLight");
+@include font-face(Nobel-Light, "../fonts/Nobel-Light/Nobel-Light");
+@include font-face(Nobel-Book, "../fonts/Nobel-Book/Nobel-Book");
+@include font-face(Nobel-Regular, "../fonts/Nobel-Regular/Nobel-Regular");
+@include font-face(Nobel-Bold, "../fonts/Nobel-Bold/Nobel-Bold");
+
+$font-small:   ceil(($font-size-base * 1.1)) !default; // ~16px
+$font-h4:      ceil(($font-size-base * 1.55)) !default; // ~22px
+
+//== Colors
+$theme:#3a4855;
+$logo-blue:#4fbbb2;
+$logo-red:#e6253c;
+
+@mixin appearance(){
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+@mixin text-shadow($shadow) {
+    -webkit-text-shadow: $shadow;
+    -moz-text-shadow: $shadow;
+    text-shadow: $shadow;
+}
+@mixin border-radius($radius: none) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+// Horizontal gradient, from left to right
+//@include gradient-horizontal($brand-primary, $logo-blue);
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    .uneditable-input:focus {   
+      border-color:none!important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+      outline: 0 none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus
+select:focus {
+    background-color: transparent !important;
+}
+
+body{
+	font-family: 'Nobel-Light';
+	text-rendering: optimizeLegibility;
+	text-rendering: geometricPrecision;
+	font-smooth: always;
+	font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-moz-font-smoothing: subpixel-antialiased; 
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-o-font-smoothing: subpixel-antialiased;
+	-ms-font-smoothing: subpixel-antialiased;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn.focus:active, .btn.active:focus, .btn.active.focus {
+    outline:none;
+}
+a:focus, a.focus, a:active:focus, a.focus:active, a.active:focus, a.active.focus {
+    outline:none;
+}
+.sr-only {
+    position: absolute !important;
+    display: none!important;
+}
+.ui-widget-content {
+    position: fixed!important;
+    top: 68px!important;
+    left:0px!important;
+    width:100%!important;
+    background: #fff!important;
+    padding-top: 10px!important;
+    z-index: 999 !important;
+    overflow: scroll;
+    height: calc(100vh - 70px)!important;
+    li {
+        padding: 7px 6px 7px 15px!important;
+        color: #000!important;
+        font-size:15px!important;
+    }
+}
+.ui-menu .ui-menu-item {
+    padding: 6px 2px;
+    font-family: 'Nobel-Book';
+}
+.ui-helper-hidden-accessible {
+    display: none;
+    height: 0px;
+    width: 0px;
+}
+.proposal-wrapper {
+    background: #fff;
+    min-height: 100%;
+    padding-top: 80px;
+    .top-header {
+        background:#fff;
+        position: fixed;
+        left: 0px;
+        top:0px;
+        padding: 6px 12px 15px 15px;
+        width: 100%;
+        z-index:99;
+        .go-back {
+            padding: 6px 12px 5px 15px;
+            float: left;
+            display: inline-block;
+            color: #000;
+            position: relative;
+            border: none;
+            background: transparent;
+            height: 30px;
+            &:before {
+                position: absolute;
+                left: 0px;
+                top: 10px;
+                content: '';
+                height: 20px;
+                width: 20px;
+                background: url("../images/arrow-back.svg") no-repeat 0px 0px/9px;
+            }
+            &:hover, &:focus, &:active {
+                text-decoration: none;
+            }
+        }
+        .qicon {
+            height: 30px;
+            float: left;
+            margin-top: 3px;
+        }
+        .category-title {
+            border-left:1px solid #8899a9;
+            padding: 1px 0px 1px 15px;
+            margin-top: 5px;
+            margin-left: 15px;
+            float: left;
+            font-family: 'Nobel-Book';
+            font-size: 18px;
+            color: #000;
+        }
+        .progress-bg {
+            position: relative;
+            background:lighten($theme, 60%);
+            width: 60%;
+            height:1px; 
+            margin-top: 15px;
+            .active-progress {
+                background: #faa134;
+                height: 1px;
+                width: 15%;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: 9;
+            }
+        }
+        .info {
+            float: right;
+            color: $theme;
+            padding: 6px 8px;
+            font-size: 20px;
+            @include text-shadow(0px 2px 4px rgba(0,0,0,0.2));
+            &:hover, &:focus, &:active {
+                text-decoration: none;
+            }
+        }
+    }
+    .secure {
+        color: #25a932;
+        position: relative;
+        padding-left: 16px;
+        font-family: 'Nobel-Book';
+        &:before {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            content: '\f023';
+            font-family: 'FontAwesome';
+        }
+    }
+    .form-section {
+        padding-bottom: 80px;
+        .more-space {
+            margin-top: 25px;
+        }
+        .fullwidth-checkbox {
+            input.checkbox {
+              &:empty {
+                display: none;
+                ~ label {
+                  background: transparent;
+                  position: relative;
+                  font-size:15px;
+                  line-height:18px;
+                  cursor: pointer;
+                  color: $theme;
+                  @include user-select(none);
+                  padding: 5px 8px 5px 24px;
+                  display: inline-block;
+                  text-indent:0px;
+                  &:before {
+                    position: absolute;
+                    display:inline-block;
+                    top:5px;
+                    left: 0px;
+                    content: '';
+                    width: 16px;
+                    height: 16px;
+                    background-color: transparent;
+                    border:1px solid lighten($theme, 30%);
+                    @include border-radius(3px);
+                  }
+                }
+              }
+              &:checked ~ label {
+                  background: $logo-blue;
+                  @include border-radius(3px);
+                  padding: 5px 8px 5px 24px;
+                  color: #fff;
+                &:before {
+                  content: url("../images/radio2.svg");
+                  text-indent: 4px;
+                  top: 3px;
+                  border:1px solid $logo-blue;
+                }
+              }
+            }
+            .ownership-msg {
+                margin-top: 15px;
+            }
+            .newncb {
+                color: $theme;
+                border: 1px solid $theme;
+                @include border-radius(4px);
+                padding: 5px 10px 4px 10px;
+                margin-bottom: 20px;
+                display: inline-block;
+                font-family: 'Nobel-Book';
+                &:hover {
+                    text-decoration: none;
+                }
+                &:focus {
+                    background: $theme;
+                    color: #fff;
+                }
+            }
+        }
+        .city {
+            font-family: 'Nobel-Book';
+            margin-top:40px;
+            margin-bottom:0px;
+        }
+        .ui {
+          &.selection {
+            &.dropdown {
+              border: none;
+              background: transparent;
+              background-size: 18px;
+              border-bottom:1px solid #ccc;
+              min-width: 20px;
+              height: 40px;
+              min-height: 30px;
+              font-size:$font-small;
+              @include border-radius(0px);
+              @include padding(14px, 10px, null, 0px);
+              margin-top: 25px;
+              width: 100%;
+                .default.text {
+                    color: lighten($theme, 40%);
+                    font-family: 'Nobel-Book';
+                }
+                .text {
+                    font-family: 'Nobel-Book';
+                    color: $theme;
+                }
+            }
+            &.active.dropdown {
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              .menu {
+                border: none !important;
+              }
+              &:hover {
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+            }
+          }
+          &.search.dropdown.visible > input.search {
+            padding: 14px 10px 10px 4px !important;
+            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+          }
+          &.search.selection.dropdown > input.search {
+            padding: 14px 10px 10px 4px;
+          }
+          &.selection.dropdown .menu > .item {
+            padding: 11px 10px 10px 5px !important;
+            font-size:$font-small;
+          }
+          &.selection.dropdown .menu {
+            max-height: 160px;
+          }
+          &.dropdown .menu .active.item {
+            color: $logo-blue;
+          }
+          &.selection.dropdown > {
+            .dropdown.icon, .search.icon {
+              display: none;
+            }
+          }
+        }
+        select {
+            background: transparent;
+            color: #777;
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            border-bottom: 1px solid #ccc;
+            border-top:none; 
+            border-left:none; 
+            border-right:none; 
+            height: 40px;
+            display: inline-block;
+            @include border-radius(0px);
+            width: calc(100% - 40px);
+            margin-top: 25px;
+            padding-left: 0px;
+            font-size: 17px;
+        }
+        .selectedoption {
+            color:#000!important;
+            font-family: 'Nobel-Book';
+        }
+        .name-title {
+            select {
+                background: url(../images/arrow-down.svg) no-repeat 36px 19px/13px;
+                float: left;
+                margin-left: 40px;
+                width: 55px;
+            }
+            .input-effect {
+                width: calc(100% - 95px);
+                margin-left: 95px;
+                .icon {
+                    position: absolute;
+                    left: -93px;
+                    top: 0px;
+                    width: 40px;
+                    font-size: 16px;
+                    color: #999;
+                }
+                .effect {
+                    left: 0px;
+                    width: 100%;
+                    ~ .focus-border {
+                        left:0px;
+                      }
+                    &:focus ~ .focus-border {
+                        width: 100%;
+                      }
+                    ~ label {
+                        left: 0px;
+                      }
+                    &:focus ~ label {
+                    left: 0px;
+                  }
+                }
+            }
+        }
+        .input-effect {
+          position: relative;
+          height: 40px;
+          margin-top: 25px;
+            .icon {
+                width: 40px;
+                display: inline-block;
+                font-size: 16px;
+                color: #999;
+                padding-top: 10px;
+                float: left;
+            }
+            .card-type {
+                position: absolute;
+                top: 10px;
+                right: 0px;
+                height: 20px;
+                width: 30px;
+                font-family: 'FontAwesome';
+                font-size: 16px;
+                color: $theme;
+            }
+            .ccFormatMonitor.cc_type_vs + p::after { content: "\f1f0"; }
+            .ccFormatMonitor.cc_type_jc + p::after { content: "\f24b"; }
+            .ccFormatMonitor.cc_type_dc + p::after { content: "\f24c"; }
+            .ccFormatMonitor.cc_type_mc + p::after { content: "\f1f1"; }
+            .ccFormatMonitor.cc_type_ax + p::after { content: "\f1f3"; }
+            .ccFormatMonitor.cc_type_rp + p::after { content: "\f283"; }
+            .ccFormatMonitor.cc_type_unknown + p::after { content: "\f00d"; }
+            .error {
+                color: $logo-red;
+                font-size: 12px;
+                position: absolute;
+                font-family: 'Nobel-Book';
+                right: 0px;
+                bottom:-18px;
+            }
+            .effect {
+              border:none;
+              @include padding(10px, 0px, 5px, 0px);
+              border-bottom:1px solid #ccc;
+              background-color: transparent;
+              width: calc(100% - 40px);
+              height: 40px;
+              font-size:17px;
+              font-family: 'Nobel-Book';
+              font-weight: 500;
+              @include border-radius(0px);
+              @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+              @include position (absolute, $left:40px, $top:0px);
+              z-index: 9;
+              ~ .focus-border {
+                position: absolute;
+                bottom: 0;
+                left: 40px;
+                width: 0;
+                height: 1px;
+                background-color:#000;
+                transition: 0.4s;
+                z-index: 9;
+              }
+              &:focus ~ .focus-border {
+                width: calc(100% - 40px);
+                transition: 0.4s;
+              }
+              ~ label {
+                position: absolute;
+                left: 40px;
+                width: calc(100% - 40px);
+                top:10px;
+                font-size:16px;
+                color: #777;
+                transition: 0.3s;
+              }
+              &:focus ~ label {
+                top: -10px;
+                left: 40px;
+                font-size:14px;
+                color:$theme;
+                transition: 0.3s;
+                z-index: 99;
+              }
+            }   
+            .has-content.effect ~ label {
+              top: -10px;
+              font-size:14px;
+              color: $logo-blue;
+              font-family: 'Nobel-Book';
+              transition: 0.3s;
+            }
+            .has-error.effect ~ .focus-border {
+              width: calc(100% - 40px);
+              transition: 0.4s;
+              background: $logo-red;
+            }
+            .has-error.effect ~ label {
+              top: 10px;
+              transition: 0.3s;
+                &:before {
+                    position: absolute;
+                    right: 4px;
+                    bottom:0px;
+                    content: '\f071 ';
+                    font-size: 10px;
+                    color: $logo-red;
+                    font-family: 'FontAwesome';
+                }
+            } 
+        }
+        .full-checkbox {
+            position: relative;
+            margin-top: 17px;
+            margin-bottom:5px;
+            input.checkbox {
+              &:empty {
+                display: none;
+                ~ label {
+                  background: lighten($theme, 67%);
+                  position: relative;
+                  font-size:15px;
+                  line-height:12px;
+                  cursor: pointer;
+                  color: $theme;
+                  font-family: 'Nobel-Book';
+                  @include user-select(none);
+                  @include border-radius(3px);
+                  padding: 8px 15px 8px 15px;
+                  display: inline;
+                  text-indent: 8px;
+                  width: 100%;
+                }
+              }
+              &:checked ~ label {
+                  background: $logo-blue;
+                  color: #fff;
+              }
+         }
+            p {
+                margin-left: 40px;
+                font-size: 17px;
+                font-family: 'Nobel-Book';
+            }
+            span {
+                float: left;
+                display: inline-block;
+                margin-right: 10px;
+            }
+            .icon {
+                width: 30px;
+                font-size: 16px;
+                color: #999;
+            }
+        }
+        .search-option {
+            position: relative;
+            .icon {
+                width: 40px;
+                font-size: 16px;
+                color: #999;
+                float: left;
+                margin-top: 35px;
+                display: inline-block;
+            }
+            .bankname {
+                display: inline-block;
+                width: calc(100% - 40px);
+                border-bottom: 1px solid #ccc;
+                padding-top: 5px;
+                padding-bottom: 7px;
+                margin-top: 30px;
+                font-size: 17px;
+                color: #777;
+                &:hover {
+                    text-decoration: none;
+                }
+                &.bankselected {
+                    font-family: 'Nobel-Book';
+                    color: #000;
+                }
+            }
+            .label {
+                position: absolute;
+                left: 46px;
+                top: 14px;
+                color:$logo-blue;
+                font-size: 14px;
+                font-family: 'Nobel-Book';
+            }
+            .error {
+                border-top: 1px solid $logo-red;
+                color: $logo-red;
+                font-size: 12px;
+                position: absolute;
+                font-family: 'Nobel-Book';
+                right: 15px;
+                bottom:-14px;
+                height: 15px;
+                padding-top: 3px;
+                text-align: right;
+                width: calc(100% - 70px);
+                &:before {
+                    position: absolute;
+                    right: 3px;
+                    top: -25px;
+                    content: '\f071';
+                    font-family: 'FontAwesome';
+                    font-size: 10px;
+                }
+            }
+        }
+        .detailbox {
+            border: 1px solid #ccc;
+            @include border-radius(4px);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+            width: 100%;
+            .edit {
+                position: absolute;
+                right: 6px;
+                top: 6px;
+                color:#000;
+                font-size: 14px;
+                font-family: 'Nobel-Book';
+                padding: 2px 10px 1px 10px;
+                background: lighten($theme, 60%);
+                @include border-radius(4px);
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+                &:active {
+                    background: $theme;
+                    color: #fff;
+                }
+            }
+            h4 {
+                margin-top:10px;
+                margin-left: 6px;
+                margin-bottom: 15px;
+                font-size: 17px;
+                font-family: 'Nobel-Regular';
+                text-transform: uppercase;
+            }
+            h5 {
+                font-size: 14px;
+                float: left;
+                font-family: 'Nobel-Regular';
+                padding: 0px 6px;
+                margin-top: 0px;
+                display: block;
+                color: #000;
+            }
+            p {
+                font-size: 14px;
+                width: 50%;
+                float: left;
+                padding: 0px 6px;
+                color: #444;
+                min-height:50px;
+                margin-bottom: 0;
+                span {
+                    font-family: 'Nobel-Regular';
+                    display: block;
+                    color: #000;
+                    line-height: 14px;
+                }
+            }
+            .email {
+                word-break: break-all;
+            }
+        }
+        .editsection {
+            position: relative;
+            margin-bottom: 25px;
+            display: inline-block;
+            width: 100%;
+            .update {
+                position: absolute;
+                right: 6px;
+                top: 0px;
+                color:#000;
+                font-size: 14px;
+                font-family: 'Nobel-Book';
+                color: #fff;
+                background: $logo-blue;
+                padding: 1px 10px 1px 10px;
+                @include border-radius(4px);
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+            }
+            h4 {
+                margin-top:10px;
+                margin-left: 6px;
+                margin-bottom: 15px;
+                font-size: 17px;
+                font-family: 'Nobel-Regular';
+                text-transform: uppercase;
+            }
+        }
+        .footer {
+            background: $logo-red;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            text-align: center;
+            height: 60px;
+            width: 100%;
+            z-index: 999;
+            a {
+                color: #fff;
+                font-size: 22px;
+                font-family: 'Nobel-Book';
+                padding: 18px 20px;
+                display: block;
+                &:hover {
+                    text-decoration: none;
+                }
+                .fa {
+                    margin-left: 6px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .filter-overlay {
+        background: rgba(0,0,0,0.2);
+        position: fixed;
+        background-size: cover;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 991;
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -ms-filter: blur(4px);
+        -o-filter: blur(4px);
+        filter: blur(4px);
+    }
+    .searchfilter {
+        background: transparent;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        padding:0px 15px 8px;
+        width: 100%;
+        height: 100%;
+        z-index: 991;
+        .bg-color{
+            background: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+            padding: 6px 0 0;
+        }
+        .search-box {
+            background: #fff;
+            position: fixed;
+            @include box-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
+            left: 0px;
+            height: 70px;
+            width:100%;
+            &:before {
+                position: absolute;
+                top: 8px;
+                left:16px;
+                content: '\f002';
+                color: #777;
+                font-family: 'FontAwesome';
+                z-index: 9;
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                height: 22px;                
+                border: 1px solid #ccc;
+                top: 8px;
+                right: 70px;
+                z-index: 9;
+            }
+            .cross{              
+                position: absolute;               
+                top: 8px;
+                z-index: 9;
+                right: 20px;           
+                height: 15px;
+                width: 15px;
+                line-height: 20px;
+                border-radius: 50px;           
+                text-align: center;
+                line-height: 14px;
+                -webkit-text-stroke: 1px #aeaeae;
+                background: #aeaeae;
+                color: #fff;
+                cursur:pointer;
+            }
+            .searchinput {
+                position: absolute;
+                left:13px;
+                top: 5px;
+                height: 30px;
+                font-family: 'Nobel-Book';
+                font-size: 16px;
+                @include border-radius(4px);
+                border: none;
+                padding-left: 30px;                
+                width: calc(100% - 12px);
+                text-transform: capitalize;
+                z-index: 1;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                padding-right: 80px;
+            }
+        }
+        .cancel {
+            position: absolute;
+            right: 11px;
+            top: 4px;
+            font-family: 'Nobel-Book';
+            background: transparent;
+            padding-top: 5px;
+            padding-bottom: 12px;
+            border: none;
+            color: #000;
+        }
+        .searchtitle {
+            position: fixed;
+            top: 45px;
+            text-transform: uppercase;
+            color: #777;
+            margin-top: 0px;
+            font-size: 13px;
+            font-family: 'Nobel-Book';
+        }
+    }
+    .addon-details {
+        background:#fff;
+        position: fixed;
+        display: none;
+        padding:5px 20px 60px 20px;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: 9991;
+        [class*="col-"] {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .inner-container {
+            height: calc(100% - 105px);
+            overflow-x: scroll;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding: 0px 5px 0px 5px;
+            .row {
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+            .insurer {
+                margin-top: 10px;
+                margin-bottom:10px;
+                height: 70px;
+            }
+            img {
+                height: 60px;
+                margin-top: 20px;
+            }
+            p {
+                font-family: 'Nobel-Book';
+            }
+            h4 {
+                margin-top: 15px;
+                margin-bottom: 15px;
+                font-size: 20px;
+                font-family: 'Nobel-Book';
+                span {
+                    font-family: 'Nobel-Regular';
+                }
+            }
+            .variant {
+                font-size:17px;
+                margin-top: -10px;
+                margin-bottom:10px;
+            }
+            .premium {
+                color:$logo-red;
+            }
+        }
+        .go-back {
+            padding: 6px 12px 5px 15px;
+            float: left;
+            display: inline-block;
+            color: #000;
+            position: relative;
+            font-family: 'Nobel-Book';
+            &:hover, &:focus, &:active {
+                text-decoration: none;
+            }
+            &:before {
+                position: absolute;
+                left: 0px;
+                top: 9px;
+                content: '';
+                height: 20px;
+                width: 20px;
+                background: url("../images/arrow-back.svg") no-repeat 0px 0px/7px;
+            }
+        }
+        .plan-title {
+            border: 1px solid $theme;
+            @include border-radius(4px);
+            padding: 6px 10px 5px 10px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-size: 16px;
+            display: inline-block;
+            font-family: 'Nobel-Book';
+        }
+    }
+    .payment-mode {
+        .icon {
+            display: inline-block;
+            float: left;
+            width: 50px;
+            font-size:17px;
+            color: #999;
+            height: 70px;
+            padding-top:14px;
+        }
+        .p-mode {
+            display: inline-block;
+            width: calc(100% - 50px);
+            float: left;
+            position: relative;
+            padding-right: 15px;
+            border-bottom: 1px solid #cfcfcf;
+            color: #777;
+            &:hover, &:focus {
+                text-decoration: none;
+            }
+            &:before {
+                position: absolute;
+                right:4px;
+                top: calc(50% - 23px);
+                font-size: 18px;
+                content: '\f105';
+                font-family:'FontAwesome';
+            }
+            h4 {
+                color: $theme;
+                text-transform: uppercase;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                font-size: 16px;
+                font-family: 'Nobel-Regular';
+            }
+            p {
+                color: #777;
+                margin-top: 5px;
+            }
+        }
+    }
+    .debitcard {
+        background: url("../images/payment-logos.svg") no-repeat top right/250px;
+        height: 25px;
+        margin-bottom: 10px;
+    }
+    .creditcard {
+        @extend .debitcard;
+        background-position: right -45px;
+    }
+    .verified {
+        @extend .debitcard;
+        background-position: center -90px;
+        margin-top: 40px;
+    }
+    $banks: BAIRNB, BADBB, BAXIB, BBOIB, BBOMB, BCABB,BCSBN,BCBIB,BCITIRDR,BCITNB,BCUBB,BCRPB,BCSMSNB,BDCBB, BDCBCORP,BDENN,BDSHB,BDLSB,BFEDB,BHDFB,BICIB,BIDBB,BIDFCNB,BINDB,BINOB,BINIB,BINGB,BJAKB,BJSBNB, BKRKB,BKRVBC,BKRVB,B162B,BLVCB,BLVRB,BOBCB,BPMNB,BPSBNB,BCPNB,BPNBB,BSRSWT,BSVCNB,BSOIB,BSBHB,BSBIB, BSBPB,BSYNDB,BTMBB,BBHNB,BTBON,BUCOB,BUBIBC,BUBIB,BUNIB,BVJYB,BYESB,BHSBC,BRBL,BSCB,BAMEX;
+    $k: 0;
+    @each $tiles in $banks {
+        $bacRightP: $k * 39.99;
+        $k: $k + 1;
+        .#{$tiles} {
+            background: url("../images/allbanks.svg") no-repeat;
+            background-size:2400px;
+            background-position: -#{$bacRightP}px 1px;
+            width: 35px;
+            height: 30px;
+            margin-right: 12px;
+            margin-top: 5px;
+            margin-left: -6px;
+            display: inline-block;
+            float: left;
+            position: relative;
+        }
+    }
+    .search {
+        position: relative;
+        margin-top: -20px;
+        margin-bottom: 20px;
+        .search-box {
+            border-top:none;
+            border-left:none;
+            border-right:none;
+            border-bottom: 1px solid lighten($theme, 45%);
+            @include border-radius(0);
+            background: transparent;
+            font-family: 'Nobel-Book';
+            height: 35px;
+            padding-top: 8px;
+            padding-left:0px;
+            font-size: 18px;
+            width: 100%;
+            &:not(:valid) ~ .reset-btn {
+                display: none;
+            }
+        }
+        .reset-btn {
+            background: lighten($theme, 65%) url("../images/cross.svg") no-repeat center/12px;
+            @include border-radius(100%);
+            //@include box-shadow(0px 2px 4px rgba(0,0,0,0.15));
+            border: none;
+            position: absolute;
+            padding: 0px;
+            top: 5px;
+            right: 4px;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            z-index: 99;
+        }
+    }
+    .allbanks {
+        margin: 0px;
+        padding: 0px;
+        overflow: scroll;
+        height: calc(100vh - 180px);
+        -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+        > li {
+            display: inline-block;
+            width: 100%;
+            a {
+                color: $theme;
+                border-bottom: 1px solid #cfcfcf;
+                width: calc(100% - 41px);
+                padding-top: 7px;
+                padding-bottom: 10px;
+                margin-bottom: 6px;
+                display: inline-block;
+                font-family: 'Nobel-Regular';
+                font-size: 14px;
+            }
+            input.checkbox {
+              &:empty {
+                display: none;
+                ~ label {
+                  background: transparent;
+                  position: relative;
+                  font-size: 14px!important;
+                  line-height:16px;
+                  text-indent:0px;
+                  cursor: pointer;
+                  color: $theme;
+                  font-family: 'Nobel-Book';
+                  border-bottom: 1px solid #cfcfcf;
+                  @include border-radius(0px);
+                  @include user-select(none);
+                  @include padding(8px, 20px, 12px, 0px);
+                  margin-bottom: 0px;
+                  float: left;
+                  width: calc(100% - 41px);
+                  &:before {
+                    position: absolute;
+                    display:inline-block;
+                    top:2px;
+                    right: 5px;
+                    left: auto;
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    background-color: transparent;
+                    border: none;
+                  }
+                }
+              }
+              &:checked ~ label {
+                &:before {
+                  content: url("../images/right-tick.svg");
+                  text-indent: 3px;
+                  border:none;
+                  background-color:transparent;
+                }
+              }
+            }
+        }
+    }
+    .selected-emi {
+        border-bottom: 1px solid lighten($theme, 60%);
+        padding-top: 5px;
+        margin-bottom: 25px;
+        label {
+            font-size: 16px !important;
+            font-family: 'Nobel-Regular';
+            padding-top: 6px;
+            border: none;
+        }
+    }
+    .emitenure {
+        margin-bottom: 15px;
+        border-bottom: 1px solid lighten($theme, 60%);
+        input.checkbox {
+          &:empty {
+            display: none;
+            ~ label {
+              background: transparent;
+              position: relative;
+              font-size:$font-size-h4 - 2px;
+              line-height:16px;
+              text-indent:0px;
+              cursor: pointer;
+              color: $theme;
+              @include user-select(none);
+              @include padding(3px, null, null, 28px);
+              width: 100%;
+              &:before {
+                position: absolute;
+                display:inline-block;
+                top:0px;
+                left: 0px;
+                content: '';
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                border:1px solid lighten($theme, 30%);
+                @include border-radius(3px);
+              }
+            }
+          }
+          &:checked ~ label {
+            &:before {
+              content: url("../images/radio2.svg");
+              text-indent: 3px;
+              border:1px solid $logo-blue;
+              background-color:$logo-blue;
+            }
+          }
+        }
+        [class*="col-"] {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+        p {
+            color: #777;
+            font-size: 12px;
+            margin-bottom: 0px;
+            margin-top: -9px;
+            .fa {
+                color: $theme;
+            }
+            span {
+                display: inline-block;
+                margin-top: 2px;
+                font-size: 14px;
+                color: $theme;
+            }
+        }
+    }
+    .animated {
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        padding-top: 80px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+

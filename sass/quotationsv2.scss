@@ -1,0 +1,5201 @@
+// Import Bootstrap Compass integration
+@import "compass/reset";
+@import "bootstrap";
+@import "animate";
+@import "datepicker";
+@import "include-media";
+@import "fonts";
+
+a:focus {
+	outline:none;
+	text-decoration:none;
+}
+a:active {
+	outline:none;
+	text-decoration:none;
+}
+
+$background-header:#3a4855;
+$theme:#3a4855;
+$quote-bg:#32404d;
+$engrave-bg:#2b3844;
+$logo-blue:#4fbbb2;
+$logo-red:#e6253c;
+$header-menu-items:#fefefe;
+$form-background:#1d242a;
+
+@include font-face(Nobel-ExtraLight, "../fonts/Nobel-ExtraLight/Nobel-ExtraLight");
+@include font-face(Nobel-Light, "../fonts/Nobel-Light/Nobel-Light");
+@include font-face(Nobel-Book, "../fonts/Nobel-Book/Nobel-Book");
+@include font-face(Nobel-Regular, "../fonts/Nobel-Regular/Nobel-Regular");
+@include font-face(Nobel-Bold, "../fonts/Nobel-Bold/Nobel-Bold");
+
+$font-small:   ceil(($font-size-base * 1.1)) !default; // ~16px
+$font-h4:      ceil(($font-size-base * 1.55)) !default; // ~22px
+
+.fnt-rglr {
+	font-family: 'Nobel-Regular';
+}
+html, body {
+    height: 100%;
+}
+body{
+	font-family: 'Nobel-Light';
+    font-weight: normal;
+    font-style: normal;
+	padding-top:55px;
+	text-rendering: optimizeLegibility;
+	text-rendering: geometricPrecision;
+	font-smooth: always;
+	font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-moz-font-smoothing: subpixel-antialiased; 
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-o-font-smoothing: subpixel-antialiased;
+	-ms-font-smoothing: subpixel-antialiased;
+   
+}
+
+.modal-open, .modal {
+    padding-right: 0px!important;
+}
+.modal-backdrop {
+    background-color:$theme;
+}
+.bodyclass {
+    background: $theme; 
+} 
+.container{
+	width:100%;
+	padding-left:3%;
+	padding-right:3%;
+    @include media (">=tablet", "<desktop") {
+        padding-left: 2%;padding-right: 2%;width: 100%;
+    }
+}
+.row {
+    @include media (">=tablet", "<desktop") {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.container-fluid{
+	padding-left:0px;
+	padding-right:0px;
+    @include media (">300px", "<tablet") {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
+.full-container{
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:0px;
+	margin-right:0px;
+}
+p {
+	font-size:17px;
+}
+a:focus{
+	outline:none;
+}
+h2, h3, h4, h5 {
+	margin:0;
+	padding:0;
+}
+select { 
+	outline:none;
+	color: rgba(0,0,0,0);
+}
+select option { 
+	padding:4px!important;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn.focus:active, .btn.active:focus, .btn.active.focus {
+    outline: none;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+    @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+}
+.btn:active, .btn.active {
+    @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+}
+.eq_height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  margin:0;
+}
+.sticky {
+	position:fixed;
+	top:55px;
+	z-index:999;
+	.indicator {
+		width:84%;
+	}
+}
+/*--------------Mixins------------------*/
+
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+ 
+@mixin border-radius($radius: none) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin border($style, $color, $sides) {
+    @if ($style != "") {
+        @if ($sides == "") {
+            border: $style $color;
+        } @else {
+            @each $side in $sides {
+               @if ($side == 'top' or
+                    $side == 'right' or
+                    $side == 'bottom' or
+                    $side == 'left') {
+                    border-#{$side}: $style $color;
+                }
+            }
+        }  
+    }
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+// Horizontal gradient, from left to right
+//@include gradient-horizontal($brand-primary, $logo-blue);
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+//@include gradient-vertical($brand-primary, $logo-blue);
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+/*--------------Mixins End------------------*/
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+	padding:0;
+}
+/*--------------header------------------*/
+
+.navbar-header {
+    float: left;
+    width: 30%;
+}
+.navbar-default{
+	background-color:$background-header;
+	border:none;
+	z-index:999;
+}
+.navbar-brand {
+    height: 100%;
+    padding: 8px 15px;
+}
+/*.navbar-brand img{
+		width:171px;
+	}*/
+
+.navbar{
+	min-height:55px !important;
+    .login {
+        background:lighten($theme, 65%);
+        @include border-radius(0px);
+        @include margin(0px, 0px, 0px, 0px);
+        height:100%;
+        width: 100%;
+        .modal-content {
+            background:lighten($theme, 65%);
+            border: none;
+            @include box-shadow(none);
+        }
+        .loginform {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            width: 300px;
+            .usericon {
+                border:1px solid #9da4aa;
+                @include border-radius(5px);
+                padding:3px;
+                margin-bottom:25px;
+                margin-right:15px;
+                float:left;
+                height:54px;
+                width:54px;
+                img {
+                    width:46px;
+                    margin-top: 7px;
+                }
+            }
+            h3 {
+                color: #fff;
+                padding-top:14px;
+            }
+            .form-control {
+                border: none;
+                @include border-radius(0px);
+                height: 40px;
+                width:100%;
+                margin-bottom:20px;
+                font-size: 16px;
+                color: $background-header;
+            }
+            .login-btn {
+                border: none;
+                @include border-radius(0px);
+                background: $logo-red;
+                color: #fff;
+                font-size:20px;
+                height: 40px;
+                width:100%;
+            }
+            .new-user {
+                color:#9da4aa;
+                font-size: 16px;
+                margin-top:10px;
+                display:block;
+            }
+        }
+    }
+}
+.navbar-default .navbar-nav .cant a {
+	color:$header-menu-items;
+    &:hover {
+        color:$header-menu-items;
+        cursor: default!important;
+    }
+}
+.navbar-default .navbar-nav > li > a{
+	color:$header-menu-items;
+	font-size:17px;
+}
+
+.nav > li > a{
+	padding:10px 15px;
+}
+
+.navbar-nav > li > a {
+    padding-bottom: 18px;
+	padding-top:18px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+   color:$logo-red;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+	background-color:$background-header;
+	color:$logo-red;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	color:$logo-red;
+}
+.navbar-default {
+    .usr-login {
+        @include margin(8px, null, null, null);
+        .btn {
+            background: transparent;
+            border: none;
+            font-size: $font-size-large;
+            @include padding(null, 0px, null, null);
+            &:focus {
+                background: transparent;
+                border: none;
+            }
+        }
+        .fa {
+            color: $logo-blue;
+            @include margin(null, 6px, null, null);
+        }
+        .caret {
+            @include margin(null, null, null, 6px);
+        }
+        .dropdown-menu {
+            background: $body-bg;
+            border: none;
+            @include box-shadow(0px 2px 5px rgba(0,0,0,0.2));
+            text-align: right;
+            min-width: 120px;
+            a {
+                color: $theme;
+                font-family: 'Nobel-Book';
+            }
+        }
+    }
+    .customerid {
+        background: $body-bg;
+        display: none;
+        @include position(absolute, $top:60px, $left:15px);
+        @include padding(10px, 10px, 10px, 10px);
+        @include border-radius(4px);
+        @include box-shadow (0px 4px 8px rgba(0,0,0,0.1));
+        width: 200px;
+        input {
+            @include margin(10px, null, 10px, null);
+        }
+        .btn {
+            background: $logo-red;
+            color: $body-bg;
+            font-size: $font-size-base + 2px;
+            width: 100px;
+        }
+    }
+}
+.dropdown-menu{
+	background-color:$form-background;
+}
+.dropdown-menu > li > a{
+	color:$header-menu-items;
+	font-size:15px;
+	padding:5px 20px;
+    .fa {
+        @include margin(null, 4px, null, null);
+    }
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+	color:$logo-red;
+}
+.call {
+    color: #fff;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-right: 30px;
+    .fa {
+        color: $logo-blue;
+        margin-right: 6px;
+    }
+}
+.login_icon{
+	padding-right:10px;
+	margin-top: -5px; 
+}
+.input-group .form-control {
+		border-radius: 0px !important;
+	}
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    background: #e6253c;
+	border: 1px solid #e6253c;
+	color: #fff;
+	font-family: 'Nobel-Regular';
+}
+.navbar-form {
+    margin-right: -10px;
+    .input-group {
+        margin-top:3px;
+        .form-control {
+            border: none;
+            font-size: 16px;
+            width: 155px!important;
+            height: 35px!important;
+        }
+        .btn {
+            background:$logo-red;
+            border:1px solid $logo-red;
+            color: #fff;
+            height: 35px!important;
+        }
+    }
+}
+
+/*Enables bootstrap menu on hover ----- start*/
+.dropdown:hover .dropdown-menu {
+	//display: block;
+}
+/*Enables bootstrap menu on hover ----- end*/
+
+.dropdown-menu {
+	box-shadow:none;
+}
+
+.dropdown-menu .divider {
+    background-color: rgba(254, 254, 254, 0.2);
+    height: 1px;
+    margin: 1px 0;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #fff;
+    opacity: 1;
+    cursor:default!important;
+}
+/*Typing Loader*/
+.typing_loader{
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	-webkit-animation: typing 1s linear infinite alternate;
+    -moz-animation: Typing 1s linear infinite alternate;
+    animation: typing 1s linear infinite alternate;
+	margin:8px 30px 0 0; /* Not necessary- its only for layouting*/  
+	position: relative;
+    float: left;
+}
+@-webkit-keyframes typing{
+	0%{
+		background-color: lighten($theme, 30%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 20%);
+	  }
+	25%{ 
+		background-color: lighten($theme, 60%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 20%);
+	}
+	75%{ background-color: lighten($theme, 60%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 30%);
+	  }
+}
+
+@-moz-keyframes typing{
+   0%{
+		background-color: lighten($theme, 30%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 30%), 
+					30px 0px 0px 0px lighten($theme, 30%);
+	  }
+	25%{ 
+		background-color: lighten($theme, 60%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 60%);
+	}
+	75%{ background-color: lighten($theme, 60%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 10%);
+	  }
+}
+
+@keyframes typing{
+   0%{
+		background-color: lighten($theme, 30%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 30%), 
+					30px 0px 0px 0px lighten($theme, 30%);
+	  }
+	25%{ 
+		background-color: lighten($theme, 60%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 60%);
+	}
+	75%{ background-color: lighten($theme, 60%);
+		box-shadow: 15px 0px 0px 0px lighten($theme, 20%), 
+					30px 0px 0px 0px lighten($theme, 10%);
+	  }
+}
+
+.quoteloader {
+    display: block;
+    height: 200px;
+    margin: 50px auto;
+    width: 200px; 
+}
+
+.loadicon {
+	position:absolute;
+}
+.minrowheight {
+    min-height: 92px;
+}
+#ui-datepicker-div {
+    z-index: 1051!important;
+}
+    
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+.uneditable-input:focus {   
+  border-color:none!important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+  outline: 0 none;
+}
+.form-control:focus {
+    border-color:none!important;
+    outline:0px !important;
+}
+textarea:focus, textarea:active, textarea:hover {
+    border-color:none!important;
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    display: none;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+    background: lighten($theme, 65%);
+    @include margin (0px, null, 6px, null);
+    @include padding (6px, 18px, 6px, 18px);
+    color: $theme;
+}
+.modal {
+    background-image: none;
+}
+.blur-bg {
+    background:rgba($theme,0.8);
+}
+
+fieldset[disabled] .otp .btn-default {
+  &.focus, &:focus, &:hover {
+    background-color: #d44548;
+    border-color: #ccc;
+  }
+}
+
+.btn-select {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  @include border-radius(0px);
+  @include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.7));
+  background: #f5f5f5 url("../images/arrow-down.svg") no-repeat right center !important;
+  border: none;
+  color: #222e3a !important;
+  font-size: 18px !important;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  .btn-select-value {
+    padding: 6px 0px;
+    display: block;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: none !important;
+  }
+  .btn-select-arrow {
+    float: right;
+    line-height: 20px;
+    padding: 6px 10px;
+    top: 0;
+  }
+  ul {
+    display: none;
+    background-color: #32404d;
+    @include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.7));
+    color: #fff;
+    clear: both;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: none !important;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    width: 100%;
+    z-index: 999;
+    max-height: 200px;
+    overflow-x: hidden;
+    li {
+      padding: 10px;
+      text-align: left;
+      &:hover {
+        background-color: #293541;
+        color: #e6253c;
+      }
+    }
+  }
+  &.btn-default {
+    ul li.selected {
+      background-color: #293541;
+      color: #e6253c;
+    }
+    &:hover, &.active {
+      background-color: #293541;
+    }
+  }
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: rgba(255,0,0,0.8); 
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+    ::-webkit-scrollbar-thumb:window-inactive {
+     background: rgba(255,0,0,0.4); 
+    }
+}
+
+label {
+	font-weight:normal;
+	margin-bottom:0px;
+}
+
+.emailsend {
+    position: fixed;
+    top: 0px;
+    left: calc(50% - 50px);
+    z-index: 999;
+    padding: 4px 20px 5px 20px;
+    background: darken($theme, 5%);
+    border: 1px solid lighten($theme, 5%);
+    @include border-radius(60px);
+    color: #fff;
+    font-size: 15px;
+    display: inline-block;
+    margin-top: 10px;
+    .fa {
+        margin-right: 4px;
+    }
+    &:active, &:hover {
+        background: #fff;
+        color: $theme;
+        text-decoration: none;
+    }
+    &:focus {
+        color:$logo-blue;
+    }
+}
+.sendemaildetails {
+    @include border-radius(6px);
+    @include position(fixed, $top:90px, $left:calc(50% - 200px));
+    @include box-shadow(0px 10px 40px rgba(0,0,0,0.2));
+    background: $body-bg;
+    overflow: hidden;
+    width: 400px;
+    z-index: 99;
+    .container {
+        @include padding (null, 15px, null, 15px);
+        [class*="col-"] {
+            @include padding (null, 15px, null, 15px);
+        }
+    }
+    .close {
+        @include position(absolute, $right:0px, $top:0px);
+        background:url("../images/cross.svg") no-repeat center center/26px;
+        opacity: 1;
+        height: 45px;
+        width: 50px;
+        z-index: 9;
+    }
+    .title {
+        background:lighten($theme, 65%);
+        margin-bottom: 10px;
+        h3 {
+            @include padding(17px, null, 12px, null);
+            display: inline-block;
+            font-size: $font-size-large;
+            font-family: 'Nobel-Book';
+        }
+    }
+    p {
+        color: $logo-blue;
+        font-size: 14px;
+        font-family: 'Nobel-Book';
+        @include margin (null, 15px, null, 15px);
+    }
+    input {
+        @include padding (4px, 10px, 4px, 10px);
+        @include border-radius(6px);
+        border: 1px solid lighten($theme, 45%);
+        width:100%;
+        font-size: 16px;
+        height: 45px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: 'Nobel-Book';
+    }
+    .btn {
+        background: $logo-red;
+        @include padding(8px, 20px, 8px, 20px);
+        @include margin(10px, null, 15px, null);
+        @include box-shadow(0px 2px 4px rgba(0,0,0,0.3));
+        border: 1px solid $logo-red;
+        color:#fff;
+        font-size: $font-size-large - 1px;
+        &:hover {
+            background: $logo-red;
+            color: $input-bg;
+        }
+        &:active, &:focus {
+            @include box-shadow(0px 2px 4px rgba(0,0,0,0));
+        }
+    }
+}
+
+.vehicle-inspection {
+    background: lighten($theme, 65%);
+    color: $theme;
+    min-height: 100%;
+    position: relative;
+    @include padding(50px, null, null, null);
+    @include media(">300px", "<tablet") {
+        @include padding(null, 4%, null, 4%);
+    }
+    .vehicle {
+        background:url('../images/vehicle-inspection.svg') no-repeat top center;
+        max-width:450px;
+        height: 280px;
+        @include padding(120px, null, null, null);
+        @include margin(null, auto, null, auto);
+        @include media(">300px", "<tablet") {
+            max-width:310px;
+            background-size:280px; 
+            @include padding(80px, null, null, null);
+            height: 220px;
+        }
+        .inspection-number {
+            background: rgba($body-bg, 0.9);
+            @include padding(14px, 20px, 10px, 20px);
+            @include box-shadow(0px 2px 15px rgba(0,0,0,0.1));
+            @include border-radius(3px);
+            @include media(">300px", "<tablet") {
+                @include padding(14px, 10px, 10px, 10px);
+            }
+            h3 {
+                font-size:$font-size-large;
+                font-family: 'Nobel-Book';
+                @include margin(null, null, 6px, null);
+            }
+            h4 {
+                @include margin(6px, null, 5px, null);
+                span {
+                    color: $logo-blue;
+                    font-family: 'Nobel-Book';
+                }
+            }
+            .v-icon {
+                background:url('../images/v-icon.svg') no-repeat center center;
+                float: left;
+                height: 50px;
+                width: 60px;
+                border: 1px solid #eee;
+                @include border-radius(10px);
+                @include margin(null, 25px, null, 10px);
+            }
+        }
+    }
+    .policy-confirmed {
+        @extend .vehicle;
+        background:url('../images/policy-confirmed.svg') no-repeat top center;
+        .inspection-number {
+            .v-icon {
+                background:none;
+                font-size: $font-size-h3 + 2px!important;
+                color: #ffaf30;
+                @include padding(6px, null, null, 16px);
+            }
+        }
+    }
+    .ticket {
+        border: 1px dashed $theme;
+        display: inline-block;
+        @include padding(12px, 20px, 10px, 20px);
+        @include margin(null, null, 20px, null);
+        @include border-radius(5px);
+        width: 400px;
+        .policy {
+            border: 1px solid lighten($gray-light, 30%);
+            @include border-radius(10px);
+            @include padding(5px, 5px, 5px, 5px);
+            @include margin(null, 15px, null, null);
+            font-size: $font-size-base;
+            color: $theme;
+            float: left;
+            height: 55px;
+            width: 60px;
+            .fa {
+                display: block;
+                color: #ffaf30;
+                font-size: $font-size-h3;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        h4 {
+            font-family: 'Nobel-Book';
+            @include margin(5px, null, null, null);
+        }
+        p {
+            @include margin(5px, null, 0px, null);
+            span {
+                color: $logo-blue;
+                font-family: 'Nobel-Book';
+            }
+        }
+    }
+    .time {
+        color: $logo-blue;
+        font-family: 'Nobel-Bold';
+    }
+    h1 {
+        @include margin(null, null, 15px, null); 
+        span {
+            font-family: 'Nobel-Regular';
+        }
+    }
+    h2 {
+        @include margin(40px, null, null, null); 
+        span {
+            font-family: 'Nobel-Regular';
+        }
+    }
+    h3 {
+        @include margin(null, null, 30px, null);
+        span {
+            font-family: 'Nobel-Regular';
+        }
+    }
+    p {
+        @include margin(10px, null, 50px, null);
+        color: $gray-light;
+    }
+}
+
+/*--------------New Quotations Start-----------------*/
+.quotes-wrapper {
+    background: lighten($theme, 65%);
+    color: $theme;
+    min-height: 100%;
+    position: relative;
+    @include padding(null, null, 30px, null);
+    @include media(">300px", "<tablet") {
+        @include padding(null, 0px, null, 0px);
+    }
+    .container {
+        max-width:1500px;
+        @include media(">tablet", "<desktop") {
+            padding-left: 1%;
+            padding-right: 1%;
+        }
+        @include media(">300px", "<tablet") {
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+    }
+    [class*="col-"] {
+        @include padding(null, 10px, null, 10px);
+    }
+    a {
+        color: $theme;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .fa {
+        font-weight: 200;
+        -webkit-text-stroke: 0.5px $body-bg;
+    }
+    .modal-dialog {
+        width: 100%;
+        background: lighten($theme, 65%);
+        @include margin(0px, null, 0px, 0px);
+        min-height: 100%;
+        .modal-content {
+            @include border-radius(0px);
+            background: lighten($theme, 65%);
+            border: none;
+            @include box-shadow(0 0px 0px rgba(0,0,0,0));
+            min-height: 100%;
+            .modal-body {
+                @include padding(0px, null, 50px, null);
+                @include position(absolute, $top:0px, $left:0px);
+                height: 100vh;
+                width: 100%;
+                overflow: scroll;
+                .close {
+                    background:$body-bg url("../images/cross.svg") no-repeat center;
+                    background-size:30px;
+                    @include border-radius(50px);
+                    @include box-shadow(0 3px 6px rgba(0,0,0,0.1));
+                    @include position(fixed, $top:20px, $right:20px);
+                    opacity: 1;
+                    height: 50px;
+                    width: 50px;
+                    z-index: 999;
+                    &:hover {
+                        background:$body-bg url("../images/red-cross.svg") no-repeat center;
+                        background-size:30px;
+                    }
+                }
+            }
+        }
+    }
+    .top-section {
+        @include padding(15px, null, 5px, null);
+        @include margin(null, null, 20px, null);
+        @include position(fixed, $top:55px);
+        @include box-shadow(0px 1px 0px rgba(255,255,255,0));
+        min-height: 110px;
+        background:#d9dbde;
+        border-bottom: 1px solid $body-bg;
+        width: 100%;
+        z-index: 91!important;
+        @include media(">=300px", "<tablet") {
+            @include position(relative, $top:55px);
+            @include padding(0px, null, 15px, null);
+            @include margin(-55px, null, null, null);
+            .row {
+                @include margin(null, -5px, null, 5px);
+            }
+        }
+        h3 {
+            font-family: 'Nobel-Light';
+            font-size: $font-size-h4 + 2px;
+            @include margin(27px, null, 8px, null);
+            span {
+                font-family: 'Nobel-Regular';
+            }
+        }
+        h4 {
+            font-family: 'Nobel-Book';
+            @include margin(null, null, 8px, null);
+            span {
+                font-family: 'Nobel-Regular';
+            }
+        }
+        p {
+            font-size:$font-size-base;
+            @include margin(null, null, 4px, null);
+        }
+        .coveragemembers {
+            @include position(relative, $left:0px);
+            h3 {
+                span {
+                    font-family: 'Nobel-Light';
+                }
+                .highlight {
+                    font-family: 'Nobel-Regular';
+                }
+            }
+            &:hover {
+                h3 {
+                    &:nth-child(1) {
+                        opacity: 0;
+                        -webkit-transition: opacity 0.5s ease-in-out;
+                        -moz-transition: opacity 0.5s ease-in-out;
+                        -o-transition: opacity 0.5s ease-in-out;
+                        transition: opacity 0.5s ease-in-out;
+                    }
+                    &:nth-child(2) {
+                        opacity: 1;
+                        @include position(absolute, $top:-27px, $left:0px);
+                        -webkit-transition: opacity 0.5s ease-in-out;
+                        -moz-transition: opacity 0.5s ease-in-out;
+                        -o-transition: opacity 0.5s ease-in-out;
+                        transition: opacity 0.5s ease-in-out;
+                    }
+                }
+                .modify {
+                    display: inline-block;
+                    font-size: $font-size-h4;
+                }
+            }
+            h3 {
+                @include margin(27px, null, 15px, null);
+                @include position(absolute, $top:0px, $left:0px);
+                -webkit-transition: opacity 0.3s ease-in-out;
+                -moz-transition: opacity 0.3s ease-in-out;
+                -o-transition: opacity 0.3s ease-in-out;
+                transition: opacity 0.3s ease-in-out;
+                &:nth-child(2) {
+                    opacity: 0;
+                    -webkit-transition: opacity 0.3s ease-in-out;
+                    -moz-transition: opacity 0.3s ease-in-out;
+                    -o-transition: opacity 0.3s ease-in-out;
+                    transition: opacity 0.3s ease-in-out;
+                }
+            }
+            .modify {
+                background: lighten($theme, 60%);
+                @include border-radius(50px);
+                @include padding(3px, 12px, 3px, 12px);
+                @include margin(26px, null, null, 15px);
+                display: none;
+            }
+        }
+        .coveredmembers {
+            display: block;
+            min-height: 60px;
+            h3 {
+                @include margin(25px, null, null, null);
+                float: left;
+                @include media(">=tablet", "<900px") {
+                    @include margin(10px, null, null, null);
+                    float: none;
+                }
+            }
+            p {
+                float: left;
+                span {
+                    font-family: 'Nobel-Regular';
+                }
+            }
+            a {
+                background:#acb3bb;
+                @include border-radius(50px);
+                @include padding(3px, 11px, 2px, 10px);
+                @include margin(25px, null, null, 12px);
+                float: left;
+                color: $body-bg;
+                font-family: 'Nobel-Book';
+                text-shadow:0px 1px 2px rgba(0,0,0,0.5);
+                display: inline-block;
+                .fa {
+                    color: $body-bg;
+                    -webkit-text-stroke: 0px #fff;
+                    @include margin(null, 3px, null, null);
+                }
+                @include media(">=tablet", "<900px") {
+                    @include margin(0px, null, null, 0px);
+                    float: none;
+                }
+            }
+        }
+        .travellers {
+            @extend .coveredmembers;
+            @include margin(-12px, null, null, null);
+        }
+        .coveredage {
+            min-height: 60px;
+            @include margin(10px, null, null, null);
+            h4 {
+                display: inline-block;
+                @include margin(11px, 10px, null, null);
+                float: left;
+                font-size: $font-size-h4 + 2px;
+            }
+            p {
+                font-size: $font-size-h6 + 1px;
+                color:$theme;
+                display: inline-block;
+                width: 100%;
+            }
+            .ui {
+              &.selection {
+                &.dropdown {
+                  border: none;
+                  background: transparent url("../images/arrow-down.svg") no-repeat 95% center;
+                  background-size: 18px;
+                  border:1px solid lighten($theme, 20%);
+                  min-width: 110px;
+                  @include border-radius(3px);
+                  @include padding(null, null, null, 10px);
+                }
+                &.active.dropdown {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  .menu {
+                    border: none !important;
+                  }
+                  &:hover {
+                    @include box-shadow(0px 0px 0px rgba(0,0,0,0)!important);
+                  }
+                }
+              }
+              &.search.dropdown > .text {
+                font-family: 'Nobel-Book';
+                font-size: $font-size-large - 2px;
+                color: $theme;
+              }
+              &.search.dropdown.visible > input.search {
+                padding: 10px 10px 10px 5px !important;
+                @include box-shadow(0px 0px 0px rgba(0,0,0,0)!important);
+              }
+              &.selection.dropdown .menu > .item {
+                padding: 11px 10px 10px 5px !important;
+                font-size:$font-small;
+              }
+              &.dropdown .menu .active.item {
+                color: $logo-blue;
+              } 
+              &.selection.dropdown > {
+                .dropdown.icon, .search.icon {
+                  display: none;
+                }
+              }
+            }
+        }
+        .moovup {
+            @include padding(20px, null, null, null);
+            @include media(">=tablet", "<desktop") {
+                @include padding(15px, null, null, null);
+            }
+        }
+        .vehicle-details {
+            position: relative;
+            display: inline-block;
+            @include margin(9px, null, null, null);
+            @include media(">300px", "<desktop") {
+                @include margin(0px, null, null, null);
+            }
+            &:hover {
+                .registration {
+                    .modify-info {
+                        opacity: 1;
+                    }
+                }
+            }
+            .registration {
+                background: url("../images/ind.svg") no-repeat 0px -1px;
+                @include border(1px solid, lighten($theme, 30%), left);
+                @include border(1px solid, lighten($theme, 30%), right);
+                @include border(1px solid, lighten($theme, 30%), top);
+                @include border(1px solid, lighten($theme, 30%), bottom);
+                @include border-radius(3px);
+                @include padding(7px, 15px, 8px, 45px);
+                @include margin(10px, 15px, 10px, null);
+                background-size:30px; 
+                position: relative;
+                height: 45px;
+                display: inline-block;
+                font-size: $font-h4;
+                font-family: 'Nobel-Book';
+                letter-spacing: 1px;
+                @include media(">phone", "<desktop") {
+                    @include padding(3px, null, null, 40px);
+                    @include margin(-5px, 0px, 8px, null);
+                    background-size:22px; 
+                    height: 35px;
+                }
+                .modify-info {
+                    @include position(absolute, $top:0px, $left:30px);
+                    background:rgba($logo-blue,0.9);
+                    @include padding(11px, 10px, 12px, 45px);
+                    @include border-radius(0px 3px 3px 0px);
+                    @include border(1px solid, $logo-blue, left);
+                    @include border(1px solid, $logo-blue, right);
+                    @include border(1px solid, $logo-blue, top);
+                    @include border(1px solid, $logo-blue, bottom);
+                    font-size:$font-size-base;
+                    letter-spacing: 0px;
+                    color: $body-bg;
+                    width:calc(100% - 29px);
+                    opacity: 0;
+                    @include media(">phone", "<desktop") {
+                        left: 22px;
+                        top: -1px;
+                        width:calc(100% - 21px);
+                        @include padding(7px, null, 6px, null);
+                    }
+                }
+            }
+            .car-details {
+                @include media(">phone", "<desktop") {
+                    float: none!important;
+                    display: inline-block;
+                    width: 100%;
+                }
+                h4 {
+                    @include margin(null, null, 5px, null); 
+                }
+                .sub-details {
+                    display: inline-block;
+                    @include margin(null, 15px, null, null);
+                    float: left;
+                    p {
+                       @include margin(null, null, 0px, null); 
+                    }
+                    &:nth-child(4) {
+                        clear: both;
+                        @include media(">tablet", "<desktop") {
+                            clear: none;
+                        }
+                    }
+                }
+            }
+        }
+        .idv {
+            position: relative;
+            min-height:50px;
+            &:hover {
+                .edit-idv {
+                    display: block;
+                }
+            }
+            .fa {
+                @include margin(null, null, 2px, 5px);
+                font-weight: 200;
+                -webkit-text-stroke: 0px lighten($theme, 30%);
+            }
+            h4 {
+                font-size: $font-size-h4 + 2px;
+                line-height: 24px;
+                @include media(">=tablet", "<desktop") {
+                    font-size: $font-size-h4;
+                    letter-spacing: -0.5px;
+                }
+                span {
+                    font-family: 'Nobel-Book';
+                }
+                .fa-inr {
+                    font-size: $font-size-h4 + 2px;
+                }
+                #defaultrange {
+                    font-size: $font-size-h4 + 2px;
+                    display: inline-block;
+                    .ui {
+                      &.selection {
+                        &.dropdown {
+                          border: none;
+                          background: transparent url("../images/arrow-down.svg") no-repeat right 16px;
+                          background-size: 18px;
+                          border:none;
+                          min-width: 140px;
+                          min-height:20px;
+                          font-size: $font-size-h4 + 2px;
+                          @include border-radius(0px);
+                          @include padding(12px, 40px, 0px, 3px);
+                          @include margin(8px, null, null, null);
+                          width: 100%;
+                            @include media(">=tablet", "<desktop") {
+                                font-size: $font-size-h4;
+                            }
+                            .default.text {
+                                color:#999;
+                            }
+                        }
+                        &.active.dropdown {
+                            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                          .menu {
+                            border: none !important;
+                          }
+                          &:hover {
+                            @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                          }
+                        }
+                      }
+                      &.search.dropdown.visible > input.search {
+                        padding: 8px 10px 10px 4px !important;
+                        @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                      }
+                      &.search.selection.dropdown > input.search {
+                        padding: 8px 10px 10px 4px;
+                      }
+                      &.search.dropdown > .text {
+                        cursor: pointer!important;
+                      }
+                      &.selection.dropdown .menu > .item {
+                        padding: 11px 10px 10px 5px !important;
+                        font-size:$font-small;
+                      }
+                      &.dropdown .menu .active.item {
+                        color: $logo-blue;
+                      }
+                      &.selection.dropdown > {
+                        .dropdown.icon, .search.icon {
+                          display: none;
+                        }
+                      }
+                    }
+                }
+            }
+            p {
+                color: $theme;
+                @include margin(-5px, null, null, null);
+            }
+            .idv-edit-icon {
+                background:#acb3bb;
+                @include position(absolute, $top:8px, $right:0px);
+                @include padding(2px, 12px, 4px, 12px);
+                @include border-radius(50px);
+                border: none;
+                color: $body-bg;
+                display: inline-table;
+                font-size:$font-size-base - 1px;
+                text-shadow:0px 1px 2px rgba(0,0,0,0.5);
+                .fa {
+                    color: $body-bg;
+                    -webkit-text-stroke: 0px #fff;
+                    @include margin(null, 3px, null, null);
+                }
+                @include media(">=tablet", "<desktop") {
+                    right: -5px;
+                }
+            }
+            .apply-idv, .edit-idv {
+                @extend .idv-edit-icon;
+            }
+            .apply-idv {
+                background: $logo-blue;
+                color: $body-bg;
+            }
+            .edit-idv, .apply-idv, .reset-idv, .close-idv {
+                display: none;
+            }
+            .reset-idv {
+                @extend .idv-edit-icon;
+                color: $logo-red;
+                @include position(absolute, $top:45px);
+            }
+            .close-idv {
+                @extend .idv-edit-icon;
+                color: $logo-red;
+                @include position(absolute, $top:45px);
+            }
+            .idvalue {
+                background: transparent;
+                border-bottom: 1px solid lighten($theme, 25%);
+                border-top:none;
+                border-left:none;
+                border-right:none;
+                font-size: $font-size-h4 + 2px;
+                @include margin(null, null, 3px, null);
+                height: 26px;
+                width: 125px;
+            }
+            #choosenidv {
+                font-size: $font-size-h4 + 2px;
+            }
+            .sumval {
+                left:87px!important;
+            }
+            .sumass {
+                left:92px!important;
+            }
+            .sliderinput {
+                background: transparent;
+                border: 1px solid lighten($theme, 55%);
+                @include position(absolute, $top:-1px, $left:153px);
+                @include padding(3px, null, null, 17px);
+                @include border-radius(3px);
+                font-size: $font-size-h4;
+                font-family: 'Nobel-Book';
+                width: 120px!important;
+                height: 25px;
+            }
+            .rangeSlider {
+              position: relative;
+              background:$theme;
+              display: block;
+              height: 1px;
+              width: 100%;
+                @include margin(12px, null, 15px, null);
+              .rangeSlider__fill {
+                background:$logo-blue;
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                top: 0;
+                z-index: 2;
+              }
+              .rangeSlider__handle {
+                background:$theme;
+                cursor: pointer;
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                top: -10px;
+                z-index: 3;
+                @include border-radius(50%);
+              }
+            }
+            input {
+              &::-moz-focus-inner, &::-moz-focus-outer {
+                border: 0;
+              }
+            }
+        }
+        .car-modify {
+            @include padding(80px, null, null, null);
+            max-width: 980px;
+            .row {
+                @include margin(null, null, 20px, null);
+            }
+            [class*="col-"] {
+                position: relative;
+            }
+            .error {
+                background: url("../images/warning-icon.svg") no-repeat right bottom;
+                background-size:14px; 
+                border-top: 1px solid $logo-red;
+                color: $logo-red;
+                text-align: right;
+                @include position(absolute, $bottom:-18px, $left:10px);
+                @include padding(null, 20px, null, null);
+                height: 19px;
+                width: calc(100% - 20px);
+            }
+            h3 {
+                @include margin(null, null, 20px, null);
+            }
+            .registration {
+                @include margin(null, null, 20px, null);
+            }
+            .form-control {
+                  border: none;
+                  background: transparent;
+                  border-bottom:1px solid lighten($theme, 40%);
+                  font-size:$font-small;
+                  height: 44px;
+                  @include border-radius(0px);
+                  @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+                  @include padding(null, null, 0px, 3px);
+                  @include margin(15px, null, null, null);
+            }
+            .date {
+                position: relative;
+                .fa {
+                    @include position(absolute, $top:32px, $right:15px);
+                    font-size:$font-small;
+                    color:lighten($theme, 20%);
+                    -webkit-text-stroke:0px lighten($theme, 30%);
+                }
+                .title {
+                    font-size:$font-size-base;
+                    @include position(absolute, $bottom:11px, $right:40px);
+                    color:$theme;
+                }
+            }
+            .update {
+                background: $logo-blue;
+                border: none;
+                color: $input-bg;
+                font-size:$font-size-large;
+                @include padding(10px, 30px, 10px, 30px);
+                @include margin(50px, null, null, null);
+            }
+            .claimed {
+                @include margin(20px, null, null, null); 
+                h4 {
+                    display: inline-block;
+                    font-family: 'Nobel-Light';
+                }
+                span {
+                    width: 60px;
+                    display: inline-block;
+                    @include margin(null, null, null, 12px); 
+                    @include media('>=desktop') {
+                        width: 80px; 
+                    }
+                }
+                input.checkbox {
+                  &:empty {
+                    display: none;
+                    ~ label {
+                      position: relative;
+                      font-size: 15px;
+                      line-height:18px;
+                      text-indent:5px;
+                      font-size:$font-small;
+                      cursor: pointer;
+                      color: $theme;
+                      @include user-select(none);
+                        @include margin(15px, null, null, null);
+                        width: 100%;
+                      &:before {
+                        position: absolute;
+                        display:inline-block;
+                        top:-2px;
+                        bottom: 0;
+                        left: 0;
+                        content: '';
+                        width: 22px;
+                        height: 22px;
+                        background-color: transparent;
+                        border:1px solid lighten($theme, 30%);
+                        @include border-radius(3px);
+                      }
+                    }
+                  }
+                  &:checked ~ label {
+                    &:before {
+                      content: url("../images/radio2.svg");
+                      text-indent: 4px;
+                      border:1px solid $logo-blue;
+                      background-color:$logo-blue;
+                    }
+                  }
+                }
+                .input-effect {
+                  position: relative;
+                  @include margin(null, null, 30px, null);
+                  height: 40px;
+                    .effect {
+                      border:none;
+                      @include padding(10px, 0px, 5px, 0px);
+                      border-bottom: 1px solid lighten($theme, 55%);
+                      background-color: transparent;
+                      width: 100%;
+                      height: 40px;
+                      font-size:$font-size-large - 2px;
+                      font-family: 'Nobel-Book';
+                      @include border-radius(0px);
+                      @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+                      @include position (absolute, $left:0px, $top:0px);
+                      z-index: 9;
+                      ~ .focus-border {
+                        position: absolute;
+                        bottom: 0;
+                        left: -10px;
+                        width: 0;
+                        height: 1px;
+                        background-color:$theme;
+                        transition: 0.4s;
+                        z-index: 9;
+                      }
+                      &:focus ~ .focus-border {
+                        width: 100%;
+                        transition: 0.4s;
+                      }
+                      ~ label {
+                        position: absolute;
+                        left: 0;
+                        width: 100%;
+                        top:10px;
+                        font-size:$font-size-large - 2px;
+                        color: lighten($theme, 40%);
+                        transition: 0.3s;
+                      }
+                      &:focus ~ label {
+                        top: -12px;
+                        left: 0;
+                        font-size:$font-size-base - 1px;
+                        color:$theme;
+                        transition: 0.3s;
+                        z-index: 99;
+                      }
+                    }   
+                    .has-content.effect ~ label {
+                      top: -12px;
+                      font-size:$font-size-base - 1px;
+                      color: $logo-blue;
+                      transition: 0.3s;
+                    }
+                    .has-error.effect ~ .focus-border {
+                      width: 100%;
+                      transition: 0.4s;
+                      background: $logo-red;
+                    }
+                    .has-error.effect ~ label {
+                      top: -12px;
+                      font-size:$font-size-base - 1px;
+                      color: $logo-red;
+                      transition: 0.3s;
+                    } 
+                }
+                .error {
+                    width: calc(100% - 10px);
+                }
+            }
+            
+            .ui {
+              &.selection {
+                &.dropdown {
+                  border: none;
+                  background: transparent url("../images/arrow-down.svg") no-repeat right center;
+                  background-size: 18px;
+                  border-bottom:1px solid lighten($theme, 40%);
+                  min-width: 140px;
+                  height: 40px;
+                  font-size:$font-small;
+                  @include border-radius(0px);
+                  @include padding(16px, null, null, 3px);
+                  @include margin(15px, null, null, null);
+                  width: 100%;
+                    .default.text {
+                        color:#999;
+                    }
+                }
+                &.active.dropdown {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  .menu {
+                    border: none !important;
+                  }
+                  &:hover {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  }
+                }
+              }
+              &.search.dropdown.visible > input.search {
+                padding: 14px 10px 10px 4px !important;
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+              &.search.selection.dropdown > input.search {
+                padding: 14px 10px 10px 4px;
+              }
+              &.selection.dropdown .menu > .item {
+                padding: 11px 10px 10px 5px !important;
+                font-size:$font-small;
+              }
+              &.dropdown .menu .active.item {
+                color: $logo-blue;
+              }
+              &.selection.dropdown > {
+                .dropdown.icon, .search.icon {
+                  display: none;
+                }
+              }
+              &.multiple {
+                &.dropdown {
+                  padding: 10px 10px 10px 5px;
+                  .menu {
+                    cursor: auto;
+                  }
+                }
+                &.search.dropdown {
+                  cursor: text;
+                  > input.search {
+                    cursor: text;
+                    padding-top: 8px !important;
+                    padding-left: 4px !important;
+                  }
+                }
+                &.dropdown {
+                  > .label {
+                    background:$body-bg;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    display: inline-block;
+                    vertical-align: top;
+                    white-space: normal;
+                    font-size:$font-size-base;
+                    font-family: 'Nobel-Light';
+                    color: $theme;
+                    padding:5px 20px 4px 10px; 
+                    margin:4px 3px 0px 0px;
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0) inset;
+                    text-shadow: 0px 1px 2px rgba(0,0,0,0);
+                    position: relative;
+                      > .delete.icon {
+                        cursor: pointer;
+                        margin-right: 0;
+                        margin-left: .5em;
+                        font-size: .92857143em;
+                        opacity:1;
+                    }
+                      .delete::before {
+                            content: "";
+                            background: url("../images/cross.svg") no-repeat center/15px;
+                            position: absolute;
+                            right: 5px;
+                            height: 15px;
+                            width: 15px;
+                        }
+                  }
+                  .dropdown.icon {
+                    margin: '';
+                    padding: "";
+                  }
+                  > {
+                    .text {
+                      padding-top: 10px;
+                      margin: 0px;
+                    }
+                    .label ~ {
+                      input.search {
+                        margin-left: 0.14286em !important;
+                      }
+                      .text {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+                &.search.dropdown > {
+                  .text {
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding-left: 5px;
+                    margin: 0px;
+                    line-height: 35px;
+                  }
+                  .label ~ .text {
+                    display: none;
+                  }
+                  input.search {
+                    position: static;
+                    padding-top: 10px;
+                    max-width: 100%;
+                    margin:0px;
+                    width: 2.2em;
+                    line-height: 1.21429em;
+                  }
+                }
+              }
+            }
+            .drop-select, .date {
+                @include position(relative);
+                label {
+                    @include position(absolute, $top:6px, $left:14px);
+                    color:$logo-blue;
+                    font-size: $font-size-base;
+                }
+                .space-top {
+                    padding-bottom:0px;
+                }
+            }
+        }
+    }
+    .shrink {
+        height: 140px;
+        @include media(">300px", "<tablet") {
+            height: 60px;
+        }
+    }
+    .fixedsticky {
+      top:196px;
+      vertical-align: top;
+      position: -webkit-sticky;
+      position: -moz-sticky;
+      position: -ms-sticky;
+      position: -o-sticky;
+      position: sticky;
+        @include media(">tablet", "<desktop") {
+            top:198px;
+        }
+        @include media(">300px", "<tablet") {
+            position: relative;
+            top:0px;
+        }
+    }
+    .fixedsticky-withoutfixedfixed .fixedsticky-off, .fixed-supported .fixedsticky-off {
+      position: static;
+    }
+    .fixedsticky-withoutfixedfixed .fixedsticky-on, .fixed-supported .fixedsticky-on {
+      position: fixed;
+    }
+    .fixedsticky-dummy {
+      display: none;
+    }
+    .fixedsticky-on + .fixedsticky-dummy {
+      display: block;
+    }
+    input.checkbox {
+      &:empty {
+        display: none;
+        ~ label {
+          position: relative;
+          font-size: 15px;
+          line-height:14px;
+          text-indent:0px;
+          cursor: pointer;
+          color: $theme;
+          @include user-select(none);
+          @include margin(15px, null, null, null);
+          @include padding(null, null, null, 28px);
+          width: 100%;
+          &:before {
+            position: absolute;
+            display:inline-block;
+            top:-2px;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 18px;
+            height: 18px;            
+            background-color: transparent;
+            border:1px solid lighten($theme, 20%);
+            @include border-radius(3px);
+          }
+        }
+      }
+      &:checked ~ label { 
+        &:before {
+          content: url("../images/radio2.svg");
+          text-indent: 2px; 
+          border:1px solid $logo-blue;
+          background-color:$logo-blue;
+        }
+      }
+    }
+        
+    .leftsidebar {
+        @include margin(null, null, 40px, null);
+        width: 21%;
+        @include media(">=tablet", "<991px") {
+            width: 25%;
+        }
+        @include media(">300px", "<tablet") {
+            width: 100%;
+        }
+        hr {
+            @include border(0.5px solid, lighten($theme, 40%), top);
+            @include margin(25px, null, 25px, null);
+        }
+        h4 {
+            text-transform: uppercase;
+            color: $theme;
+            font-family: 'Nobel-Book';
+            font-size: $font-size-h4 - 2px;
+            @include margin(6px, null, null, null);
+        }
+        .fa {
+            font-weight: 200;
+            -webkit-text-stroke: 1px lighten($theme, 65%);
+            display: inline;
+        }
+        p {
+            font-size: $font-size-base;
+            float: left;
+            color: lighten($theme, 30%);
+            @include padding(2px, null, 0px, null);
+            @include margin(null, null, 0px, null);
+        }
+        .addoncovers {
+            position: relative;
+            .reset {
+                background:lighten($theme, 60%);
+                @include border-radius(50px);
+                @include position(absolute, $bottom:-20px, $right:0px);
+                @include padding(2px, 13px, 2px, 13px);
+            }
+        }
+        .insurer-list {
+            @extend h4;
+            border: none;
+            background: transparent;
+            width: 100%;
+            color: $theme;
+            text-align: left;
+            position: relative;
+            .fa {
+                @include position(absolute, $right:0px, $top:0px);
+                font-size: $font-size-h4 + 2px;
+            }
+        }
+        .list-group {
+            list-style: none;
+        }
+        .discount {
+            font-size:$font-size-large;
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            .apply-btn {
+                background: lighten($theme, 60%);
+                @include border-radius(50px);
+                @include padding(1px, 12px, 3px, 12px); 
+                @include position(absolute, $top:-4px, $left:110px);
+                display: inline-block;
+                color: $theme;
+                font-size:$font-size-base;
+            }
+            h4 {
+                @include margin(null, null, 5px, null);
+            }
+            .logoblue {
+                color: $logo-blue;
+                @include margin(null, 4px, null, 2px);
+            }
+            span {
+                float: left;
+                @include margin(null, null, null, 4px);
+            }
+            .discount-table {
+                @include padding(100px, null, 20px, null);
+                max-width: 1024px;
+                hr {
+                    @include margin(30px, null, 20px, null);
+                }
+                .fa {
+                    display: inline;
+                }
+                h3 {
+                    @include margin(null, null, 40px, null);
+                    font-family: 'Nobel-Book';
+                }
+                p {
+                    color: $theme;
+                    font-size:$font-size-large;
+                }
+                .apply {
+                    background: $logo-blue;
+                    border: none;
+                    color: $input-bg;
+                    font-size: $font-h4;
+                    @include margin(50px, null, 20px, null);
+                    @include padding(8px, null, 8px, null);
+                    width: 220px;
+                }
+                .vehicle-col {
+                    width: 50%;
+                    float: left;
+                }
+            }
+        }
+        .health-term {
+            @include position(relative);
+            @include margin(10px, null, -12px, null);
+            display: block;
+            h4 {
+                float: left;
+            }
+            .ui {
+              &.selection {
+                &.dropdown {
+                  border: none;
+                  background: transparent url("../images/arrow-down.svg") no-repeat right center;
+                  background-size: 18px;
+                  border-bottom:none;
+                  min-width:80px;
+                  @include border-radius(0px);
+                  @include padding(null, null, null, 3px);
+                  @include margin(-6px, null, null, 15px);
+                }
+                &.active.dropdown {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  .menu {
+                    border: none !important;
+                  }
+                  &:hover {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  }
+                }
+              }
+              &.search.dropdown.visible > input.search {
+                padding: 10px 10px 10px 0px !important;
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+              &.search.dropdown > input.search {
+                padding: 10px 10px 10px 0px!important;
+              }
+              &.selection.dropdown .menu > .item {
+                padding: 11px 10px 10px 5px !important;
+                font-size:$font-small;
+              }
+              &.dropdown .menu .active.item {
+                color: $logo-blue;
+              }
+              &.selection.dropdown > {
+                .dropdown.icon, .search.icon {
+                  display: none;
+                }
+              }
+            }
+        }
+        .passenger-cover {
+            @include position(relative);
+            @include padding(10px, null, null, 28px);
+            .ui {
+              &.selection {
+                &.dropdown {
+                  border: none;
+                  background: transparent url("../images/arrow-down.svg") no-repeat right center;
+                  background-size: 18px;
+                  border-bottom:1px solid lighten($theme, 50%);
+                  min-width: 140px;
+                  @include border-radius(0px);
+                  padding-left: 3px;
+                }
+                &.active.dropdown {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  .menu {
+                    border: none !important;
+                  }
+                  &:hover {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  }
+                }
+              }
+              &.search.dropdown.visible > input.search {
+                padding: 10px 10px 10px 5px !important;
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+              &.selection.dropdown .menu > .item {
+                padding: 11px 10px 10px 5px !important;
+                font-size:$font-small;
+              }
+              &.dropdown .menu .active.item {
+                color: $logo-blue;
+              }
+              &.selection.dropdown > {
+                .dropdown.icon, .search.icon {
+                  display: none;
+                }
+              }
+            }
+        }
+        .accessoriesfileds {
+            @include position(relative);
+            @include padding(10px, null, null, 28px);
+            .form-control {
+                background: transparent;
+                border: none;
+                border-bottom:1px solid lighten($theme, 50%);
+                @include margin(null, null, 10px, null);
+                @include padding(null, 5px, null, 5px);
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+                @include border-radius(0px);
+                width: 140px;
+            }
+            .btn {
+                background: $logo-blue;
+                border: none;
+                color: $input-bg;
+                width: 100px;
+                font-size:$font-small;
+            }
+        }
+    }
+    .rightcol {
+        width: 79%;
+        @include media(">=tablet", "<991px") {
+            width: 75%;
+        }
+        @include media(">300px", "<tablet") {
+            width: 100%;
+        }
+    }
+    .bike-quotes {
+        max-width:1000px;
+        @include margin(null, auto, null, auto);
+        .quotation {
+            [class*="col-"] {
+                min-height:100px;
+            }
+            .dropdown {
+                @include margin (10px, null, null, null);
+                .fa {
+                    @include margin (null, null, null, 5px);
+                }
+                .btn {
+                    background: $body-bg url("../images/arrow-down.svg") no-repeat right center;
+                    background-size:18px;
+                    @include padding(5px, 22px, 5px, 0px);
+                    font-family: 'Nobel-Book';
+                    span {
+                        font-family:'Nobel-Light';
+                        width: 90px;
+                        display: inline-block;
+                        text-align: left;
+                    }
+                    .fa {
+                        -webkit-text-stroke: 0px #fff;
+                    }
+                }
+                .dropdown-menu {
+                    background-color: $body-bg;
+                    @include box-shadow(0px 5px 4px -4px rgba(0,0,0,0.15));
+                    border: none;
+                    top: 125px;
+                    left: 0px;
+                    width: 190px;
+                    li {
+                        @include padding(5px, 5px, 5px, 8px);
+                        font-family: 'Nobel-Book';
+                        span {
+                            font-family:'Nobel-Light'; 
+                            width:90px;
+                            display: inline-block;
+                            @include margin(null, null, null, 3px);
+                        }
+                    }
+                }
+            }
+            .buybima {
+                @include margin(5px, null, null, null);
+                @include padding(null, 10px, null, 10px);
+                width: auto;
+                span {
+                    color: $theme;
+                    font-size: $font-size-base;
+                    @include margin(null, null, null, 2px);
+                }
+            }
+            .timeline-item {
+                @include margin(50px, null, null, null);
+            }
+        }
+    }
+    .plans-no {
+        @include margin(-3px, null, 10px, null);
+        display: inline-block;
+        width: 100%;
+        [class*="col-"] {
+            @include padding(null, 0px, null, 0px);
+        }
+        .typing_loader {
+            @include margin(12px, null, null, 10px);
+        }
+        .abc{
+            display: inline-block;
+            border: 1px solid lighten($theme, 50%);
+            @include border-radius(4px);
+            margin-left: 10px;
+            input.checkbox {
+              &:empty {
+                display: none;
+                ~ label {
+                  position: relative;
+                  font-size: 15px;
+                  line-height:17px;
+                  text-indent:0px;
+                  cursor: pointer;
+                  color: $theme;
+                  font-family: 'Nobel-Book';
+                  @include user-select(none);
+                  @include margin(5px, 10px, 5px, null);
+                  @include padding(null, null, null, 35px);
+                  width: 100%;
+                  height: 15px;
+                  &:before {
+                    position: absolute;
+                    display:inline-block;
+                    top:-6px;
+                    bottom: 0;
+                    left: -1px;
+                    content: url("../images/plus-icon.svg");                 
+                    width: 25px;
+                    height: 27px; 
+                    text-indent: 6px;
+                    background-color: transparent;
+                    padding-top: 4px;
+                    border-right:1px solid lighten($theme, 50%);
+                    border-bottom: none;
+                    border-top: none;
+                    border-left: none;
+                    @include border-radius(4px 0px 0px 4px);
+                  }
+                }
+              }
+              &:checked ~ label { 
+                &:before {
+                  content: url("../images/radio2.svg");
+                  text-indent: 5px; 
+                  border:1px solid $logo-blue;
+                  background-color:$logo-blue;
+                }
+              }
+            }
+        }
+        .zerodep {
+            position: relative;
+            display: inline-block;
+            &:hover {
+                .subdetails {
+                    opacity: 1;
+                    z-index: 99;
+                    @include transition(opacity, 0.25s, ease-in-out);
+                }
+            }
+            .edit-btn {
+                background:#acb3bb;
+                @include border-radius(50px);
+                @include padding(2px, 12px, 1px, 12px);
+                @include margin(null, 8px, null, null); 
+                display: inline-block;
+                float: right;
+                font-family: 'Nobel-Book';
+                text-shadow:0px 1px 2px rgba(0,0,0,0.5);
+            }
+            a {
+                @extend .edit-btn;
+                background: $logo-blue;
+                color: $body-bg;
+            }
+            h4 {
+                float: right;
+                @include padding(null, 25px, null, null); 
+            }
+            .info {
+                background: lighten($theme, 60%) url("../images/info.svg") no-repeat center;
+                height: 18px;
+                width: 18px;
+                @include border-radius(50px);
+                display: inline-block;
+                @include position(absolute, $top:4px, $right:0px);
+            }
+            .subdetails {
+                background: $theme;
+                @include border-radius(3px);
+                @include padding(5px, 10px, 10px, 10px);
+                @include position(absolute, $top:30px, $right:0px);
+                @include box-shadow(0px 5px 10px rgba(0,0,0,0.3));
+                @include transition(opacity, 0.25s, ease-in-out);
+                opacity: 0;
+                width: 190px;
+                p {
+                    font-size: $font-size-base;
+                    @include margin(0px, null, 0px, null);
+                    color: lighten($theme, 55%);
+                }
+            }
+            .modal-dialog {
+                max-width: 767px;
+                min-height: 280px;
+                @include margin(164px, auto, null, auto);
+                @include border-radius(10px);
+                .modal-content {
+                    @include border-radius(10px!important);
+                    .modal-body {
+                        @include padding(null, null, 15px, null);
+                    }
+                }
+                .container {
+                    @include padding(20px, null, 10px, null);
+                    h4 {
+                        font-family: 'Nobel-Regular';
+                        @include margin(80px, null, 10px, 40px);
+                    }
+                    .car {
+                        @include margin(20px, null, null, null);
+                    }
+                    .rd-btn {
+                        width: 60px;
+                        float: left;
+                        @include margin(null, null, 10px, 40px);
+                    }
+                    .confirm {
+                        background: transparent;
+                        border: 1px solid $logo-red;
+                        font-size: $font-size-h4;
+                        font-family: 'Nobel-Book';
+                        color: $logo-red;
+                        @include margin(20px, null, null, 40px);
+                        width: 150px;
+                    }
+                }
+            }
+        }
+        .modify-coverage {
+            font-size: $font-size-h4 - 2px;
+            color: $theme;
+            border: 1px solid $theme;
+            @include border-radius(3px);
+            @include padding(8px, 12px, 8px, 12px);
+            .fa {
+                @include margin(null, 5px, null, null);
+                -webkit-text-stroke: 1px lighten($theme, 65%); 
+            }
+        }
+    }
+    .quotation {
+        background: $body-bg;
+        @include box-shadow(0px 2px 2px rgba(0,0,0,0.15));
+        @include border-radius(7px);
+        @include margin(null, null, 20px, null);
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        @include transition(opacity, 0.35s, ease-in-out);
+        &:hover {
+            .breakup {
+                opacity: 1;
+                @include transition(opacity, 0.35s, ease-in-out);
+            }
+        }
+        [class*="col-"] {
+            height: 160px;
+            position: relative;
+            display: table;
+            @include media(">300px", "<992px") {
+                min-height:115px;
+                text-align: center;
+            }
+        }
+        .compare {
+            @include position(absolute, $top:5px, $left:8px);
+            display: block;
+            z-index: 90;
+            label {
+                margin-top: 0px !important;
+            }
+        }
+        input.checkbox {
+			  &:empty {
+				display: none;
+				~ label {
+				  position: relative;
+				  font-size: 12px;
+				  line-height:14px;
+				  text-indent:0px;
+				  cursor: pointer;
+                  color: $theme;
+				  @include user-select(none);
+                  @include padding(null, null, null, 23px);
+                  width: 100%;
+				  &:before {
+					position: absolute;
+					display:inline-block;
+					top:-2px;
+					bottom: 0;
+					left: 0;
+					content: '';
+					width: 17px;
+					height: 17px;
+					background-color: transparent;
+					border:1px solid lighten($theme, 30%);
+					@include border-radius(3px);
+				  }
+				}
+			  }
+			  &:checked ~ label {
+				&:before {
+				  content: url("../images/radio2.svg");
+				  text-indent:1px;
+				  border:1px solid $logo-blue;
+				  background-color:$logo-blue;
+				}
+			  }
+			}
+        
+        .timeline-item {
+              background: #fff;
+              margin: 50px 2.5% 0 2%;
+              max-width: 100%;
+              min-height: 40px;
+            }
+
+        @keyframes placeHolderShimmer {
+          0% {
+            background-position: -768px 0;
+          }
+
+          100% {
+            background-position: 768px 0;
+          }
+        }
+        .animated-background {
+          animation-duration: 3s;
+          animation-fill-mode: forwards;
+          animation-iteration-count: infinite;
+          animation-name: placeHolderShimmer;
+          animation-timing-function: linear;
+          background: #eaedf1;
+          background: linear-gradient(to right, #eaedf1 8%, #d5dae1 18%, #eaedf1 33%);
+          background-size: 800px 104px;
+          height: 40px;
+          position: relative;
+        }
+        .background-masker {
+          background: #fff;
+          position: absolute;
+          &.header-top, &.header-bottom, &.subheader-bottom {
+            top: 0;
+            left: 12%;
+            right: 0;
+            height: 10px;
+          }
+          &.header-left, &.subheader-left, &.header-right, &.subheader-right {
+            top: 10px;
+            left: 12%;
+            height: 8px;
+            width: 30px;
+          }
+          &.header-right2 {
+            top: 10px;
+            left: 70%;
+            height: 8px;
+            width: 16%;
+          }
+          &.header-bottom {
+            top: 18px;
+            height: 6px;
+          }
+          &.subheader-left, &.subheader-right {
+            top: 24px;
+            height: 6px;
+          }
+          &.header-right {
+            width: 15%;
+            left: 36%;
+            right: 0;
+          }
+          &.subheader-right {
+            width: 10%;
+            left: 40%;
+            right: 0;
+            left: 25%;
+            width: 65%;
+          }
+          &.subheader-bottom {
+            top: 30px;
+            height: 10px;
+          }
+          &.content-top, &.content-second-line, &.content-third-line, &.content-second-end, &.content-third-end, &.content-first-end {
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 6px;
+          }
+          &.content-top {
+            height: 20px;
+          }
+          &.content-first-end, &.content-second-end, &.content-third-end {
+            width: auto;
+            left: 380px;
+            right: 0;
+            top: 60px;
+            height: 8px;
+          }
+          &.content-second-line {
+            top: 68px;
+          }
+          &.content-second-end {
+            left: 420px;
+            top: 74px;
+          }
+          &.content-third-line {
+            top: 82px;
+          }
+          &.content-third-end {
+            left: 300px;
+            top: 88px;
+          }
+        }
+        .timeline-term {
+            .background-masker {
+              &.header-right2 {
+                left: 55%;
+                width: 13%;
+              }
+              &.header-right3 {
+                left: 80%;
+                width:8%;
+              }
+              &.header-right {
+                width: 9%;
+                left: 32%;
+              }
+              &.subheader-right {
+                width: 67%;
+              }
+            }
+
+        }
+        /* End Loader*/
+        .planname {
+            font-size: $font-size-h6 + 1px;
+            color:$gray-light;
+            @include margin(8px, null, null, null);
+            @include padding(null, 10px, null, 10px);
+        }
+        .emi {
+            font-size: $font-size-base - 1px;
+            font-family: 'Nobel-Book';
+            @include padding(4px, null, 4px, null);
+            cursor: pointer;
+            &:hover {
+                cursor: pointer;
+            }
+            .fa {
+                -webkit-text-stroke: 0.5px #fff;
+            }
+            .fa-angle-right {
+                -webkit-text-stroke: 0px #fff;
+                font-size: $font-size-base + 2px;
+            }
+            .icon {
+                background: url("../images/addon-covers.svg") no-repeat -34px -26px/120px;
+                display: inline-block;
+                vertical-align: bottom;
+                height:19px;
+                width:19px;
+            }
+        }
+        .dropdown {
+            position: static!important;
+        }
+        .dropdown-toggle {
+            border: none;
+            background: transparent;
+            @include position(absolute, $top:5px, $right:10px);
+            @include padding(4px, 0px, 4px, 10px);
+            z-index:9;
+            @include media(">=tablet", "<992px") {
+                @include position(absolute, $top:-150px);
+            }
+            .circle {
+                background: $logo-blue;
+                @include border-radius(20px);
+                @include margin(null, 4px, null, null);
+                height: 5px;
+                width: 5px;
+                display: block;
+                float: left;
+            }
+        }
+        .dropdown-menu {
+            top: 20px;
+            left: -25px;
+            background: $body-bg;
+            border: none;
+            @include box-shadow(0px 1px 8px rgba(0,0,0,0.1));
+            @include border-radius(3px);
+            z-index: 9;
+            @include media(">tablet", "<1366px") {
+                left: -34px;
+            }
+            li {
+                @include padding(null, null, null, 0px);
+                a {
+                    color: $theme;
+                }
+            }
+        }
+        .insurer {
+            height: 60px;
+            @include margin(8px, null, null, null);
+        }
+        .spc-top {
+            @include margin(25px, null, null, null);
+        }
+        .special {
+            background: lighten($theme, 65%);
+            @include padding(1px, 10px, 1px, 10px);
+            @include border-radius(50px);
+            display: inline-block;
+            font-size: $font-size-h6 + 1px;
+            span{
+                color: $logo-red;
+            }
+            .dropdown {
+                position: relative;
+                @include padding(null, 0px, null, 0px);
+                .dropdown-toggle {
+                    font-size: $font-size-h6 + 1px;
+                    @include padding(null, null, null, 0px);
+                    position: relative;
+                    top: 0px;
+                    right: 0px;
+                    span {
+                        color: $logo-red;
+                    }
+                    &:hover {
+                        text-decoration: none; 
+                    }
+                }
+                .dropdown-menu {
+                    background:$theme;
+                    min-width: 205px;
+                    @include padding(0px, 0px, null, 0px);
+                    @include margin(25px, null, null, 20px);
+                    max-height: 203px;
+                    overflow-y: scroll;
+                    z-index: 99;
+                   li {
+                      border-bottom: 1px solid #323a42;
+                       @include padding(3px, 5px, 3px, 5px);
+                       color: $body-bg;
+                      &:last-child {
+                          border-bottom:0px solid #323a42;
+                      }
+                  }
+                    .arrowup {
+                        width: 0; 
+                      height: 0; 
+                      border-left: 7px solid transparent;
+                      border-right: 7px solid transparent;
+                      border-bottom: 7px solid #1d242a;
+                        position: absolute;
+                        top: -7px;
+                        left: 48%;
+                    }
+                    .arrowdown {
+                        width: 0; 
+                      height: 0; 
+                      border-left: 7px solid transparent;
+                      border-right: 7px solid transparent;
+                      border-top: 7px solid #1d242a;
+                        position: absolute;
+                        bottom: -7px;
+                        left: 48%;
+                    }
+                  .dropdown-menu {
+                    left: 100%;
+                    margin: 0;
+                    right: auto;
+                    top: -1px;
+                  }
+                }
+                .dropdown-menu.animated {
+                  -webkit-animation-duration: 0.3s;
+                  animation-duration: 0.3s;
+                  &:before {
+                    content: " ";
+                    display: block;
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    z-index: 99;
+                  }
+                }
+                .dropdownhover-top {
+                  margin-bottom: -28px;
+                  margin-top: 0;
+                }
+                .navbar-nav > li > .dropdown-menu {
+                  margin-bottom: 0;
+                }
+                .dropdownhover-bottom {
+                  -webkit-transform-origin: 50% 0;
+                  transform-origin: 50% 0;
+                }
+                .dropdownhover-left {
+                  -webkit-transform-origin: 100% 50%;
+                  transform-origin: 100% 50%;
+                }
+                .dropdownhover-right {
+                  -webkit-transform-origin: 0 50%;
+                  transform-origin: 0 50%;
+                }
+                .dropdownhover-top {
+                  -webkit-transform-origin: 50% 100%;
+                  transform-origin: 50% 100%;
+                }
+            }
+         
+        }
+        .idv-value {
+            font-family: 'Nobel-Book';
+        }
+        ul {
+            @include padding(null, null, null, 0px);
+            @include margin(null, null, 0px, null); 
+            list-style-type: none;
+            li {
+                //@include padding(null, null, null, 10px);
+                font-size: $font-size-h6 + 1px;
+                span {
+                    font-family: 'Nobel-Book';
+                }
+                .fa {
+                    font-weight: 100;
+                    -webkit-text-stroke: 0px #fff;
+                    @include margin(null, 2px, null, 2px);
+                }
+            }
+        }
+        p {
+            @include margin(null, null, 4px, null);
+        }
+        .premium {
+            font-size: $font-size-h3;
+            font-family: 'Nobel-Book';
+            display: block;
+            @include margin(10px, null, null, null);
+            @include media(">300px", "<992px") {
+                @include margin(-10px, null, null, null);
+            }
+            .fa {
+                font-size: $font-size-h3 - 2px;
+            }
+        }
+        .buybima {
+            background: $body-bg;
+            display: inline-block;
+            color: $logo-red;
+            border:1px solid $logo-red;
+            @include border-radius(5px);
+            @include padding(5px, null, 5px, null);
+            @include margin(6px, auto, 8px, auto);
+            font-family: 'Nobel-Book';
+            font-size:$font-size-h4;
+            text-align: center;
+            width: 105px;
+            @include media(">300px", "<992px") {
+                @include margin(5px, auto, 5px, auto);
+            }
+            @include media(">300px", "<tablet") {
+                width: 160px;
+            }
+        }
+        .more-plans {
+            color: $logo-blue;
+            display: block;
+            @include margin(5px, null, null, null);
+            .fa {
+                font-weight: 200;
+                -webkit-text-stroke: 0px #fff;
+            }
+        }
+        .valign {
+            width: 100%;
+            z-index: 9;
+            vertical-align: middle;
+            display: table-cell;
+            @include padding(6px, null, 5px, null);
+            .show-on-hover {
+                @include position(relative);
+              .dropdown-toggle {
+                background: lighten($theme, 65%);
+                @include padding(2px, 11px, 2px, 11px);
+                @include border-radius(50px);
+                display: inline-block;
+                font-size: $font-size-base;
+                @include position(relative, $top:0px); 
+                span{
+                    //color: $logo-red;
+                    font-family: 'Nobel-Regular';
+                }
+                  .fa {
+                      color: $logo-blue;
+                      font-size: $font-size-base;
+                      -webkit-text-stroke: 0px #fff;
+                      @include margin(1px, 3px, null, null);
+                  }
+              }
+              .dropdown-menu {
+                  left:-6px;
+                  top: 22px;
+                  width: 207px;
+                  @include padding(0px, 5px, 0px, 5px);
+                  background: $theme;
+                  color: $body-bg;
+                  max-height: 141px;
+                  overflow-y: scroll;
+                  @include media(">=tablet", "<992px") {
+                      left:6%;
+                  }
+                  li {
+                      font-size: $font-size-h6 + 1px;
+                      @include padding(2px, null, 2px, null);
+                      border-bottom: 1px solid lighten($theme, 6%);
+                  }
+              }
+              &:hover > ul.dropdown-menu {
+                display: block;
+              }
+            }
+        }
+        .motor-covers {
+            display: table;
+            height: 140px;
+            @include padding(5px, null, 4px, null);
+            .addon {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+        .pre-existing {
+            @include margin(17px, null, 12px, null); 
+        }
+        .heading {
+            background: lighten($theme, 65%);
+            @include margin(null, null, -5px, null);
+            border-bottom: 1px solid lighten($theme, 60%);
+            display: inline-block;
+            width: 100%;
+            @include media(">300px", "<tablet") {
+                display:none;
+            }
+            [class*="col-"] {
+                height:32px!important;
+            }
+            p {
+               font-size:$font-size-h6 + 1px;
+               text-transform: uppercase;
+               font-family: 'Nobel-Book';
+                @include margin(4px, null, 1px, null);
+            }
+        }
+        .allplans {
+            @extend .heading;
+            background: $body-bg;
+            @include media(">300px", "<tablet") {
+                display: inline-block;
+                @include margin(null, null, 5px, null);
+            }
+            [class*="col-"] {
+                height:32px!important;
+            }
+            &:last-child {
+                border: none;
+                @include border-radius(3px);
+            }
+            label {
+                @include margin(9px!important, null, null, null); 
+                font-size:$font-size-h6 + 1px!important;
+                text-align: left!important;
+            }
+            .fa {
+                -webkit-text-stroke: 0.5px #fff;
+            }
+            p {
+                text-transform: capitalize;
+                font-family: 'Nobel-Light';
+                text-align: left!important;
+                @include margin(7px, null, 3px, null);
+                span {
+                    display: none;
+                    @include media(">300px", "<tablet") {
+                        display: inline-block;
+                        font-family: 'Nobel-Book';
+                    }
+                }
+            }
+            .dropdown {
+                @include margin(5px, null, null, null);
+                .dropdown-menu {
+                    left:auto;
+                    right:-10px;
+                    width: 185px;
+                }
+            }
+        }
+        .breakup {
+            background: rgba($logo-blue, .7);
+            @include position(absolute, $bottom:-11px, $left:50%);
+            @include margin(null, null, null, -40px);
+            @include border-radius(50px);
+            text-align: center;
+            color: $body-bg;
+            height: 22px;
+            width:85px;
+            z-index: 1;
+            opacity: 0;
+            .circle {
+                background: $body-bg;
+                height: 5px;
+                width: 5px;
+                @include border-radius(50px);
+                @include margin(null, null, 2px, null);
+                display: inline-block;
+            }
+        }
+        .cargarages {
+            p {
+                @include margin(0px, null, 0px, null);
+                line-height: 16px;
+                &:first-child {
+                    font-family: 'Nobel-Book';
+                    line-height: 35px;
+                }
+                img {
+                    @include margin(-5px, null, null, 4px);
+                    height: 30px;
+                 }
+            }
+        }
+    }
+    .premiumbreakup {
+        background: $theme;
+        .modal-content {
+            background: $theme;
+            .container {
+                @include padding(null, null, 80px, null);
+            }
+            .left-col {
+                color: $body-bg;
+                @include margin(150px, null, null, null);
+                .fa {
+                    font-weight: 200;
+                    -webkit-text-stroke: 1px $theme;
+                }
+                img {
+                    height: 80px;
+                }
+                p {
+                    color: lighten($theme, 30%);
+                }
+                .plan-name {
+                    @include margin(15px, null, 30px, null);
+                }
+                a {
+                    color: $logo-blue;
+                    @include margin(30px, null, 50px, null);
+                    display: block;
+                    font-size: $font-size-large;
+                }
+                h4 {
+                    @include margin(10px, null, 10px, null);
+                    span {
+                        color: $logo-blue;
+                    }
+                    .ncb {
+                        color: $logo-red;
+                    }
+                }
+                h1 {
+                    text-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+                }
+            }
+            .right-col {
+                @include margin(80px, null, null, null);
+                .nav-tabs > li.active > a,
+                .nav-tabs > li.active > a:hover,
+                .nav-tabs > li.active > a:focus 
+                {
+                    border: none;
+                    color: $logo-blue!important;
+                }
+                .nav-tabs {
+                    border: none;
+                    > li {
+                        width: 33%;
+                        text-align: center;
+                        a {
+                            color: $body-bg;
+                            font-size: $font-size-h4;
+                            text-transform: uppercase;
+                            @include padding(40px, null, 10px, null);
+                            &:hover {
+                                border: none;
+                                @include margin(1px, null, null, null);
+                            }
+                        }
+                    }
+                    @each $policy in 'breakup' 'coverage' 'process' {
+                        .policy-#{$policy} {
+                            background:$theme url("../images/#{$policy}.svg") no-repeat top center;
+                            background-size: 45px;
+                        }
+                    }
+                    .active > .policy-breakup {
+                        background:$theme url("../images/breakup-active.svg") no-repeat top center;
+                        background-size: 45px;
+                        @include margin(1px, null, null, null);
+                    }
+                    .active > .policy-coverage {
+                        background:$theme url("../images/coverage-active.svg") no-repeat top center;
+                        background-size: 45px;
+                        @include margin(1px, null, null, null);
+                    }
+                    .active > .policy-process {
+                        background:$theme url("../images/process-active.svg") no-repeat top center;
+                        background-size: 45px;
+                        @include margin(1px, null, null, null);
+                    }
+                }
+                .tab-content {
+                    background: $body-bg;
+                    @include padding(0px, 0px, 50px, 0px);
+                    @include margin(10px, null, null, null);
+                    @include box-shadow(0px 10px 10px rgba(0,0,0,0.2));
+                    [class*="col-"] {
+                        @include padding(null, 0px, null, 0px);
+                    }
+                    .row {
+                       @include margin(null, 20px, null, 20px); 
+                    }
+                    .premium-year{
+                        margin-bottom: -10px;
+                        text-align: center;
+                    }
+                    h4 {
+                        background: lighten($theme, 65%);
+                        @include padding(10px, null, 6px, 20px);
+                        @include margin(30px, null, 15px, null);
+                        font-family: 'Nobel-Book';
+                        .fa {
+                            color: $logo-blue;
+                            @include margin(null, 10px, null, null);
+                            -webkit-text-stroke: 0.1px $logo-blue;
+                        }
+                    }
+                    p {
+                        @include margin(null, null, 8px, null);
+                        font-size:$font-size-base + 1px;
+                    }
+                    .price {
+                        font-family: 'Nobel-Book';
+                        .fa {
+                            font-weight: 200;
+                            -webkit-text-stroke: 0.1px $theme;
+                        }
+                    }
+                    .total-amount {
+                        @extend h4;
+                        @include margin(40px, null, 10px, null);
+                        display: inline-block;
+                        width: 100%;
+                        .prm-amount, .fa {
+                            color: $logo-red;
+                        }
+                        .prm-amount {
+                            @include padding(null, null, null, 6%);
+                        }
+                        .fa {
+                            @include margin(null, 2px, null, -3px);
+                        }
+                    }
+                    .tab-pane {
+                        position: relative;
+                        .buybima {
+                            background: $logo-red;
+                            color: $body-bg;
+                            font-size: $font-size-h3;
+                            @include padding(8px, 40px, 8px, 40px);
+                            @include position(absolute, $bottom:-75px, $right:20px);
+                            @include box-shadow(0px 10px 10px rgba(0,0,0,0.2));
+                        }
+                        .buybima-btn{
+                            @extend .buybima;
+                            right:calc(50% - 70px);
+                        }
+                        h3 {
+                            font-size: $font-size-h3 - 4px;
+                            font-family: 'Nobel-Book';
+                            @include margin(20px, null, 20px, null);
+                        }
+                        .calim-in-case {
+                            display: flex;
+                            @include media(">=tablet", "<desktop") {
+                                display: inline-block;
+                            }
+                            .case-box {
+                                width: 20%;
+                                float: left;
+                                @include padding(10px, 10px, 1px, 10px);
+                                border-right: 1px solid lighten($theme, 60%);
+                                @include media(">=tablet", "<desktop") {
+                                    width: 33%;
+                                }
+                                &:last-child {
+                                    border: none;
+                                }
+                                img {
+                                    height: 50px;
+                                    @include margin(null, null, 10px, null);
+                                }
+                                span {
+                                    color: $logo-red;
+                                }
+                                .fa {
+                                    font-size: 25px;
+                                    @include margin(15px, null, 10px, null);
+                                }
+                            }
+                        }
+                        .claims {
+                            @include padding(0px, null, 10px, 5px);
+                            display: inline-block;
+                            width: 100%;
+                            list-style-type: none;
+                            li {
+                                width: 33%;
+                                float: left;
+                                font-size: $font-small;
+                                @include margin(null, null, 10px, null);
+                                p {
+                                    @include margin(15px, null, null, null);
+                                }
+                                .coverage-icons {
+                                    display: inline-block;
+                                    width:50px;
+                                    height:50px;
+                                    float: left;
+                                    @include margin (null, 10px, null, null);
+                                }
+                                .fire {
+                                    @extend .coverage-icons;
+                                    background:url(../images/coverage-icons.svg) no-repeat left center;
+                                    background-position-x:-283px; 
+                                }
+                                .strikes {
+                                    @extend .coverage-icons;
+                                    background:url(../images/coverage-icons.svg) no-repeat left center;
+                                    background-position-x:0px; 
+                                }
+                                .earthquake {
+                                    @extend .coverage-icons;
+                                    background:url(../images/coverage-icons.svg) no-repeat left center;
+                                    background-position-x:-70px; 
+                                }
+                                .floods {
+                                    @extend .coverage-icons;
+                                    background:url(../images/coverage-icons.svg) no-repeat left center;
+                                    background-position-x:-423px; 
+                                }
+                                .terrorist {
+                                    @extend .coverage-icons;
+                                    background:url(../images/coverage-icons.svg) no-repeat left center;
+                                    background-position-x:-213px; 
+                                }
+                                .transportation {
+                                    @extend .coverage-icons;
+                                    background:url(../images/coverage-icons.svg) no-repeat left center;
+                                    background-position-x:-354px; 
+                                }
+                                .rodadside {
+                                    @extend .coverage-icons;
+                                    background:url(../images/add-on-covers.svg) no-repeat left center;
+                                    background-position-x:-70px; 
+                                }
+                                .engine-protector {
+                                    @extend .coverage-icons;
+                                    background:url(../images/add-on-covers.svg) no-repeat left center;
+                                    background-position-x:-145px; 
+                                }
+                                .ncb-protection {
+                                    @extend .coverage-icons;
+                                    background:url(../images/add-on-covers.svg) no-repeat left center;
+                                    background-position-x:-213px; 
+                                }
+                                .driver-cover {
+                                    @extend .coverage-icons;
+                                    background:url(../images/add-on-covers.svg) no-repeat left center;
+                                    background-position-x:-283px; 
+                                }
+                                .passenger-cover {
+                                    @extend .coverage-icons;
+                                    background:url(../images/add-on-covers.svg) no-repeat left center;
+                                    background-position-x:-355px; 
+                                }
+                                .owner-cover {
+                                    @extend .coverage-icons;
+                                    background:url(../images/add-on-covers.svg) no-repeat left center;
+                                    background-position-x:0px; 
+                                }
+                            }
+                            
+                        }
+                        .zerodepth {
+                            border: 1px solid lighten($theme, 40%);
+                            @include padding(10px, 10px, 10px, 10px);
+                            @include margin(10px, null, null, null);
+                            h4 {
+                                background: transparent;
+                                @include margin(0px, null, 30px, null);
+                                line-height: 25px;
+                                font-size: $font-size-h4 + 2px;
+                            }
+                            a {
+                                background: $logo-blue;
+                                color: $body-bg;
+                                font-size: $font-size-h3;
+                                font-family: 'Nobel-Book';
+                                @include padding(6px, 18px, 6px, 18px);
+                                min-width: 150px;
+                                @include margin(10px, null, 20px, null);
+                                display: inline-block;
+                                @include border-radius(3px);
+                                .add-btn {
+                                    color: $theme;
+                                }
+                                .fa {
+                                    font-weight: 200;
+                                    -webkit-text-stroke: 0.1px $logo-blue;
+                                    @include margin(null, null, null, 10px);
+                                    
+                                }
+                            }
+                        }
+                        .spcl-note {
+                            background: lighten($theme, 65%);
+                            @include padding(15px, 10px, 10px, 10px);
+                            @include margin(40px, null, null, null);
+                            @include border-radius(3px);
+                            font-family: 'Nobel-Book';
+                            font-size: $font-size-h4 + 2px;
+                            span {
+                                color: $logo-red;
+                            }
+                            .fa {
+                                font-weight: 200;
+                                -webkit-text-stroke: 0.1px lighten($theme, 65%);
+                                @include margin(null, null, null, 5px);
+                            }
+                        }
+                        .claimsteps {
+                            background:lighten($theme, 65%);
+                            @include margin(10px, 10px, 40px, 10px);
+                            @include padding(4px, 5px, 4px, 5px);
+                            @include border-radius(3px);
+                            li {
+                                width: 50%!important;
+                                &:last-child{
+                                    border: none;
+                                }
+                                a {
+                                    color: $theme;
+                                    font-family: 'Nobel-Book';
+                                    @include padding(10px, 5px, 10px, 5px);
+                                }
+                            }
+                        }
+                        .process-steps {
+                            @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+                            @include padding(null, null, 20px, null);
+                            .points {
+                                position: relative;
+                                border-left: 1px dashed $theme;
+                                @include padding(null, null, 35px, 40px);
+                                @include margin(null, null, null, 30px);
+                                h3 {
+                                    @include margin(0px, null, null, null);
+                                }
+                                .circle {
+                                    @include position(absolute, $top:-8px, $left:-18px);
+                                    @include padding(5px, null, null, null);
+                                    font-size: $font-size-h4;
+                                    background: $theme;
+                                    color: $body-bg;
+                                    @include border-radius(50px);
+                                    text-align: center;
+                                    width: 35px;
+                                    height: 35px;
+                                }
+                                .sub-item {
+                                    @include margin(null, null, null, 10px);
+                                }
+                                .tip {
+                                    font-family: 'Nobel-Regular';
+                                    @include margin(15px, null, null, null);
+                                    span {
+                                        color: $logo-red;
+                                    }
+                                }
+                            }
+                        }
+                        .key-exclusions {
+                            @include margin(50px, null, null, null);
+                            h3 span {
+                                font-family: 'Nobel-Light';
+                                font-size: $font-size-h3;
+                                @include margin(15px, null, null, null);
+                                display: inline-block;
+                            }
+                            ul {
+                                list-style-type: none;
+                                border-left:1px solid #eee;
+                                li {
+                                    @include margin(null, null, 8px, null);
+                                    @include padding(null, null, null, 15px);
+                                    font-size: $font-small;
+                                    &:before {
+                                        content: '\f046';
+                                        font-family: 'FontAwesome';
+                                        float: left;
+                                        color: $logo-blue;
+                                        @include margin(null, null, null, -25px);
+                                    }
+                                }
+                            }
+                        }
+                        .circliful {
+                            @include position(absolute, $top:-40px);
+                          .outer {
+                            fill: transparent;
+                            stroke: #888;
+                            stroke-width: 19.8;
+                            stroke-dasharray: 534;
+                            transition: stroke-dashoffset 1s;
+                            -webkit-animation-play-state: running;
+                            /* firefox bug fix - won't rotate at 90deg angles */
+                            -moz-transform: rotate(-89deg) translateX(-190px);
+                          }
+                          .inner {
+                            fill: transparent;
+                            stroke: blue;
+                            stroke-width: 20;
+                            stroke-dasharray: 534;
+                            transition: stroke-dashoffset 1s;
+                            -webkit-animation-play-state: running;
+                            /* firefox bug fix - won't rotate at 90deg angles */
+                            -moz-transform: rotate(-89deg) translateX(-190px);
+                            stroke-dashoffset: 0;
+                          }
+                          overflow: visible !important;
+                        }
+                        .share {
+                            [class*="col-"] {
+                                min-height: 160px;
+                                @include padding(null, 10px, null, 10px);
+                            }
+                        }
+                        .svg-container {
+                          width:220px;
+                          overflow: hidden;
+                          position: relative;
+                          height: 74px;
+                          margin-left:auto!important;
+                          margin-right:auto!important;
+                          margin-bottom: 20px;
+                          margin-top:0px;
+                        }
+                        svg .icon {
+                          font-family: FontAwesome;
+                        }
+                    }
+                }
+                .zerodep-popup {
+                    background: lighten($theme, 65%);
+                    max-width: 767px!important;
+                    min-height: 280px!important;
+                    @include margin(100px, auto, null, auto);
+                    @include border-radius(10px);
+                    @include box-shadow(0px 5px 20px rgba(0,0,0,0.2));
+                    .modal-content {
+                        background: lighten($theme, 65%);
+                        @include border-radius(10px);
+                        .modal-body{
+                            @include border-radius(10px);
+                        }
+                        .container {
+                            @include padding(20px, null, 10px, null);
+                            h4 {
+                                font-family: 'Nobel-Regular';
+                                @include margin(80px, null, 10px, 23px);
+                            }
+                            .car {
+                                @include margin(20px, null, null, null);
+                            }
+                            .rd-btn {
+                                width: 60px;
+                                float: left;
+                                @include margin(null, null, 10px, 40px);
+                            }
+                            .confirm {
+                                background: transparent;
+                                border: 1px solid $logo-red;
+                                font-size: $font-size-h4;
+                                font-family: 'Nobel-Book';
+                                color: $logo-red;
+                                @include margin(20px, null, null, 40px);
+                                width: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .moredetails-popup {
+        @include padding(50px, null, 100px, null);
+        max-width: 1200px;
+        .fa {
+            font-weight: 200;
+            -webkit-text-stroke: 1px lighten($theme, 65%);
+        }
+        h2 {
+            border: 1px solid $theme;
+            display: inline-block;
+            @include padding(8px, 40px, 8px, 40px);
+            @include margin(null, null, 50px, null);
+            @include border-radius(3px);
+        }
+        h3 {
+            float: none!important;
+            display: block!important;
+        }
+        h4 {
+            @include margin(10px, null, null, null);
+            span {
+                font-family: 'Nobel-Book';
+                @include margin(null, null, null, 6px);
+            }
+        }
+        p {
+            font-family: 'Nobel-Book';
+            @include margin(15px, null, null, null);
+            span {
+                font-family: 'Nobel-Light';
+            }
+        }
+        .riders-icons {
+            background: url(../images/term-riders.svg) no-repeat;
+            background-size: 320px;
+            @include padding(10px, null, 10px, 55px);
+        }
+        .critical-illness {
+            @extend .riders-icons;
+            background-position: -140px -5px;
+        }
+        .accidental-death {
+            @extend .riders-icons;
+            background-position: 0px -5px;
+        }
+        .accidental-disability {
+            @extend .riders-icons;
+            background-position: -68px -5px;
+        }
+        .terminal-illness {
+            @extend .riders-icons;
+            background-position: -207px -5px;
+        }
+        .waiver-premium {
+            @extend .riders-icons;
+            background-position: -275px -5px;
+        }
+        hr {
+            border-top: 1px solid lighten($gray-light, 40%);
+        }
+        .rightside {
+            border-left: 1px solid lighten($gray-light, 40%);
+            @include padding(null, null, 20px, 40px);
+            @include media(">300px", "<tablet") {
+                border: none;
+                @include padding(30px, null, 20px, 15px);
+            }
+            .fa {
+                -webkit-text-stroke: 0px $theme;
+                @include margin(null, 5px, null, null);
+            }
+            .fa-check {
+                color: $logo-blue;
+            }
+            .fa-times {
+                color: $logo-red;
+            }
+            ul {
+                @include padding(20px, null, null, null);
+                list-style: none;
+                font-size: $font-size-h4 - 1px;
+                li {
+                    @include margin(null, null, 15px, null);
+                   &:before {
+                      content: '\f0a4';
+                      font-family: 'FontAwesome';
+                      float: left;
+                      @include margin(null, null, null, -1.5em);
+                    }
+                }
+            }
+              .step2{
+                margin-bottom: 50px;
+                font-family: 'Nobel-Book';
+            }
+            .r-title{
+                font-family: 'Nobel-Regular';
+            }
+            .r-arrow::before {
+                position: absolute;
+                content: "";
+                border-top: 20px solid #3a4855;
+                top: 10px;
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                left: 49.45%;
+                transform: translateX(-50%);
+                top: -20px;
+            }
+            .r-module {
+                p {
+                     margin-bottom: 20px;
+                     padding: 0px 40px 0px;
+                 }
+               
+            }
+            .arrow {
+                    border-top: 1px solid;
+                    height: 20px;
+                    position: absolute;
+                    width: 49%;
+                    top: 45%;
+                    left: 27%;
+                    border-right: 1px solid;
+                    border-left: 1px solid;
+                }
+            .r-icon{
+                .fa{
+                    font-size:30px;
+                    margin: 10px !important;
+                }
+                .desc{
+                    margin-top: 10px !important;
+                }
+            }
+            .not-covered {
+                p {opacity: 0.5;}
+            }
+            .tab-footer {
+                background: lighten($theme, 65%);
+                border-top:1px solid $body-bg;
+                @include box-shadow(0px -8px 8px -8px rgba(0,0,0,0.15));
+                @include position(fixed, $bottom:0px, $left:0px);
+                height: 70px;
+                width: 100%;
+                .container {
+                    max-width: 1200px;
+                }
+                .nav-tabs {
+                    @include margin(null, auto, 0px, auto);
+                    @include padding(13px, null, null, null);
+                    border: none;
+                    width: 600px;
+                    li {
+                        width: 33%;
+                        text-align: center;
+                        border-right: 1px solid $theme;
+                        @include margin(null, null, 0px, null);
+                        &:before {
+                            content: "";
+                        }
+                        &:last-child {
+                            border-right: none;
+                        }
+                        a {
+                            @include margin(null, 0px, null, null);
+                            @include padding(10px, null, 10px, null);
+                            border: none;
+                            &:hover {
+                                background: transparent;
+                                border: none;
+                                @include padding(10px, null, 10px, null);
+                            }
+                        }
+                    }
+                    .active > a {
+                        background: $theme;
+                        border: none;
+                        color: $body-bg;
+                        @include border-radius(0px);
+                        &:hover {
+                            background:$theme;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        .leftside {
+            .calimratio {
+                @include margin(null, null, 60px, null);
+            }
+            h4 {
+                @include margin(null, null, 20px, null);
+            }
+            a {
+                color: $logo-blue;
+                font-family: 'Nobel-Book';
+                font-size: $font-size-h4;
+                @include margin(null, null, 20px, null);
+                display: block;
+                .fa {
+                    -webkit-text-stroke: 0.3px #eaedf1;
+                    @include margin(null, 4px, null, null);
+                }
+            }
+            .hospitals {
+                color: $logo-red;
+            }
+            p {
+                font-family: 'Nobel-Light';
+                @include margin(0px, null, 0px, null);
+            }
+            .premium {
+                @include margin(25px, null, 25px, null);
+                display: inline-block;
+                .amount {
+                    font-size: $font-size-h3 + 2px;
+                    float: left;
+                    @include margin(null, 10px, null, null);
+                }
+                .btn {
+                    background: transparent;
+                    border: 1px solid $logo-red;
+                    @include padding(6px, 20px, 6px, 20px);
+                    color: $logo-red;
+                    float: left;
+                    font-size: $font-size-h4;
+                }
+            }
+            .email {
+                background: #fff;
+                @include box-shadow(0px 2px 4px rgba(0,0,0,0.1));
+                font-family: 'Nobel-Book';
+            }
+        }
+        .whom {
+            @include margin(50px, null, 50px, null);
+            font-family: 'Nobel-Book';
+            font-size: $font-size-h3;
+            position: relative!important;
+        }
+        .gender {
+            span {
+                display: inline-block;
+                @include margin(null, 20px, null, 20px);
+            }
+            label {
+                font-size: $font-size-h4!important;
+                font-family: 'Nobel-Book';
+            }
+        }
+        .insure-members {
+            @include margin(40px, null, 40px, null);
+            span {
+                display: inline-block;
+                float: right;
+                @include margin(-4px, 20px, null, 30px);
+            }
+            label {
+                font-size: $font-size-h4!important;
+                font-family: 'Nobel-Book';
+            }
+            .child-title {
+                float: left;
+                @include margin(null, 30px, null, null);
+            }
+            .count-input {
+              position: relative;
+              width: 100%;
+              max-width: 120px;
+              font-family: 'Nobel-Book';
+              float: left;
+              input {
+                width: 100%;
+                height: 40px;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid $theme;
+                background: none;
+                text-align: center;
+                font-size: $font-size-h4 - 2px;
+                &:focus {
+                  outline: none;
+                }
+              }
+              .incr-btn {
+                display: block;
+                background: transparent;
+                color: $theme;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                font-size: 30px;
+                font-weight: 300;
+                text-align: center;
+                line-height: 30px;
+                top: 50%;
+                right: 0;
+                text-shadow:0px 0px 0px rgba(0,0,0,0);
+                @include margin(-15px, null, null, 0px);
+                @include padding(2px, null, null, 8px);
+                text-decoration: none;
+                &:first-child {
+                  right: auto;
+                  left: 0;
+                  top: 49%;
+                  @include padding(0px, null, null, 9px);
+                }
+              }
+            }
+        }
+        .eldest-member {
+            @include margin(50px, null, 50px, null);
+            h4 {
+                color: lighten($theme, 30%);
+                font-family: 'Nobel-Light';
+            }
+        }
+        .pincode {
+            width: 200px;
+            float: right; 
+        }
+        .dob {
+            @include margin(null, 30px, null, 0px);
+            float: right;
+            width:200px;
+            label {
+                font-size: $font-size-h4!important;
+            }
+            .fa {
+                -webkit-text-stroke: 0px;
+            }
+            .fa-icon {
+                @include position(absolute, $right:5px, $top:10px);
+                font-size: $font-size-h4 - 2px;
+            }
+        }
+        .input-effect {
+          position: relative;
+          @include margin(null, null, 30px, null);
+          height: 60px;
+            .effect {
+              border:none;
+              @include padding(null, 0px, 5px, 0px);
+              border-bottom: 1px solid lighten($theme, 55%);
+              background-color: transparent;
+              width: 100%;
+              height: 40px;
+              font-size:$font-size-large - 2px;
+              font-family: 'Nobel-Book';
+              @include border-radius(0px);
+              @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+              @include position (absolute, $left:0px, $top:0px);
+              z-index: 9;
+              ~ .focus-border {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color:$theme;
+                transition: 0.4s;
+                z-index: 9;
+              }
+              &:focus ~ .focus-border {
+                width: 100%;
+                transition: 0.4s;
+              }
+              ~ label {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top:30px;
+                font-size:$font-size-large - 2px;
+                color: lighten($theme, 40%);
+                transition: 0.3s;
+              }
+              &:focus ~ label {
+                top: 2px;
+                left: 0;
+                font-size:$font-size-base - 1px!important;
+                color:$theme;
+                transition: 0.3s;
+                z-index: 99;
+              }
+            }   
+            .has-content.effect ~ label {
+              top: 2px;
+              font-size:$font-size-base - 1px!important;
+              color: $logo-blue;
+              transition: 0.3s;
+            }
+            .has-error.effect ~ .focus-border {
+              width: 100%;
+              transition: 0.4s;
+              background: $logo-red;
+            }
+            .has-error.effect ~ label {
+              top: -12px;
+              font-size:$font-size-base - 1px!important;
+              color: $logo-red;
+              transition: 0.3s;
+            } 
+        }
+        .ui {
+              &.selection {
+                &.dropdown {
+                  border: none;
+                  background: transparent url("../images/arrow-down.svg") no-repeat right center;
+                  background-size: 18px;
+                  border-bottom: 1px solid lighten($theme, 55%);
+                  min-width: 140px;
+                  height: 40px;
+                  font-size:$font-small;
+                  @include border-radius(0px);
+                  @include padding(16px, null, 5px, 0px);
+                  @include margin(-3.5px, null, 30px, null);
+                  width: 200px;
+                    .default.text {
+                        color: lighten($theme, 40%);
+                    }
+                }
+                &.active.dropdown {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  .menu {
+                    border: none !important;
+                  }
+                  &:hover {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  }
+                }
+              }
+              &.search.dropdown.visible > input.search {
+                padding: 16px 10px 5px 0px !important;
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+              &.search.selection.dropdown > input.search {
+                padding: 16px 10px 5px 0px;
+              }
+              &.search.dropdown > .text {
+                font-family:'Nobel-Book';
+                  cursor: pointer!important;
+              }
+            &.search.dropdown > .default {
+                font-family:'Nobel-Light';
+              }
+              &.selection.dropdown .menu > .item {
+                padding: 11px 10px 10px 5px !important;
+                font-size:$font-small;
+              }
+              &.dropdown .menu .active.item {
+                color: $logo-blue;
+              }
+              &.selection.dropdown > {
+                .dropdown.icon, .search.icon {
+                  display: none;
+                }
+              }
+            }
+        .update {
+            background: $logo-blue;
+            color: $body-bg;
+            font-size: $font-size-h4 + 2px;
+            @include padding(6px, 25px, 6px, 25px);
+            @include margin(20px, null, null, null);
+        }
+    }
+    .garages {
+        @include padding(60px, null, null, null);
+        max-width: 768px;
+        .fa {
+            font-weight: 200;
+            -webkit-text-stroke: 1px lighten($theme, 65%);
+        }
+        h4, h3 {
+            font-family: 'Nobel-Book';
+            @include margin(15px, null, 8px, null);
+        }
+        .garage-title {
+            @include margin(null, null, 40px, null);
+        }
+        p {
+            color: $gray-light;
+        }
+        .address {
+            border: 1px solid lighten($theme, 58%);
+            @include margin(null, null, 20px, null);
+            @include border-radius(3px);
+        }
+    }
+    .advertisement {
+        background: transparent;
+        @include margin(-15px, null, 20px, null);
+        text-shadow: 0px 1px 0px $body-bg;
+        color: $theme;
+        font-family: 'Nobel-Light';
+        [class*="col-"] {
+            @include padding(10px, null, null, null);
+            &:first-child {
+                text-align: right;
+            }
+        }
+        p {
+            color: $gray-light; 
+        }
+        span {
+            color: $logo-red;
+        }
+        .input-group {
+            width:360px;
+            @include margin(6px, null, null, null);
+            @include media(">300px", "<tablet") {
+                width: 320px;
+            }
+            span {
+                color: $theme;
+            }
+            .input-group-addon, .btn {
+                @include padding(0px, 10px, 0px, 10px);
+                font-size:$font-size-h4;
+                background-color: #f2f4f6;
+                border:none;
+                @include border-radius(4px);
+            }
+            .input-group-addon:last-child {
+                background: $logo-blue;
+                @include border-radius(0px 4px 4px 0px);
+            }
+            .btn {
+                background: $logo-blue;
+                color: $body-bg;
+                width: 100px;
+                @include media(">300px", "<tablet") {
+                    width: 70px;
+                }
+            }
+            .form-control {
+                height:45px;
+                border:none;
+                font-size:$font-size-h4;
+            }
+        }
+        @include media(">300px", "<tablet") {
+            @include padding(0px, 0px, 0px, 0px);
+        }
+    }
+    .not-quote {
+        //background: lighten($theme, 60%);
+        border: 2px dotted lighten($theme, 30%);
+        @include padding(15px, 10px, 10px, 10px);
+        @include margin(20px, null, 40px, null);
+        display: inline-block;
+        width: 100%;
+        span {
+            font-family: 'Nobel-Book';
+        }
+    }
+    .no-quotes {
+        @include margin(20px, null, null, null);
+        min-height: 400px;
+        h3 {
+            @include margin(20px, null, 10px, null);
+            font-family: 'Nobel-Book';
+        }
+    }
+    .footer-section {
+        @include margin(50px, null, 20px, null);
+        @include padding(10px, null, null, null);
+        @include border(1px solid, lighten($theme, 60%), top);
+        a {
+            @include margin(10px, 10px, 20px, 10px);
+            @include padding(5px, 15px, 5px, 15px);
+            display: inline-block;
+        }
+    }
+}
+
+.emipayment {
+    background: $body-bg;
+    @include margin(8%, null, null, auto);
+    @include border-radius(6px);
+    width: 900px; 
+    min-height: auto;
+    position: relative;
+    @include media(">767px", "<992px") {
+        max-width: 750px;
+    }
+    .modal-content {
+        @include border-radius(6px);
+        @include box-shadow(0px 3px 8px rgba(0,0,0,0.3));
+        border: none;
+        .modal-body {
+            background:$body-bg;
+            @include padding(0px, 5px, 15px!important, 5px);
+            @include border-radius(6px);
+            height: auto;
+            position: relative;
+            [class*="col-"] {
+                height: auto;
+                @include padding(null, 15px, null, 15px);
+            }
+            .container {
+                @include padding(null, 10px, null, 10px); 
+            }
+            .close {
+                background:$body-bg url("../images/cross.svg") no-repeat center;
+                background-size:30px;
+                @include border-radius(50px);
+                @include box-shadow(0 3px 6px rgba(0,0,0,0.1));
+                @include position(fixed, $top:20px, $right:20px);
+                opacity: 1;
+                height: 50px;
+                width: 50px;
+                z-index: 999;
+                &:hover {
+                    background:$body-bg url("../images/red-cross.svg") no-repeat center;
+                    background-size:30px;
+                }
+            }
+            a {
+                color: $theme;
+            }
+            h3 {
+                font-family: 'Nobel-Book';
+                font-size: $font-size-h3 - 2px;
+                @include margin(20px, null, null, null);
+                @include padding(null, null, 15px, null);
+                border-bottom: 1px solid lighten($gray-light, 40%);
+            }
+            h4 {
+                font-family: 'Nobel-Book';
+                @include margin(null, null, 10px, null);
+            }
+            .close {
+                @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+                top: 4px;
+                right:10px;
+            }
+            .tandc {
+                color: $logo-blue;
+                float: right;
+            }
+            .tabs-left {
+              border-bottom: none;
+              padding-top: 2px;
+              border-right: 1px solid #ddd;
+              @include margin(20px, null, null, null);
+              text-align:left;
+              > li {
+                float: none;
+                margin-bottom: 2px;
+                margin-right: -1px;
+                  &.active > a {
+                    border: none;
+                    background: lighten($theme, 65%);
+                    @include padding(9px, null, 9px, 11px);
+                    color: $logo-red;
+                    &:hover, &:focus {
+                      border: none;
+                    }
+                  }
+                  > a {
+                    @include border-radius(0px);
+                    @include padding(8px, null, 8px, 10px);
+                    @include margin(null, 10px, null, null);
+                    display: block;
+                    font-size: $font-size-base + 2px;
+                    font-family: 'Nobel-Book';
+                      &:hover {
+                          border:none;
+                          background: lighten($theme, 65%);
+                          @include padding(9px, null, 9px, 11px);
+                      }
+                  }
+              }
+            }
+            .tab-content {
+                @include margin(20px, null, null, null);
+                text-align: left;
+            }
+            .panel-group .panel {
+              @include border-radius(0px);
+              @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+              border:none;
+            }
+            .panel-default > .panel-heading {
+              @include padding(0px, 0px, 0px, 0px);
+              @include border-radius(0px);
+              background-color:transparent;
+              border:none;
+            }
+            .panel-title {
+              font-size:$font-size-large - 2px;
+              @include padding(12px, null, null, null);
+              > a {
+                display: inline-block;
+                width: 100%;
+                @include padding(6px, 0px, 6px, 0px);
+                text-decoration: none;
+                  [class*="col-"] {
+                      @include padding(null, null, null, 0px);
+                  }
+              }
+            }
+            .more-less {
+              float: right;
+              color: $theme;
+              font-size: $font-size-large + 2px;
+              -webkit-text-stroke: 0.5px #fff;
+            }
+            .panel-default > .panel-heading + .panel-collapse > .panel-body {
+              border:none;
+              background: lighten($theme, 65%);
+              @include border-radius(6px);
+              @include padding(5px, null, 10px, null);
+                [class*="col-"] {
+                    @include padding(null, null, null, 0px);
+                    &:first-child {
+                        @include padding(null, null, null, 15px);
+                    }
+                }
+                hr {
+                    border-top: 1px dashed $theme;
+                    @include margin(8px, null, 5px, -5px);
+                }
+            }
+        }
+    }
+}
+    
+.prevtitle {
+    color: $body-bg;
+    font-size: $font-size-h3 + 2px;
+    @include margin(12px, 20px, null, null);
+    span {
+        font-family: 'Nobel-Regular';
+    }
+}
+
+/*-----------Comparison Start-------------*/
+.comparison-bar {
+    background: lighten($theme, 65%);
+    border-top: 1px solid $body-bg;
+    @include padding(12px, null, 12px, null);
+    @include position(fixed, $bottom:0px, $left:0px);
+    @include box-shadow(0 -8px 8px -8px rgba(0,0,0,0.15));
+    width: 100%;
+    z-index:999;
+    .container {
+        max-width: 1500px;
+    }
+    .selected-quote {
+        width: 24%;
+        position: relative;
+        min-height: 90px;
+        text-align: left;
+        display: inline-block;
+        vertical-align: top;
+        border: 1px dashed lighten($gray-base, 65%);
+        @include padding(null, 5px, 5px, 35px);
+        @include margin(null, 0.5%, null, null);
+        img {
+            height:50px;
+            float: left;
+            @include margin(null, 12px, null, null);
+        }
+        .fa {
+            -webkit-text-stroke: 0.5px lighten($theme, 65%);
+        }
+        p {
+            font-family: 'Nobel-Book';
+            @include margin(16px, null, null, null);
+            color: $theme;
+        }
+        .planname {
+            font-family: 'Nobel-Light';
+            color:$gray-light;
+            font-size: $font-size-base - 1px;
+            line-height: 15px;
+            @include margin(5px, null, 0px, null);
+        }
+        .cross {
+            background:$body-bg url(../images/cross.svg) no-repeat center;
+            background-size: 18px;
+            @include position(absolute, $left:5px, $top:5px);
+            @include border-radius(50px);
+            height: 22px;
+            width: 22px;
+        }
+    }
+    .compare-btn {
+        background: transparent;
+        border: 1px solid $logo-red;
+        font-size: $font-size-h4;
+        @include margin(8px, auto, null, auto);
+        color: $logo-red;
+        display: block;
+        width: 150px;
+        &:hover {
+            background: $logo-red;
+            color: $body-bg;
+        }
+    }
+    .sendemail {
+        background: #fff;
+        color: $theme;
+        padding: 5px 15px 5px 15px;
+        @include border-radius(50px);
+        @include box-shadow(0px 2px 4px rgba(0,0,0,0.1));
+        font-family: 'Nobel-Book';
+        @include margin(10px, auto, null, auto);
+        display:block;
+        width: 110px;
+        .fa {
+            margin-right: 4px;
+        }
+        &:hover {
+            text-decoration: none;
+        }
+        &:active {
+            @include box-shadow(0px 2px 4px rgba(0,0,0,0));
+        }
+    }
+}
+.quotes-comparison {
+    background: lighten($theme, 65%);
+    width: 100%;
+    height: 100%;
+    @include position(fixed, $top:0px, $left:0);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 1000;
+    [class*="col-"] {
+        @include padding(0px, 0px, 0px, 0px);
+    }
+    .row-effect {
+        background: $body-bg;
+    }
+    .compare-col {
+        width:20%;
+        display: inline-block;
+        vertical-align: top;
+        //float: left;
+        border-right:1px solid lighten($theme, 58%);
+        //@include margin(null, -2px, null, null);
+        .fixedsticky {
+          position: -webkit-sticky;
+          position: -moz-sticky;
+          position: -ms-sticky;
+          position: -o-sticky;
+          position: sticky;
+        }
+        .fixedsticky-withoutfixedfixed .fixedsticky-off, .fixed-supported .fixedsticky-off {
+          position: static;
+        }
+        .fixedsticky-withoutfixedfixed .fixedsticky-on, .fixed-supported .fixedsticky-on {
+          position: fixed;
+        }
+        .fixedsticky-dummy {
+          display: none;
+        }
+        .fixedsticky-on + .fixedsticky-dummy {
+          display: block;
+        }
+        .comparetop {
+            top:0px;
+            vertical-align: top;
+            background: lighten($theme, 65%);
+            height: 150px;
+            z-index: 9;
+            .insurer {
+                height: 80px;
+            }
+            .backtoquotes {
+                color: $theme;
+                background: transparent;
+                opacity: 1;
+                border: 1px solid $theme;
+                font-size: $font-size-h4 - 2px;
+                @include position(absolute, $top:45px, $left:25px);
+                @include border-radius(50px);
+                @include padding(6px, 20px, 6px, 20px);
+            }
+            .close-quote {
+                background: lighten($theme, 65%) url("../images/cross.svg") no-repeat center;
+                background-size: 20px;
+                @include position(absolute, $top:8px, $right:10px);
+                @include border-radius(50px);
+                height: 25px;
+                width: 25px;
+                opacity: 0;
+            }
+            .sendmail {
+                background: #fff;
+                color: $theme;
+                padding: 4px 15px 5px 10px;
+                @include border-radius(50px);
+                @include position(absolute, $top:100px, $left:25px);
+                @include box-shadow(0px 2px 4px rgba(0,0,0,0.15));
+                font-family: 'Nobel-Book';
+                .fa {
+                    margin-right: 4px;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .features-col {
+        .comparetop {
+            background: lighten($theme, 62%);
+            height: 150px;
+            .fa {
+                border:none;
+                @include margin(null, 3px, null, 3px);
+                font-size: $font-size-base + 2px;
+            }
+        }
+        background: lighten($theme, 62%) !important;
+        &:hover {
+            background:#e1e6ea!important;
+            @include box-shadow(0px 0px 0px rgba(0,0,0,0)!important);
+            .comparetop {
+                background: lighten($theme, 62%)!important;
+            }
+        }
+        .fa {
+            border: 1px solid lighten($theme, 40%);
+            display: inline-block;
+            @include border-radius(50px);
+            @include margin(null, null, null, 3px);
+            @include padding(2px, 2px, 2px, 2px);
+            font-size: $font-size-base - 3px;
+            height: 16px;
+            width: 16px;
+        }
+        .tooltip.in {
+            opacity: 1!important;
+        }
+        .tooltip-inner {
+            background: $theme;
+            font-family: 'Nobel-Light';
+            @include padding(null, 5px, null, 5px);
+            max-width: 240px;
+            font-size: $font-size-base - 1px;
+        }
+        .tooltip.bottom .tooltip-arrow {
+            border-bottom-color: $theme;
+        }
+        .tooltip.top .tooltip-arrow {
+            border-top-color: $theme;
+        }
+    }
+    .quote-col {
+        @extend .compare-col;
+        position: relative;
+        @include margin(null, -2.5px, null, null);
+        &:last-child {
+            border: none;
+        }
+        &:hover {
+            background: $body-bg;
+            .comparetop {
+                background: $body-bg;
+            }
+            .close-quote {
+                opacity: 1; 
+            }
+            .fa-check, .fa-times {
+                -webkit-text-stroke: 2px $body-bg;
+            }
+        }
+        .fa {
+            -webkit-text-stroke: 0.5px lighten($theme, 65%);
+        }
+        .fa-check {
+            color: $logo-blue;
+            -webkit-text-stroke: 2px lighten($theme, 65%);
+            font-size: $font-size-large + 2px;
+        }
+        .fa-times {
+            color: $logo-red;
+            -webkit-text-stroke: 2px lighten($theme, 65%);
+            font-size: $font-size-large + 2px;
+        }
+        ul {
+            padding: 0px;
+            list-style-type: none;
+            font-size: 16px;
+            margin-bottom:-1px;
+            li {
+                height:45px;
+                position: relative;
+                font-family: 'Nobel-Book';
+                border-bottom: 1px solid lighten($theme, 58%);
+                @include padding(null, 5px, null, 5px);
+                p {
+                    @include transform(translateY(-50%));
+                    padding: 2px 0px;
+                    line-height: 18px;
+                    font-size: 16px;
+                    color:$background-header;
+                    position: absolute; 
+                    top: 50%;
+                    margin-bottom: 0px;
+                    width: 100%;
+                }
+                &:hover span {
+                    display:block;
+                }
+                span {
+                    background:$background-header;
+                    color: $body-bg;
+                    padding:8px;
+                    position: absolute;
+                    width:90%;
+                    font-size: 14px;
+                    //@include transform(translateY(-50%));
+                    @include box-shadow (0px 1px 4px rgba(0,0,0,0.3));
+                    top:18px;
+                    left:5%;
+                    @include border-radius(3px);
+                    z-index: 999;
+                    margin-top: 30px;
+                    display: none;
+                    &:after {
+                        z-index: 1;
+                        position: absolute;
+                        top: 0;
+                        left:calc(50% - 10px);
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        margin-top: -10px;
+                        border-bottom: solid 10px $background-header;
+                        border-left: solid 10px transparent;
+                        border-right: solid 10px transparent
+                    }
+                }    
+            }
+        }
+        .product-premium {
+            background: lighten($theme, 65%);
+            width:100%;
+            bottom: -1px!important;
+            vertical-align: bottom!important;
+            height: 88px;
+            z-index:1000;
+            @include padding(23px, null, null, null);
+            .btn {
+                color: $logo-red;
+                font-size: $font-size-h3 - 2px;
+                font-family: 'Nobel-Book';
+                border-color:$logo-red;
+                background: transparent;
+                @include padding(6px, 30px, 5px, 30px);
+                &:hover {
+                    background: $logo-red;
+                    color: $body-bg;
+                    .fa {
+                        -webkit-text-stroke: 0.5px $logo-red;
+                    }
+                }
+            }
+        }
+    }
+    .footer-bar {
+        background: lighten($theme, 65%);
+        border-top: 1px solid $body-bg;
+        @include box-shadow(0 -8px 8px -8px rgba(0,0,0,0.15));
+        @include padding(40px, null, 40px, null);
+        @include position(fixed, $left:0px, $bottom:0px);
+        width: 100%;
+        z-index: 99;
+        height:90px;
+    }
+}
+.qcomapre {
+    overflow: hidden;
+}
+/*------------Comparison End--------------*/
+
+.individual-hospital-list {
+    background: $body-bg;
+    color: $theme;
+    .header-section {
+        background: url("../images/network-hospital.svg") no-repeat bottom center/100%;
+        min-height: 200px;
+        @include margin(null, null, 40px, null);
+        @include padding(60px, null, null, null);
+        h2 {
+            font-family:'Nobel-Regular';
+        }
+        p {
+            color: $gray-light;
+        }
+    }
+    .hospital-lists {
+        max-width: 1400px;
+        @include margin(null, null, 40px, null);
+        position: relative;
+        .citylist {
+            list-style-type: none;
+            font-size: $font-size-large;
+            font-family: 'Nobel-Book';
+            @include margin(0px, 0px, 0px, 0px);
+            @include padding(0px, 0px, 0px, 0px);
+            @include position(absolute, $top:90px, $left:0px);
+            width: 100%;
+            z-index: 99;
+            li {
+                display: inline-flex;
+                border-right:1px solid $gray;
+                &:last-child, &:first-child {
+                    border: none;
+                }
+                a {
+                    font-family: 'Nobel-Light';
+                    @include padding(0px, 8px, 0px, 8px);
+                    line-height: 18px;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        h3 {
+            @include margin (null, null, 15px, null);
+            font-family:'Nobel-Book';
+        }
+        .title {
+            display: inline-block;
+            border: 1px solid $theme;
+            @include padding (10px, 20px, 10px, 20px);
+            @include margin(20px, null, 20px, null);
+            @include border-radius(6px);
+        }
+        table.dataTable {
+          width: 100%;
+          @include margin(90px, auto, null, auto);
+          clear: both;
+          border-collapse: separate;
+          border-spacing: 0;
+          thead th, tfoot th {
+            font-weight: bold;
+          }
+          thead {
+              text-transform: uppercase;
+            th, td {
+              color: $body-bg;
+              padding:14px 10px;
+              border-bottom: none;
+                p {
+                    @include margin(null, null, 0px, null);
+                }
+            }
+            th:active, td:active {
+              outline: none;
+            }
+          }
+          tfoot {
+            th, td {
+              padding: 10px 18px 6px 18px;
+              border-top: 1px solid #111;
+            }
+          }
+          thead {
+            .sorting_asc, .sorting_desc {
+              cursor: pointer;
+              *cursor: hand;
+            }
+            .sorting {
+              cursor: pointer;
+              *cursor: hand;
+              background:#577dbb;
+                &:last-child {
+                    //@include border-radius(0px 6px 0px 0px);
+                }
+            }
+            .sorting_asc {
+              background:#577dbb;
+              //@include border-radius(6px 0px 0px 0px);
+            }
+            .sorting_desc {
+              background:#577dbb;
+            }
+            .sorting_asc_disabled {
+              background:#577dbb;
+            }
+            .sorting_desc_disabled {
+              background:#577dbb;
+            }
+          }
+          tbody {
+            tr {
+              &.selected {
+                background-color: #b0bed9;
+              }
+            }
+            th, td {
+              padding: 4px 10px;
+              font-size: $font-size-large - 2px;
+                height: 45px;
+                position: relative;
+                p {
+                    -moz-transform: translateY(-50%);
+                    -o-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    @include position (absolute, $top:50%, $left:10px);
+                    @include margin(null, null, 0px, null);
+                }
+                &:nth-of-type(1) {
+                    font-family: 'Nobel-Book';
+                    width: 32%;
+                }
+                &:nth-of-type(2) {
+                    width: 40%;
+                }
+                &:nth-of-type(3) {
+                    width: 16%;
+                }
+                &:nth-of-type(4) {
+                    width: 12%;
+                }
+            }
+          .odd {
+              background: transparent;
+          }
+          .even {
+              background: lighten($theme, 69%);
+          }
+          }
+          &.row-border tbody {
+            th, td {
+              border-top: 1px solid #ddd;
+            }
+          }
+          &.display tbody {
+            th, td {
+              border-top: 1px solid #ddd;
+            }
+          }
+          &.row-border tbody tr:first-child {
+            th, td {
+              border-top: none;
+            }
+          }
+          &.display tbody tr:first-child {
+            th, td {
+              border-top: none;
+            }
+          }
+          &.cell-border tbody {
+            th, td {
+              border-top: 1px solid #ddd;
+              border-right: 1px solid #ddd;
+            }
+            tr {
+              th:first-child, td:first-child {
+                border-left: 1px solid #ddd;
+              }
+              &:first-child {
+                th, td {
+                  border-top: none;
+                }
+              }
+            }
+          }
+          &.stripe tbody tr.odd, &.display tbody tr.odd {
+            background-color: #f9f9f9;
+          }
+          &.stripe tbody tr.odd.selected, &.display tbody tr.odd.selected {
+            background-color: #abb9d3;
+          }
+          &.hover tbody tr {
+            &:hover, &.odd:hover, &.even:hover {
+              background-color: #f5f5f5;
+            }
+          }
+          &.display tbody tr {
+            &:hover, &.odd:hover, &.even:hover {
+              background-color: #f5f5f5;
+            }
+          }
+          &.hover tbody tr {
+            &:hover.selected, &.odd:hover.selected, &.even:hover.selected {
+              background-color: #a9b7d1;
+            }
+          }
+          &.display tbody tr {
+            &:hover.selected, &.odd:hover.selected, &.even:hover.selected {
+              background-color: #a9b7d1;
+            }
+          }
+          &.order-column tbody tr > {
+            .sorting_1, .sorting_2, .sorting_3 {
+              background-color: #f9f9f9;
+            }
+          }
+          &.display tbody tr > {
+            .sorting_1, .sorting_2, .sorting_3 {
+              background-color: #f9f9f9;
+            }
+          }
+          &.order-column tbody tr.selected > {
+            .sorting_1, .sorting_2, .sorting_3 {
+              background-color: #acbad4;
+            }
+          }
+          &.display tbody tr {
+            &.selected > {
+              .sorting_1, .sorting_2, .sorting_3 {
+                background-color: #acbad4;
+              }
+            }
+            &.odd > .sorting_1 {
+              background-color: #f1f1f1;
+            }
+          }
+          &.order-column.stripe tbody tr.odd > .sorting_1 {
+            background-color: #f1f1f1;
+          }
+          &.display tbody tr.odd > .sorting_2, &.order-column.stripe tbody tr.odd > .sorting_2 {
+            background-color: #f3f3f3;
+          }
+          &.display tbody tr.odd > .sorting_3, &.order-column.stripe tbody tr.odd > .sorting_3 {
+            background-color: #f5f5f5;
+          }
+          &.display tbody tr.odd.selected > .sorting_1, &.order-column.stripe tbody tr.odd.selected > .sorting_1 {
+            background-color: #a6b3cd;
+          }
+          &.display tbody tr.odd.selected > .sorting_2, &.order-column.stripe tbody tr.odd.selected > .sorting_2 {
+            background-color: #a7b5ce;
+          }
+          &.display tbody tr.odd.selected > .sorting_3, &.order-column.stripe tbody tr.odd.selected > .sorting_3 {
+            background-color: #a9b6d0;
+          }
+          &.display tbody tr.even > .sorting_1, &.order-column.stripe tbody tr.even > .sorting_1 {
+            background-color: #f9f9f9;
+          }
+          &.display tbody tr.even > .sorting_2, &.order-column.stripe tbody tr.even > .sorting_2 {
+            background-color: #fbfbfb;
+          }
+          &.display tbody tr.even > .sorting_3, &.order-column.stripe tbody tr.even > .sorting_3 {
+            background-color: #fdfdfd;
+          }
+          &.display tbody tr.even.selected > .sorting_1, &.order-column.stripe tbody tr.even.selected > .sorting_1 {
+            background-color: #acbad4;
+          }
+          &.display tbody tr.even.selected > .sorting_2, &.order-column.stripe tbody tr.even.selected > .sorting_2 {
+            background-color: #adbbd6;
+          }
+          &.display tbody tr.even.selected > .sorting_3, &.order-column.stripe tbody tr.even.selected > .sorting_3 {
+            background-color: #afbdd8;
+          }
+          &.display tbody tr {
+            &:hover > .sorting_1, &.odd:hover > .sorting_1, &.even:hover > .sorting_1 {
+              background-color: #eaeaea;
+            }
+          }
+          &.order-column.hover tbody tr {
+            &:hover > .sorting_1, &.odd:hover > .sorting_1, &.even:hover > .sorting_1 {
+              background-color: #eaeaea;
+            }
+          }
+          &.display tbody tr {
+            &:hover > .sorting_2, &.odd:hover > .sorting_2, &.even:hover > .sorting_2 {
+              background-color: #ebebeb;
+            }
+          }
+          &.order-column.hover tbody tr {
+            &:hover > .sorting_2, &.odd:hover > .sorting_2, &.even:hover > .sorting_2 {
+              background-color: #ebebeb;
+            }
+          }
+          &.display tbody tr {
+            &:hover > .sorting_3, &.odd:hover > .sorting_3, &.even:hover > .sorting_3 {
+              background-color: #eee;
+            }
+          }
+          &.order-column.hover tbody tr {
+            &:hover > .sorting_3, &.odd:hover > .sorting_3, &.even:hover > .sorting_3 {
+              background-color: #eee;
+            }
+          }
+          &.display tbody tr {
+            &:hover.selected > .sorting_1, &.odd:hover.selected > .sorting_1, &.even:hover.selected > .sorting_1 {
+              background-color: #a1aec7;
+            }
+          }
+          &.order-column.hover tbody tr {
+            &:hover.selected > .sorting_1, &.odd:hover.selected > .sorting_1, &.even:hover.selected > .sorting_1 {
+              background-color: #a1aec7;
+            }
+          }
+          &.display tbody tr {
+            &:hover.selected > .sorting_2, &.odd:hover.selected > .sorting_2, &.even:hover.selected > .sorting_2 {
+              background-color: #a2afc8;
+            }
+          }
+          &.order-column.hover tbody tr {
+            &:hover.selected > .sorting_2, &.odd:hover.selected > .sorting_2, &.even:hover.selected > .sorting_2 {
+              background-color: #a2afc8;
+            }
+          }
+          &.display tbody tr {
+            &:hover.selected > .sorting_3, &.odd:hover.selected > .sorting_3, &.even:hover.selected > .sorting_3 {
+              background-color: #a4b2cb;
+            }
+          }
+          &.order-column.hover tbody tr {
+            &:hover.selected > .sorting_3, &.odd:hover.selected > .sorting_3, &.even:hover.selected > .sorting_3 {
+              background-color: #a4b2cb;
+            }
+          }
+          &.no-footer {
+            border-bottom: 1px solid #111;
+          }
+          &.nowrap {
+            th, td {
+              white-space: nowrap;
+            }
+          }
+          &.compact {
+            thead {
+              th, td {
+                padding: 5px 9px;
+              }
+            }
+            tfoot {
+              th, td {
+                padding: 5px 9px 3px 9px;
+              }
+            }
+            tbody {
+              th, td {
+                padding: 4px 5px;
+              }
+            }
+          }
+          th.dt-left, td.dt-left {
+            text-align: left;
+          }
+          th.dt-center {
+            text-align: center;
+          }
+          td {
+            &.dt-center, &.dataTables_empty {
+              text-align: center;
+            }
+          }
+          th.dt-right, td.dt-right {
+            text-align: right;
+          }
+          th.dt-justify, td.dt-justify {
+            text-align: justify;
+          }
+          th.dt-nowrap, td.dt-nowrap {
+            white-space: nowrap;
+          }
+          thead {
+            th.dt-head-left, td.dt-head-left {
+              text-align: left;
+            }
+          }
+          tfoot {
+            th.dt-head-left, td.dt-head-left {
+              text-align: left;
+            }
+          }
+          thead {
+            th.dt-head-center, td.dt-head-center {
+              text-align: center;
+            }
+          }
+          tfoot {
+            th.dt-head-center, td.dt-head-center {
+              text-align: center;
+            }
+          }
+          thead {
+            th.dt-head-right, td.dt-head-right {
+              text-align: right;
+            }
+          }
+          tfoot {
+            th.dt-head-right, td.dt-head-right {
+              text-align: right;
+            }
+          }
+          thead {
+            th.dt-head-justify, td.dt-head-justify {
+              text-align: justify;
+            }
+          }
+          tfoot {
+            th.dt-head-justify, td.dt-head-justify {
+              text-align: justify;
+            }
+          }
+          thead {
+            th.dt-head-nowrap, td.dt-head-nowrap {
+              white-space: nowrap;
+            }
+          }
+          tfoot {
+            th.dt-head-nowrap, td.dt-head-nowrap {
+              white-space: nowrap;
+            }
+          }
+          tbody {
+            th.dt-body-left, td.dt-body-left {
+              text-align: left;
+            }
+            th.dt-body-center, td.dt-body-center {
+              text-align: center;
+            }
+            th.dt-body-right, td.dt-body-right {
+              text-align: right;
+            }
+            th.dt-body-justify, td.dt-body-justify {
+              text-align: justify;
+            }
+            th.dt-body-nowrap, td.dt-body-nowrap {
+              white-space: nowrap;
+            }
+          }
+          -webkit-box-sizing: content-box;
+          -moz-box-sizing: content-box;
+          box-sizing: content-box;
+          th, td {
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+          }
+        }
+
+        .dataTables_wrapper {
+          position: relative;
+          clear: both;
+          *zoom: 1;
+          zoom: 1;
+          .dataTables_length {
+            float: left;
+            display: none;
+          }
+          .dataTables_filter {
+            @include margin(null, auto, null, auto);
+            width: 50%;
+              @include media(">phone", "<tablet") {
+                  width: 80%;
+              }
+            label {
+               width: 100%;
+                color: $body-bg;
+                position: relative;
+                &:after {
+                    content: "\f002"; 
+                    font-family: "FontAwesome";
+                    font-size: $font-size-h3;
+                    color: $body-bg;
+                    background: darken($brand-warning, 10%);
+                    @include position(absolute, $top:0px, $right:0px);
+                    @include padding(10px, null, null, 17px);
+                    @include border-radius(100px);
+                    height: 55px;
+                    width: 55px;
+                }
+            }
+            input {
+              width: 100%;
+              color: $theme;
+              height: 55px;
+              font-size: $font-size-large;
+              font-family: 'Nobel-Book';
+              border:1px solid darken($brand-warning, 10%);
+              @include padding(5px, 20px, 5px, 24px);
+              @include border-radius(100px);
+            }
+          }
+          .dataTables_info {
+            clear: both;
+            position: absolute;
+            padding-top: 0.755em;
+          }
+          .dataTables_paginate {
+            text-align: center;
+            padding-top: 0.25em;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed lighten($theme, 55%);
+            @include margin(null, null, 40px, null);
+            .next {
+                  position: relative;
+                  color: $body-bg!important;
+                  &:after {
+                      content: "\f105"; 
+                      font-family: "FontAwesome";
+                      font-size: $font-size-h1;
+                      color: $logo-blue;
+                      @include position(absolute, $top:-7px, $left:30px);
+                  }
+              }
+            .previous {
+                  position: relative;
+                  color: $body-bg!important;
+                  &:after {
+                      content: "\f104"; 
+                      font-family: "FontAwesome";
+                      font-size: $font-size-h1;
+                      color: $logo-blue;
+                      @include position(absolute, $top:-7px, $left:30px);
+                  }
+              }
+            .paginate_button {
+              box-sizing: border-box;
+              display: inline-block;
+              min-width: 1.5em;
+              padding: 0.5em 1em;
+              margin-left: 2px;
+              text-align: center;
+              font-size: $font-size-large;
+              font-family: 'Nobel-Book';
+              text-decoration: none!important;
+              cursor: pointer;
+              *cursor: hand;
+              color: #333;
+              border: 1px solid transparent;
+              &.disabled {
+                cursor: default;
+                color: #666;
+                border: 1px solid transparent;
+                background: transparent;
+                box-shadow: none;
+              }
+              &.current {
+                color: $logo-blue;
+                font-size: $font-size-large;
+                font-family: 'Nobel-Book';
+              }
+            }
+          }
+          .dataTables_processing {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 40px;
+            margin-left: -50%;
+            margin-top: -25px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            background-color: white;
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0.9)), color-stop(75%, rgba(255, 255, 255, 0.9)), color-stop(100%, rgba(255, 255, 255, 0)));
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+            background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+            background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+            background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
+          }
+          .dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_processing, .dataTables_paginate {
+            color: #333;
+          }
+          .dataTables_scroll {
+            clear: both;
+            div.dataTables_scrollBody {
+              *margin-top: -1px;
+              -webkit-overflow-scrolling: touch;
+              th > div.dataTables_sizing, td > div.dataTables_sizing {
+                height: 0;
+                overflow: hidden;
+                margin: 0 !important;
+                padding: 0 !important;
+              }
+            }
+          }
+          &.no-footer {
+            .dataTables_scrollBody {
+              border-bottom: 1px solid #111;
+            }
+            div {
+              &.dataTables_scrollHead table, &.dataTables_scrollBody table {
+                border-bottom: none;
+              }
+            }
+          }
+          &:after {
+            visibility: hidden;
+            display: block;
+            content: "";
+            clear: both;
+            height: 0;
+          }
+        }
+
+    }
+}
+
+/*-------------------------------------Motor Breakup View-------------------------------*/
+.premium-breakup {
+    background: #ebecee;
+    @include box-shadow(0 8px 7px -8px rgba(0, 0, 0, 0.3));   
+    margin-top: -20px;
+    margin-bottom:20px;
+    padding-bottom:1px;
+    padding-top:1px;
+    position: static;
+    .inner-section {
+        background: #fff;
+        display:block;
+        margin: 15px 15px 10px;
+        padding:15px 0px;
+        @include box-shadow(0px 1px 2px rgba(0, 0, 0, 0.1));
+        [class*="col-sm-"] {
+            padding-left:10px;
+            padding-right:10px;
+        }
+        h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            padding:4px;
+            text-align: center;
+        }
+        h4 {
+            text-transform: uppercase;
+            color: $logo-blue;
+            clear: both;
+            font-size: 14px;
+            font-family: 'Nobel-Book';
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .highlight-col {
+            background: #f5f5f5;
+        }
+        .detials {
+            margin-left: 20px;
+            min-height: 25px;
+            [class*="col-xs-"] {
+                padding-left:0px;
+                padding-right:0px;
+            }
+            p {
+                font-size: 14px;
+                margin:0px;
+                .fa {
+                    margin-right:10px;
+                }
+            }
+            .rsvalue {
+                font-family: 'Nobel-Book';
+            }
+        }
+        .total {
+            color: $logo-red;
+            text-transform: uppercase;
+            font-family: 'Nobel-Book';
+            font-size: 14px;
+        }
+        .premium {
+            font-size: 20px;
+            font-family: 'Nobel-Regular';
+            padding-left: 8px;
+            .fa {
+                font-size: 14px;
+                margin-right: 10px;
+            }
+        }
+        hr {
+            border-color:#9ca3aa;
+            float: left;
+            margin-bottom:15px;
+            margin-top:10px;
+            width:98%;
+        }
+    }
+}
+/*-------------------------------------Motor Breakup View End---------------------------*/
+ 
