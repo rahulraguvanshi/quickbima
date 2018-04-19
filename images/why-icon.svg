@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        font-size: 32px;
+      }
+
+      .cls-3 {
+        fill: #f87c47;
+        font-family: "FontAwesome";
+      }
+    </style>
+  </defs>
+  <circle cx="49.766" cy="49.969" r="49.766" class="cls-1"/>
+  <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABJCAMAAABRj2snAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAVFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU4H24AAAAG3RSTlMAAQMFBAoPCxQTCRAVEgIIBg4RFgcMDRcYGRphEdV5AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAhVJREFUWMOtmNtygyAUReUiCSh3E8T//9CC7UymKh4o3Q95StYsDlsjDkMxCBM89AXRkT1QJwOPTy56Tcg0y7GToXSCdJuYDOlkDMbyqd0E/cqgnecC2p38xf1TKYwxpYQQY5Zl0VqLlJf03gkFDE7R9Jv8g3F8PF7v99syNk3OScn5MyWskQMQTMX0nPOX5xyfE3LWn8RtC/J+OZnht/vEKPWdSRoEGSUA2byEBouEXGETYIuxhkyiB8sGm2zR/YNJ4JCJgk1W0ETBJivX/SYBrD3SMkImUgM9wcJF2AQqm64pm+o28bCJ4KCJg0zog0ODBWuPzAStBqy9qmF4qXs99tqrPo98Ad6Z1DGSyVQ2qWXk2vcyUu2LJvWM8gVYz8i1v4a0MOLqFtXJ2E26GekCvDBpY6TaO9LLSGUz/Yx4XgsirI3Be2eacvH0SezcxFhPLUP0DT3QHMJOCM3aLLaNHghYO+jf8hh5HMVLhkbEdigYEs9WwkljGBvHmfpFj4yleaD2XFFq2+YRru5Axs4tjMubcpvJNFynwcQXHyGqTSIZijG2botvT4vU+oottneIdBeqMHEDEAKaSPAAnkzuB8trzvD3dzPYAiwbqyF8b3GpbK9aRHEm61KNKJnwtoN7+rc6msT6dXxMfpeN02ZE2mIWPlscoENUYTkfk/D3d0OE7bX3Y8fbpbzF6Vnn74A91EAKXwXI7N/acA9aAAAAAElFTkSuQmCC" x="31" y="25" width="67" height="73"/>
+  <text transform="translate(28 74) scale(2.17 2.18)" class="cls-2"><tspan class="cls-3"></tspan></text>
+</svg>
