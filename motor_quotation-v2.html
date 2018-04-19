@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Car Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/quotations.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/circliful/1.0.2/js/jquery.circliful.min.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        <script>
+         $(function() {
+            $( "#datepicker, #datepicker2" ).datepicker({
+               changeMonth:true,
+               changeYear:true,
+                dateFormat: 'dd-mm-yy',
+               numberOfMonths:[1,1]
+            });
+         });
+      </script>
+	</head>
+<body>
+
+    <div class="quoteoverlay"></div>
+    
+    <nav class="navbar navbar-fixed-top navbar-default">
+		  <div class="container-fluid">
+		  <div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="index.html"><img src="images/QuickBima_logo.svg" width="180px" height="40px" alt="quickbima logo" class="img-responsive logo"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		  </div><!-- /.container-fluid --> 
+		</nav>
+	<!----------Navigation End-------------->
+		
+	<div class="container-fluid quotes-wrapper">
+        <div class="top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-7 col-lg-8">
+                        <div class="vehicle-details">
+                            <div class="registration pull-left">HR 26 BD 6073
+                                <a href="javascript:void(0)" class="modify-info" data-toggle="modal" data-target="#myModal">Modify Details</a>
+                            </div>
+                            <div class="car-details pull-left">
+                                <h4>Hundai i20 <span>Magna (1396 CC)</span></h4>
+                                <span class="sub-details"><p>Registration - 01-03-2010</p></span>
+                                <span class="sub-details"><p>Fuel Type - Diesel</p></span>
+                                <div class="clearfix"></div>
+                                <span class="sub-details"><p>Policy Expiry - 29-03-2017</p></span>
+                                <span class="sub-details"><p>Last NCB - 45%</p></span>
+                            </div>
+                            <!-- Modal -->
+                            <div id="myModal" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <button id="reg-close" type="button" class="close" data-dismiss="modal"></button>
+                                      <div class="container car-modify">
+                                          <div class="row">
+                                              <div class="col-sm-12 text-center">
+                                                  <h3>Your Car Registration Number.</h3>
+                                                <div class="registration">HR 26 BD 6073</div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-4 drop-select">
+                                                  <select class="ui search dropdown" id="makeModel">
+                                                      <option value="">Make and Model</option>
+                                                      <option value="AL">Audi Q5</option>
+                                                      <option value="AL">Maruti Swift VDI</option>
+                                                      <option value="AL">Maruti Swift Dezire</option>
+                                                      <option value="AK">Honda Amaze</option>
+                                                      <option value="AK">Honda City</option>
+                                                      <option value="AK">Honda Civic</option>
+                                                      <option value="AK">Hundai i20</option>
+                                                      <option value="AZ">Tata Indica Vista</option>
+                                                      <option value="AZ">Tata Indica Manza</option>
+                                                      <option value="AZ">Tata Indigo Cs</option>
+                                                    </select>
+                                                  <label id="makeModelLabel" style="display:none;">Make and Model</label>
+                                              </div>
+                                              <div class="col-sm-3 drop-select">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Fuel Type</option>
+                                                      <option value="petrol" selected>Petrol</option>
+                                                      <option value="deisel">Deisel</option>
+                                                   </select>
+                                                  <label>Fuel Type</label>
+                                                  <span class="error">Select fuel type.</span>
+                                              </div>
+                                              <div class="col-sm-5 drop-select">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Variant</option>
+                                                      <option value="AL" selected>VDI, 1248 CC</option>
+                                                      <option value="AL">LDI, 1248 CC</option>
+                                                      <option value="AL">ZDI, 1248 CC</option>
+                                                   </select>
+                                                  <label>Variant</label>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-4 date">
+                                                  <span class="fa fa-calendar"></span>
+                                                  <input type="text" class="form-control datepicker" id="datepicker" placeholder="Registration Date">
+                                                  <label>Registration</label>
+                                              </div>
+                                              <div class="col-sm-4 date">
+                                                  <span class="fa fa-calendar"></span>
+                                                  <input type="text" class="form-control datepicker" id="datepicker2" placeholder="Policy Expiry Date">
+                                                  <label>Policy Expiry</label>
+                                                  <span class="error">Enter policy expiry date.</span>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Previous Insurer</option>
+                                                      <option value="AL">Bajaj Allianz</option>
+                                                      <option value="AL">Bharti AXA</option>
+                                                      <option value="AL">HDFC ERGO</option>
+                                                      <option value="AL">ICICI Lombard</option>
+                                                   </select>
+                                                  <span class="error">Select previous insurer.</span>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12 claimed">
+                                                <h4>Claimed in the Past Year?</h4>
+                                                  <span>
+                                                    <input name="radio1" id="claimed-no" class="checkbox" checked="" type="radio">
+                                                    <label for="claimed-no">No</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio1" id="claimed-yes" class="checkbox" type="radio">
+                                                    <label for="claimed-yes">Yes</label>
+                                                  </span>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12 claimed">
+                                                <h4>Previous No Claim Bonus (NCB)</h4>
+                                                  <span>
+                                                    <input name="radio2" id="NCB1" class="checkbox" checked="" type="radio">
+                                                    <label for="NCB1">0%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB2" class="checkbox" type="radio">
+                                                    <label for="NCB2">20%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB3" class="checkbox" type="radio">
+                                                    <label for="NCB3">25%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB4" class="checkbox" type="radio">
+                                                    <label for="NCB4">35%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB5" class="checkbox" type="radio">
+                                                    <label for="NCB5">45%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB6" class="checkbox" type="radio">
+                                                    <label for="NCB6">50%</label>
+                                                  </span>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12 text-center">
+                                                  <button class="btn btn-default update" type="button">Update Details</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div><!----/Modal--->
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4">
+                        <div class="idv moovup">
+                            <h4>Your Car IDV is <i class="fa fa-inr" aria-hidden="true"></i> <span id="defaultrange">3,40,256 - 6,20,966</span></h4>
+                            <p class="idv-slogan">IDV is the maximum sum assured for your vehicle.</p>
+                            <a href="javascript:void(0)" class="edit-idv">Edit</a>
+                            <a href="javascript:void(0)" style="display:none;" class="reset-idv">Reset</a>
+                            <div id="qb-slider" style="display:none;">
+                                <input  class="sliderinput" id="changeVal" type="text" value="3,00,000">
+                                <button class="apply-idv">Apply</button>
+                                <input type="range" value="300000" min="200000" max="1000000" data-rangeSlider>
+                                <p class="pull-left min-idv">Min. <i class="fa fa-inr" aria-hidden="true"></i> 2,00,000</p>
+                                <p class="pull-right min-idv">Max. <i class="fa fa-inr" aria-hidden="true"></i> 5,20,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>		
+            </div>		
+        </div><!------/Top Section----->
+        <div class="shrink"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 leftsidebar fixedsticky">
+                    <h4>Additional Covers</h4>
+                    <span>
+                        <input type="checkbox" id="cb1" name="cb" class="checkbox"/>
+                        <label for="cb1">Invoice Cover</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb2" name="cb" class="checkbox" checked />
+                        <label for="cb2">24x7 Roadside Assistance</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb3" name="cb" class="checkbox" />
+                        <label for="cb3">Engine Protector</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb4" name="cb" class="checkbox" />
+                        <label for="cb4">NCB Protection</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb5" name="cb" class="checkbox" />
+                        <label for="cb5">Driver Cover</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb6" name="cb" class="checkbox passenger" />
+                        <label for="cb6">Passenger Cover (<i class="fa fa-inr" aria-hidden="true"></i>)</label>
+                        <div class="passenger-cover" style="display:none;">
+                            <select class="ui search dropdown">
+                                <option value="">Select Value</option>
+                                <option value="0">0</option>
+                                <option value="1">10,000</option>
+                                <option value="2">50,000</option>
+                                <option value="3">1,00,000</option>
+                                <option value="4">2,00,000</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb7" name="cb" class="checkbox accessories" />
+                        <label for="cb7">Accessories (<i class="fa fa-inr" aria-hidden="true"></i>)</label>
+                        <div class="accessoriesfileds" style="display:none;">
+                            <input type="text" class="form-control" placeholder="Electrical">
+                            <input type="text" class="form-control" placeholder="Non-electrical">
+                            <button class="btn btn-default update" type="submit"> Update </button>
+                        </div>
+                    </span>
+                    <hr>
+                    <div class="discount">
+                        <a href="javascript:void(0)" class="apply-btn" data-toggle="modal" data-target="#discount">Apply</a>
+                        <h4>Discounts</h4>
+                        <p>Save upto</p> <span>40</span><span class="logoblue">%</span> <p>on premium</p>
+                        
+                        <!-- Discount Modal -->
+                        <div id="discount" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" id="closediscount" class="close" data-dismiss="modal"></button>
+                                  <div class="container discount-table">
+                                      <div class="row">
+                                          <div class="col-lg-12 text-center">
+                                              <h3>Fill the Details To Get the Discounts </h3>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <p>Choose a Voluntary Deductible</p>
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio1" name="radio" type="radio">
+                                              <label for="radio1"><i class="fa fa-inr" aria-hidden="true"></i>0</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio1" name="radio" type="radio">
+                                              <label for="radio1"><i class="fa fa-inr" aria-hidden="true"></i> 2,500</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio2" name="radio" type="radio">
+                                              <label for="radio2"><i class="fa fa-inr" aria-hidden="true"></i> 5,000</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio3" name="radio" type="radio">
+                                              <label for="radio3"><i class="fa fa-inr" aria-hidden="true"></i> 7,500</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio4" name="radio" type="radio">
+                                              <label for="radio4"><i class="fa fa-inr" aria-hidden="true"></i> 15,000</label> 
+                                          </div>
+                                      </div>
+                                      <hr>
+                                      
+                                      <div class="row">
+                                          <div class="vehicle-col">
+                                              <div class="col-sm-12">
+                                                  <p>Is the owner a member of Auromobile Association of India?</p>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio12" name="member" type="radio" checked>
+                                                  <label for="radio12"> Yes</label>  
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio13" name="member" type="radio">
+                                                  <label for="radio13"> No</label>  
+                                              </div>
+                                          </div>
+                                          <div class="vehicle-col">
+                                              <div class="col-sm-12">
+                                                  <p>Is the vehicle fitted with ARAI approved anti-theft device?</p>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio14" name="ARAI" type="radio">
+                                                  <label for="radio14"> Yes</label>  
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio15" name="ARAI" type="radio" checked>
+                                                  <label for="radio15"> No</label>  
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <hr>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <p>Vehicle Owned By</p>
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <input class="checkbox" id="radio5" name="Vehicle" type="radio" checked>
+                                              <label for="radio5"> Individual</label>  
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <input class="checkbox" id="radio6" name="Vehicle" type="radio">
+                                              <label for="radio6"> Organization</label>  
+                                          </div>
+                                      </div>
+                                      
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-12 text-center">
+                                            <button class="btn btn-default apply">Apply Discount</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div><!-- /Discount Modal -->
+                        
+                    </div>
+                    
+                </div><!------/Left Sidebar----->
+                <div class="col-sm-9">
+                    <div class="plans-no">
+                        <div class="col-sm-8">
+                            <span><h3 class="pull-left">Fetching quotes</h3> <div class="typing_loader"></div></span>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <div class="zerodep">
+                                <h4><span class="info"></span>Zero Dep.</h4>
+                                <a href="javascript:void(0)" class="edit-btn">Add</a>
+                                
+                                <div class="subdetails">
+                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="quotation">
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign">
+                                    <img class="insurer" src="images/Royal_Sundaram.svg" alt="insurer">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign cargarages">
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#garages">
+                                        <p>16 <img src="images/garage-icon.svg" alt="icon"></p>
+                                        <p>Cashless Garages</p>
+                                        <p><small>near you</small></p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="valign">
+                                    <p>Insured Declared Value (IDV)</p>
+                                    <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <div class="special">- 24x7 Roadside Assistance: <span>Included</span></div>
+                                    <ul>
+                                        <li>- PA Owner Cover: <span>Yes</span></li>
+                                        <li>- NCB Protection: <span>Yes</span></li>
+                                        <li>- Driver Cover: <span>Yes</span></li>
+                                        <li>- Engine Protector: <span>Yes</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign">
+                                    <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 5,096</div>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                Breakup
+                            </a>
+                        </div><!----/Quotation--->
+                        <!-- Breakup Modal -->
+                        <div id="breakup" class="modal fade" role="dialog">
+                          <div class="modal-dialog premiumbreakup">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                  
+                                  <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-3 left-col">
+                                            <img src="images/Bharti-AXA-General-Insurance-Company-Limited.svg" alt="insurer">
+                                            <p class="plan-name">Plan - Smart Drive Policy</p>
+                                            <h4>Insured Declared Value (IDV) <span><i class="fa fa-inr" aria-hidden="true"></i> 4,46,523</span></h4>
+                                            <h4>New No Claim Bonus <span class="ncb">45%</span></h4>
+                                            <br>
+                                            <a href=""><i class="fa fa-cloud-download" aria-hidden="true"></i> View Brochure</a>
+                                            <br>
+                                            <p>Premium (Incl. taxes)</p>
+                                            <h1><i class="fa fa-inr" aria-hidden="true"></i> 6,573</h1>
+                                        </div>
+                                        <div class="col-sm-9 right-col">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a class="policy-breakup" data-toggle="tab" href="#premium"> Premium Breakup</a></li>
+                                                <li><a class="policy-coverage" data-toggle="tab" href="#coverage"> Policy Coverage</a></li>
+                                                <li><a class="policy-process" data-toggle="tab" href="#process"> Claim Process</a></li>
+                                              </ul>
+
+                                              <div class="tab-content container">
+                                                <div id="premium" class="tab-pane in active">
+                                                  <div class="col-md-6">
+                                                      <h4 class="text-uppercase"><i class="fa fa-cube" aria-hidden="true"></i> Basic Covers</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic OD Premium</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,465</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic TP Premium</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 2,237</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>PA Owner-Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 100</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>LL Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 50</p></div>
+                                                      </div>
+                                                      
+                                                      <h4 class="text-uppercase"><i class="fa fa-shield" aria-hidden="true"></i> Addon Covers</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic OD Premium</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,465</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic TP Premium</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 2,237</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>PA Owner-Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 100</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>LL Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 50</p></div>
+                                                      </div>
+                                                      
+                                                      <h4 class="text-uppercase"><i class="fa fa-percent" aria-hidden="true"></i> Taxes</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Service Tax</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 465</p>
+                                                        </div>
+                                                      </div>
+                                                      
+                                                  </div>
+                                                    
+                                                  <div class="col-md-6">
+                                                      <h4 class="text-uppercase"><i class="fa fa-gift" aria-hidden="true"></i> Discounts</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>OD Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 0</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>No Claim Bonus</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 2,233</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Other Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 235</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Anti-Theft Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 0</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Voluntary Deductible</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 240</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Automobile Association Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 0</p>
+                                                        </div>
+                                                      </div>
+                                                      
+                                                      <div class="total-amount text-uppercase">
+                                                          <div class="col-xs-7">Total Premium</div>
+                                                          <div class="col-xs-5 prm-amount"><i class="fa fa-inr" aria-hidden="true"></i> 6,573</div>
+                                                      </div>
+                                                      
+                                                  </div>
+                                                    <div class="clearfix"></div>
+                                                    <a href="" class="buybima">Buy Bima</a>
+                                                </div>
+                                                  
+                                                <div id="coverage" class="tab-pane">
+                                                  <div class="row">
+                                                      <h3 class="text-uppercase">You can Claim in Case of:</h3>
+                                                      <div class="calim-in-case">
+                                                          <div class="case-box text-center">
+                                                            <img src="images/car-accident.svg" alt="img">
+                                                              <p>Car <span>Accident</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                            <img src="images/anti-theft.svg" alt="img">
+                                                              <p>Anti-<span>Theft</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                            <img src="images/third-party-liabilities.svg" alt="img">
+                                                              <p>Third Party <span>Liabilities</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                            <img src="images/death-disability.svg" alt="img">
+                                                              <p>Death / Disability of <br> <span>Owner-Driver</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                              <a href="javascript:void(0)" data-toggle="collapse" data-target="#demo">
+                                                              <i class="fa fa-level-down" aria-hidden="true"></i>
+                                                              <br>
+                                                              View <span>More...</span></a>
+                                                          </div>
+                                                      </div>
+                                                      <div id="demo" class="collapse">
+                                                          <h4>Your policy also covers more.. </h4>
+                                                          <ul class="claims">
+                                                            <li><span class="fire"></span><p>Fire and Explosions</p></li>
+                                                            <li><span class="strikes"></span><p>Riots and Strikes</p></li>
+                                                            <li><span class="earthquake"></span><p>Earthquake</p></li>
+                                                            <li><span class="floods"></span><p>Floods</p></li>
+                                                            <li><span class="terrorist"></span><p>Terrorist Attack</p></li>
+                                                            <li><span class="transportation"></span><p>Transportation by road, rail or air</p></li>
+                                                            <li><span class="rodadside"></span><p>Roadside Assistance</p></li>
+                                                            <li><span class="owner-cover"></span><p>Owner Cover</p></li>
+                                                            <li><span class="engine-protector"></span><p>Engine Protector</p></li>
+                                                            <li><span class="ncb-protection"></span><p>NCB Protection</p></li>
+                                                            <li><span class="driver-cover"></span><p>Driver Cover</p></li>
+                                                            <li><span class="passenger-cover"></span><p>Passenger Cover</p></li>
+                                                            
+                                                          </ul>
+                                                      </div>
+                                                  </div>
+                                                   <div class="row">
+                                                      <h3 class="text-uppercase">Your Share in Claim:</h3>
+                                                      <div class="col-lg-9">
+                                                        <div class="row share">
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle1"></div>
+                                                                <p class="text-center">For all plastic, rubber, nylon parts and batteries</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle2"></div>
+                                                                <p class="text-center">For metal, wodden and all other parts</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle3"></div>
+                                                                <p class="text-center">For fibre glass components</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle4"></div>
+                                                                <p class="text-center">For glass components</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle5"></div>
+                                                                <p class="text-center">For paint</p>
+                                                            </div>
+                                                        </div>  
+                                                      </div>
+                                                       <div class="col-lg-3">
+                                                        <div class="zerodepth text-center">
+                                                            <h4>Add Zero Depreciation to make Your all share Nil</h4>
+                                                            <p>Premium will be increase by</p>
+                                                            <a href=""><span class="add-btn">ADD</span> <span><i class="fa fa-inr" aria-hidden="true"></i> 3,856</span></a>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row key-exclusions">
+                                                      <div class="col-lg-3">
+                                                        <h3 class="text-uppercase">Key Exclusions <span>To Your Policy</span></h3>
+                                                      </div>
+                                                      <div class="col-lg-9">
+                                                        <ul>
+                                                            <li>Damage or deterioration to your car resulting from use or normal wear &amp; tear.</li>
+                                                            <li>Indirect loss (also called consequential loss) know more.</li>
+                                                            <li>Loss when driving with an invalid driving license or under the influence of alcohol.</li>
+                                                            <li>Loss due to war, invasion, the act of foreign enemies, civil war, mutiny etc.</li>
+                                                            <li>Loss when using your vehicle for purposes other than its intended purpose. Example - using your private car as a taxi.</li>
+                                                        </ul>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                        <div class="col-sm-12 text-center spcl-note">
+                                                            <p><span>NOTE:</span> You need to pay <i class="fa fa-inr" aria-hidden="true"></i> 1,000 everytime you claim <span>(Compulsory Deductible)</span></p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                  <a href="" class="buybima">Buy Bima</a>    
+                                                </div>
+                                                <div id="process" class="tab-pane">
+                                                  
+                                                  <ul class="nav nav-tabs claimsteps">
+                                                    <li class="active"><a data-toggle="tab" href="#accident"> Accident</a></li>
+                                                    <li><a data-toggle="tab" href="#theft"> Theft</a></li>
+                                                  </ul>
+
+                                                  <div class="tab-content container process-steps">
+                                                    <div id="accident" class="tab-pane in active">
+                                                        <div class="points">
+                                                            <div class="circle">1</div>
+                                                            <h3 class="text-uppercase">Contact the insurer -</h3>
+                                                            <p>Notify HDFC Ergo's call centre about the accident at 1800-2700-700.</p>
+                                                            <p>Provide the agent with the policy number, accident location, time, damage, etc.</p>
+                                                            <p>Agent will give you a claim number and direct you to the nearest garage/workshop.</p>
+                                                            <p class="tip"><span>TIP:</span> Don't leave the vehicle unattended or unlocked, as any theft of car parts or accessories thereafter will not be honoured by the insurer.</p>
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">2</div>
+                                                            <h3 class="text-uppercase">Get Your Car Inspected -</h3>
+                                                            <p>A surveyor shall inspect your car within 2 working days and give on-the-spot approval.</p>
+                                                            <p>Documents that you need to fill up or submit at this stage include</p>
+                                                            <p class="sub-item">1.)  Claim form</p>
+                                                            <p class="sub-item">	2.)  Copy of RC</p>
+                                                            <p class="sub-item">	3.)  Copy of driver's license etc.</p>
+                                                            <p class="tip"><span>TIP:</span> Never start repairs on the car without any survey or inspection by the insurer's representative.</p>
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">3</div>
+                                                            <h3 class="text-uppercase">Get Back your spruced-up Car -</h3>
+                                                            <p>The car shall be released to you post-repair only after your confirmation that the same has been repaired as per your satisfaction.</p>
+                                                            <p>HDFC Ergo shall settle the claim directly with the workshop while you will have to pay any balance that wasn't claimable under the policy terms.</p>
+                                                            <p class="tip">Follow these steps when claiming reimbursement from your insurer-</p>
+                                                            <p class="sub-item">	1.)  Pay for the repairs and collect all invoices &amp; payment receipts from the workshop</p>
+                                                            <p class="sub-item">	2.)  Approach your nearest insurer branch or courier the documents</p>
+                                                            <p class="sub-item">	3.)  Be patient. Insurer takes 7-15 days to reimburse, after receipt of completed documents &amp; bills</p>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div id="theft" class="tab-pane">
+                                                      
+                                                        <div class="points">
+                                                            <div class="circle">1</div>
+                                                            <h3 class="text-uppercase">Contact the insurer -</h3>
+                                                            <p>Notify HDFC Ergo's call centre about the theft at 1800-2700-700.</p>
+                                                            <p>Provide the agent with the policy number, theft location, time, etc.</p>
+                                                            <p>The agent shall direct you to file an FIR with the police immediately.</p>
+                                                            <p>After filing an FIR, you need to get back to the agent for filing the claim form &amp; related documents</p>
+                                                            
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">2</div>
+                                                            <h3 class="text-uppercase">Assist with Investigation -</h3>
+                                                            <p>HDFC Ergo may employ specialist investigators to try to trace your car. The specialist often helps you get all the necessary documents from the police.</p>
+                                                            <p>Usually, the following documents are sought in case of a theft claim - </p>
+                                                            <p class="sub-item">1.)  Claim form</p>
+                                                            <p class="sub-item">2.)  Original Registration Certificate (RC) </p>
+                                                            <p class="sub-item">3.)  Copy of driver's license</p>
+                                                            <p class="sub-item">4.)  Police FIR</p>
+                                                            <p class="sub-item">5.)  Entire set of vehicle keys</p>
+                                                            <p class="sub-item">6.)  Intimation to the RTO that the car has been stolen </p>
+                                                            <p class="sub-item">7.)  Indemnity Bond </p>
+                                                            <p class="sub-item">8.)  Subrogation Letter </p>
+                                                            <p class="sub-item">9.)  No Objection Certificate (NOC) from financier </p>
+                                                            <p class="sub-item">10.)  No Trace Report from the police (A 'No Trace Report' is issued by the police if they fail to trace the vehicle within 90 days from the date of theft).</p>
+                                                            
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">3</div>
+                                                            <h3 class="text-uppercase">Receive Compensation -</h3>
+                                                            <p>The settlement amount is based on the Insured Declared Value (IDV) of your car. The final settled amount might, however, differ based on usage and market value.</p>
+                                                            <p>If there is an outstanding loan towards the purchase of your car, then HDFC Ergo will settle the amount directly with the financier.</p>
+                                                            <p>Inform the insurer in the event the police recovers your car. HDFC Ergo is liable to pay compensation on damages caused to the vehicle and for stolen items as per the terms of your policy.</p>
+                                                        </div>
+                                                        
+                                                
+
+                                                    </div>
+
+                                                  </div>
+                                            
+                                                </div>
+                                              </div>
+                                            
+                                        </div>
+                                    </div>
+                                  </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-----Cashless Garages----->
+                        <div id="garages" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                  
+                                  <div class="container garages text-center">
+                                    <div class="row">
+                                        <div class="col-sm-12 garage-title">
+                                            <h3 class="text-uppercase">Cashless Garages in Your City</h3>
+                                            <p>Where the Insurer will be able to provide cashless settlements in case of a claim</p>
+                                        </div>  
+                                    </div>
+                                      <div class="row">
+                                        <div class="col-md-12 address">
+                                            <h4 class="text-uppercase">Ashok Motors</h4>
+                                            <p>1/108, Manraj Complex, Main Wazirabad Road, New Delhi - 110094</p>
+                                            <p><i class="fa fa-phone" aria-hidden="true"></i> 9312209488</p>
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-12 address">
+                                            <h4 class="text-uppercase">Auto Frames</h4>
+                                            <p>C-89, Kirti Nagar, New Delhi -110015</p>
+                                            <p><i class="fa fa-phone" aria-hidden="true"></i> 9312209488</p>
+                                            </div>  
+                                        </div>
+                                      <div class="row">
+                                          <div class="col-md-12 address">
+                                            <h4 class="text-uppercase">Autoglass Experts</h4>
+                                            <p>F-57/10-A, Dr Alama Iqbal Road, Batla House, Okhla, New Delhi -110025</p>
+                                            <p><i class="fa fa-phone" aria-hidden="true"></i> 9818290639</p>
+                                            </div>  
+                                        </div>
+                                      <div class="row">
+                                          <div class="col-md-12 address">
+                                            <h4 class="text-uppercase">Breezeways Automotives</h4>
+                                            <p>80/9, Aruna Asaf Ali Marg, Adjoining Rahim'S Restaurant, Kashan Garh, New Delhi -110070</p>
+                                            <p><i class="fa fa-phone" aria-hidden="true"></i> 9891597171</p>
+                                            </div>  
+                                        </div>
+                                      <div class="row">
+                                          <div class="col-md-12 address">
+                                            <h4 class="text-uppercase">Dahiya Automobiles Pvt Ltd</h4>
+                                            <p>3343 A, Mahindra Park, Near Fountain Chowk, Road No. 44, New Delhi -110034</p>
+                                            <p><i class="fa fa-phone" aria-hidden="true"></i> 9891597171</p>
+                                            </div>  
+                                        </div>
+                                      <div class="row">
+                                          <div class="col-md-12 address">
+                                            <h4 class="text-uppercase">Deep India Enterprises Pvt Ltd</h4>
+                                            <p>K-1, Udyog Vihar Peeragarhi Crossing, Rohtak Road Delhi, New Delhi -110063</p>
+                                            <p><i class="fa fa-phone" aria-hidden="true"></i> 9891597171</p>
+                                            </div>  
+                                        </div>
+                                  </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    
+                    </div>
+                    
+                    <div>
+                        <div class="quotation">
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign">
+                                    <img class="insurer" src="images/Bharti-AXA-General-Insurance-Company-Limited.svg" alt="insurer">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign cargarages">
+                                    <a href="">
+                                        <p>8 <img src="images/garage-icon.svg" alt="icon"></p>
+                                        <p>Cashless Garages</p>
+                                        <p><small>near you</small></p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="valign">
+                                    <p>Insured Declared Value (IDV)</p>
+                                    <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <div class="special">- 24x7 Roadside Assistance: <span>Included</span></div>
+                                    <ul>
+                                        <li>- PA Owner Cover: <span>Yes</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign">
+                                    <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 5,096</div>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup2">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                Breakup
+                            </a>
+                        </div><!----/Quotation--->
+                        <!-- Breakup Modal -->
+                        <div id="breakup2" class="modal fade" role="dialog">
+                          <div class="modal-dialog premiumbreakup">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                  
+                                  <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-3 left-col">
+                                            <img src="images/Bharti-AXA-General-Insurance-Company-Limited.svg" alt="insurer">
+                                            <p class="plan-name">Plan - Smart Drive Policy</p>
+                                            <h4>Insured Declared Value (IDV) <span><i class="fa fa-inr" aria-hidden="true"></i> 5,46,523</span></h4>
+                                            <h4>New No Claim Bonus <span class="ncb">45%</span></h4>
+                                            <br>
+                                            <a href=""><i class="fa fa-cloud-download" aria-hidden="true"></i> View Brochure</a>
+                                            <br>
+                                            <p>Premium (Incl. taxes)</p>
+                                            <h1><i class="fa fa-inr" aria-hidden="true"></i> 6,573</h1>
+                                        </div>
+                                        <div class="col-sm-9 right-col">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a class="policy-breakup" data-toggle="tab" href="#premium1"> Premium Breakup</a></li>
+                                                <li><a class="policy-coverage" data-toggle="tab" href="#coverage1"> Policy Coverage</a></li>
+                                                <li><a class="policy-process" data-toggle="tab" href="#process1"> Claim Process</a></li>
+                                              </ul>
+
+                                              <div class="tab-content container">
+                                                <div id="premium1" class="tab-pane in active">
+                                                  <div class="col-md-6">
+                                                      <h4 class="text-uppercase"><i class="fa fa-cube" aria-hidden="true"></i> Basic Covers</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic OD Premium</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,465</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic TP Premium</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 2,237</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>PA Owner-Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 100</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>LL Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 50</p></div>
+                                                      </div>
+                                                      
+                                                      <h4 class="text-uppercase"><i class="fa fa-shield" aria-hidden="true"></i> Addon Covers</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic OD Premium</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,465</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Basic TP Premium</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 2,237</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>PA Owner-Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 100</p></div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>LL Driver</p></div>
+                                                        <div class="col-xs-4"><p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 50</p></div>
+                                                      </div>
+                                                      
+                                                      <h4 class="text-uppercase"><i class="fa fa-percent" aria-hidden="true"></i> Taxes</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Service Tax</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 465</p>
+                                                        </div>
+                                                      </div>
+                                                      
+                                                  </div>
+                                                    
+                                                  <div class="col-md-6">
+                                                      <h4 class="text-uppercase"><i class="fa fa-gift" aria-hidden="true"></i> Discounts</h4>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>OD Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 0</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>No Claim Bonus</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 2,233</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Other Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 235</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Anti-Theft Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 0</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Voluntary Deductible</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 240</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                        <div class="col-xs-8"><p>Automobile Association Discount</p></div>
+                                                        <div class="col-xs-4">
+                                                            <p class="price"><i class="fa fa-inr" aria-hidden="true"></i> 0</p>
+                                                        </div>
+                                                      </div>
+                                                      
+                                                      <div class="total-amount text-uppercase">
+                                                          <div class="col-xs-7">Total Premium</div>
+                                                          <div class="col-xs-5 prm-amount"><i class="fa fa-inr" aria-hidden="true"></i> 6,573</div>
+                                                      </div>
+                                                      
+                                                  </div>
+                                                    <div class="clearfix"></div>
+                                                    <a href="" class="buybima">Buy Bima</a>
+                                                </div>
+                                                  
+                                                <div id="coverage1" class="tab-pane">
+                                                  <div class="row">
+                                                      <h3 class="text-uppercase">You can Claim in Case of:</h3>
+                                                      <div class="calim-in-case">
+                                                          <div class="case-box text-center">
+                                                            <img src="images/car-accident.svg" alt="img">
+                                                              <p>Car <span>Accident</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                            <img src="images/anti-theft.svg" alt="img">
+                                                              <p>Anti-<span>Theft</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                            <img src="images/third-party-liabilities.svg" alt="img">
+                                                              <p>Third Party <span>Liabilities</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                            <img src="images/death-disability.svg" alt="img">
+                                                              <p>Death / Disability of <br> <span>Owner-Driver</span></p>
+                                                          </div>
+                                                          <div class="case-box text-center">
+                                                              <a href="javascript:void(0)" data-toggle="collapse" data-target="#demo">
+                                                              <i class="fa fa-level-down" aria-hidden="true"></i>
+                                                              <br>
+                                                              View <span>More...</span></a>
+                                                          </div>
+                                                      </div>
+                                                      <div id="demo" class="collapse">
+                                                          <h4>Your policy also covers more.. </h4>
+                                                          <ul class="claims">
+                                                            <li>Fire and Explosions</li>
+                                                            <li>Riots and Strikes</li>
+                                                            <li>Earthquake</li>
+                                                            <li>Floods</li>
+                                                            <li>Terrorist Attack</li>
+                                                            <li>Transportation by road, rail or air</li>
+                                                          </ul>
+                                                      </div>
+                                                  </div>
+                                                   <div class="row">
+                                                      <h3 class="text-uppercase">Your Share in Claim:</h3>
+                                                      <div class="col-lg-9">
+                                                        <div class="row share">
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle6"></div>
+                                                                <p class="text-center">For all plastic, rubber, nylon parts and batteries</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle7"></div>
+                                                                <p class="text-center">For metal, wodden and all other parts</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle8"></div>
+                                                                <p class="text-center">For fibre glass components</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle9"></div>
+                                                                <p class="text-center">For glass components</p>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-4">
+                                                                <div id="test-circle10"></div>
+                                                                <p class="text-center">For paint</p>
+                                                            </div>
+                                                        </div>  
+                                                      </div>
+                                                       <div class="col-lg-3">
+                                                        <div class="zerodepth text-center">
+                                                            <h4>Add Zero Depreciation to make Your all share Nil</h4>
+                                                            <p>Premium will be increase by</p>
+                                                            <a href=""><span class="add-btn">ADD</span> <span><i class="fa fa-inr" aria-hidden="true"></i> 3,856</span></a>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row key-exclusions">
+                                                      <div class="col-lg-3">
+                                                        <h3 class="text-uppercase">Key Exclusions <span>To Your Policy</span></h3>
+                                                      </div>
+                                                      <div class="col-lg-9">
+                                                        <ul>
+                                                            <li>Damage or deterioration to your car resulting from use or normal wear &amp; tear.</li>
+                                                            <li>Indirect loss (also called consequential loss) know more.</li>
+                                                            <li>Loss when driving with an invalid driving license or under the influence of alcohol.</li>
+                                                            <li>Loss due to war, invasion, the act of foreign enemies, civil war, mutiny etc.</li>
+                                                            <li>Loss when using your vehicle for purposes other than its intended purpose. Example - using your private car as a taxi.</li>
+                                                        </ul>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                        <div class="col-sm-12 text-center spcl-note">
+                                                            <p><span>NOTE:</span> You need to pay <i class="fa fa-inr" aria-hidden="true"></i> 1,000 everytime you claim <span>(Compulsory Deductible)</span></p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                  <a href="" class="buybima">Buy Bima</a>    
+                                                </div>
+                                                <div id="process1" class="tab-pane">
+                                                  
+                                                  <ul class="nav nav-tabs claimsteps">
+                                                    <li class="active"><a data-toggle="tab" href="#accident"> Accident</a></li>
+                                                    <li><a data-toggle="tab" href="#theft"> Theft</a></li>
+                                                  </ul>
+
+                                                  <div class="tab-content container process-steps">
+                                                    <div id="accident" class="tab-pane in active">
+                                                        <div class="points">
+                                                            <div class="circle">1</div>
+                                                            <h3 class="text-uppercase">Contact the insurer -</h3>
+                                                            <p>Notify HDFC Ergo's call centre about the accident at 1800-2700-700.</p>
+                                                            <p>Provide the agent with the policy number, accident location, time, damage, etc.</p>
+                                                            <p>Agent will give you a claim number and direct you to the nearest garage/workshop.</p>
+                                                            <p class="tip"><span>TIP:</span> Don't leave the vehicle unattended or unlocked, as any theft of car parts or accessories thereafter will not be honoured by the insurer.</p>
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">2</div>
+                                                            <h3 class="text-uppercase">Get Your Car Inspected -</h3>
+                                                            <p>A surveyor shall inspect your car within 2 working days and give on-the-spot approval.</p>
+                                                            <p>Documents that you need to fill up or submit at this stage include</p>
+                                                            <p class="sub-item">1.)  Claim form</p>
+                                                            <p class="sub-item">	2.)  Copy of RC</p>
+                                                            <p class="sub-item">	3.)  Copy of driver's license etc.</p>
+                                                            <p class="tip"><span>TIP:</span> Never start repairs on the car without any survey or inspection by the insurer's representative.</p>
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">3</div>
+                                                            <h3 class="text-uppercase">Get Back your spruced-up Car -</h3>
+                                                            <p>The car shall be released to you post-repair only after your confirmation that the same has been repaired as per your satisfaction.</p>
+                                                            <p>HDFC Ergo shall settle the claim directly with the workshop while you will have to pay any balance that wasn't claimable under the policy terms.</p>
+                                                            <p class="tip">Follow these steps when claiming reimbursement from your insurer-</p>
+                                                            <p class="sub-item">	1.)  Pay for the repairs and collect all invoices &amp; payment receipts from the workshop</p>
+                                                            <p class="sub-item">	2.)  Approach your nearest insurer branch or courier the documents</p>
+                                                            <p class="sub-item">	3.)  Be patient. Insurer takes 7-15 days to reimburse, after receipt of completed documents &amp; bills</p>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div id="theft" class="tab-pane">
+                                                       <div id="accident" class="tab-pane in active">
+                                                        <div class="points">
+                                                            <div class="circle">1</div>
+                                                            <h3 class="text-uppercase">Contact the insurer -</h3>
+                                                            <p>Notify HDFC Ergo's call centre about the theft at 1800-2700-700.</p>
+                                                            <p>Provide the agent with the policy number, theft location, time, etc.</p>
+                                                            <p>The agent shall direct you to file an FIR with the police immediately.</p>
+                                                            <p>After filing an FIR, you need to get back to the agent for filing the claim form &amp; related documents</p>
+                                                            
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">2</div>
+                                                            <h3 class="text-uppercase">Assist with Investigation -</h3>
+                                                            <p>HDFC Ergo may employ specialist investigators to try to trace your car. The specialist often helps you get all the necessary documents from the police.</p>
+                                                            <p>Usually, the following documents are sought in case of a theft claim - </p>
+                                                            <p class="sub-item">1.)  Claim form</p>
+                                                            <p class="sub-item">2.)  Original Registration Certificate (RC) </p>
+                                                            <p class="sub-item">3.)  Copy of driver's license</p>
+                                                            <p class="sub-item">4.)  Police FIR</p>
+                                                            <p class="sub-item">5.)  Entire set of vehicle keys</p>
+                                                            <p class="sub-item">6.)  Intimation to the RTO that the car has been stolen </p>
+                                                            <p class="sub-item">7.)  Indemnity Bond </p>
+                                                            <p class="sub-item">8.)  Subrogation Letter </p>
+                                                            <p class="sub-item">9.)  No Objection Certificate (NOC) from financier </p>
+                                                            <p class="sub-item">10.)  No Trace Report from the police (A 'No Trace Report' is issued by the police if they fail to trace the vehicle within 90 days from the date of theft).</p>
+                                                            
+                                                        </div>
+                                                        <div class="points">
+                                                            <div class="circle">3</div>
+                                                            <h3 class="text-uppercase">Receive Compensation -</h3>
+                                                            <p>The settlement amount is based on the Insured Declared Value (IDV) of your car. The final settled amount might, however, differ based on usage and market value.</p>
+                                                            <p>If there is an outstanding loan towards the purchase of your car, then HDFC Ergo will settle the amount directly with the financier.</p>
+                                                            <p>Inform the insurer in the event the police recovers your car. HDFC Ergo is liable to pay compensation on damages caused to the vehicle and for stolen items as per the terms of your policy.</p>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    </div>
+
+                                                  </div>
+                                            
+                                                </div>
+                                              </div>
+                                            
+                                        </div>
+                                    </div>
+                                  </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                                     
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/HDFC-ERGO-General-Insurance-Co-Ltd.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                                <div class="valign cargarages">
+                                    <p>NA <img src="images/garage-icon.svg" alt="icon"></p>
+                                </div>
+                            </div>
+                        <div class="col-sm-6 col-md-3 text-center">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,16,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 8,354</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    
+                    <div class="quotation">
+                    <div class="col-sm-12">
+                        <div class="timeline-wrapper">
+                            <div class="timeline-item">
+                                <div class="animated-background">
+                                    <div class="background-masker header-top"></div>
+                                    <div class="background-masker header-left"></div>
+                                    <div class="background-masker header-right"></div>
+                                    <div class="background-masker header-right2"></div>
+                                    <div class="background-masker header-bottom"></div>
+                                    <div class="background-masker subheader-left"></div>
+                                    <div class="background-masker subheader-right"></div>
+                                    <div class="background-masker subheader-bottom"></div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/the_new_india_insurance_co_ltd.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 9,213</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    <div class="advertisement">
+                        <h3>Buy now and get your policy in just <span>5</span> minutes</h3>
+                    </div>
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/Reliance-General-Insurance-Co-Ltd.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <div class="special">- 24x7 Roadside Assistance: <span>Included</span></div>
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 12,865</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/Royal_Sundaram.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 11,234</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/Shriram-General-Insurance-Company-Limited.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 11,234</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/Magma-HDI-General-Insurance-Company-Limited.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 11,234</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/Liberty-Videocon-General-Insurance-Co-Ltd.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 11,234</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    <div class="quotation">
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <img class="insurer" src="images/kotak_general_insurance.svg" alt="insurer">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <p>Insured Declared Value (IDV)</p>
+                                <p class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 4,00,576</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="valign">
+                                <ul>
+                                    <li>- PA Owner Cover: <span>Yes</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 text-center">
+                            <div class="valign">
+                                <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 11,234</div>
+                                <a href="" class="buybima">Buy Bima</a>
+                            </div>
+                        </div>
+                    </div><!----/Quotation--->
+                    
+                    <div class="not-quote">
+                        <div class="col-lg-12 text-center">
+                            <p>We did not get a quote from these insurers - <span>Universal Sompo, Iffco Tokio, ICICI Lombard</span>.</p>
+                            <p>Maybe your location or vehicle model is not serviced by these insurer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>		
+    <script src="javascripts/rangeSlider.js"></script>
+    <script>
+        function resizable (el, factor) {
+          var int = Number(factor) || 7.7;
+          function resize() {el.style.width = ((el.value.length+1) * int) + 'px'}
+          var e = 'keyup,keypress,focus,blur,change'.split(',');
+          for (var i in e) el.addEventListener(e[i],resize,false);
+          resize();
+        }
+        resizable(document.getElementById('changeVal'),11);
+        
+        (function () {
+
+            var selector = '[data-rangeSlider]',
+                elements = document.querySelectorAll(selector);
+
+            // Example functionality to demonstrate programmatic value changes
+            var changeValBtn = document.querySelector('#qb-slider button');
+
+            changeValBtn.addEventListener('click', function (e) {
+                var inputRange = changeValBtn.parentNode.querySelector('input[type="range"]');
+
+                inputRange.value =  $('#changeVal').val();
+                inputRange.dispatchEvent(new Event('change'));
+            }, false);
+
+            // Basic rangeSlider initialization
+            rangeSlider.create(elements, {
+                onSlide: function (value, percent, position) {
+                    $('#changeVal').val(value);
+                },
+            });
+
+        })();
+    </script>
+    <script>
+        $( document ).ready(function() {
+            
+            $(".apply-btn").click(function(){
+                $(".leftsidebar").removeClass("fixedsticky");
+            });
+            $("#closediscount").click(function(){
+                $(".leftsidebar").addClass("fixedsticky");
+            });
+            
+            $(".edit-idv").click(function(){
+                $("#qb-slider").show();
+                $(this).hide();
+                $('#defaultrange').hide();
+                $('.idv').removeClass("moovup");
+            });
+            
+            $('#makeModel').change(function(){
+               if($(this).parent().parent().find('default')){
+                   //alert('jio');
+                   $(this).parent().addClass('space-top');
+                   $('#makeModelLabel').show();
+               }else{
+                   //alert('hi');
+                   $(this).parent().removeClass('space-top');
+                   $('#makeModelLabel').hide();
+               }
+                //alert($(this).parent().parent().html());
+            });
+           
+        });    
+    </script>
+    
+    <script>
+        $( document ).ready(function() { 
+        $("#test-circle1").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:56,
+          halfCircle: 1,
+        });
+        $("#test-circle2").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:23,
+          halfCircle: 1,
+        });
+        $("#test-circle3").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:78,
+          halfCircle: 1,
+        });
+        $("#test-circle4").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:19,
+          halfCircle: 1,
+        });
+        $("#test-circle5").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle6").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle7").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle8").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle9").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle10").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+    });
+    </script>
+    
+    <script>
+        $('.modify-info').click(function(){
+            $('.top-section').css({position: 'static'});
+            $('.shrink').hide();
+        });
+        $('#reg-close').click(function(){
+            $('.top-section').css({position: 'fixed', top: '55px', zIndex: '1'});
+            $('.shrink').show();
+        });
+    </script>
+    
+    <script>
+        $(function() {
+            $('.ui.dropdown').dropdown();
+        });
+        // Passenger Cover Add or Remove 
+        $('.passenger').click(function()
+        {
+           if($('.passenger').is(':checked')){
+               $('.passenger-cover').show();
+           }
+            else{
+                $('.passenger-cover').hide();
+            }
+        });
+        
+        
+        // Accessories Add or Remove 
+        $('.accessories').click(function()
+        {
+           if($('.accessories').is(':checked')){
+               $('.accessoriesfileds').show();
+           }
+            else{
+                $('.accessoriesfileds').hide();
+            }
+        });
+        
+        $('.edit-btn').click(function(){
+            var $this = $(this);
+            $this.toggleClass('edit-btn');
+            if($this.hasClass('edit-btn')){
+                $this.text('Add');         
+            } else {
+                $this.text('Added');
+            }
+        });
+        
+        
+        //Datepicker title
+        $(document).ready(function(){
+          var selectedDate = $('#datepicker2').datepicker('getDate');
+            if(selectedDate){
+                $('.title').show();
+                alert('date');
+            }
+            else {
+                $('.title').hide();
+            }
+        });
+
+    </script>
+    
+</body>
+</html>

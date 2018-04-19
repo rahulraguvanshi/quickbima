@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Car Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/my-styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/circliful/1.0.2/js/jquery.circliful.min.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        <script>
+         $(function() {
+            $( "#datepicker, #datepicker2" ).datepicker({
+               changeMonth:true,
+               changeYear:true,
+                dateFormat: 'dd-mm-yy',
+               numberOfMonths:[1,1]
+            });
+         });
+      </script>
+	</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top navbar-default">
+		  <div class="container-fluid">
+		  <div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="index.html"><img src="images/QuickBima_logo.svg" width="180px" height="40px" alt="quickbima logo" class="img-responsive logo"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		  </div><!-- /.container-fluid --> 
+		</nav>
+		<!----------Navigation End-------------->
+		
+	<div class="container-fluid quotes-wrapper">
+        <div class="top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <div class="vehicle-details">
+                            <div class="registration pull-left">HR 26 BD 6073
+                                <a href="javascript:void(0)" class="modify-info" data-toggle="modal" data-target="#myModal">Modify Details</a>
+                            </div>
+                            <div class="car-details pull-left">
+                                <h4>Hundai i20 <span>Magna (1396 CC)</span></h4>
+                                <span class="sub-details"><p>Registration - 01-03-2010</p></span>
+                                <span class="sub-details"><p>Fuel Type - Diesel</p></span>
+                                <div class="clearfix"></div>
+                                <span class="sub-details"><p>Policy Expiry - 29-03-2017</p></span>
+                                <span class="sub-details"><p>Last NCB - 45%</p></span>
+                            </div>
+                            <!-- Modal -->
+                            <div id="myModal" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                      <button id="reg-close" type="button" class="close" data-dismiss="modal"></button>
+                                      <div class="container car-modify">
+                                          <div class="row">
+                                              <div class="col-sm-12 text-center">
+                                                  <h3>Your Car Registration Number.</h3>
+                                                <div class="registration">HR 26 BD 6073</div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-4 drop-select">
+                                                  <select class="ui search dropdown" id="makeModel">
+                                                      <option value="">Make and Model</option>
+                                                      <option value="AL">Audi Q5</option>
+                                                      <option value="AL">Maruti Swift VDI</option>
+                                                      <option value="AL">Maruti Swift Dezire</option>
+                                                      <option value="AK">Honda Amaze</option>
+                                                      <option value="AK">Honda City</option>
+                                                      <option value="AK">Honda Civic</option>
+                                                      <option value="AK">Hundai i20</option>
+                                                      <option value="AZ">Tata Indica Vista</option>
+                                                      <option value="AZ">Tata Indica Manza</option>
+                                                      <option value="AZ">Tata Indigo Cs</option>
+                                                    </select>
+                                                  <label id="makeModelLabel" style="display:none;">Make and Model</label>
+                                              </div>
+                                              <div class="col-sm-3 drop-select">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Fuel Type</option>
+                                                      <option value="petrol" selected>Petrol</option>
+                                                      <option value="deisel">Deisel</option>
+                                                   </select>
+                                                  <label>Fuel Type</label>
+                                                  <span class="error">Select fuel type.</span>
+                                              </div>
+                                              <div class="col-sm-5 drop-select">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Variant</option>
+                                                      <option value="AL" selected>VDI, 1248 CC</option>
+                                                      <option value="AL">LDI, 1248 CC</option>
+                                                      <option value="AL">ZDI, 1248 CC</option>
+                                                   </select>
+                                                  <label>Variant</label>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-4 date">
+                                                  <span class="fa fa-calendar"></span>
+                                                  <input type="text" class="form-control datepicker" id="datepicker" placeholder="Registration Date">
+                                                  <label>Registration</label>
+                                              </div>
+                                              <div class="col-sm-4 date">
+                                                  <span class="fa fa-calendar"></span>
+                                                  <input type="text" class="form-control datepicker" id="datepicker2" placeholder="Policy Expiry Date">
+                                                  <label>Policy Expiry</label>
+                                                  <span class="error">Enter policy expiry date.</span>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <select class="ui search dropdown">
+                                                      <option value="">Previous Insurer</option>
+                                                      <option value="AL">Bajaj Allianz</option>
+                                                      <option value="AL">Bharti AXA</option>
+                                                      <option value="AL">HDFC ERGO</option>
+                                                      <option value="AL">ICICI Lombard</option>
+                                                   </select>
+                                                  <span class="error">Select previous insurer.</span>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12 claimed">
+                                                <h4>Claimed in the Past Year?</h4>
+                                                  <span>
+                                                    <input name="radio1" id="claimed-no" class="checkbox" checked="" type="radio">
+                                                    <label for="claimed-no">No</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio1" id="claimed-yes" class="checkbox" type="radio">
+                                                    <label for="claimed-yes">Yes</label>
+                                                  </span>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12 claimed">
+                                                <h4>Previous No Claim Bonus (NCB)</h4>
+                                                  <span>
+                                                    <input name="radio2" id="NCB1" class="checkbox" checked="" type="radio">
+                                                    <label for="NCB1">0%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB2" class="checkbox" type="radio">
+                                                    <label for="NCB2">20%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB3" class="checkbox" type="radio">
+                                                    <label for="NCB3">25%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB4" class="checkbox" type="radio">
+                                                    <label for="NCB4">35%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB5" class="checkbox" type="radio">
+                                                    <label for="NCB5">45%</label>
+                                                  </span>
+                                                  <span>
+                                                    <input name="radio2" id="NCB6" class="checkbox" type="radio">
+                                                    <label for="NCB6">50%</label>
+                                                  </span>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-12 text-center">
+                                                  <button class="btn btn-default update" type="button">Update Details</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div><!----/Modal--->
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="idv">
+                            <!----
+                            <a href="javascript:void(0)" class="idv-edit">Edit</a>
+                            <h4>Insured Declared Value (IDV) <i class="fa fa-inr" aria-hidden="true"></i> 3,60,000</h4>
+                            <p>IDV is the maximum sum assured for your vehicle. </p>
+                            <button class="md-close">Apply</button>
+                            --->
+                            <div class="range-slider">
+                               <p>Change Your Car IDV <i class="fa fa-inr" aria-hidden="true"></i></p>
+                                <h4 class="idv-slogan">IDV is the maximum sum assured for your vehicle. </h4>
+                                <div>
+                                    <a href="javascript:void(0)" class="reset-idv" style="display:none;">Reset</a>
+                                    <a href="javascript:void(0)" class="apply-idv">Apply</a>
+
+                                   <span class="range-slider__value">360000</span>
+                                    <input class="range-slider__range" value="400000" min="100000" max="1000000" step="10000" type="range">
+                                    <h4 class="pull-left min-idv">Min. <i class="fa fa-inr" aria-hidden="true"></i> 3,60,000</h4>
+                                    <h4 class="pull-right min-idv">Max. <i class="fa fa-inr" aria-hidden="true"></i> 5,20,000</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>		
+            </div>		
+        </div><!------/Top Section----->
+        <div class="shrink"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 leftsidebar">
+                    <h4>Additional Covers</h4>
+                    <span>
+                        <input type="checkbox" id="cb1" name="cb" class="checkbox"/>
+                        <label for="cb1">Invoice Cover</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb2" name="cb" class="checkbox" checked />
+                        <label for="cb2">24x7 Roadside Assistance</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb3" name="cb" class="checkbox" />
+                        <label for="cb3">Engine Protector</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb4" name="cb" class="checkbox" />
+                        <label for="cb4">NCB Protection</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb5" name="cb" class="checkbox" />
+                        <label for="cb5">Driver Cover</label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb6" name="cb" class="checkbox passenger" />
+                        <label for="cb6">Passenger Cover (<i class="fa fa-inr" aria-hidden="true"></i>)</label>
+                        <div class="passenger-cover" style="display:none;">
+                            <select class="ui search dropdown">
+                                <option value="">Select Value</option>
+                                <option value="0">0</option>
+                                <option value="1">10,000</option>
+                                <option value="2">50,000</option>
+                                <option value="3">1,00,000</option>
+                                <option value="4">2,00,000</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="cb7" name="cb" class="checkbox accessories" />
+                        <label for="cb7">Accessories (<i class="fa fa-inr" aria-hidden="true"></i>)</label>
+                        <div class="accessoriesfileds" style="display:none;">
+                            <input type="text" class="form-control" placeholder="Electrical">
+                            <input type="text" class="form-control" placeholder="Non-electrical">
+                            <button class="btn btn-default update" type="submit"> Update </button>
+                        </div>
+                    </span>
+                    
+                    <hr>
+                    <div class="discount">
+                        <a href="javascript:void(0)" class="apply-btn" data-toggle="modal" data-target="#discount">Apply</a>
+                        <h4>Discounts</h4>
+                        <p>Save upto</p> <span>40</span><span class="logoblue">%</span> <p>on premium</p>
+                        
+                        <!-- Discount Modal -->
+                        <div id="discount" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                  <div class="container discount-table">
+                                      <div class="row">
+                                          <div class="col-lg-12 text-center">
+                                              <h3>Fill the Details To Get the Discounts </h3>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <p>Choose a Voluntary Deductible</p>
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio1" name="radio" type="radio">
+                                              <label for="radio1"><i class="fa fa-inr" aria-hidden="true"></i>0</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio1" name="radio" type="radio">
+                                              <label for="radio1"><i class="fa fa-inr" aria-hidden="true"></i> 2,500</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio2" name="radio" type="radio">
+                                              <label for="radio2"><i class="fa fa-inr" aria-hidden="true"></i> 5,000</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio3" name="radio" type="radio">
+                                              <label for="radio3"><i class="fa fa-inr" aria-hidden="true"></i> 7,500</label>  
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <input class="checkbox" id="radio4" name="radio" type="radio">
+                                              <label for="radio4"><i class="fa fa-inr" aria-hidden="true"></i> 15,000</label> 
+                                          </div>
+                                      </div>
+                                      <hr>
+                                      
+                                      <div class="row">
+                                          <div class="vehicle-col">
+                                              <div class="col-sm-12">
+                                                  <p>Is the owner a member of Auromobile Association of India?</p>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio12" name="member" type="radio" checked>
+                                                  <label for="radio12"> Yes</label>  
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio13" name="member" type="radio">
+                                                  <label for="radio13"> No</label>  
+                                              </div>
+                                          </div>
+                                          <div class="vehicle-col">
+                                              <div class="col-sm-12">
+                                                  <p>Is the vehicle fitted with ARAI approved anti-theft device?</p>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio14" name="ARAI" type="radio">
+                                                  <label for="radio14"> Yes</label>  
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <input class="checkbox" id="radio15" name="ARAI" type="radio" checked>
+                                                  <label for="radio15"> No</label>  
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <hr>
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <p>Vehicle Owned By</p>
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <input class="checkbox" id="radio5" name="Vehicle" type="radio" checked>
+                                              <label for="radio5"> Individual</label>  
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <input class="checkbox" id="radio6" name="Vehicle" type="radio">
+                                              <label for="radio6"> Organization</label>  
+                                          </div>
+                                      </div>
+                                      
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-12 text-center">
+                                            <button class="btn btn-default apply">Apply Discount</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div><!-- /Discount Modal -->
+                        
+                    </div>
+                    
+                </div><!------/Left Sidebar----->
+                <div class="col-sm-9">
+                    <div class="plans-no">
+                        <div class="col-sm-8">
+                            <span><h3 class="pull-left">Fetching quotes</h3> <div class="typing_loader"></div></span>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <div class="zerodep">
+                                <a href="javascript:void(0)" class="edit-btn">Add</a>
+                                <h4><span class="info"></span>Zero Depreciation</h4>
+                                <div class="subdetails">
+                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="no-quotes text-center">
+                        <img src="images/no-quotes.svg" alt="quotes">
+                        <h3>Sorry no quotes found!</h3>
+                        <p>We can't find the quotes as per your enterd details. Please try again.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="">T&amp;C's </a> |
+                        <a href="">Privacy Policy </a> |
+                        <a href="">Disclaimer </a> |
+                        <a href="">Site Map </a>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright © 2017 Quickbima.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>		
+    
+    <script>
+        $( document ).ready(function() {
+            $('#makeModel').change(function(){
+               if($(this).parent().parent().find('default')){
+                   //alert('jio');
+                   $(this).parent().addClass('space-top');
+                   $('#makeModelLabel').show();
+               }else{
+                   //alert('hi');
+                   $(this).parent().removeClass('space-top');
+                   $('#makeModelLabel').hide();
+               }
+                //alert($(this).parent().parent().html());
+            });
+           
+        });    
+    </script>
+    
+    <script>
+        $( document ).ready(function() { 
+        $("#test-circle1").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:56,
+          halfCircle: 1,
+        });
+        $("#test-circle2").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:23,
+          halfCircle: 1,
+        });
+        $("#test-circle3").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:78,
+          halfCircle: 1,
+        });
+        $("#test-circle4").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:19,
+          halfCircle: 1,
+        });
+        $("#test-circle5").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle6").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle7").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle8").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle9").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+        $("#test-circle10").circliful({
+          animationStep: 1,
+          foregroundBorderWidth: 5,
+          backgroundBorderWidth: 5,
+          foregroundColor: "#4fbbb2",
+          backgroundColor: "#ddd",
+          fontColor: '#3a4855',
+          percent:5,
+          halfCircle: 1,
+        });
+    });
+    </script>
+    
+    <script>
+        $('.modify-info').click(function(){
+            $('.top-section').css({position: 'static'});
+            $('.shrink').hide();
+        });
+        $('#reg-close').click(function(){
+            $('.top-section').css({position: 'fixed', top: '55px', zIndex: '1'});
+            $('.shrink').show();
+        });
+    </script>
+    
+    <script>
+          var rangeSlider = function(){
+          var slider = $('.range-slider'),
+              range = $('.range-slider__range'),
+              value = $('.range-slider__value');
+
+          slider.each(function(){
+
+            range.on('input', function(){
+              //$(this).prev(value).html(this.value);
+              $(".range-slider__value").html(this.value);
+            });
+          });
+        };
+        rangeSlider();    
+    </script> 
+    
+    <script>
+        $(function() {
+            $('.ui.dropdown').dropdown();
+        });
+        // Passenger Cover Add or Remove 
+        $('.passenger').click(function()
+        {
+           if($('.passenger').is(':checked')){
+               $('.passenger-cover').show();
+           }
+            else{
+                $('.passenger-cover').hide();
+            }
+        });
+        
+        
+        // Accessories Add or Remove 
+        $('.accessories').click(function()
+        {
+           if($('.accessories').is(':checked')){
+               $('.accessoriesfileds').show();
+           }
+            else{
+                $('.accessoriesfileds').hide();
+            }
+        });
+        
+        $('.edit-btn').click(function(){
+            var $this = $(this);
+            $this.toggleClass('edit-btn');
+            if($this.hasClass('edit-btn')){
+                $this.text('Add');         
+            } else {
+                $this.text('Added');
+            }
+        });
+        
+        
+        //Datepicker title
+        $(document).ready(function(){
+          var selectedDate = $('#datepicker2').datepicker('getDate');
+            if(selectedDate){
+                $('.title').show();
+                alert('date');
+            }
+            else {
+                $('.title').hide();
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
