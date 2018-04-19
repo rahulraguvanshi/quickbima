@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Proposal Form - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="../javascripts/bootstrap.min.js"></script>
+		<!--<script src="javascripts/bootstrap.min.js"></script>-->
+		<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/js/bootstrap-select.min.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	</head>
+	<body>
+		
+		<header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a class="logo" href="index.html"><img src="../images/QuickBima_logo.svg" alt="img"></a>
+                    </div>
+                    <div class="col-xs-6 toplinks">
+                        <a href="#">Contact</a>
+                        <a href="#">Claims</a>
+                    </div>
+                </div>
+            </div>
+		</header>
+		        
+				
+            <div class="container-fluid form-section">
+                <div class="container">
+                    <div class="row proposal-details">
+                        <div class="col-xs-4"><img src="../images/Bharti-AXA-General-Insurance-Company-Limited.svg" class="img-responsive" alt="insurer"></div>
+                        <div class="col-xs-8">
+                            <p>Sum Assured / Medical Cover</p>
+                            <span class="sumassured"><i class="fa fa-inr" aria-hidden="true"></i> 2,00,000</span>
+                            <p>Premium (Incl. Taxes)</p>
+                            <span class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 2,231</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proposal-form">
+                    <form class="form-fields">
+                    <div class="container">
+                        <div class="row">
+                            <center><h2>Checkout</h2></center>
+                            <h3><span>Proposer</span> Details</h3>
+                        </div>
+                        
+                            <div class="row">
+                                <p class="labelname">Full Name</p>
+                                <div class="col-xs-12">
+                                    <span class="success"><img src="../images/right-tick.svg"></span>
+                                    <input type="text" placeholder="Enter Full Name" class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-5"><p class="labelname">Gender</p></div>
+                                <div class="col-xs-7">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="radiobtn">
+                                                <input checked="" class="radio" name="proposerGender" id="proposerGender" type="radio">
+                                                <label for="proposerGender">Male</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="radiobtn">
+                                                <input name="proposerGender" id="proposerGender2" class="radio" type="radio">
+                                               <label for="proposerGender2">Female</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="labelname">Email Address</p>
+                                <div class="col-xs-12">
+                                    <span class="success"><img src="../images/right-tick.svg"></span>
+                                    <input type="text" placeholder="Email Address" class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="labelname">DOB</p>
+                                <div class="col-xs-12">
+                                    <div class="day">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <select>
+                                            <option>Day</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                        </select>
+                                    </div>
+                                    <div class="month">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <select>
+                                            <option>Month</option>
+                                            <option>Jan</option>
+                                            <option>Feb</option>
+                                            <option>March</option>
+                                            <option>April</option>
+                                            <option>May</option>
+                                            <option>June</option>
+                                            <option>July</option>
+                                            <option>Aug</option>
+                                            <option>Sep</option>
+                                            <option>Oct</option>
+                                            <option>Nov</option>
+                                            <option>Dec</option>
+                                        </select>
+                                    </div>
+                                    <div class="year">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <select>
+                                            <option>Year</option>
+                                            <option>1986</option>
+                                            <option>1987</option>
+                                            <option>1988</option>
+                                            <option>1989</option>
+                                            <option>1990</option>
+                                            <option>1991</option>
+                                            <option>1992</option>
+                                            <option>1993</option>
+                                            <option>1994</option>
+                                            <option>1995</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="labelname">Pancard Number</p>
+                                <div class="col-xs-12">
+                                    <span class="success"><img src="../images/right-tick.svg"></span>
+                                    <input type="text" placeholder="Pan Number (Optional)" class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="labelname">Emergency Contact Number</p>
+                                <div class="col-xs-12">
+                                    <span class="success"><img src="../images/right-tick.svg"></span>
+                                    <input type="text" placeholder="Emergency Contact Number" class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">For Care</div>
+                                <div class="col-xs-5">
+                                    <div class="radiobtn">
+                                    <input checked="" class="radio" name="care" id="care" type="radio">
+                                    <label for="care"><i class="fa fa-inr" aria-hidden="true"></i> 11,1010</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">Add No Claim Bonus Super</div>
+                                <div class="col-xs-5">
+                                    <div class="radiobtn">
+                                    <input checked="" class="radio" name="super" id="super" type="checkbox">
+                                    <label for="super"><i class="fa fa-inr" aria-hidden="true"></i> 1,101</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7">For Care with Unlimited Recharge</div>
+                                <div class="col-xs-5">
+                                    <div class="radiobtn">
+                                    <input checked="" class="radio" name="super" id="super" type="radio">
+                                    <label for="super"><i class="fa fa-inr" aria-hidden="true"></i> 11,836</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="button" tabindex="10" class="btn btn-default pull-right continue" data-loading-text="<i class='fa fa-spinner fa-pulse'></i> Fetching Details..">Continue </button>
+                                <a class="back pull-right" href="javascript:void(0);">Back</a>
+                            </div>
+                        
+                    </div>
+                        
+                    <div class="container">
+                        <div class="row">
+                            <h3><span>Insured</span> Members</h3>
+                        </div>
+
+                                <div class="row">
+                                    <p class="labelname">Full Name</p>
+                                    <div class="col-xs-12">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <input type="text" placeholder="Enter Full Name" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5"><p class="labelname">Gender</p></div>
+                                    <div class="col-xs-7">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="radiobtn">
+                                                    <input checked="" class="radio" name="proposerGender" id="proposerGender" type="radio">
+                                                    <label for="proposerGender">Male</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="radiobtn">
+                                                    <input name="proposerGender" id="proposerGender2" class="radio" type="radio">
+                                                   <label for="proposerGender2">Female</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p class="labelname">DOB</p>
+                                    <div class="col-xs-12">
+                                        <div class="day">
+                                            <span class="success"><img src="../images/right-tick.svg"></span>
+                                            <select>
+                                                <option>Day</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                                <option>13</option>
+                                                <option>14</option>
+                                                <option>15</option>
+                                            </select>
+                                        </div>
+                                        <div class="month">
+                                            <span class="success"><img src="../images/right-tick.svg"></span>
+                                            <select>
+                                                <option>Month</option>
+                                                <option>Jan</option>
+                                                <option>Feb</option>
+                                                <option>March</option>
+                                                <option>April</option>
+                                                <option>May</option>
+                                                <option>June</option>
+                                                <option>July</option>
+                                                <option>Aug</option>
+                                                <option>Sep</option>
+                                                <option>Oct</option>
+                                                <option>Nov</option>
+                                                <option>Dec</option>
+                                            </select>
+                                        </div>
+                                        <div class="year">
+                                            <span class="success"><img src="../images/right-tick.svg"></span>
+                                            <select>
+                                                <option>Year</option>
+                                                <option>1986</option>
+                                                <option>1987</option>
+                                                <option>1988</option>
+                                                <option>1989</option>
+                                                <option>1990</option>
+                                                <option>1991</option>
+                                                <option>1992</option>
+                                                <option>1993</option>
+                                                <option>1994</option>
+                                                <option>1995</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p class="labelname">Marital Status</p>
+                                    <div class="col-xs-12">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <select>
+                                            <option>Marital Status</option>
+                                            <option>Married</option>
+                                            <option>Single</option>
+                                        </select>
+                                    </div>
+                                </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <h3><span>Permanent</span> Address</h3>
+                        </div>
+
+                                <div class="row">
+                                    <p class="labelname">H.No. / Building / Street</p>
+                                    <div class="col-xs-12">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <input type="text" placeholder="H.No. / Building / Street" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p class="labelname">Area</p>
+                                    <div class="col-xs-12">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <input type="text" placeholder="Locality / Town / Village" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p class="labelname">Pincode</p>
+                                    <div class="col-xs-12">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                        <input type="text" placeholder="Pincode" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p class="labelname">City Name</p>
+                                    <div class="col-xs-12">
+                                        <span class="success"><img src="../images/right-tick.svg"></span>
+                                           <input type="text" placeholder="City" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 address">
+                                        <input checked="" class="checkbox" name="address" id="address" type="checkbox">
+                                        <label for="address">Mailing Address Same as Above </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <button type="button" tabindex="10" class="btn btn-default pull-right continue" data-loading-text="<i class='fa fa-spinner fa-pulse'></i> Fetching Details..">Continue </button>
+				                    <a class="back pull-right" href="javascript:void(0);">Back</a>
+                                </div>
+                    </div>
+                    
+                    </form>
+                    
+                    
+                </div>
+                <!------Proposal Form End----->
+			</div>
+			
+			
+    
+<script>
+    $( document ).ready(function() {
+
+        $(document).delegate('.insured-members, .adults','mouseenter',function(){
+            mouseOverActiveElement = true;
+        });
+
+        $(document).delegate('.insured-members, .adults','mouseleave',function(){
+            mouseOverActiveElement = false;
+        });
+
+        $('html').bind('click',function(){
+            if(!mouseOverActiveElement){
+                $('.adults').hide();
+            }
+        });
+
+        $('#healthCover').click(function(){
+            $('.adults').show();
+        });
+
+        $('.insureAdult').click(function(){
+            var children = $('#children').val();
+
+            if($('input[type="checkbox"]:checked').length > 0){
+                updatecover(children);
+            }else{
+                $('#healthCover').val('');
+                $('#children').val(0);
+            }
+
+
+        });
+
+        $('.btn-number').click(function(e){
+            e.preventDefault();
+
+            if($('input[type="checkbox"]:checked').length > 0){
+
+                var fieldName = $(this).attr('data-field');
+                var type      = $(this).attr('data-type');
+                var input = $("input[name='"+fieldName+"']");
+                var currentVal = parseInt(input.val());
+                if (!isNaN(currentVal)) {
+                    if(type == 'minus') {
+                        var minValue = parseInt(input.attr('min')); 
+                        if(!minValue) minValue = 0;
+                        if(currentVal > minValue) {
+                            input.val(currentVal - 1).change();
+
+                            var children = currentVal - 1;
+                            updatecover(children);
+                        } 
+                        if(parseInt(input.val()) == minValue) {
+                            $(this).attr('disabled', true);
+                        }
+
+                    } else if(type == 'plus') {
+                        var maxValue = parseInt(input.attr('max'));
+                        if(!maxValue) maxValue = 4;
+                        if(currentVal < maxValue) {
+                            input.val(currentVal + 1).change();
+
+                            var children = currentVal + 1;
+                            updatecover(children);
+                        }
+                        if(parseInt(input.val()) == maxValue) {
+                            $(this).attr('disabled', true);
+                        }
+
+                    }
+                } else {
+                    input.val(0);
+                }
+            }
+        });
+        $('.input-number').focusin(function(){
+           $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function() {
+
+            var minValue =  parseInt($(this).attr('min'));
+            var maxValue =  parseInt($(this).attr('max'));
+            if(!minValue) minValue = 0;
+            if(!maxValue) maxValue = 4;
+            var valueCurrent = parseInt($(this).val());
+
+            var name = $(this).attr('name');
+            if(valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if(valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+
+        });
+
+    });
+
+    function updatecover(children){
+        var tmpcover = '';
+        $('input[type="checkbox"]:checked').each(function() {
+            var member = $(this).val();
+            if(tmpcover == ''){
+                tmpcover = $.trim(member);
+            }else{
+                tmpcover = tmpcover+', '+$.trim(member);
+            }
+        });
+
+
+        if(children > 1){
+            var child = 'Children';
+        }else{
+            var child = 'Child';
+        }
+
+        if(children >= 1){
+            tmpcover = tmpcover+', '+children+' '+child;
+        }
+
+        $('#healthCover').val(tmpcover);
+    }
+</script>
+    
+	<script src="../mobile/js/jquery-1.js"></script>
+	<script src="../mobile/js/offcanvas.js"></script>
+	
+	</body>
+	
+</html>

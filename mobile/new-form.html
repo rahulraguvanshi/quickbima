@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		<script src="../javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+        
+		<div class="wrapper">
+            <div class="container">
+                <div class="row top-bar">
+                    <div class="col-xs-9">
+                        <a href="javascript:void(0);" class="qicon"><img src="../images/qicon.svg" alt="img"></a>
+                        <h4>Health Insurance</h4>
+                    </div>
+                    <div class="col-xs-3">
+                        
+                    </div>
+                </div><!---Topbar End--->
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="progress-bar">
+                            <div class="current-step"></div>
+                        </div>
+                    </div>    
+                </div><!---Progress End--->
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="heading-title"><span>Stay Free</span> from <br> Expensive Medical Bills</h2>
+                        <p class="title-desc">Health insurance for you and for your family. Need to know about medicalim policies. Get the right policy advice by just comparing here.</p>
+                    </div>    
+                </div>
+                <div class="row health-form">
+                    <div class="steps" id="step1">
+                    <div class="whomtoinsure">
+                        <div class="col-xs-9">
+                            <p class="title">Whom to Insure?</p>
+                            <span class="adults">
+                                <input id="adult" name="adult" class="checkbox" checked type="radio">
+                                <label for="adult">1 Adult</label>
+                            </span>
+                            <span class="adults">
+                                <input id="adults" name="adult" class="checkbox" type="radio">
+                                <label for="adults">2 Adults</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="javascript:void(0);" id="insured-members" class="continue"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                        <span class="children">
+                            <input id="child" name="child" class="checkbox childs" type="checkbox">
+                            <label for="child">Want to add children?</label>
+                        </span>
+                        <div class="childrenfileds text-center" style="display: none;">
+                            <p>Children</p>
+                            <div class="count-input space-bottom">
+                                <a class="incr-btn" data-action="decrease" href="#">
+                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                </a>
+                                <input class="quantity" type="text" name="quantity" value="0"/>
+                                <a class="incr-btn" data-action="increase" href="#">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div><!----Insured Members---->
+                    </div>
+                    <div class="steps" id="step2" style="display: none;">
+                    <div class="members-age">
+                        <div class="col-xs-9">
+                            <p class="title">Eldest Member's Age</p>
+                            <select>
+                                <option>Select Age</option>
+                                <option>18 Years</option>
+                                <option>19 Years</option>
+                                <option>20 Years</option>
+                                <option>21 Years</option>
+                                <option>22 Years</option>
+                                <option>23 Years</option>
+                                <option>24 Years</option>
+                                <option>25 Years</option>
+                                <option>26 Years</option>
+                                <option>27 Years</option>
+                                <option>28 Years</option>
+                                <option>29 Years</option>
+                                <option>30 Years</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <a href="javascript:void(0);" id="eldest-member-age" class="continue"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div><!----Insured Members---->
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    <script>
+
+        // Children Add or Remove 
+        $('.childs').click(function()
+        {
+           if($('.childs').is(':checked')){
+               $('.childrenfileds').show();
+               $('.children').hide();
+           }
+            else{
+                $('.childrenfileds').hide();
+                $('.children').show();
+            }
+        });
+        $(".incr-btn").on("click", function (e) {
+            var $button = $(this);
+            var oldValue = $button.parent().find('.quantity').val();
+            $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
+            if ($button.data('action') == "increase") {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below 1
+                if (oldValue >= 1) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                    $button.addClass('inactive');
+                }
+            }
+            $button.parent().find('.quantity').val(newVal);
+            e.preventDefault();
+        });
+        
+        $('#insured-members').click(function() {
+            $('#step1').hide('slide', { direction: 'left' }, 600);
+            $('#step2').show('slide', { direction: 'right' }, 600);
+        });
+        $('#eldest-member-age').click(function() {
+            $('#step1').show('slide', { direction: 'left' }, 600);
+            $('#step2').hide('slide', { direction: 'right' }, 600);
+        });
+        
+    </script>    
+	</body>
+	
+</html>

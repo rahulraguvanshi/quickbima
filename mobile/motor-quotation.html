@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Motor Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900' rel='stylesheet' type='text/css'>
+		<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/js/bootstrap-select.min.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+        
+		
+		<header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a class="logo" href="index.html"><img src="../images/QuickBima_logo.svg" alt="img"></a>
+                    </div>
+                    <div class="col-xs-6">
+                    </div>
+                </div>
+            </div>
+		</header>
+        
+		<div class="container-fluid quote-wrapper">
+            <div class="opt-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <a href="" class="addon" data-toggle="modal" data-target="#filterplans">Add-ons</a>
+                            <a href="" class="addon" data-toggle="modal" data-target="#discount">Discount</a>
+                            
+						<!-- Filter Plans -->
+						<div class="modal" data-easein="expandIn" id="filterplans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <form class="edit-details">
+                                  <div class="modal-header">
+                                    <a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+                                    <h4 class="modal-title" id="myModalLabel">Filter Plans</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                        <div class="sumassured">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <h5>Insured Declared Value
+                                                            <i class="fa fa-inr" aria-hidden="true"></i> <span>2,00,000</span> - 
+                                                            <i class="fa fa-inr" aria-hidden="true"></i> <span>4,60,000</span> 
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-7">
+                                                        <span class="error" style=""><img src="../images/cross-red.svg"></span>
+                                                    <input name="idv" class="form-control" autocomplete="off" tabindex="1" placeholder="IDV Value" type="text">
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <button type="button" class="btn btn-default update"> Update </button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <h5>Zero Depreciation</h5>
+                                                    <p>Do not pay anything from your pocket in case of a claim.</p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <input id="toggle-1" class="toggle" type="checkbox" />
+                                                    <label for="toggle-1"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Additional Covers </h4>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox1" class="checkbox">
+                                                        <label for="checkbox1"><h5>Invoice Cover</h5></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox2" class="checkbox">
+                                                        <label for="checkbox2"><h5>24x7 Roadside Assistance</h5></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox3" class="checkbox">
+                                                        <label for="checkbox3"><h5>Engine Protector</h5></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox4" class="checkbox">
+                                                        <label for="checkbox4"><h5>NCB Protection</h5></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox5" class="checkbox">
+                                                        <label for="checkbox5"><h5>Driver Cover</h5></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox6" class="checkbox">
+                                                        <label for="checkbox6"><h5>Passenger Cover</h5></label>
+                                                    </div>
+                                                    <select class="cover">
+                                                        <option>Select</option>
+                                                        <option>0</option>
+                                                        <option>1,000</option>
+                                                        <option>2,000</option>
+                                                        <option>3,000</option>
+                                                        <option>4,000</option>
+                                                        <option>5,000</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="addon">
+                                                        <input type="checkbox" name="heckbox" id="checkbox7" class="checkbox">
+                                                        <label for="checkbox7"><h5>Accessories <i class="fa fa-inr" aria-hidden="true"></i></h5></label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <input name="idv" class="form-control" autocomplete="off" tabindex="1" placeholder="Amount" type="text">
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <input name="idv" class="form-control" autocomplete="off" tabindex="1" placeholder="Amount" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <button class="btn btn-default pull-right accessory-update">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                  </div>
+                                  </form>
+                                </div>
+                              </div>
+                        </div>
+                        <!-- Modal discount -->
+                        <div id="discount" data-easein="expandIn" class="modal" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header discount-inner">
+                                  <a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+                                  <p class="discount-title">Fill the Details To Get the Discounts</p>
+                              </div>
+                              <div class="modal-body">
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                            <p>Choose a Voluntary Deductible</p>
+                                              <span class="success"><img src="../images/right-tick.svg"></span>
+                                              <select>
+                                                <option>Voluntary Deductible</option>
+                                                <option>No Deductible</option>
+                                                <option>2,500</option>
+                                                <option>5,000</option>
+                                                <option>7,500</option>
+                                                <option>15,000</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                            <p>Vehicle Owned By</p>
+                                              <div class="col-xs-6">
+                                                <input name="owned" id="individual" class="radio" checked="" type="radio">
+                                                <label for="individual"><h4>Individual</h4></label>
+                                              </div>
+                                              <div class="col-xs-6">
+                                                <input name="owned" id="organization" class="radio"  type="radio">
+                                                <label for="organization"><h4>Organization</h4></label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                            <p>Owner's Occupation</p>
+                                              <span class="success"><img src="../images/right-tick.svg"></span>
+                                              <select>
+                                                <option>Select Occupation</option>
+                                                <option>Defence / Miltary</option>
+                                                <option>Central / State Govt. Employee</option>
+                                                <option>Others</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                            <p>Driving Experience of the Owner</p>
+                                              <span class="success"><img src="../images/right-tick.svg"></span>
+                                              <select>
+                                                <option>No Experience</option>
+                                                <option>1 Year</option>
+                                                <option>2 Years</option>
+                                                <option>3 Years</option>
+                                                <option>4 Years</option>
+                                                <option>5 Years</option>
+                                                <option>6 Years</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                            <p>Is the owner a member of Automobile Association of India?</p>
+                                              <div class="col-xs-6">
+                                                <input name="member" id="yes" class="radio" type="radio">
+                                                <label for="yes"><h4>Yes</h4></label>
+                                              </div>
+                                              <div class="col-xs-6">
+                                                <input name="member" id="no" class="radio" checked="" type="radio">
+                                                <label for="no"><h4>No</h4></label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                            <p>Is the vehicle fitted with ARAI approved anti-theft device?</p>
+                                              <div class="col-xs-6">
+                                                <input name="arai" id="arai" class="radio" type="radio">
+                                                <label for="arai"><h4>Yes</h4></label>
+                                              </div>
+                                              <div class="col-xs-6">
+                                                <input name="arai" id="arai1" class="radio" checked="" type="radio">
+                                                <label for="arai1"><h4>No</h4></label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row discount-inner">
+                                          <div class="col-xs-12">
+                                              <a href="" class="add-discount">Add Discount</a>
+                                          </div>
+                                      </div>
+                                  
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+					
+                        </div>
+                        <div class="col-xs-5">
+                            <a href="" class="modify pull-right" data-toggle="modal" data-target="#modifydetails">Modify <span>Details</span></a>
+                            <div class="modal fade" data-easein="expandIn" id="modifydetails" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <form class="edit-details">
+                                  <div class="modal-header">
+                                    <a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+                                    <h4 class="modal-title" id="myModalLabel">Update Car Details</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Vehicle Details</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Policy Type</p></div>
+                                                <div class="col-xs-8">
+                                                    <select class="form-control">
+                                                      <option value="">Select</option>
+                                                      <option selected>Renewal</option>
+                                                      <option>Expired</option>
+                                                      <option>New</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Make Model:</p></div>
+                                                <div class="col-xs-8"><input type="text" value="Hyundai i20" class="form-control"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Varient:</p></div>
+                                                <div class="col-xs-8"><input type="text" value="Magna (1396 CC)" class="form-control"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Reg. No.:</p></div>
+                                                <div class="col-xs-8"><input type="text" value="HR-26-BD-6073" class="form-control"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Reg. Year:</p></div>
+                                                <div class="col-xs-8"><input type="text" value="2000" class="form-control"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Fuel Type:</p></div>
+                                                <div class="col-xs-8">
+                                                    <select class="form-control">
+                                                      <option value="">Select</option>
+                                                      <option selected>Petrol</option>
+                                                      <option>Diesel</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>CNG Kit:</p></div>
+                                                <div class="col-xs-8">
+                                                    <select class="form-control">
+                                                      <option value="">Select</option>
+                                                      <option>Yes</option>
+                                                      <option selected>No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12"><h4>Policy Details</h4></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Existing Insurer:</p></div>
+                                                <div class="col-xs-8">
+                                                    <select class="form-control">
+                                                      <option value="">Select</option>
+                                                      <option>HDFC</option>
+                                                      <option>Bajaj</option>
+                                                      <option selected>ICICI</option>
+                                                      <option>Iffco Tokio</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Claimed in the past year:</p></div>
+                                                <div class="col-xs-8">
+                                                    <select class="form-control">
+                                                      <option value="">Select</option>
+                                                      <option>Yes</option>
+                                                      <option selected>No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>NCB:</p></div>
+                                                <div class="col-xs-8">
+                                                    <select class="form-control">
+                                                      <option value="">Select</option>
+                                                      <option>10%</option>
+                                                      <option selected>20%</option>
+                                                      <option>30%</option>
+                                                      <option>40%</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4"><p>Previous policy expiry date</p></div>
+                                                <div class="col-xs-8">
+                                                    <input type="text" class="form-control" id="carNewPolicyDate"  placeholder="Ploicy Expiry Date" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <button type="button" class="btn btn-primary save">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a data-toggle="collapse" href="#breakup">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/Bharti-AXA-General-Insurance-Company-Limited.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <a data-toggle="collapse" href="#breakup2">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/HDFC-ERGO-General-Insurance-Co-Ltd.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup2" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo2">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree3">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <a data-toggle="collapse" href="#breakup3">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/ICICI-Lombard-General-Insurance-Co-Ltd.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup3" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo2">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree3">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <a data-toggle="collapse" href="#breakup4">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/IFFCO-Tokio-General-Insurance-Co-Ltd.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup4" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo2">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree3">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <a data-toggle="collapse" href="#breakup5">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/Reliance-General-Insurance-Co-Ltd.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup5" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo2">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree3">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <a data-toggle="collapse" href="#breakup6">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/Universal-Sompo-General-Insurance-Co-Ltd.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup6" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo2">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree3">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <a data-toggle="collapse" href="#breakup7">
+                <div class="quote">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-3">
+                            <img src="../images/Kotak-Mahindra-Old-Mutual-Life-Insurance-Limited.svg" alt="Insurer">
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>IDV</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 3,16,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <h4>Premium</h4>
+                            <h4 class="price"><i class="fa fa-inr" aria-hidden="true"></i> 4,096</h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="" class="buybima">Buy Bima</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="plan-name">Motor Insurance Plan Name</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </a>
+            <div id="breakup7" class="collapse breakup-details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Discounted Price
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Basic OD:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 3,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">NCB Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Voluntary Excess Discount:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 0</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingTwo2">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Liability
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingThree3">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="more-less glyphicon glyphicon-plus"></i>
+                                                Collapsible Group Item #3
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-xs-8">Third Party Property Damage:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> 2,505</div>
+                                                </li>
+                                                <li>
+                                                    <div class="col-xs-8">Pa Cover for Owner Driver:</div>
+                                                    <div class="col-xs-4"><i class="fa fa-inr" aria-hidden="true"></i> -1,735</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- panel-group -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        <div class="bottom-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="+91-9876543210"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        <a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="+91-9876543210"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-xs-5">
+                        <a href="#" data-toggle="popover" data-placement="top" data-content="Live Chat"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+                        
+                    </div>
+                </div>
+            </div>    
+        </div>
+            
+        </div>
+            
+		
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();   
+        });
+    </script>
+    <script>
+        function toggleIcon(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .find(".more-less")
+                .toggleClass('glyphicon-plus glyphicon-minus');
+        }
+        $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+        $('.panel-group').on('shown.bs.collapse', toggleIcon);
+    </script>
+	<script>
+        $( "#carNewPolicyDate" ).datepicker({
+           changeMonth:true,
+           changeYear:true,
+           dateFormat: 'dd-mm-yy',
+           numberOfMonths:[1,1],
+           minDate:0
+        }); 
+	</script>
+	<script>
+	// Animation to the modal
+		$(".modal").each(function(index) {
+		  $(this).on('show.bs.modal', function(e) {
+			var open = $(this).attr('data-easein');
+			if (open == 'shake') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'pulse') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'tada') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'flash') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'bounce') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'swing') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else {
+			  $('.modal-dialog').velocity('transition.' + open);
+			}
+
+		  });
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Health Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900' rel='stylesheet' type='text/css'>
+		<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a class="logo" href="index.html"><img src="../images/QuickBima_logo.svg" alt="img"></a>
+                    </div>
+                    <div class="col-xs-6 toplinks">
+                        <a href="#">Contact</a>
+                        <a href="#">Claims</a>
+                    </div>
+                </div>
+            </div>
+		</header>
+		
+        <div class="container-fluid titlebar">
+			<div class="row">
+				<div class="col-xs-7"><h3>Health <span>Insurance</span></h3></div>
+				<div class="col-xs-5">
+					<a href="#modifydetails" class="modify-details" data-toggle="modal" data-target="#modifydetails">Modify <span>Details</span></a>
+					<div class="modal" data-easein="expandIn" id="modifydetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+						<div class="modal-content">
+						<form class="edit-details">
+						  <div class="modal-header">
+							<a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+							<h4 class="modal-title" id="myModalLabel">Update Your Details</h4>
+						  </div>
+						  <div class="modal-body">
+								<div class="container">
+									<div class="row">
+										<div class="col-xs-4"><p>Full Name</p></div>
+										<div class="col-xs-8"><input type="text" value="Rahul" class="form-control"></div>
+									</div>
+									<div class="row">
+										<div class="col-xs-4"><p>Age</p></div>
+										<div class="col-xs-8">
+											<select class="form-control">
+											  <option value="">Age</option>
+											  <option>18 Years</option>
+											  <option>19 Years</option>
+											  <option>20 Years</option>
+											  <option>21 Years</option>
+											  <option>22 Years</option>
+											  <option>23 Years</option>
+											  <option>24 Years</option>
+											</select>
+											<span>Eldest Member's</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-4"><p>Pincode</p></div>
+										<div class="col-xs-8"><input type="text" value="133001" class="form-control"></div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12"><h4>Insured Members</h4></div>
+										<div class="col-xs-12">
+											<select class="form-control">>
+											  <option value="">Select</option>
+											  <option>Self</option>
+											  <option>Self, Spouse</option>
+											  <option selected>Self, Spouse, 1 Child</option>
+											  <option>Self, 1 Child</option>
+											  <option>Self, Spouse, 2 Child</option>
+											  <option>Self, 2 Child</option>
+											</select>
+										</div>
+									</div>
+								</div>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-primary save">Save changes</button>
+						  </div>
+						  </form>
+						</div>
+					  </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+		<div class="m-quotations">
+			<div class="container filter">
+				<div class="row">
+					<div class="col-xs-12">
+						<a href="#filterplans" class="filter-plans" data-toggle="modal" data-target="#filterplans">
+                            Filter Plans</a>
+                        <a href="#filterplans" class="filter-plans" data-toggle="modal" data-target="#suminsured">
+                            Sum Insured</a>
+                        <a href="#cover" class="filter-plans" data-toggle="modal" data-target="#cover">
+                            Cover</a>
+						<!-- Filter Plans -->
+						<div class="modal" data-easein="expandIn" id="filterplans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content">
+							<form class="edit-details">
+							  <div class="modal-header">
+								<a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+								<h4 class="modal-title" id="myModalLabel">Filter Plans</h4>
+							  </div>
+							  <div class="modal-body">
+									<div class="container modalheight">
+										<div class="row">
+											<div class="col-xs-6">
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox1" class="checkbox">
+													<label for="checkbox1"><h5>Maternity</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox2" class="checkbox">
+													<label for="checkbox2"><h5>Criticalillness</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox3" class="checkbox">
+													<label for="checkbox3"><h5>Co-Pay</h5></label>
+												</div>
+												<div class="addon"><h4>Room Preference</h4></div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox4" class="checkbox">
+													<label for="checkbox4"><h5>Single Room</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox5" class="checkbox">
+													<label for="checkbox5"><h5>Shared Room</h5></label>
+												</div>
+												<div class="addon"><h4>Pre-Existing</h4></div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox6" class="checkbox">
+													<label for="checkbox6"><h5>Covered after 2 years</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox7" class="checkbox">
+													<label for="checkbox7"><h5>Covered after 3 years</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox8" class="checkbox">
+													<label for="checkbox8"><h5>Covered after 4 years</h5></label>
+												</div>
+												<div class="addon"><h4>Premium</h4></div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox9" class="checkbox">
+													<label for="checkbox9"><h5>Less than 3,000</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox10" class="checkbox">
+													<label for="checkbox10"><h5>Less than 4,000</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox11" class="checkbox">
+													<label for="checkbox11"><h5>Less than 5,000</h5></label>
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<div class="addon"><h4>Insurer</h4></div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox12" class="checkbox">
+													<label for="checkbox12"><h5>L & T</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox13" class="checkbox">
+													<label for="checkbox13"><h5>Star Health Insurance</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox14" class="checkbox">
+													<label for="checkbox14"><h5>Cigna TTK</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox15" class="checkbox">
+													<label for="checkbox15"><h5>Bajaj Allianz</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox16" class="checkbox">
+													<label for="checkbox16"><h5>Apollo</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox17" class="checkbox">
+													<label for="checkbox17"><h5>Iffco-Tokio</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox18" class="checkbox">
+													<label for="checkbox18"><h5>HDFC</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox19" class="checkbox">
+													<label for="checkbox19"><h5>ICICI</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox20" class="checkbox">
+													<label for="checkbox20"><h5>Religare</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox21" class="checkbox">
+													<label for="checkbox21"><h5>Bharti AXA</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox22" class="checkbox">
+													<label for="checkbox22"><h5>Aegon</h5></label>
+												</div>
+												<div class="addon">
+													<input type="checkbox" name="heckbox" id="checkbox23" class="checkbox">
+													<label for="checkbox23"><h5>Reliance</h5></label>
+												</div>
+												
+											</div>
+										</div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <button type="button" class="btn btn-danger ">Reset All</button>
+                                            </div>
+                                        </div>
+									</div>
+							  </div>
+							  </form>
+							</div>
+						  </div>
+					</div>
+                        
+                        <div class="modal" data-easein="expandIn" id="suminsured" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content">
+							<form class="edit-details">
+							  <div class="modal-header">
+								<a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+								
+							  </div>
+							  <div class="modal-body">
+									<div class="container modalheight">
+                                        <div class="sumassured">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>Sum Insured / Total Payout</h4>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <select>
+                                                      <option value="">Sum Insured</option>
+                                                      <option>0 - 1 Lac</option>
+                                                      <option selected>2 Lac - 3 Lac</option>
+                                                      <option>4 Lac - 5 Lac</option>
+                                                      <option>6 Lac - 7 Lac</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <button type="button" class="btn btn-primary update">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+									</div>
+							  </div>
+							  </form>
+							</div>
+						  </div>
+					</div>
+                        
+                        <div class="modal" data-easein="expandIn" id="cover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content">
+							<form class="edit-details">
+							  <div class="modal-header">
+								<a href="" class="close" data-dismiss="modal"><img src="../images/cross-white.png"></a>
+								
+							  </div>
+							  <div class="modal-body">
+									<div class="container modalheight">
+                                        <div class="sumassured">
+                                            <div class="row">
+                                                <div class="col-xs-12"><h4>Insured Members</h4></div>
+                                                <div class="col-xs-12">
+                                                    <select class="form-control">>
+                                                      <option value="">Select</option>
+                                                      <option>Self</option>
+                                                      <option>Self, Spouse</option>
+                                                      <option selected>Self, Spouse, 1 Child</option>
+                                                      <option>Self, 1 Child</option>
+                                                      <option>Self, Spouse, 2 Child</option>
+                                                      <option>Self, 2 Child</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <button type="button" class="btn btn-primary update">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+									</div>
+							  </div>
+							  </form>
+							</div>
+						  </div>
+					</div>
+					
+					
+                    </div>
+				</div>
+			</div>
+			
+			<div class="container-fluid mquotes">
+				<div class="row">
+					<div class="col-xs-3"><center><img src="../images/HDFC-Standard-Life-Insurance-Co-Ltd.svg" alt="img" class="insurer"></center> </div>
+					<div class="col-xs-3">
+						<center>
+							<p class="space-top">Sum Assured</p> <p class="rsvalue"><i class="fa fa-inr" aria-hidden="true"></i> 2 Lac</p>
+						</center>
+					</div>
+					<div class="col-xs-3">
+						<center><p class="space-top">Premium</p> <p class="rsvalue"><i class="fa fa-inr" aria-hidden="true"></i>  4,286</p>
+						<p class="annual">(Annual)</p> </center>
+					</div>
+					<div class="col-xs-3"><a href="#" class="buybima">Buy Bima</a> </div>
+					<span class="planname">Smart Health Plan</span>
+				</div>
+				<div class="row details">
+					<div class="col-xs-4"><center><p>12 Cashless Hospitals</p> <p>in your area</p> </center> </div>
+					<div class="col-xs-4"><center><p>Pre-Existing</p> <p>Covered after 2 years</p></center> </div>
+					<div class="col-xs-4"><a class="more detail-toggle collapsed" data-toggle="collapse" href="#expand"> More Details</a></div>
+				</div>
+			</div>
+			<!-----Expand View---->
+			<div id="expand" class="collapse expand-view">
+				<div class="panel-group" id="accordion">
+				  <div class="panel panel-default">
+					<div class="panel-heading">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+						  Illness and Treatments Covered
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse">
+					  <div class="panel-body">
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Hospitalisation:</h5>  </div>
+							  <div class="col-xs-7"><h5>Covered as per Policy Schedule</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5> Day Care Procedures:</h5>  </div>
+							  <div class="col-xs-7"><h5>Yes</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Maternity:</h5>  </div>
+							  <div class="col-xs-7"><h5>Waiting period 48 months</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>New Born Treatment:</h5>  </div>
+							  <div class="col-xs-7"><h5>Covered</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Dental:</h5>  </div>
+							  <div class="col-xs-7"><h5>Not Covered</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+							   </div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+						  Policy Schedule
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+					  <div class="panel-body">
+						<div class="row">
+							  <div class="col-xs-5"><h5>Accident Hospitalization: </h5>  </div>
+							  <div class="col-xs-7"><h5> For 30 days</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Period Exclusions: </h5>  </div>
+							  <div class="col-xs-7"><h5> Not Covered for 2 Years</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Pre-existing Diseases: </h5>  </div>
+							  <div class="col-xs-7"><h5>Not Covered for 2 Years</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Permanent Exclusions: </h5>  </div>
+							  <div class="col-xs-7"><h5>Never Covered</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+						  Out of Pocket Expenses
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+					  <div class="panel-body">
+						<div class="row">
+							  <div class="col-xs-5"><h5>Co-Pay: </h5>  </div>
+							  <div class="col-xs-7"><h5>No Co-Pay</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Room Rent Limit: </h5>  </div>
+							  <div class="col-xs-7"><h5>No Room Rent Limit</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Disease-wise Sub-limit: </h5>  </div>
+							  <div class="col-xs-7"><h5>No Disease-wise Sub-limit</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="panel panel-default">
+					<div class="panel-heading">
+					  <h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+						  Other Benifits
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseFour" class="panel-collapse collapse">
+					  <div class="panel-body">
+						<div class="row">
+							  <div class="col-xs-5"><h5>Co-Pay: </h5>  </div>
+							  <div class="col-xs-7"><h5>No Co-Pay</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Room Rent Limit: </h5>  </div>
+							  <div class="col-xs-7"><h5>No Room Rent Limit</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-xs-5"><h5>Disease-wise Sub-limit: </h5>  </div>
+							  <div class="col-xs-7"><h5>No Disease-wise Sub-limit</h5> </div>
+								<div class="col-xs-12"><p class="well">Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+							   </div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<!-----Expand View End---->
+			
+			<div class="container-fluid mquotes">
+				<div class="row">
+					<div class="col-xs-3"><center><img src="../images/Apollo-Munich-Health-Insurance-Company-Limited.svg" alt="img" class="insurer"></center> </div>
+					<div class="col-xs-3">
+						<center>
+							<p class="space-top">Sum Assured</p> <p class="rsvalue"><i class="fa fa-inr" aria-hidden="true"></i> 2 Lac</p>
+						</center>
+					</div>
+					<div class="col-xs-3">
+						<center><p class="space-top">Premium</p> <p class="rsvalue"><i class="fa fa-inr" aria-hidden="true"></i>  4,286</p>
+						<p class="annual">(Annual)</p> </center>
+					</div>
+					<div class="col-xs-3"><a href="#" class="buybima">Buy Bima</a> </div>
+					<span class="planname">Smart Health Plan</span>
+				</div>
+				<div class="row details">
+					<div class="col-xs-4"><center><p>12 Cashless Hospitals</p> <p>in your area</p> </center> </div>
+					<div class="col-xs-4"><center><p>Pre-Existing</p> <p>Covered after 2 years</p></center> </div>
+					<div class="col-xs-4"><center><a class="more detail-toggle collapsed" data-toggle="collapse" href="#expand2"> More Details</a></center></div>
+				</div>
+			</div>
+			
+			<div class="container-fluid mquotes">
+				<div class="row">
+					<div class="col-xs-3"><center><img src="../images/Bharti-AXA-General-Insurance-Company-Limited.svg" alt="img" class="insurer"></center> </div>
+					<div class="col-xs-3">
+						<center>
+							<p class="space-top">Sum Assured</p> <p class="rsvalue"><i class="fa fa-inr" aria-hidden="true"></i> 2 Lac</p>
+						</center>
+					</div>
+					<div class="col-xs-3">
+						<center><p class="space-top">Premium</p> <p class="rsvalue"><i class="fa fa-inr" aria-hidden="true"></i>  4,286</p>
+						<p class="annual">(Annual)</p> </center>
+					</div>
+					<div class="col-xs-3"><a href="#" class="buybima">Buy Bima</a> </div>
+					<span class="planname">Smart Health Plan</span>
+				</div>
+				<div class="row details">
+					<div class="col-xs-4"><center><p>12 Cashless Hospitals</p> <p>in your area</p> </center> </div>
+					<div class="col-xs-4"><center><p>Pre-Existing</p> <p>Covered after 2 years</p></center> </div>
+					<div class="col-xs-4"><center><a class="more detail-toggle collapsed" data-toggle="collapse" href="#expand2"> More Details</a></center></div>
+				</div>
+			</div>
+			
+			
+		</div>		
+		
+        <!------
+		<div class="call-me">
+			<div class="container">
+				<div class="col-xs-4"><p>Can't Decide</p></div>
+				<div class="col-xs-8">
+						<button class="btn btn-default" type="button">Call Me</button>
+						<input type="text" class="form-control" placeholder="+91-9876543210" />
+				</div>
+			</div>
+		</div>
+		--->	
+	
+	<!------ <script src="../javascripts/wow.js"></script>
+		<script>
+			wow = new WOW(
+			  {
+				animateClass: 'animated',
+				callback:     function(box) {
+				  console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+				}
+			  }
+			);
+			wow.init();
+		</script>
+		-------->
+		
+	
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js"></script>
+	<script src="../mobile/js/jquery-1.js"></script>
+
+        
+    <script>
+        $(document).ready(function() {
+          function setHeight() {   
+            var windowHeight = $(window).innerHeight();
+            windowHeight = windowHeight - 78;
+            $('.modalheight').css('min-height', windowHeight);
+          };
+          setHeight();
+
+          $(window).resize(function() {
+            setHeight();
+          });
+        });    
+    </script>
+    <script>
+        $(document).ready(function() {
+          function setHeight() {   
+            var windowHeight = $(window).innerHeight();
+            windowHeight = windowHeight - 98;
+            $('.m-quotations').css('min-height', windowHeight);
+          };
+          setHeight();
+
+          $(window).resize(function() {
+            setHeight();
+          });
+        });    
+    </script>
+	<script>
+	// Animation to the modal
+		$(".modal").each(function(index) {
+		  $(this).on('show.bs.modal', function(e) {
+			var open = $(this).attr('data-easein');
+			if (open == 'shake') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'pulse') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'tada') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'flash') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'bounce') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'swing') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else {
+			  $('.modal-dialog').velocity('transition.' + open);
+			}
+
+		  });
+		});
+	</script>
+
+</body>
+</html>

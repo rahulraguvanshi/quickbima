@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Car Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="../javascripts/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        
+        <script>
+         $(function() {
+            $( "#datepicker, #datepicker2" ).datepicker({
+               changeMonth:true,
+               changeYear:true,
+               dateFormat: 'dd-mm-yy',
+               numberOfMonths:[1,1]
+            });
+         });
+      </script>
+        
+	</head>
+	<body>
+		
+     
+		<header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a class="logo" href="index.html"><img src="../images/QuickBima_logo.svg" alt="img"></a>
+                    </div>
+                    <div class="col-xs-6 toplinks">
+                        <a href="#">Contact</a>
+                        <a href="#">Claims</a>
+                    </div>
+                </div>
+            </div>
+		</header>
+        
+		<div class="product-forms">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center head-title">
+                        <h1>Car <span>Insurance</span></h1>
+                        <p>Buy now and get your policy in just <span>7 minutes</span>.</p>
+                        <span class="bottombar"></span>
+                    </div>
+                </div>
+                <div class="row vertical-center">
+                    <div class="col-xs-12 car-regno">
+                        <div class="registration-no">
+                            <input type="text" id="regno" class="form-control" name="regno" placeholder="CH01AB1234">
+                            <span class="error">Enter valid registration no.</span>
+                        </div>
+                        <div class="policy-type">
+                            <span>
+                                <input type="radio" id="new" name="motor" class="checkbox"/>
+                                <label for="new">New</label>
+                            </span>
+                            <span>
+                                <input type="radio" id="Renew" name="motor" class="checkbox"/>
+                                <label for="Renew">Renew</label>
+                            </span>
+                            <span>
+                                <input type="radio" id="expire" name="motor" class="checkbox"/>
+                                <label for="expire">Expired</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button type="button" class="btn" data-toggle="modal" data-target="#verifycar">Verify Details</button>
+            </div>
+        </div>
+        
+        <!-- Verify Car Details Modal -->
+            <div id="verifycar" class="modal fade" role="dialog">
+              <div class="modal-dialog form-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-body">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-xs-12 text-center">
+                                  <h2>Is your <span>Car Details</span> Correct?</h2>
+                                  <span class="bottombar"></span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12 dropselect">
+                                  <select class="ui search dropdown">
+                                    <option value="">Make and Model</option>
+                                    <option value="ab">Maruti Suzuki Swift</option>
+                                    <option value="ab">Maruti Suzuki Swift Dezire</option>
+                                    <option value="ac">Hundai i10</option>
+                                    <option value="ac">Hundai i20</option>
+                                    <option value="ac">Tata Indica Visra</option>
+                                    <option value="ad">Tata Indigo Manza</option>
+                                  </select>
+                                  <label>Make and Model</label>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6 dropselect">
+                                  <select>
+                                    <option value="">Fuel Type</option>
+                                    <option value="ab" selected>Diesel</option>
+                                    <option value="ac">Petrol</option>
+                                  </select>
+                                  <label>Fuel Type</label>
+                              </div>
+                              <div class="col-xs-6 dropselect">
+                                  <select>
+                                    <option value="">Mfg. Year</option>
+                                    <option value="ab">2010</option>
+                                    <option value="ac">2011</option>
+                                    <option value="ac">2012</option>
+                                    <option value="ac">2013</option>
+                                    <option value="ac" selected>2014</option>
+                                    <option value="ac">2015</option>
+                                    <option value="ac">2016</option>
+                                    <option value="ac">2017</option>
+                                  </select>
+                                  <label>Mfg. Year</label>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12 dropselect">
+                                  <select>
+                                    <option value="">Variant</option>
+                                    <option value="ab">1.4 Magna, 1396 CC</option>
+                                    <option value="ab" selected>New VDI, 1248 CC</option>
+                                    <option value="ab">1.4 Asta, 1396 CC</option>
+                                    <option value="ac">1.4 Active, 1396 CC</option>
+                                    <option value="ac">Hundai i20</option>
+                                    <option value="ac">Tata Indica Visra</option>
+                                    <option value="ad">Tata Indigo Manza</option>
+                                  </select>
+                                  <label>Variant</label>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12 dropselect">
+                                  <select>
+                                    <option value="">Previous Insurer</option>
+                                    <option value="ab">Bharti AXA</option>
+                                    <option value="ab">Bajaj Allianz</option>
+                                    <option value="ac">HDFC Ergo</option>
+                                    <option value="ac">ICICI Lombard</option>
+                                    <option value="ac">Reliance</option>
+                                    <option value="ad">The New India Insurance</option>
+                                  </select>
+                                  <label style="display:none;">Previous Insurer</label>
+                                  <span class="error">Select Previous Insurer</span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <div class="input-effect">
+                                    <input class="effect" type="text">
+                                    <label>Mobile</label>
+                                    <span class="focus-border"></span>
+                                      <span class="error">Enter mobile number.</span>
+                                 </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="back" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn continue" data-toggle="modal" data-target="#ncbdetails">Continue</button>
+                    </div>
+                </div>
+              </div>
+            </div><!-- Verify Car Details Modal End -->
+            
+            <!-- NCB Details Modal -->
+            <div id="ncbdetails" class="modal fade" role="dialog">
+              <div class="modal-dialog form-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-body">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-xs-12 prev-claim">
+                                  <img src="../images/prev-claimed.svg" width="100%" alt="claimed">
+                                  <h4>Claimed in Last Year?</h4>
+                                    <span>
+                                        <input checked="" id="no" name="calimed" class="checkbox" type="radio">
+                                        <label for="no">No</label>
+                                    </span>
+                                    <span>
+                                        <input id="yes" name="calimed" class="checkbox" type="radio">
+                                        <label for="yes">Yes</label>
+                                    </span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12 prev-claim">
+                                  <h4>Previous No Claim Bonus (NCB)</h4>
+                                    <span>
+                                        <input checked="" id="0" name="ncb" class="checkbox" type="radio">
+                                        <label for="0">0%</label>
+                                    </span>
+                                    <span>
+                                        <input id="20" name="ncb" class="checkbox" type="radio">
+                                        <label for="20">20%</label>
+                                    </span>
+                                    <span>
+                                        <input id="25" name="ncb" class="checkbox" type="radio">
+                                        <label for="25">25%</label>
+                                    </span>
+                                    <span>
+                                        <input id="35" name="ncb" class="checkbox" type="radio">
+                                        <label for="35">35%</label>
+                                    </span>
+                                    <span>
+                                        <input id="45" name="ncb" class="checkbox" type="radio">
+                                        <label for="45">45%</label>
+                                    </span>
+                                    <span>
+                                        <input id="50" name="ncb" class="checkbox" type="radio">
+                                        <label for="50">50%</label>
+                                    </span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="modal-footer text-center">
+                        <button type="button" class="back" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn continue" data-toggle="modal" data-target="#otpverify">View Quotes</button>
+                    </div>
+                </div>
+              </div>
+            </div><!-- NCB Details Modal End -->
+            
+            <!-- OTP Verify Modal -->
+            <div id="otpverify" class="modal fade" role="dialog">
+              <div class="modal-dialog form-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-body">
+                      <div class="container otpwindow">
+                          <div class="row">
+                              <div class="col-xs-12 text-center">
+                                  <img src="../images/otp.svg" width="100%" class="otpimg" alt="OTP">
+                                  <h3>One Time Password (OTP) sent on</h3>
+                                  <h4> <span>+91-9034008486</span> <a href="javascript:void(0)" class="edit" id="edit-number"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit</a> </h4>
+                              </div>
+                          </div>
+                          <div class="row" id="otp-digit">
+                              <div class="col-xs-12 text-center">
+                                  <div class="otpfield">
+                                      <form name="otp-number">
+                                        <input placeholder="OTP" name="name" class="digit" type="text">
+                                        <span class="error" style="display:none;">OTP doesn't match.</span>
+                                        <a href="javascript:void(0)" class="getotp">Verify OTP</a>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                          <div id="resend" class="row" style="display:none;">
+                                <div class="col-sm-12 text-center">
+                                    <h4 class="resend">Resend OTP</h4>
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                    <a href="javascript:void(0)" class="send-btn">Via SMS</a>
+                                    <a href="javascript:void(0)" class="send-btn">Via Call</a>
+                                </div>
+                          </div>
+                          <div id="updatemobile" class="row" style="display:none;">
+                            <div class="col-sm-12 text-center">
+                                <div class="input-group mobile-number">
+                                    <span class="input-group-addon">+91-</span>
+                                    <input name="Mobile" value="9034008486" maxlength="10" class="form-control" autocomplete="off" placeholder="Mobile Number" type="text">
+                                    <span class="error" style="display:none;">Enter a valid mobile.</span>
+                                </div>
+                            </div>
+                              <div class="col-sm-12 text-center">
+                                <a href="javascript:void(0)" class="getotp">Get OTP</a>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="otptimer" >
+                                    <div class="timeranimation">
+                                        <span class="sec">Seconds</span>
+                                        <div class="item">
+                                            <h2 class="timer">10</h2>
+                                            <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                                             <g>
+                                              <title>Layer 1</title>
+                                              <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="2" stroke="#39b6b5" fill="none"/>
+                                             </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          
+                      </div>
+                  
+                    </div>
+                </div>
+              </div>
+            </div><!-- OTP Verify Modal End -->
+            
+    
+        <script>
+            $('.no-scroll').on('touchmove', function (event) {
+              event.preventDefault();
+            }, false);
+        </script>
+    <script>
+        $(function() {
+            $('.ui.dropdown').dropdown();
+        });
+        
+        if(/Android/.test(navigator.appVersion)) {
+           window.addEventListener("resize", function() {
+             if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
+               document.activeElement.scrollIntoView();
+             }
+          })
+        }
+        
+        
+        $("#regno").focusin(function(){
+            $("#regno").css("margin-top", "-100px");
+        });
+        
+        $(".input-effect input").focusout(function(){
+            if($(this).val() != ""){
+                $(this).addClass("has-content");
+            }else {
+                $(this).removeClass("has-content");
+            }
+        })
+        $(".input-effect input").focusin(function(){
+            $(this).removeClass("has-content");
+        });
+        
+        $("#edit-number").click(function(){
+            $("#otp-digit").hide();
+            $("#resend").hide();
+            $("#senton").hide();
+            $("#edit-number").hide();
+            $(".mob").hide();
+            $("#updatemobile").show();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+        var time = 0; /* how long the timer runs for */
+        var initialOffset = '440';
+        var i = 10;
+        var interval = setInterval(function() {
+            $('.circle_animation').css('stroke-dashoffset', initialOffset-(i*(initialOffset/10)));
+            $('.timer').text(i);
+            if (i == time) {
+                clearInterval(interval);
+                $('.otptimer').hide();
+                $('.sms').show();
+                $('#resend').show();
+            }
+            i--;  
+        }, 1000);
+        });
+    </script>
+        
+        
+	</body>
+	
+</html>

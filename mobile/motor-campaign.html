@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
+		<title>Car Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="../javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+    
+<body>
+		
+    <div class="motor-campaign">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <img src="../images/QuickBima_logo.svg" class="logo" alt="img">
+                </div>
+            </div>
+            <div class="row enter-details">
+                <div class="col-xs-12 text-center">
+                    <h3>Enter Registration Number</h3>
+                    <p>We will fatch the car details based on your car number.</p>
+                    <div class="registration">
+                        <span class="icon-success"></span>
+                        <input name="cRegNo" class="no-plate" autocomplete="off" tabindex="1" placeholder="CH01AB1234" type="text">
+                    </div>
+                    <a href="#" data-toggle="modal" data-target="#dontknow">I don't know registration number.</a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="continue text-center" data-toggle="modal" data-target="#verify">Verify Details</a>
+        
+        <!-- Dontknow -->
+        <div id="dontknow" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                  
+                <div class="container text-center">
+                    <div class="row">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                          <!-- Indicators -->
+                          <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4"></li>
+                          </ol>
+
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner rahul" role="listbox">
+                            <div class="item">
+                                <div class="row">
+                                    <h3 class="text-uppercase">Registration City</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-center icon-newdelhi">
+                                       <input class="radio" id="radio1" name="radio" type="radio">
+                                        <label for="radio1">New Delhi</label>
+                                    </div>
+                                    <div class="col-xs-4 text-center icon-mumbai">
+                                       <input class="radio" id="radio2" name="radio" type="radio">
+                                        <label for="radio2">Mumbai</label>
+                                    </div>
+                                    <div class="col-xs-4 text-center icon-bengaluru">
+                                       <input class="radio" id="radio3" name="radio" type="radio">
+                                        <label for="radio3">Bengaluru</label>
+                                    </div>
+                                    <div class="col-xs-4 text-center icon-kolkata">
+                                       <input class="radio" id="radio4" name="radio" type="radio">
+                                        <label for="radio4">Kolkata</label>
+                                    </div>
+                                    <div class="col-xs-4 text-center icon-chennai">
+                                       <input class="radio" id="radio5" name="radio" type="radio">
+                                        <label for="radio5">Chennai</label>
+                                    </div>
+                                    <div class="col-xs-4 text-center icon-hyderabad">
+                                       <input class="radio" id="radio6" name="radio" type="radio">
+                                        <label for="radio6">Hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <select class="selectpicker" title="Select Your City" data-size="8" data-live-search="true">
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item active">
+                                <div class="row">
+                                    <h3 class="text-uppercase">Which is your car?</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car1" name="car" type="radio">
+                                            <label for="car1">Swift</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car2" name="car" type="radio">
+                                            <label for="car2">Swift Dzire</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car3" name="car" type="radio">
+                                            <label for="car3">i10</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car4" name="car" type="radio">
+                                            <label for="car4">i20</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car5" name="car" type="radio">
+                                            <label for="car5">Honda City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car6" name="car" type="radio">
+                                            <label for="car6">Amaze</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car7" name="car" type="radio">
+                                            <label for="car7">Honda City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="car8" name="car" type="radio">
+                                            <label for="car8">Amaze</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <select class="selectpicker" title="Select Your Car" data-size="8" data-live-search="true">
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                            <option>Ambala - 01</option>
+                                            <option>Karnal - 05</option>
+                                            <option>Panipat - 06</option>
+                                            <option>Delhi - 01</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    <h3 class="text-uppercase">Your Car Variant</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="fuel1" name="fuel" type="radio">
+                                            <label for="fuel1">Petrol</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="fuel2" name="fuel" type="radio">
+                                            <label for="fuel2">Diesel</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+                                        <div class="variant-box"> 
+                                            <input class="radio" id="variant1" name="variant" type="radio">
+                                            <label for="variant1">AQUA QUADRAJET, 1248 CC</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+                                        <div class="variant-box"> 
+                                            <input class="radio" id="variant2" name="variant" type="radio">
+                                            <label for="variant2">AQUA TDI, 1405 CC</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+                                        <div class="variant-box"> 
+                                            <input class="radio" id="variant3" name="variant" type="radio">
+                                            <label for="variant3">AURA (ABS) QUADRAJET, 1248 CC</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+                                        <div class="variant-box"> 
+                                            <input class="radio" id="variant4" name="variant" type="radio">
+                                            <label for="variant4">AQUA QUADRAJET, 1248 CC</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                              </div>
+                            <div class="item">
+                                <div class="row">
+                                    <h3 class="text-uppercase">Manufacturing Year</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="year1" name="year" type="radio">
+                                            <label for="year1">2000</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="year2" name="year" type="radio">
+                                            <label for="year2">2001</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="year3" name="year" type="radio">
+                                            <label for="year3">2002</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="year4" name="year" type="radio">
+                                            <label for="year4">2003</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <select class="selectpicker" title="Select Year" data-size="8" data-live-search="true">
+                                            <option value="2017">2017</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2008">2008</option>
+                                            <option value="2007">2007</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2005">2005</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2003">2003</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2001">2001</option>
+                                            <option value="2000">2000</option>
+                                            <option value="1999">1999</option>
+                                            <option value="1998">1998</option>
+                                            <option value="1997">1997</option>	
+                                        </select>
+                                    </div>
+                                </div>
+                              </div>
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-xs-12 text-center">
+                                        <h4>Previous Year Claimed</h4>
+                                      </div>
+                                  </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="claimed1" name="claimed" type="radio">
+                                            <label for="claimed1">Yes</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="claimed2" name="claimed" type="radio">
+                                            <label for="claimed2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 text-center">
+                                        <h4>No Claim Bonus</h4>
+                                      </div>
+                                  </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="ncb1" name="ncb" type="radio">
+                                            <label for="ncb1">0%</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="ncb2" name="ncb" type="radio">
+                                            <label for="ncb2">20%</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="ncb3" name="ncb" type="radio">
+                                            <label for="ncb3">30%</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="ncb4" name="ncb" type="radio">
+                                            <label for="ncb4">40%</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="ncb5" name="ncb" type="radio">
+                                            <label for="ncb5">45%</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6"> 
+                                        <div class="car-box"> 
+                                            <input class="radio" id="ncb6" name="ncb" type="radio">
+                                            <label for="ncb6">55%</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <a href="javascript:void(0);" type="button" class="btn btn-default sbmt" data-loading-text="<i class='fa fa-spinner fa-pulse'></i> Loading.....">BUY BIMA </a>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                        
+                          <a href="#" id="back" class="carousel-control" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+                            
+                          <!-- Left and right controls -->
+                          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                          </a>
+                          
+                        </div>
+                    </div>  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <!-- Verify -->
+        <div id="verify" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <a href="#" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+              </div>
+              <div class="modal-body">
+                <div class="container verifydetails">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h3>Are these detials correct?</h3>
+                            <p>We fetched the car details based on your car number. Just check if everything is alright.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h4 class="reg-no">HR26BD6073</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h4>Tata Indica Vista</h4>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h4>Aqua Quadrajet (1248 CC)</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <h4>Fuel Type - Diesel</h4>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <h4>Year - 2016</h4>
+                        </div>
+                    </div>
+                </div>
+              </div>
+                <div class="verify-btns">
+                    <a href="#" class="yes text-center" data-toggle="modal" data-target="#yes">Yes</a> 
+                    <a href="#" class="no text-center" data-toggle="modal" data-target="#no">No</a>  
+                </div>
+                
+            </div>
+
+          </div>
+        </div>
+        
+        <!-- Yes -->
+        <div id="yes" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <!---<a href="#" data-dismiss="modal"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>--->
+              </div>
+              <div class="modal-body">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <div class="registration">
+                                <span class="icon-success"></span>
+                                <input name="cRegNo" class="form-control" autocomplete="off" tabindex="1" placeholder="CH01AB1234" type="text">
+                            </div>
+                          </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h4>Previous Year Claimed</h4>
+                          </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-xs-6"> 
+                            <div class="car-box"> 
+                                <input class="radio" id="claimed" name="claimed" type="radio">
+                                <label for="claimed">i10</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6"> 
+                            <div class="car-box"> 
+                                <input class="radio" id="claimed1" name="claimed" type="radio">
+                                <label for="claimed1">i20</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h4>No Claim Bonus</h4>
+                          </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <ul class="ncb">
+                              <li>
+                                <input type="radio" name="ncb1" checked="checked"/><span></span>
+                                <label>20%</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="ncb1"/><span></span>
+                                <label>25%</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="ncb1"/><span></span>
+                                <label>35%</label>
+                              </li>
+                               <li>
+                                <input type="radio" name="ncb1"/><span></span>
+                                <label>45%</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="ncb1"/><span></span>
+                                <label>50%</label>
+                              </li>
+                               <li>
+                                <input type="radio" name="ncb1"/><span></span>
+                                <label>60%</label>
+                              </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="javascript:void(0);" type="button" class="btn btn-default sbmt" data-loading-text="<i class='fa fa-spinner fa-pulse'></i> Loading.....">BUY BIMA </a>
+                        </div>
+                    </div>
+
+                  </div>
+              </div>
+                
+            </div>
+
+          </div>
+        </div>
+        
+    </div>
+
+   
+    <script>
+        $('.carousel').carousel({
+            interval: false
+        }); 
+
+        $(document).ready(function() {
+                var $myCarousel = $('#myCarousel');
+                var $myCarouselControls = $myCarousel.find('.carousel-control');
+                var $myCarouselControlsLeft = $myCarouselControls.filter('.left');
+                var $myCarouselControlsRight = $myCarouselControls.filter('.right');
+                var $myCarouselIndicators = $myCarousel.find('.carousel-indicators li');
+                $myCarousel.carousel('pause');
+                $myCarouselControlsLeft.hide();
+                var slideCount = $myCarouselIndicators.length;
+                $myCarousel.on('slid.bs.carousel', function () {
+                  var index = $myCarouselIndicators.filter('.active').data('slide-to');
+                  if(index == 0){ // is first slide
+                    $myCarouselControlsRight.show();
+                    $myCarouselControlsLeft.hide();
+                  }else if(index == slideCount - 1){ // is last slide
+                    $myCarouselControlsLeft.show();
+                    $myCarouselControlsRight.hide();
+                  }else{ // is not first or last slide
+                    $myCarouselControls.show();
+                  }
+                });
+            });
+    </script>
+ 
+
+	</body>
+	
+</html>

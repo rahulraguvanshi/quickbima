@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Motor Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        <script src="../javascripts/modernizr.custom.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+    
+	<body class="quote-page">
+        
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a href="#" class="logo"><img src="../images/QuickBima_logo.svg" alt="Quickbima"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Nav End --> 
+      
+    <div class="container-fluid quotation-wrapper">
+		<div class="container topbar">
+			<div class="row">
+				<a class="md-trigger" data-modal="modal-1">
+					<h4>Hundai i20 <span>Magna (1396 CC)</span><span class="info"></span></h4>
+				</a>
+				<div class="md-modal md-effect-14" id="modal-1">
+					<div class="md-content">
+						<button class="md-close"></button>
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<span class="reg-no">CH01AR7418</span>
+							</div>
+						</div>
+                        <div class="row">
+							<div class="col-xs-12">
+								<select class="ui search dropdown">
+                                  <option value="">Make and Model</option>
+                                  <option value="AL">Audi Q5</option>
+                                  <option value="AL">Maruti Swift VDI</option>
+                                  <option value="AL">Maruti Swift Dezire</option>
+                                  <option value="AK">Honda Amaze</option>
+                                  <option value="AK">Honda City</option>
+                                  <option value="AK">Honda Civic</option>
+                                  <option value="AK">Hundai i20</option>
+                                  <option value="AZ">Tata Indica Vista</option>
+                                  <option value="AZ">Tata Indica Manza</option>
+                                  <option value="AZ">Tata Indigo Cs</option>
+
+                                </select>
+							</div>
+						</div>
+                        <div class="row">
+							<div class="col-xs-12">
+								<select class="ui search dropdown">
+                                  <option value="">Fuel Type</option>
+                                  <option value="AL">Petrol</option>
+                                  <option value="AL">Diesel</option>
+                                </select>
+							</div>
+						</div>
+                        <div class="row">
+							<div class="col-xs-12">
+								<select class="ui search dropdown">
+                                  <option value="">Variant</option>
+                                  <option value="AL">Magna (1396 CC)</option>
+                                  <option value="AL">VDI 1248 CC</option>
+                                  <option value="AL">LDI 1248 CC</option>
+                                  <option value="AL">ZDI 1248 CC</option>
+                                </select>
+							</div>
+						</div>
+                        <div class="row">
+							<div class="col-xs-12">
+								<select class="ui search dropdown">
+                                  <option value="">Registraion Year</option>
+                                  <option value="AL">2010</option>
+                                  <option value="AL">2011</option>
+                                  <option value="AL">2012</option>
+                                  <option value="AL">2013</option>
+                                  <option value="AL">2014</option>
+                                  <option value="AL">2015</option>
+                                  <option value="AL">2016</option>
+                                </select>
+							</div>
+						</div>
+                        <div class="row">
+							<div class="col-xs-12 text-center">
+								<button class="btn update">Update Details</button>
+							</div>
+						</div>
+					</div>
+				</div><!------Modal End----->
+			
+            </div>
+			<div class="row idv-slider">	
+				<a class="md-trigger" data-modal="modal-2">
+					<h4>Your Car IDV <i aria-hidden="true" class="fa fa-inr"></i> 3,60,000</h4>
+					<p>IDV is the maximum sum assured for your vehicle.</p>
+				</a>
+				<div class="md-modal md-effect-10" id="modal-2">
+					<div class="md-content">
+						<button class="md-close"></button>
+                        <div class="range-slider">
+                          <span class="range-slider__value">360000</span>
+                            <input class="range-slider__range" value="360000" min="100000" max="1000000" step="50000" type="range">
+                              <p class="text-center">Change Your Car IDV</p>
+                        </div>
+					</div>
+				</div><!------Modal End----->
+			</div>
+		</div>
+	   
+        <div class="container covers">
+            <div class="row">
+                <div class="col-xs-6 text-center brdr-right">
+                    <a class="md-trigger" data-modal="covers">Additional Covers</a>
+                    <div class="md-modal md-effect-14" id="covers">
+					<div class="md-content">
+						<button class="md-close"></button>
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<h3>Additional Covers</h3>
+							</div>
+						</div>
+                        <div class="row text-left">
+							<div class="col-xs-6">
+								<p>Zero Depriciation</p>
+							</div>
+                            <div class="col-xs-6">
+                                <input id="toggle-1" class="toggle" type="checkbox">
+                                <label for="toggle-1"></label>
+                            </div>
+						</div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="checkbox" id="radio1" name="radio" type="checkbox">
+                                <label for="radio1">Invoice Cover</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="checkbox" id="radio2" name="radio" type="checkbox">
+                                <label for="radio2">24x7 Roadside Assistance</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="checkbox" id="radio3" name="radio" type="checkbox">
+                                <label for="radio3">Engine Protector</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="checkbox" id="radio4" name="radio" type="checkbox">
+                                <label for="radio4">NCB Protection</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="checkbox" id="radio5" name="radio" type="checkbox">
+                                <label for="radio5">Driver Cover</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+							<div class="col-xs-6 text-left">
+                                <p>Passenger Cover</p>
+                            </div>
+							<div class="col-xs-6">
+								<select class="ui search dropdown">
+                                  <option value="">Select Value</option>
+                                  <option value="AL">50,000</option>
+                                  <option value="AL">60,000</option>
+                                  <option value="AL">70,000</option>
+                                  <option value="AL">80,000</option>
+                                  <option value="AL">90,000</option>
+                                  <option value="AL">1,00,000</option>
+                                </select>
+							</div>
+						</div>
+                        <div class="row">
+							<div class="col-xs-12 text-left">
+                                <p>Accessories Amount</p>
+                            </div>
+							<div class="col-xs-6">
+								<input name="idv" class="form-control" autocomplete="off" placeholder="Electrical" type="text">
+							</div>
+                            <div class="col-xs-6">
+								<input name="idv" class="form-control" autocomplete="off" placeholder="Non-Electrical" type="text">
+							</div>
+						</div>
+                       <div class="row">
+							<div class="col-xs-12 text-center">
+								<button class="btn update">Update Details</button>
+							</div>
+						</div>
+					</div>
+				</div><!------Modal End----->
+			
+                </div>
+                <div class="col-xs-6 text-center">
+                    <a class="md-trigger" data-modal="discount">Discount</a>
+                    <div class="md-modal md-effect-14" id="discount">
+					<div class="md-content">
+						<button class="md-close"></button>
+						<div class="row">
+							<div class="col-xs-12 text-center">
+								<h3>Discounts </h3>
+							</div>
+						</div>
+                        <div class="row">
+								<p>Choose a Voluntary Deductible</p>
+                            <div class="col-xs-12">
+                                <select class="ui search dropdown">
+                                  <option value="">Select Deductible</option>
+                                  <option value="">No Deductible</option>
+                                  <option value="AL">2,500</option>
+                                  <option value="AL">5,000</option>
+                                  <option value="AL">7,500</option>
+                                  <option value="AL">15,000</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="row">
+                            <p>Vehicle Owned By</p>
+                            <div class="col-xs-6">
+                                <input class="checkbox" id="radio6" name="radio" type="radio">
+                                <label for="radio6">Individual</label>  
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="checkbox" id="radio7" name="radio" type="radio">
+                                <label for="radio7">Organization</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+								<p>Driver Experience of the Owner</p>
+                            <div class="col-xs-12">
+                                <select class="ui search dropdown">
+                                  <option value="">Select Experience</option>
+                                  <option value="">No Experience</option>
+                                  <option value="AL">Upto 1 Year</option>
+                                  <option value="AL">1 to 2 Years</option>
+                                  <option value="AL">2 to 3 Years</option>
+                                  <option value="AL">3 to 4 Years</option>
+                                  <option value="AL">4 to 5 Years</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="row">
+                            <p>Is the owner a member of Auromobile Association of India?</p>
+                            <div class="col-xs-6">
+                                <input class="checkbox" id="radio8" name="radio1" type="radio">
+                                <label for="radio8">Yes</label>  
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="checkbox" id="radio9" name="radio1" type="radio">
+                                <label for="radio9">No</label>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p>Is the vehicle fitted with ARAI approved anti-theft device?</p>
+                            <div class="col-xs-6">
+                                <input class="checkbox" id="radio10" name="radio2" type="radio">
+                                <label for="radio10">Yes</label>  
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="checkbox" id="radio11" name="radio2" type="radio">
+                                <label for="radio11">No</label>  
+                            </div>
+                        </div>
+
+                       <div class="row">
+							<div class="col-xs-12 text-center">
+								<button class="btn update">Update Details</button>
+							</div>
+						</div>
+					</div>
+				</div><!------Modal End----->
+			
+                </div>
+            </div>
+        </div>
+		
+        <div class="container quote">
+            <a class="md-trigger" data-modal="quote1">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="../images/Bharti-AXA-General-Insurance-Company-Limited.svg" class="img-responsive" alt="insurer">
+                    </div>
+                    <div class="col-xs-5 features">
+                        <div class="feature-points">
+                            <p>- PA Owner Cover: <span>Yes</span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <h3><i aria-hidden="true" class="fa fa-inr"></i> 12,356</h3>
+                        <a href="#" class="buybima">Buy Bima</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>IDV <span><i aria-hidden="true" class="fa fa-inr"></i> 4,06,389</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="md-modal md-effect-14" id="quote1">
+			<div class="md-content">
+				<button class="md-close"></button>
+				<h3 class="text-center">Premium Breakup</h3>
+				<div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Basic Covers</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Basic OD:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 3,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>NCB Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+                <div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Liability</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Third Party Property Damage:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 2,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>PA Cover for Owner Driver:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+			</div>
+		</div>
+		
+        <div class="container quote">
+            <a class="md-trigger" data-modal="quote2">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="../images/HDFC-ERGO-General-Insurance-Co-Ltd.svg" class="img-responsive" alt="insurer">
+                    </div>
+                    <div class="col-xs-5 features">
+                        <div class="feature-points">
+                            <p>- PA Owner Cover: <span>Yes</span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <h3><i aria-hidden="true" class="fa fa-inr"></i> 10,942</h3>
+                        <a href="#" class="buybima">Buy Bima</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>IDV <span><i aria-hidden="true" class="fa fa-inr"></i> 4,06,389</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="md-modal md-effect-14" id="quote2">
+			<div class="md-content">
+				<button class="md-close"></button>
+				<h3 class="text-center">Premium Breakup</h3>
+				<div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Basic Covers</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Basic OD:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 3,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>NCB Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+                <div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Liability</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Third Party Property Damage:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 2,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>PA Cover for Owner Driver:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+			</div>
+		</div>
+		
+        <div class="container quote">
+            <a class="md-trigger" data-modal="quote3">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="../images/Universal-Sompo-General-Insurance-Co-Ltd.svg" class="img-responsive" alt="insurer">
+                    </div>
+                    <div class="col-xs-5 features">
+                        <div class="feature-points">
+                            <p>- PA Owner Cover: <span>Yes</span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <h3><i aria-hidden="true" class="fa fa-inr"></i> 12,356</h3>
+                        <a href="#" class="buybima">Buy Bima</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>IDV <span><i aria-hidden="true" class="fa fa-inr"></i> 4,06,389</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="md-modal md-effect-14" id="quote3">
+			<div class="md-content">
+				<button class="md-close"></button>
+				<h3 class="text-center">Premium Breakup</h3>
+				<div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Basic Covers</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Basic OD:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 3,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>NCB Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+                <div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Liability</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Third Party Property Damage:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 2,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>PA Cover for Owner Driver:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+			</div>
+		</div>
+		
+        <div class="container quote">
+            <a class="md-trigger" data-modal="quote4">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="../images/Tata-AIG-General-Insurance-Co-Ltd.svg" class="img-responsive" alt="insurer">
+                    </div>
+                    <div class="col-xs-5 features">
+                        <div class="feature-points">
+                            <p>- PA Owner Cover: <span>Yes</span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <h3><i aria-hidden="true" class="fa fa-inr"></i> 11,356</h3>
+                        <a href="#" class="buybima">Buy Bima</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>IDV <span><i aria-hidden="true" class="fa fa-inr"></i> 4,06,389</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="md-modal md-effect-14" id="quote4">
+			<div class="md-content">
+				<button class="md-close"></button>
+				<h3 class="text-center">Premium Breakup</h3>
+				<div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Basic Covers</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Basic OD:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 3,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>NCB Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+                <div class="row">
+					<div class="col-xs-12"><p class="title text-uppercase">Liability</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Third Party Property Damage:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 2,505</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>PA Cover for Owner Driver:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> -1,276</p></div>
+				</div>
+                <div class="row">
+					<div class="col-xs-8"><p>Voluntary Excess Discount:</p></div>
+					<div class="col-xs-4"><p><i aria-hidden="true" class="fa fa-inr"></i> 0</p></div>
+				</div>
+                
+			</div>
+		</div>
+		
+        <div class="container footer-section">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h4>Talk to Experts</h4>
+                    <p>If you need help to choose a plan.</p>
+                    <h3>1800-123-2230</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center copyright">
+                    <p>Copyright © 2017 Quickbima.com. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="md-overlay"></div><!-- the overlay element -->  
+
+		
+    <script src="../javascripts/classie.js"></script>
+    <script src="../javascripts/modalEffects.js"></script>
+
+      <script>
+        $(function() {
+            $('.ui.dropdown').dropdown();
+        });
+      </script>
+        
+  
+    <script>
+          var rangeSlider = function(){
+          var slider = $('.range-slider'),
+              range = $('.range-slider__range'),
+              value = $('.range-slider__value');
+
+          slider.each(function(){
+
+            range.on('input', function(){
+              //$(this).prev(value).html(this.value);
+              $(".range-slider__value").html(this.value);
+            });
+          });
+        };
+        rangeSlider();    
+    </script>    
+        
+	<script>
+        $( "#carNewPolicyDate, #PolicyExpiryDate" ).datepicker({
+           changeMonth:true,
+           changeYear:true,
+           dateFormat: 'dd-mm-yy',
+           numberOfMonths:[1,1],
+           minDate:0
+        }); 
+    </script>
+
+        
+        
+</body>
+</html>

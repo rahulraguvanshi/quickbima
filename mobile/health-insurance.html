@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Health Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mobile.css">
+		<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a class="logo" href="index.html"><img src="../images/QuickBima_logo.svg" alt="img"></a>
+                    </div>
+                    <div class="col-xs-6 toplinks">
+                        <a href="#">Contact</a>
+                        <a href="#">Claims</a>
+                    </div>
+                </div>
+            </div>
+		</header>
+        
+        <div class="container-fluid form-section themebg">
+				<center>
+					<h2>Health <span class="bl-color">Insurance</span></h2>
+					<p>Compare Premium Rates and Save Upto 40%</p>
+				</center>
+            <div class="container">
+				<form class="quote-form">
+                    <div class="row">
+						<div class="col-xs-12 insured-members">
+							<input type="text" class="form-control members" id="healthCover" readonly="readonly" placeholder="Whom to Insure?">
+											
+                            <div class="adults" style="display:none;">
+                                <div class="row">
+                                    <div class="col-xs-6 self">
+                                        <input type="checkbox" class="insureAdult" name="self" value="Self" id="self"/><label for="self">Self</label> 
+                                    </div>
+                                    <div class="col-xs-6 spouse">
+                                        <input type="checkbox" name="spouse" class="insureAdult" value="Spouse" id="spouse"/><label for="spouse">Spouse</label> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6"><p class="child">Children</p></div>
+                                    <div class="col-xs-6">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"><span class="glyphicon glyphicon-minus"></span></button>
+                                            </span>
+                                            <input type="text" id="children" name="quant[1]" class="form-control input-number" readonly="readonly" value="0">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"> <span class="glyphicon glyphicon-plus"></span></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+						</div>
+					</div>
+					<div class="row">
+                        <div class="col-xs-6">
+                            <span class="error"><img src="../images/right-tick.svg" alt="img"></span>
+                            <select>
+                                <option>Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <span class="subtitle">Eldest Member's</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="error"><img src="../images/cross-red.svg" alt="img"></span>
+                            <select>
+                                <option>Age</option>
+                                <option>18 Years</option>
+                                <option>19 Years</option>
+                                <option>20 Years</option>
+                                <option>21 Years</option>
+                                <option>22 Years</option>
+                                <option>23 Years</option>
+                                <option>24 Years</option>
+                                <option>25 Years</option>
+                                <option>26 Years</option>
+                                <option>27 Years</option>
+                                <option>28 Years</option>
+                                <option>29 Years</option>
+                                <option>30 Years</option>
+                            </select>
+                            <span class="subtitle">Eldest Member's</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="error"><img src="../images/cross-red.svg" alt="img"></span>
+                            <input type="number" placeholder="Pincode" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="number" placeholder="Mobile Number" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" placeholder="Email Address (optional)" class="form-control">
+                        </div>
+                    </div>
+					<div class="row">
+						<div class="col-xs-12">
+							<a href="#modifydetails" class="sbmt" data-toggle="modal" data-target="#modifydetails">BUY BIMA</a>
+						</div>
+					</div>
+				</form>
+                <div class="modal" data-easein="expandIn" id="modifydetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+						<div class="modal-content">
+						<form class="quote-fields">
+						  <div class="modal-body">
+								<div class="container otp-msg">
+                                    <form>
+									<div class="row">
+                                        <div class="col-xs-12">
+                                            <center>
+                                                <h1>One Time Password (OTP)</h1>
+                                                <p>Successfully sent the One Time Password to your mobile number</p>
+                                                <span class="mobilenumber">+91-9034008486 <a href="" class="editbtn"><img src="../images/editicon.svg" alt="icon">Edit</a> </span>
+                                            </center>
+                                        </div>
+									</div>
+                                    <div class="row">
+                                        <div class="col-xs-12 otpfield">
+                                            <span class="success"><img src="../images/right-tick.svg"></span>
+                                            <input type="number" placeholder="Enter OTP Number" class="form-control">
+                                            <button type="button" class="btn btn-default otpbtn">Verify OTP </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="otptimer" >
+                                                <div class="timeranimation">
+                                                    <span class="sec">Seconds</span>
+                                                    <div class="item">
+                                                        <h5 class="timer">10</h5>
+                                                        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                                                         <g>
+                                                          <title>Layer 1</title>
+                                                          <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="2" stroke="#39b6b5" fill="none"/>
+                                                         </g>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sms" style="display:none;">
+                                                <h3>Didn’t receive OTP? <span>Resend....</span></h3>
+                                                <div class="row">
+                                                    <div class="col-xs-6"><a href="">Via SMS</a></div>
+                                                    <div class="col-xs-6"><a href="">Via Call</a></div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    </form>
+								</div>
+						  </div>
+						  </form>
+						</div>
+					  </div>
+					</div>
+			
+            </div>
+        </div>
+			
+        <div class="container">
+            <div class="row health-insurance">
+                <div class="col-xs-7">
+                    <h2><strong>Sed Ut Perspiciatis </strong> unde omnis iste natus error <span>sit voluptatem</span> accusantium</h2>
+                </div>
+                <div class="col-xs-5">
+                    <img src="../images/health-insurance-mob.svg" alt="img">
+                </div>
+            </div>
+        </div>
+        
+        <div class="insurance-cover">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <center><h2>Top Features</h2></center>
+                    </div>
+                    <div class="col-xs-6">
+                        <center>
+                            <img src="../images/cashless-hospital.svg" alt="img" class="img-responsive">
+                            <h4>Cashless Hospitals </h4>
+                            <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        </center>
+                    </div>
+                    <div class="col-xs-6">
+                        <center>
+                            <img src="../images/hospitalization.svg" alt="img" class="img-responsive">
+                            <h4>Pre &amp; Post Hospitilazion</h4>
+                            <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <center>
+                            <img src="../images/special-covers.svg" alt="img" class="img-responsive">
+                            <h4>Special Covers </h4>
+                            <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        </center>
+                    </div>
+                    <div class="col-xs-6">
+                        <center>
+                            <img src="../images/room-reference.svg" alt="img" class="img-responsive">
+                            <h4>Room Preference</h4>
+                            <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="../javascripts/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js"></script>
+	<script src="js/jquery.plugin.js"></script>
+	<script src="js/jquery.datepick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/js/bootstrap-select.min.js"></script>    
+    
+        
+    <script>
+        $(document).ready(function () {
+        var time = 0; /* how long the timer runs for */
+        var initialOffset = '440';
+        var i = 10;
+        var interval = setInterval(function() {
+            $('.circle_animation').css('stroke-dashoffset', initialOffset-(i*(initialOffset/10)));
+            $('h5').text(i);
+            if (i == time) {
+                clearInterval(interval);
+                $('.otptimer').hide();
+                $('.sms').show();
+            }
+            i--;  
+        }, 1000);
+        });
+    </script>
+        
+<script>
+    $( document ).ready(function() {
+
+        $(document).delegate('.insured-members, .adults','mouseenter',function(){
+            mouseOverActiveElement = true;
+        });
+
+        $(document).delegate('.insured-members, .adults','mouseleave',function(){
+            mouseOverActiveElement = false;
+        });
+
+        $('html').bind('click',function(){
+            if(!mouseOverActiveElement){
+                $('.adults').slideUp(300);
+            }
+        });
+
+        $('#healthCover').click(function(){	
+            if($('.adults').is(':visible')){
+                    $('.adults').slideUp(300);
+                }else{
+                  $('.adults').slideDown(300);
+                }
+        });
+
+        $('.insureAdult').click(function(){
+            var children = $('#children').val();
+
+            if($('input[type="checkbox"]:checked').length > 0){
+                updatecover(children);
+            }else{
+                $('#healthCover').val('');
+                $('#children').val(0);
+            }
+
+
+        });
+
+        $('.btn-number').click(function(e){
+            e.preventDefault();
+
+            if($('input[type="checkbox"]:checked').length > 0){
+
+                var fieldName = $(this).attr('data-field');
+                var type      = $(this).attr('data-type');
+                var input = $("input[name='"+fieldName+"']");
+                var currentVal = parseInt(input.val());
+                if (!isNaN(currentVal)) {
+                    if(type == 'minus') {
+                        var minValue = parseInt(input.attr('min')); 
+                        if(!minValue) minValue = 0;
+                        if(currentVal > minValue) {
+                            input.val(currentVal - 1).change();
+
+                            var children = currentVal - 1;
+                            updatecover(children);
+                        } 
+                        if(parseInt(input.val()) == minValue) {
+                            $(this).attr('disabled', true);
+                        }
+
+                    } else if(type == 'plus') {
+                        var maxValue = parseInt(input.attr('max'));
+                        if(!maxValue) maxValue = 4;
+                        if(currentVal < maxValue) {
+                            input.val(currentVal + 1).change();
+
+                            var children = currentVal + 1;
+                            updatecover(children);
+                        }
+                        if(parseInt(input.val()) == maxValue) {
+                            $(this).attr('disabled', true);
+                        }
+
+                    }
+                } else {
+                    input.val(0);
+                }
+            }
+        });
+        $('.input-number').focusin(function(){
+           $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function() {
+
+            var minValue =  parseInt($(this).attr('min'));
+            var maxValue =  parseInt($(this).attr('max'));
+            if(!minValue) minValue = 0;
+            if(!maxValue) maxValue = 4;
+            var valueCurrent = parseInt($(this).val());
+
+            var name = $(this).attr('name');
+            if(valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if(valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+
+        });
+
+    });
+
+    function updatecover(children){
+        var tmpcover = '';
+        $('input[type="checkbox"]:checked').each(function() {
+            var member = $(this).val();
+            if(tmpcover == ''){
+                tmpcover = $.trim(member);
+            }else{
+                tmpcover = tmpcover+', '+$.trim(member);
+            }
+        });
+
+
+        if(children > 1){
+            var child = 'Children';
+        }else{
+            var child = 'Child';
+        }
+
+        if(children >= 1){
+            tmpcover = tmpcover+', '+children+' '+child;
+        }
+
+        $('#healthCover').val(tmpcover);
+    }
+</script>
+    <script>
+	// Animation to the modal
+		$(".modal").each(function(index) {
+		  $(this).on('show.bs.modal', function(e) {
+			var open = $(this).attr('data-easein');
+			if (open == 'shake') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'pulse') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'tada') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'flash') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'bounce') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else if (open == 'swing') {
+			  $('.modal-dialog').velocity('callout.' + open);
+			} else {
+			  $('.modal-dialog').velocity('transition.' + open);
+			}
+
+		  });
+		});
+	</script>
+    
+    
+	</body>
+	
+</html>
