@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Health Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/proposals.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+       <script>
+         $(function() {
+            $( "#datepicker, #datepicker2" ).datepicker({
+               changeMonth:true,
+               changeYear:true,
+                dateFormat: 'dd-mm-yy',
+               numberOfMonths:[1,1]
+            });
+         });
+      </script>
+	</head>
+	<body>
+		<nav class="navbar navbar-fixed-top navbar-default">
+		  <div class="container-fluid">
+		  <div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="index.html"><img src="images/QuickBima_logo.svg" width="180px" height="40px" alt="quickbima logo" class="img-responsive logo"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <h3 class="prevtitle text-right"><span>Just make sure</span>, all details are correct.</h3>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		  </div><!-- /.container-fluid --> 
+		</nav>
+		<!----------Navigation End-------------->
+        
+        
+        <div class="container-fluid proposal-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3">
+                        <div class="policy-details">
+                            <img src="images/Bharti-AXA-General-Insurance-Company-Limited.svg" class="insurer" alt="Insurer">
+                            <p class="plan-name">Plan - Kotak Smart Drive Policy</p>
+                            <img src="images/health-proposal.svg" class="health" alt="Health">
+                            <h4>Self, Spouse &amp; 2 Children</h4>
+                            <p>Cover Type - Family Floater </p>
+                            <p>Policy Term - 1 Year </p>
+                            
+                            <h4>Sum Insured</h4>
+                            <h3><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</h3>
+                            <br>
+                            <h4>Premium <span>(Incl. Taxes)</span></h4>
+                            <h2><i class="fa fa-inr" aria-hidden="true"></i> 10,763</h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-lg-9">
+                        <div class="container checkout-details">
+                            <section class="preview">
+                                <h4 class="text-uppercase">Propser Details</h4>
+                                <a href="javascript:void(0)" class="edit" id="owneredit">Edit</a>
+                                <a href="javascript:void(0)" style="display:none;" id="ownerupdate" class="update">Update</a>
+                                <div class="preview-details" id="owner-update">
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Full Name : <span>Mr. Rahul Raghuvanshi</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Date of Birth : <span>07-01-1986</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Marital Status : <span>Married</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Email : <span>rahulraguvanshi@gmail.com</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Mobile : <span>9034008486</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>PAN : <span>-</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Emegency No. : <span>9876543210</span></p>
+                                    </div>
+                                </div>
+                                <div class="preview-details prevedit" id="owner-edit" style="display:none;">
+                                    <div class="row ownerdetails">
+                                    <div class="col-md-6 namedetails">
+                                        <select class="ui search dropdown">
+                                              <option value="">Title</option>
+                                              <option selected value="mr">Mr.</option>
+                                              <option value="mrs">Mrs.</option>
+                                              <option value="ms">Miss.</option>
+                                         </select>
+                                        <div class="input-effect">
+                                            <input value="Rahul Raghuvanshi" class="effect text-capitalize has-content" type="text">
+                                            <label>Full Name as per RC copy</label>
+                                            <span class="focus-border"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-effect dob">
+                                            <input type="text" class="effect datepicker" id="datepicker">
+                                            <label>Date of Birth</label>
+                                            <span class="focus-border"></span>
+                                            <span class="fa-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row company-ownership" style="display:none;">
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect" type="text">
+                                            <label>Company Name</label>
+                                            <span class="focus-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect has-error text-lowercase" type="text">
+                                            <label>Email Address</label>
+                                            <span class="focus-border"></span>
+                                            <span class="error">Enter a valid email id.</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 marital-status">
+                                        <input id="married" name="married" class="checkbox" type="checkbox">
+                                        <label for="married">Are you married?</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input id="regestered" name="regestered" class="checkbox regestered" type="checkbox">
+                                        <label for="regestered">This car is regestered on company's name.</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect text-capitalize" type="text">
+                                            <label>Nominee Full Name</label>
+                                            <span class="focus-border"></span>
+                                            <span class="error">Enter full name here.</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-effect dob">
+                                            <input type="text" class="effect datepicker" id="datepicker">
+                                            <label>Date of Birth</label>
+                                            <span class="focus-border"></span>
+                                            <span class="fa-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 uidropmenu">
+                                        <select class="ui search dropdown">
+                                              <option value="">Relationship with Nominee</option>
+                                              <option value="mr">Father</option>
+                                              <option value="mrs">Mother</option>
+                                              <option value="ms">Spouse</option>
+                                              <option value="ms">Daughter</option>
+                                              <option value="ms">Son</option>
+                                         </select>
+                                        <span class="error">Select relationship.</span>
+                                    </div>
+                                </div>
+                                </div>
+                            
+                            </section><!---/Owner Details--->
+                            <section class="preview">
+                                <h4 class="text-uppercase">Self Details</h4>
+                                <a href="javascript:void(0)" class="edit" id="coverageedit">Edit</a>
+                                <a href="javascript:void(0)" style="display:none;" id="coverageupdate" class="update">Update</a>
+                                <div class="preview-details" id="coverage-update">
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Full Name : <span>Mr. Rahul Raghuvanshi</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Date of Birth : <span>07-01-1986</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Marital Status : <span>Married</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Height : <span>5 Feet 8 Inch</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Weight : <span>65 Kg</span></p>
+                                    </div>
+                                </div>
+                            </section><!---/Self Details--->
+                            <section class="preview">
+                                <h4 class="text-uppercase">Spouse Details</h4>
+                                <a href="javascript:void(0)" class="edit" id="coverageedit">Edit</a>
+                                <a href="javascript:void(0)" style="display:none;" id="coverageupdate" class="update">Update</a>
+                                <div class="preview-details" id="coverage-update">
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Full Name : <span>Mrs. Spouse Name</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Date of Birth : <span>07-01-1988</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Height : <span>5 Feet 3 Inch</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Weight : <span>52 Kg</span></p>
+                                    </div>
+                                </div>
+                            </section><!---/Self Details--->
+                            <section class="preview">
+                                <h4 class="text-uppercase">Nominee Details</h4>
+                                <a href="javascript:void(0)" class="edit" id="coverageedit">Edit</a>
+                                <a href="javascript:void(0)" style="display:none;" id="coverageupdate" class="update">Update</a>
+                                <div class="preview-details" id="coverage-update">
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Full Name : <span>Mrs. Nominee Name</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Date of Birth : <span>07-01-1986</span></p>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <p>Relationship with Insured : <span>Spouse</span></p>
+                                    </div>
+                                </div>
+                            </section><!---/Self Details--->
+                            <section class="preview">
+                                <h4 class="text-uppercase">Address</h4>
+                                <a href="javascript:void(0)" class="edit">Edit</a>
+                                <div class="preview-details">
+                                    <div class="col-sm-12 col-lg-12">
+                                        <p><span>Permanent Address: #16-17, Shiv Partap Nagar, Ambala Cantt., Haryana - 133001</span></p>
+                                        <p><span>Mailing Address: SCO-220, Sector - 12, Karnal, Haryana - 132001</span></p>
+                                        <p><i class="fa fa-check-square-o" aria-hidden="true"></i> Mailing address is same as permanent address.</p>
+                                    </div>
+                                </div>
+                                <div class="preview-details prevedit" style="display:none;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4><i class="fa fa-address-card-o" aria-hidden="true"></i> RTO / Permanent</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-effect pincode">
+                                            <input class="effect" type="text">
+                                            <label>Pincode</label>
+                                            <span class="focus-border"></span>
+                                            <span class="fa-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="state">Karnal, Haryana</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect text-capitalize" type="text">
+                                            <label>H.No. / Building</label>
+                                            <span class="focus-border"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect" type="text">
+                                            <label>Area  / Town / Loaclity</label>
+                                            <span class="focus-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input id="mailing" name="mailing" class="checkbox" type="checkbox">
+                                        <label for="mailing">Mailing / Correspondence Address is same as Permanent Address.</label>
+                                    </div>
+                                </div>
+                                <div class="row bankdetails">
+                                    <div class="col-md-12">
+                                        <h4><i class="fa fa-address-card" aria-hidden="true"></i> Mailing / Correspondence</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-effect pincode">
+                                            <input class="effect" type="text">
+                                            <label>Pincode</label>
+                                            <span class="focus-border"></span>
+                                            <span class="fa-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="state">Ambala, Haryana</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect text-capitalize" type="text">
+                                            <label>H.No. / Building</label>
+                                            <span class="focus-border"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-effect">
+                                            <input class="effect" type="text">
+                                            <label>Area  / Town / Loaclity</label>
+                                            <span class="focus-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                            </section><!---/Address Details--->
+                            <section class="preview">
+                                <h4 class="text-uppercase">Addon Covers</h4>
+                                <div class="preview-details" id="coverage-update">
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p>Protect your family by buying NCB-Super (Care with NCB)?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p> Protect Your Family by buying Unlimited Automatic Recharge?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p> Protect Your Family by buying Personal Accident Cover?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section><!---/Addon Covers--->
+                            <section class="preview">
+                                <h4 class="text-uppercase">Insured Member's Medical Details</h4>
+                                <div class="preview-details" id="coverage-update">
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p>Do you have pre-existing disease?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p> Has any of the new person(s) to be insured been diagnosed / hospitalized for any illness / injury during the last 48 months?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p>Has any of the new person(s) to be insured ever filed a claim with their current / previous insurer?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p>Has any proposal for Health Insurance of the new person(s) to be insured, been declined, cancelled or charged a higher premium?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-lg-10">
+                                            <p>Is any of the person(s) to be insured, already covered under any other health insurance policy of Religare Health Insurance?</p>
+                                        </div>
+                                        <div class="col-sm-3 col-lg-2 text-center">
+                                            <p><span>No</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section><!---/Addon Covers--->
+                            
+                            <section class="preview">
+                                <h4 class="text-uppercase">Payment Mode</h4>
+                                <div class="preview-details">
+                                    <div class="col-sm-4">
+                                        <input type="radio" id="banking" name="payment" checked class="checkbox"/>
+                                        <label for="banking">Net Banking</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="radio" id="card" name="payment" class="checkbox"/>
+                                        <label for="card">Credit Card</label>
+                                    </div>
+                                </div>
+                            </section><!---/Payment Mode--->
+                            <section class="preview">
+                                <div class="col-sm-12 tandc">
+                                    <input type="checkbox" id="tandc" name="tandc" class="checkbox"/>
+                                    <label for="tandc">I have read and agree to the <a href="https://www.quickbima.com/terms-conditions" target="_blank">Terms &amp; Conditions</a> of the policy &amp; website.</label>
+                                    <span class="error">Please accept the term and conditions.</span>
+                                </div>
+                            </section>
+                            <section>
+                                <div class="checkout-footer text-center">
+                                    <button id="car-owner" class="btn btn-default continue" type="button">All OK! <img src="images/q-icon.svg" class="qicon" alt="q-icon"> Pay</button>
+                                    <p class="terms">By Clicking on this button, I Agree to the <a href="">Terms &amp; Conditions</a>.</p>
+                                </div>
+                            </section>
+                            
+                        </div><!-------Checkout Details End------>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="proposal-footer">
+                <div class="container"><img src="images/payment.svg" class="paymentimg" alt="payment"></div>
+            </div>
+        </div>
+ 
+    <script>
+        $("#car-owner").click(function() {
+          $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        });
+        
+        $(window).load(function(){
+            $(".input-effect input").focusout(function(){
+                if($(this).val() != ""){
+                    $(this).addClass("has-content");
+                }else {
+                    $(this).removeClass("has-content");
+                }
+            })
+            $(".input-effect input").focusin(function(){
+                $(this).removeClass("has-content");
+            })
+        });
+    </script>
+    
+    <script>
+        $(function() {
+            $('.ui.dropdown').dropdown();
+        });
+        $( document ).ready(function() {
+            $('#bankname').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $(this).parent().addClass('space-top');
+                   $('#banknamelLabel').show();
+               }else{
+                   $(this).parent().removeClass('space-top');
+                   $('#banknamelLabel').hide();
+               }
+            });
+            
+            $('#coverageedit').click(function()
+            {
+               $('#coverage-edit').show();
+               $('#coverageupdate').show();
+               $('#coverage-update').hide();
+               $('#coverageedit').hide();
+            });
+            
+            $('#coverageupdate').click(function()
+            {
+               $('#coverage-edit').hide();
+               $('#coverageupdate').hide();
+               $('#coverage-update').show();
+               $('#coverageedit').show();
+            });
+            
+            $('#owneredit').click(function()
+            {
+               $('#owner-edit').show();
+               $('#ownerupdate').show();
+               $('#owner-update').hide();
+               $('#owneredit').hide();
+            });
+            $('#ownerupdate').click(function()
+            {
+               $('#owner-edit').hide();
+               $('#ownerupdate').hide();
+               $('#owner-update').show();
+               $('#owneredit').show();
+            });
+            
+            // Mailing Address 
+            $(".mailing-address").hide();
+            $('#mailing').click(function()
+            {
+               if($('#mailing').is(':checked')){
+                   $('.mailing-address').hide();
+               }
+                else{
+                    $('.mailing-address').show();
+                }
+            });
+        
+             $('#car-owner').click(function()
+            {
+                $('.car-owner').hide();
+                $('.vehicle-cover').show();
+                $('.checkout-navigation ul li:nth-child(2) a').addClass('active');
+                $('.checkout-navigation ul li:nth-child(1) a').removeClass('active');
+            });
+            $('#coverage-back').click(function()
+            {
+                $('.car-owner').show();
+                $('.vehicle-cover').hide();
+                $('.checkout-navigation ul li:nth-child(1) a').addClass('active');
+                $('.checkout-navigation ul li:nth-child(2) a').removeClass('active');
+            });
+            $('#coverage').click(function()
+            {
+                $('.vehicle-cover').hide();
+                $('.nominee-cover').show();
+                $('.checkout-navigation ul li:nth-child(3) a').addClass('active');
+                $('.checkout-navigation ul li:nth-child(2) a').removeClass('active');
+            });
+            $('#nominee-back').click(function()
+            {
+                $('.vehicle-cover').show();
+                $('.nominee-cover').hide();
+                $('.checkout-navigation ul li:nth-child(2) a').addClass('active');
+                $('.checkout-navigation ul li:nth-child(3) a').removeClass('active');
+            });
+            $('#nomineecover').click(function()
+            {
+                $('.nominee-cover').hide();
+                $('.rto-address').show();
+                $('.checkout-navigation ul li:nth-child(3) a').addClass('active');
+                $('.checkout-navigation ul li:nth-child(2) a').removeClass('active');
+            });
+            $('#address-back').click(function()
+            {
+                $('.nominee-cover').show();
+                $('.rto-address').hide();
+            });
+            
+            $('.regestered').click(function()
+            {
+               if($('.regestered').is(':checked')){
+                   $('.company-ownership').show();
+                   $('.marital-status').hide();
+                   $('.ownerdetails').hide();
+               }
+                else{
+                    $('.company-ownership').hide();
+                    $('.marital-status').show();
+                    $('.ownerdetails').show();
+                }
+            });
+            
+            $('.loan').click(function()
+            {
+               if($('.loan').is(':checked')){
+                   $('.bankdetails').show();
+               }
+                else{
+                    $('.bankdetails').hide();
+                }
+            });
+        
+        });    
+    </script>
+        
+	</body>
+        
+</html>

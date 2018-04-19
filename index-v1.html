@@ -8,22 +8,23 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/my-styles.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="javascripts/bootstrap.min.js"></script>
-		<!--<script src="javascripts/bootstrap.min.js"></script>-->
 		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css' rel='stylesheet' type='text/css'>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<!---[endif]--->
-      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       <script>
          $(function() {
             $( "#datepicker, #datepicker2" ).datepicker({
                changeMonth:true,
                changeYear:true,
+               dateFormat: 'dd-mm-yy',
                numberOfMonths:[1,1]
             });
          });
@@ -94,9 +95,241 @@
           </div>
         </div>
     </div>
-    
     <!------Mobile OTP End------>
-        
+    
+    <div id="verifydetails" class="modal fade" role="dialog">
+      <div class="modal-dialog details-correct">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+              <button type="button" class="btn close" data-dismiss="modal"></button>
+              <div class="vertical-center">
+                  <div id="are-correct" class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h3>Are these details correct?</h3>
+                            <div class="regno">
+                                <input type="text" value="CH 01 AR 7418" class="form-control">
+                            </div>
+                        </div>  
+                    </div>
+                    <div id="step1" class="row">
+                        <div class="col-sm-4 drop-select">
+                            <select class="ui search dropdown">
+                              <option value="">Make and Model</option>
+                              <option value="Ad">Audi Q5</option>
+                              <option value="ms" selected>Maruti Swift VDI</option>
+                              <option value="msd">Maruti Swift Dezire</option>
+                              <option value="ha">Honda Amaze</option>
+                              <option value="hc">Honda City</option>
+                              <option value="hv">Honda Civic</option>
+                              <option value="hi">Hundai i20</option>
+                              <option value="ti">Tata Indica Vista</option>
+                              <option value="tm">Tata Indica Manza</option>
+                              <option value="tic">Tata Indigo Cs</option>
+                            </select>
+                            <label>Make and Model</label>
+                        </div>
+                        <div class="col-sm-4 drop-select">
+                            <select class="ui search dropdown">
+                              <option value="">Fuel Type</option>
+                              <option value="petrol" selected>Petrol</option>
+                              <option value="deisel">Deisel</option>
+                           </select>
+                            <label>Fuel Type</label>
+                        </div>
+                        <div class="col-sm-4 drop-select">
+                            <select class="ui search dropdown">
+                              <option value="">Variant</option>
+                              <option value="AL" selected>VDI, 1248 CC</option>
+                              <option value="AL">LDI, 1248 CC</option>
+                              <option value="AL">ZDI, 1248 CC</option>
+                           </select>
+                          <label>Variant</label>
+                        </div>
+                    </div>
+                    <div id="step2" class="row" style="display:none;">
+                        <div class="col-sm-4">
+                          <div class="input-effect dob">
+                            <input class="effect has-content datepicker" value="07-01-1986" id="datepicker" type="text">
+                            <label>Registration Date</label>
+                            <span class="focus-border"></span>
+                            <span class="fa-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                        </div>
+                      </div>
+                        <div class="col-sm-4 drop-select">
+                          <select class="ui search dropdown">
+                              <option value="">Previous Insurer</option>
+                              <option selected value="ba">Bajaj Allianz</option>
+                              <option value="bh">Bharti AXA</option>
+                              <option value="he">HDFC ERGO</option>
+                              <option value="ic">ICICI Lombard</option>
+                           </select>
+                            <label>Previous Insurer</label>
+                          <span class="error">Select previous insurer.</span>
+                      </div>
+                        <div class="col-sm-4">
+                            <div class="input-effect">
+                                <input class="effect" type="text">
+                                <label>Mobile</label>
+                                <span class="focus-border"></span>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div id="claimandncb" class="container" style="display:none;">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <img src="images/prev-claimed.svg" class="claimed" alt="img">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h4>
+                            <span class="title">Claimed in Last Year?</span>
+                            <span>
+                                <input type="checkbox" checked id="no" name="calimed" class="checkbox"/>
+                                <label for="no">No</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" id="yes" name="calimed" class="checkbox"/>
+                                <label for="yes">Yes</label>
+                            </span>
+                            </h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h4>
+                                <span class="title">Previous No Claim Bomus (NCB)</span>
+                                <span>
+                                    <input type="checkbox" checked id="ncb1" name="ncb" class="checkbox"/>
+                                    <label for="ncb1">0%</label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" id="ncb2" name="ncb" class="checkbox"/>
+                                    <label for="ncb2">20%</label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" id="ncb3" name="ncb" class="checkbox"/>
+                                    <label for="ncb3">25%</label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" id="ncb4" name="ncb" class="checkbox"/>
+                                    <label for="ncb4">35%</label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" id="ncb5" name="ncb" class="checkbox"/>
+                                    <label for="ncb5">45%</label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" id="ncb6" name="ncb" class="checkbox"/>
+                                    <label for="ncb6">50%</label>
+                                </span>
+                            </h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="remember">
+                                <input type="checkbox" id="remember" name="remember" class="checkbox"/>
+                                <label for="remember">Don't remember previous NCB?</label>
+                             </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="footer-section">
+                <div class="container">
+                    <div class="col-sm-12 text-center">
+                        <a href="javascript:void(0)" id="back1" class="back" style="display:none;">Back</a>
+                        <a href="javascript:void(0)" id="back2" class="back" style="display:none;">Back</a>
+                        <a href="javascript:void(0)" id="continue1" class="continue">Continue</a>
+                        <a href="javascript:void(0)" id="continue2" class="continue" style="display:none;">Continue</a>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#newotp" class="viewquotes" style="display:none;">View Quotes</a>
+                    </div>  
+                </div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>    
+
+     <div id="newotp" class="modal fade" role="dialog">
+      <div class="modal-dialog details-correct">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+              <button type="button" class="btn close" data-dismiss="modal"></button>
+              <div class="vertical-center">
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <img src="images/otp.svg" alt="otp">
+                            <h3 class="otp">One Time Password (OTP) <span id="senton">sent on </span>
+                                <span class="mob">+91-9034008486</span> 
+                                <a class="edit" id="edit-number"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit</a>
+                            </h3>
+                        </div>
+                      </div>
+                      <div class="row" id="otp-digit">
+                        <div class="col-sm-12 text-center">
+                            <form name="otp-number">
+                                <input type="text" name="name" tabindex="1" class="digit">
+                                <input type="text" tabindex="2" class="digit">
+                                <input type="text" tabindex="3" class="digit">
+                                <input type="text" tabindex="4" class="digit">
+                            </form>
+                        </div>
+                      </div>
+                      <div id="resend" class="row" style="display:none;">
+                        <div class="col-sm-12 text-center">
+                            <h4 class="resend">Resend OTP</h4>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <a href="javascript:void(0)" class="send-btn">Via SMS</a>
+                            <a href="javascript:void(0)" class="send-btn">Via Call</a>
+                        </div>
+                      </div>
+                      <div id="updatemobile" class="row" style="display:none;">
+                        <div class="col-sm-12 text-center">
+                            <div class="input-group">
+                                <span class="input-group-addon">+91-</span>
+                                <input name="Mobile" value="9034008486" maxlength="10" class="form-control mobile-number" autocomplete="off" placeholder="Mobile Number" type="text">
+                            </div>
+                        </div>
+                          <div class="col-sm-12 text-center">
+                            <a href="javascript:void(0)" class="getotp">Get OTP</a>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="otptimer" >
+                                <div class="timeranimation">
+                                    <span class="sec">Seconds</span>
+                                    <div class="item">
+                                        <h2 class="timer">10</h2>
+                                        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+                                         <g>
+                                          <title>Layer 1</title>
+                                          <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="2" stroke="#39b6b5" fill="none"/>
+                                         </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>    
+
         
 		<nav class="navbar navbar-fixed-top navbar-default">
 		  <div class="container-fluid">
@@ -328,8 +561,7 @@
 											</div>
                                             
                                             <!----------- Correct-details Modal ---------->
-                                            
-                                            <div id="verifydetails" class="modal fade" role="dialog">
+                                            <div id="verifydetails1" class="modal fade" role="dialog">
                                               <div class="modal-dialog correct-details">
 
                                                 <!-- Modal content-->
@@ -391,7 +623,11 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-4">
-                                                                    <input class="form-control datepicker" id="datepicker" type="text">
+                                                                    <select class="selectpicker" title="Registration Year">
+                                                                        <option value="2010" selected>2010</option>
+                                                                        <option value="2011">2010</option>
+                                                                        <option value="2012">2012</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="row verifyfields">
@@ -434,7 +670,7 @@
                                               </div>
                                             </div>
         
-											</form>
+								        </form>
 								
 									</div>
 									<!-------Car Form End------->
@@ -5103,7 +5339,7 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
 					</div>
 			</div>
 		</div>
-		
+        
         <script>
             window.onload = function(){
             //canvas init
@@ -5195,12 +5431,77 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
         </script>
         
         <script>
+            $(function() {
+                $('.ui.dropdown').dropdown();
+            });
+            
+            $('#makeModel').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#makeModelLabel').show();
+               }else{
+                   $('#makeModelLabel').hide();
+               }
+            });
+            
+            $(".input-effect input").focusout(function(){
+                if($(this).val() != ""){
+                    $(this).addClass("has-content");
+                }else {
+                    $(this).removeClass("has-content");
+                }
+            })
+            $(".input-effect input").focusin(function(){
+                $(this).removeClass("has-content");
+            })
+           
             $(document).ready(function() {
                 $("#rahul").click(function(){
                     $("#verifydetails").removeClass('fade');
                     $("#verifydetails").modal('hide');
                     $("#otpwindow").modal('show');
                     //$("body").addClass('modal-open');
+                });
+                
+                $("#continue1").click(function(){
+                    $("#step1").hide();
+                    $("#continue1").hide();
+                    $("#continue2").show();
+                    $("#back1").show();
+                    $("#step2").slideDown("slow");
+                });
+                $("#continue2").click(function(){
+                    $(".viewquotes").show();
+                    $("#back1").hide();
+                    $("#back2").show();
+                    $("#continue2").hide();
+                    $("#are-correct").hide();
+                    $("#claimandncb").show();
+                });
+                $("#back1").click(function(){
+                    $("#continue2").hide();
+                    $("#continue1").show();
+                    $("#step2").hide();
+                    $("#back1").hide();
+                    $("#step1").slideDown("slow");
+                });
+                $("#back2").click(function(){
+                    $("#are-correct").show();
+                    $("#step2").show();
+                    $("#step1").hide();
+                    $("#continue2").show();
+                    $("#claimandncb").hide();
+                    $("#back2").hide();
+                    $("#back1").show();
+                    $(".viewquotes").hide();
+                });
+                
+                $("#edit-number").click(function(){
+                    $("#otp-digit").hide();
+                    $("#resend").hide();
+                    $("#senton").hide();
+                    $("#edit-number").hide();
+                    $(".mob").hide();
+                    $("#updatemobile").show();
                 });
                 
                 $('#college').keyup(function(e) {
@@ -5255,6 +5556,7 @@ animantium statui deceat extremum quid enim est a chrysippo praetermissum in sto
                     clearInterval(interval);
                     $('.otptimer').hide();
                     $('.sms').show();
+                    $('#resend').show();
                 }
                 i--;  
             }, 1000);

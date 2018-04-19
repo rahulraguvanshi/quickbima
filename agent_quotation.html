@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Health Insurance - Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/my-styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <script src="javascripts/bootstrap-dropdownhover.min.js"></script>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="javascripts/semantic.js"></script>
+        
+        <script src="https://cdn.rawgit.com/filamentgroup/fixed-sticky/master/fixedsticky.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        <script>
+         $(function() {
+            $( "#datepicker, #datepicker2" ).datepicker({
+               changeMonth:true,
+               changeYear:true,
+                dateFormat: 'dd-mm-yy',
+               numberOfMonths:[1,1]
+            });
+         });
+      </script>
+
+	</head>
+<body>             
+
+	<div class="container-fluid quotes-wrapper">
+        <div class="top-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-7 col-lg-8 coveredmembers">
+                        <h3>Coverage for <span>You</span>, your <span>Spouse</span> &amp; <span>2 Children</span></h3>
+                        <!--p>Eldest Member's Age <span>32</span> &amp; Gender <span>Male</span></p--->
+                        <a href="#modify-coverage" class="modify" data-toggle="modal"><i class="fa fa-cog" aria-hidden="true"></i> Edit</a>
+                        <!---
+                        <h3>Eldest Member's Age <span>32</span> &amp; Gender <span>Male</span> <a href="#modify-coverage" class="modify" data-toggle="modal">Modify Details</a></h3>
+                        ---->
+                        
+                        <!-- More Modal -->
+                        <div id="modify-coverage" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                  <div class="container moredetails-popup">
+                                      <div class="row">
+                                          <div class="col-sm-12 text-center">
+                                            <h4 class="whom text-uppercase">Whome to Insure?</h4>
+                                          </div>
+                                      </div>
+                                      <div class="row insure-members">
+                                          <div class="col-sm-6">
+                                              <span>
+                                                <input type="checkbox" id="spouse" name="insure" checked class="checkbox"/>
+                                                <label for="spouse">Adult 2</label>
+                                              </span>
+                                              <span>
+                                                <input type="checkbox" id="self" name="insure" checked class="checkbox"/>
+                                                <label for="self">Adult 1</label>
+                                             </span>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <h4 class="child-title text-uppercase">Children</h4>
+                                              <div class="count-input space-bottom">
+                                                <a class="incr-btn" data-action="decrease" href="#">–</a>
+                                                <input class="quantity" type="text" name="quantity" value="2"/>
+                                                <a class="incr-btn" data-action="increase" href="#">&plus;</a>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="row eldest-member">
+                                          <h4 class="text-center">Eldest Member's Age &amp; Gender</h4>
+                                          <div class="col-sm-6 text-right">
+                                             <select class="ui search dropdown">
+                                                  <option value="">Eldest Member's Age</option>
+                                                  <option value="b2">25 Years</option>
+                                                  <option value="b3">26 Years</option>
+                                                  <option value="a0">27 Years</option>
+                                                  <option selected value="a1">28 Years</option>
+                                                  <option value="a2">29 Years</option>
+                                                  <option value="a2">30 Years</option>
+                                             </select>
+                                          </div>
+                                          <div class="col-sm-6 gender">
+                                            <span>
+                                                <input type="radio" id="male" name="gender" checked class="checkbox"/>
+                                                <label for="male">Male</label>
+                                              </span>
+                                              <span>
+                                                <input type="radio" id="female" name="gender" class="checkbox"/>
+                                                <label for="female">Female</label>
+                                             </span>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-6">
+                                            <div class="input-effect pincode">
+                                                <input class="effect has-content" placeholder="Pincode" value="132001" type="text">
+                                                <span class="focus-border"></span>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                             <select class="ui search dropdown" id="policytenure">
+                                                  <option value="">Policy Tenure</option>
+                                                  <option selected value="Tenure for 1 Year">Tenure for 1 Year</option>
+                                                  <option value="Tenure for 2 Year">Tenure for 2 Years</option>
+                                                  <option value="Tenure for 3 Year">Tenure for 3 Years</option>
+                                             </select>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <button type="button" id="loading-example-btn" class="btn update">Update Details</button>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4">
+                        <div class="idv">
+                            <h4>Sum Insured <i class="fa fa-inr" aria-hidden="true"></i> <span id="defaultrange"> 
+                            <select class="ui search dropdown">
+                                  <option value="">Select Amount</option>
+                                  <option value="b2">2 Lakhs - 2.5 Lakhs</option>
+                                  <option value="b3">3 Lakhs - 3.5 Lakhs</option>
+                                  <option value="a0">4 Lakhs - 4.5 Lakhs</option>
+                                  <option selected value="a1">5 Lakhs - 5.5 Lakhs</option>
+                                  <option value="a2">6 Lakhs - 6.5 Lakhs</option>
+                                  <option value="a2">10 Lakhs - 15 Lakhs</option>
+                             </select>
+                            </span></h4>
+                            <p class="idv-slogan">This is the Coverage amount of your Policy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>		
+        </div><!------/Top Section----->
+        <div class="shrink"></div>
+        <div class="container">
+            <div class="row ">
+                <div class="col-sm-3 leftsidebar fixedsticky">
+                    <div class="addoncovers">
+                        <h4>Special Covers</h4>
+                        <span>
+                            <input type="checkbox" id="maternity" name="special" class="checkbox splcovers"/>
+                            <label for="maternity">Maternity</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="critical" name="special" class="checkbox splcovers"/>
+                            <label for="critical">Critical Illness</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="diabeities" name="special" class="checkbox splcovers"/>
+                            <label for="diabeities">Diabeities</label>
+                        </span>
+                        <!--a class="reset spl" href="javascript:void(0)">Reset</a--->
+                    </div>
+                    <hr>
+                    <div class="addoncovers">
+                        <h4>Term</h4>
+                        <span>
+                            <input type="checkbox" id="maternity" name="special" checked class="checkbox splcovers"/>
+                            <label for="maternity">1 Year</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="critical" name="special" class="checkbox splcovers"/>
+                            <label for="critical">2 Years</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="diabeities" name="special" class="checkbox splcovers"/>
+                            <label for="diabeities">3 Years</label>
+                        </span>
+                        <!--a class="reset spl" href="javascript:void(0)">Reset</a--->
+                    </div>
+                    <!---div class="addoncovers">
+                        <span class="health-term">
+                        <h4>Term</h4>
+                            <select class="ui search dropdown">
+                                  <option value="">Select Term</option>
+                                  <option selected value="a1">1 Year</option>
+                                  <option value="a2">2 Years</option>
+                                  <option value="a2">3 Years</option>
+                             </select>
+                        </span>
+                    </div--->
+                    <hr>
+                    <div class="addoncovers">
+                        <h4>INSURERS</h4>
+                        <span>
+                            <input type="checkbox" id="insurer1" name="insurer" class="checkbox" />
+                              <label for="insurer1">Bharti AXA</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="insurer2" name="insurer" class="checkbox" />
+                            <label for="insurer2">Cigna TTK</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="insurer3" name="insurer" class="checkbox" />
+                            <label for="insurer3">HDFC ERGO</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="insurer4" name="insurer" class="checkbox" />
+                            <label for="insurer4">Religare</label>
+                        </span>
+                        
+                        <span>
+                            <input type="checkbox" id="insurer5" name="insurer" class="checkbox" />
+                              <label for="insurer5">Reliance</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="insurer6" name="insurer" class="checkbox" />
+                              <label for="insurer6">Star Health</label>
+                        </span>
+                        <!---a class="reset spl" href="javascript:void(0)">Reset</a--->
+                    </div>
+                    <!----
+                    <div class="addoncovers">
+                        <h4>Pre-Existing Diseases</h4>
+                        <span>
+                            <input type="radio" id="cb1" name="cb" class="checkbox prexisting"/>
+                            <label for="cb1">Covered after 2 Yrs</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="cb2" name="cb" class="checkbox prexisting" />
+                            <label for="cb2">Covered after 3 Yrs</label>
+                        </span>
+                        <span>
+                            <input type="radio" id="cb3" name="cb" class="checkbox prexisting" />
+                            <label for="cb3">Covered after 4 Yrs</label>
+                        </span>
+                        <a class="reset pre" href="javascript:void(0)">Reset</a>
+                    </div>
+                    <hr>
+                    <div class="addoncovers">
+                        <h4>Room Preference</h4>
+                        <span>
+                            <input type="checkbox" id="room1" name="room" class="checkbox"/>
+                            <label for="room1">Single Room</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="room2" name="room" class="checkbox" checked />
+                            <label for="room2">Shared Room</label>
+                        </span>
+                    </div>
+                    <hr>
+                    <div class="addoncovers">
+                        <h4>Premium</h4>
+                        <span>
+                            <input type="checkbox" id="premium1" name="premium" class="checkbox"/>
+                            <label for="premium1">Less than 12,000</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" id="premium2" name="premium" class="checkbox" />
+                            <label for="premium2">Less than 15,000</label>
+                        </span>
+                    </div>
+                    <hr>
+                    ---->
+                    <div>
+                    </div>
+                    
+                </div><!------/Left Sidebar----->
+                
+                <div class="col-sm-9 rightcol">
+                    <div class="plans-no">
+                        <div class="col-sm-12">
+                            <span><h3 class="pull-left">Fetching quotes</h3> <div class="typing_loader"></div></span>
+                        </div>
+                    </div><!----/ Fetching Plans---->
+                    <div>
+                        <div class="quotation">
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="compare">
+                                    <input type="checkbox" checked id="compare" name="py" class="checkbox"/>
+                                    <label for="compare">Compare</label>
+                                </div>
+                                <div class="valign">
+                                    <img class="insurer" src="images/Star-Health-and-Allied-Insurance-Company-Limited.svg" alt="insurer">
+                                    <p class="planname">Star - Family health Optima Insurance Plan</p>
+                                    <p>Sum Insured <span class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</span></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="valign">
+                                    <div class="show-on-hover">
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-h-square" aria-hidden="true"></i>
+                                            <span>7</span> Cashless Hospitals in your area </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                              <div class="caretarrow"></div>
+                                            <li>Aneja Hospital &amp; Nursing Home</li><li>J.p Surgical Hospital</li><li>Jaspal Nursing Home</li><li>Leelawati Hospital</li><li>Monga Hospital &amp; Stone Center</li><li>Nephroplus Dialysis Center - Inder Nagar</li><li>Sarwal Hospital</li>
+                                        </ul>
+                                    </div>
+                                    <ul>
+                                        <li class="pre-existing">Pre-Existing Diseases 
+                                            <span> Covered After 4 Years</span>
+                                        </li>
+                                        <li>Room Rent - <span>Single Private Room</span></li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <ul>
+                                        <li><strong>Special Features</strong></li>
+                                        <li>- Domiciliary treatment</li>
+                                        <li>- New Born Baby Cover</li>
+                                        <li>- 100% Restoration</li>
+                                        <li>- PPMC cost Borne by Star Health</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                <div class="dropdown">
+                                  <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                     </button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">Send Quote on Email</a></li>
+                                    <li><a href="javascript:void(0)">Download Policy Brochure</a></li>
+                                  </ul>
+                                </div> 
+                                <div class="valign">
+                                    <div class="premium"> <i class="fa fa-inr" aria-hidden="true"></i> 8,096</div>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                    <p class="emi" data-toggle="modal" data-target="#emipayment"><span class="icon"></span>EMI from <i class="fa fa-inr" aria-hidden="true"></i> 1,027 </p>
+                                    
+                                </div>
+                                
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                More
+                            </a>
+                        </div><!----/Quotation--->
+                        <!-- More Modal -->
+                        <div id="breakup" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                  <button type="button" class="close" data-dismiss="modal"></button>
+                                  <div class="container moredetails-popup">
+                                      <div class="row">
+                                        <div class="col-sm-offset-3 col-sm-9 text-center">
+                                            <h2>Star - Family health Optima Insurance Plan</h2>  
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-3 leftside">
+                                            <img src="images/Star-Health-and-Allied-Insurance-Company-Limited.svg" alt="Insurer">
+                                            <h4 class="text-uppercase calimratio"></h4>
+                                            <h4 class="text-uppercase">Sum Insured <span class="text-capitalize"><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</span></h4>
+                                            <h4 class="text-uppercase">Policy Term <span>1 Year</span></h4>
+                                            <div class="premium">
+                                                <h4 class="text-uppercase">Premium <small class="text-capitalize">(Incl. GST)</small></h4>
+                                                <span class="amount"><i class="fa fa-inr" aria-hidden="true"></i> 4,968</span>
+                                                <button type="button" class="btn">Buy Bima</button>
+                                            </div>
+                                            <p>For complete details view</p>
+                                            <a href="">Policy Brochure</a>
+                                        </div>
+                                        <div class="col-sm-9 rightside">
+                                            <div class="tab-content">
+                                                <div id="features" class="tab-pane fade in active">
+                                                  <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h4 class="text-uppercase">Covered Special Features</h4>
+                                                        <p><i class="fa fa-check" aria-hidden="true"></i> Domiciliary Treatment</p>
+                                                        <p><i class="fa fa-check" aria-hidden="true"></i> New Born Baby Cover</p>
+                                                        <p><i class="fa fa-check" aria-hidden="true"></i> 100% Restoration</p>
+                                                        <p><i class="fa fa-check" aria-hidden="true"></i> Free Health Checkup</p>
+                                                        <p><i class="fa fa-check" aria-hidden="true"></i> Bariatric Surgery</p>
+                                                        <p><i class="fa fa-check" aria-hidden="true"></i> PPMC cost borne by Star Health</p>
+                                                    </div>
+                                                    <div class="col-sm-6 not-covered">
+                                                        <h4 class="text-uppercase">Not Covered</h4>
+                                                        <p><i class="fa fa-times" aria-hidden="true"></i> Day Care Treatment</p>
+                                                        <p><i class="fa fa-times" aria-hidden="true"></i> OPD Expenses</p>
+                                                        <p><i class="fa fa-times" aria-hidden="true"></i> Personal Accident Cover</p>
+                                                        <p><i class="fa fa-times" aria-hidden="true"></i> Worldwide Emergency Treatment</p>
+                                                    </div>  
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p><span class="text-uppercase">Pre-Existing Diseases -</span> Covered after 4 Years</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><span class="text-uppercase">Room Rent -</span> No Limit on Room Rent</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><span class="text-uppercase">Pre-Hospitalization -</span> 60 Days</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><span class="text-uppercase">Post-Hospitalization -</span> 90 Days</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p><span class="text-uppercase">Ambulance Charges -</span> <i class="fa fa-inr" aria-hidden="true"></i> 2,000</p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h4 class="text-uppercase">Tax benifit</h4>
+                                                        <p>Premiums paid are eligible for tax deduction under Section 80D and 10 (10D) of the Income Tax Act, 1961. </p>
+                                                    </div>
+                                                </div>
+
+                                                </div>
+                                                <div id="calim" class="tab-pane fade">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h4 class="text-uppercase">Claim Process</h4>
+                                                        <ul>
+                                                            <li>Dental/oral treatment, Congenital conditions, Cosmetic surgery, Drugs and dressings for Out-patient or take-home use, HIV and AIDS , Non-allopathic treatment, Psychiatric and Psychosomatic Conditions , Obesity , Hereditary conditions , Genetic Disorder. </li>
+                                                        </ul>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div id="exclusions" class="tab-pane fade">
+                                                  <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h4 class="text-uppercase">Exclusions</h4>
+                                                        <ul>
+                                                            <li>Dental/oral treatment, Congenital conditions, Cosmetic surgery, Drugs and dressings for Out-patient or take-home use, HIV and AIDS , Non-allopathic treatment, Psychiatric and Psychosomatic Conditions , Obesity , Hereditary conditions , Genetic Disorder. </li>
+                                                        </ul>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="tab-footer">
+                                                <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-offset-3 col-sm-9 text-center">
+                                                        <ul class="nav nav-tabs">
+                                                            <li class="active"><a data-toggle="tab" href="#features">Features</a></li>
+                                                            <li><a data-toggle="tab" href="#calim">Claim Process</a></li>
+                                                            <li><a data-toggle="tab" href="#exclusions">Exclusions</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quotation">
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="compare">
+                                    <input type="checkbox" id="compare" name="py" class="checkbox"/>
+                                    <label for="compare"></label>
+                                </div>
+                                <div class="valign">
+                                    <img class="insurer" src="images/CignaTTK-Health-Insurance-Company-Limited.svg" alt="insurer">
+                                    <p class="planname">Family Health Optima Plan</p>
+                                    <p>Sum Insured <span class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</span></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="valign">
+                                    <div class="show-on-hover">
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-h-square" aria-hidden="true"></i>
+                                            <span>24</span> Cashless Hospitals in your area </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                              <div class="caretarrow"></div>
+                                            <li>Aneja Hospital &amp; Nursing Home</li><li>J.p Surgical Hospital</li><li>Jaspal Nursing Home</li><li>Leelawati Hospital</li><li>Monga Hospital &amp; Stone Center</li><li>Nephroplus Dialysis Center - Inder Nagar</li><li>Sarwal Hospital</li>
+                                        </ul>
+                                    </div>
+                                    <ul>
+                                        <li class="pre-existing">Pre-Existing Diseases 
+                                            <span> Covered After 4 Years</span>
+                                        </li>
+                                        <li>Room Rent - <span>Single Private Room</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <ul>
+                                        <li><strong>Special Features</strong></li>
+                                        <li>- Domiciliary treatment</li>
+                                        <li>- 100% Restoration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-right">
+                                <div class="dropdown">
+                                  <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                     </button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">Send Quote on Email</a></li>
+                                    <li><a href="javascript:void(0)">Download Policy Brochure</a></li>
+                                  </ul>
+                                </div> 
+                                <div class="valign">
+                                    <div class="premium"> <i class="fa fa-inr" aria-hidden="true"></i> 8,096</div>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                    <p class="emi" data-toggle="modal" data-target="#emipayment2">EMI from <i class="fa fa-inr" aria-hidden="true"></i> 674 <i class="fa fa-angle-right" aria-hidden="true"></i></p>
+                                </div>
+                                <!-- EMI Modal -->
+                                <div id="emipayment2" class="modal fade" role="dialog">
+                                  <div class="modal-dialog emipayment">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-body">
+                                          <button type="button" class="close" data-dismiss="modal"></button>
+                                          <div class="container">
+                                              <div class="row">
+                                                <div class="col-md-12 text-center text-uppercase">
+                                                    <h3>EMI Payment Options</h3>  
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-xs-4">
+                                                  <!-- Nav tabs -->
+                                                  <ul class="nav nav-tabs tabs-left sideways">
+                                                    <li class="active"><a href="#Axis" data-toggle="tab">Axis Bank</a></li>
+                                                    <li><a href="#Citibank" data-toggle="tab">Citibank</a></li>
+                                                    <li><a href="#HDFC" data-toggle="tab">HDFC Bank</a></li>
+                                                    <li><a href="#HSBC" data-toggle="tab">HSBC</a></li>
+                                                    <li><a href="#ICICI" data-toggle="tab">ICICI Bank</a></li>
+                                                    <li><a href="#IndusInd" data-toggle="tab">IndusInd Bank</a></li>
+                                                    <li><a href="#Kotak" data-toggle="tab">Kotak Bank</a></li>
+                                                    <li><a href="#RBL" data-toggle="tab">RBL Bank Credit Card</a></li>
+                                                    <li><a href="#Standard" data-toggle="tab">Standard Chartered Bank</a></li>
+                                                    <li><a href="#State" data-toggle="tab">State Bank of India</a></li>
+                                                  </ul>
+                                                </div>
+
+                                                <div class="col-xs-8">
+                                                  <!-- Tab panes -->
+                                                  <div class="tab-content">
+                                                    <div class="tab-pane active" id="Axis">
+                                                        <h4>Axis Bank EMI Plans</h4>
+                                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                                    <div class="panel-title">
+                                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                            <div class="col-xs-7">3 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 4,257/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingTwo">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                            <div class="col-xs-7">6 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 2,163/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingThree">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                            <div class="col-xs-7">9 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 1,466/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingFour">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                                            <div class="col-xs-7">12 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 1,117/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div><!-- panel-group -->
+
+                                                      </div>
+                                                    <div class="tab-pane" id="Citibank">
+                                                        <h4>Citibank EMI Plans</h4>
+                                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                                    <div class="panel-title">
+                                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                            <div class="col-xs-7">3 EMIs @ 12% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 4,257/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong> <i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong> <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingTwo">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                            <div class="col-xs-7">6 EMIs @ 12% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 2,163/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingThree">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                            <div class="col-xs-7">9 EMIs @ 12% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 1,466/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingFour">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                                            <div class="col-xs-7">12 EMIs @ 12% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 1,117/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div><!-- panel-group -->
+
+                                                    </div>
+                                                    <div class="tab-pane" id="HDFC">
+                                                        <h4>HDFC Bank EMI Plans</h4>
+                                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                                    <div class="panel-title">
+                                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                            <div class="col-xs-7">3 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 4,257/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingTwo">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                            <div class="col-xs-7">6 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 2,163/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingThree">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                            <div class="col-xs-7">9 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 1,466/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab" id="headingFour">
+                                                                    <div class="panel-title">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                                            <div class="col-xs-7">12 EMIs @ 13% pa</div>
+                                                                            <div class="col-xs-5"><i class="fa fa-inr"></i> 1,117/month <i class="more-less glyphicon glyphicon-plus"></i></div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Premium</div>
+                                                                            <div class="col-xs-5"><strong><i class="fa fa-inr"></i> 12,499</strong></div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Interest paid to bank</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 271</strong></div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-xs-7">Total Amount Payable (3 x <i class="fa fa-inr"></i> 4,257)</div>
+                                                                            <div class="col-xs-5"><strong>+ <i class="fa fa-inr"></i> 12,771</strong></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div><!-- panel-group -->
+  
+                                                    </div>
+                                                    <div class="tab-pane" id="HSBC">Settings Tab.</div>
+                                                    <div class="tab-pane" id="ICICI">Settings Tab.</div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <a href="" class="tandc">EMI Terms &amp; Conditions</a>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                    
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                More
+                            </a>
+                        </div><!----/Quotation--->
+                        
+                    <div class="quotation">
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="compare">
+                                    <input type="checkbox" id="compare" name="py" class="checkbox"/>
+                                    <label for="compare"></label>
+                                </div>
+                                <div class="valign">
+                                    <img class="insurer" src="images/HDFC-ERGO-General-Insurance-Co-Ltd.svg" alt="insurer">
+                                    <p class="planname">Health Optima Insurance Plan</p>
+                                    <p>Sum Insured <span class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</span></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="valign">
+                                    <div class="special">
+                                        <div class="dropdown">
+                                          <a href="javascript:void(0);" class="dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-animations="zoomIn zoomIn zoomIn zoomIn"> 12 Cashless Hospitals in your area</a>
+                                          <ul class="dropdown-menu">
+                                              <div class="caretarrow"></div>
+                                            <li>Hospital Name Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                          </ul>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="pre-existing">Pre-Existing Diseases <span>Covered after 3 Years</span></li>
+                                        <li>Room Rent - <span><i class="fa fa-inr" aria-hidden="true"></i> 2,000 Limit</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <ul>
+                                        <li><strong>Special Features</strong></li>
+                                        <li>- Domiciliary treatment</li>
+                                        <li>- New Born Baby Cover</li>
+                                        <li>- 100% Restoration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-right">
+                                 <div class="dropdown">
+                                  <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                     </button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">Send Quote on Email</a></li>
+                                    <li><a href="javascript:void(0)">Download Policy Brochure</a></li>
+                                  </ul>
+                                </div> 
+                                <div class="valign">
+                                    <div class="premium"> <i class="fa fa-inr" aria-hidden="true"></i> 9,137</div>
+                                    <p class="emi">EMI from <i class="fa fa-inr" aria-hidden="true"></i> 761/month <i class="fa fa-angle-right" aria-hidden="true"></i></p>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                    
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                More
+                            </a>
+                        </div><!----/Quotation--->
+                    
+                    <div class="quotation">
+                        <div class="col-sm-12">
+                            <div class="timeline-term">
+                                <div class="timeline-item">
+                                    <div class="animated-background">
+                                        <div class="background-masker header-top"></div>
+                                        <div class="background-masker header-left"></div>
+                                        <div class="background-masker header-right"></div>
+                                        <div class="background-masker header-right2"></div>
+                                        <div class="background-masker header-right3"></div>
+                                        <div class="background-masker header-bottom"></div>
+                                        <div class="background-masker subheader-left"></div>
+                                        <div class="background-masker subheader-right"></div>
+                                        <div class="background-masker subheader-bottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!----/Loading Quotation--->
+                    
+                    <div class="advertisement">
+                        <div class="col-md-6">
+                            <h3>Can't decide</h3>
+                            <p>Talk to our experts, They will help to you to choose the best plan</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">+91</span>
+                              <input id="msg" type="text" class="form-control" name="msg" placeholder="Mobile Number">
+                                <span class="input-group-addon">
+                                    <button class="btn" type="button">Call Me</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quotation">
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="compare">
+                                    <input type="checkbox" id="compare" name="py" class="checkbox"/>
+                                    <label for="compare"></label>
+                                </div>
+                                <div class="valign">
+                                    <img class="insurer" src="images/Religare-Health-Insurance-Company-Limited.svg" alt="insurer">
+                                    <p class="planname">Health Surukhsa Plan</p>
+                                    <p>Sum Insured <span class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</span></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="valign">
+                                    <div class="special">
+                                    <div class="dropdown">
+                                      <a href="javascript:void(0);" class="dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-animations="zoomIn zoomIn zoomIn zoomIn"> 12 Cashless Hospitals in your area</a>
+                                      <ul class="dropdown-menu">
+                                          <div class="caretarrow"></div>
+                                        <li>Hospital Name Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                        <li>Hospital Name</li>
+                                      </ul>
+                                    </div>
+                                    </div>
+                                    <ul>
+                                        <li class="pre-existing">Pre-Existing Diseases <span>Covered after 2 Years</span></li>
+                                        <li>Room Rent - <span><i class="fa fa-inr" aria-hidden="true"></i> 3,000 Limit</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <ul>
+                                        <li><strong>Special Features</strong></li>
+                                        <li>- Domiciliary treatment</li>
+                                        <li>- New Born Baby Cover</li>
+                                        <li>- 100% Restoration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                 <div class="dropdown">
+                                  <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                     </button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">Send Quote on Email</a></li>
+                                    <li><a href="javascript:void(0)">Download Policy Brochure</a></li>
+                                  </ul>
+                                </div> 
+                                <div class="valign">
+                                    <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 7,115</div>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                More
+                            </a>
+                        </div><!----/Quotation--->
+                        
+                    <div class="quotation">
+                            <div class="col-sm-6 col-md-3 text-center">
+                                <div class="compare">
+                                    <input type="checkbox" id="compare" name="py" class="checkbox"/>
+                                    <label for="compare"></label>
+                                </div>
+                                <div class="valign">
+                                    <img class="insurer" src="images/Bharti-AXA-General-Insurance-Company-Limited.svg" alt="insurer">
+                                    <p class="planname">Star - Family health Optima Insurance Plan</p>
+                                    <p>Sum Insured <span class="idv-value"><i class="fa fa-inr" aria-hidden="true"></i> 5 Lakhs</span></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="valign">
+                                    <div class="special">
+                                        <div class="dropdown">
+                                          <a href="javascript:void(0);" class="dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-animations="zoomIn zoomIn zoomIn zoomIn"> 12 Cashless Hospitals in your area</a>
+                                          <ul class="dropdown-menu">
+                                              <div class="caretarrow"></div>
+                                            <li>Hospital Name Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                            <li>Hospital Name</li>
+                                          </ul>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="pre-existing">Pre-Existing Diseases <span>Covered after 2 Years</span></li>
+                                        <li>Room Rent - <span>No Limit on Room Rent</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="valign">
+                                    <ul>
+                                        <li><strong>Special Features</strong></li>
+                                        <li>- Domiciliary treatment</li>
+                                        <li>- New Born Baby Cover</li>
+                                        <li>- 100% Restoration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2 text-center">
+                                 <div class="dropdown">
+                                  <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                      <span class="circle"></span>
+                                     </button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)">Send Quote on Email</a></li>
+                                    <li><a href="javascript:void(0)">Download Policy Brochure</a></li>
+                                  </ul>
+                                </div> 
+                                <div class="valign">
+                                    <div class="premium"><i class="fa fa-inr" aria-hidden="true"></i> 9,589</div>
+                                    <a href="" class="buybima">Buy Bima</a>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="breakup" data-toggle="modal" data-target="#breakup">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                More
+                            </a>
+                        </div><!----/Quotation--->        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+
+        });
+        
+        function toggleIcon(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .find(".more-less")
+                .toggleClass('fa-plus-square-o fa-minus-square-o');
+        }
+        $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+        $('.panel-group').on('shown.bs.collapse', toggleIcon);
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            
+            $('.compare-btn').click(function () {
+                $('.quotes-comparison').fadeIn(600);
+                $('body').addClass('qcomapre');
+            });
+            $('.backtoquotes').click(function () {
+                $('.quotes-comparison').fadeOut(600);
+                $('body').removeClass('qcomapre');
+            });
+            
+            $('.dropdown').hover(function(){
+                $('.dropdownhover-bottom').addClass('arrowup');
+                $('.dropdownhover-top').addClass('arrowdown');
+            });
+            
+            $('button').button({loadingText: 'Loading...'});
+
+            $('#loading-example-btn').click(function () {
+                var btn = $(this);
+                btn.button('loading');
+                setTimeout(function () {
+                    btn.button('reset');
+                }, 5000);
+            });
+            
+            $('.modify').click(function() {
+                $(".top-section").css({position: "static"});
+            });
+            $('.close').click(function() {
+                $(".top-section").css({position: "fixed"});
+            });
+            
+            $(".input-effect input").focusout(function(){
+                if($(this).val() != ""){
+                    $(this).addClass("has-content");
+                }else {
+                    $(this).removeClass("has-content");
+                }
+            })
+            $(".input-effect input").focusin(function(){
+                $(this).removeClass("has-content");
+            });
+            
+            $('.comparerow').mouseenter(function(){
+                var rowId = $(this).attr('data-row');
+                $(this).addClass('row-effect');
+                $('.comprow-'+rowId).addClass('row-effect');
+            }).mouseleave(function(){
+                var rowId = $(this).attr('data-row');
+                $(this).removeClass('row-effect');
+                $('.comprow-'+rowId).removeClass('row-effect');
+            });
+        });
+    </script>
+    <script>
+        $(".incr-btn").on("click", function (e) {
+            var $button = $(this);
+            var oldValue = $button.parent().find('.quantity').val();
+            $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
+            if ($button.data('action') == "increase") {
+                var newVal = parseFloat(oldValue) + 1;
+            } else {
+                // Don't allow decrementing below 1
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                    $button.addClass('inactive');
+                }
+            }
+            $button.parent().find('.quantity').val(newVal);
+            e.preventDefault();
+        });
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $('#insurer-list').on('hide.bs.collapse', function () {
+                $('#button').html('INSURERS <i class="fa fa-plus-square-o" aria-hidden="true"></i>');
+              })
+              $('#insurer-list').on('show.bs.collapse', function () {
+                $('#button').html('INSURERS <i class="fa fa-minus-square-o" aria-hidden="true"></i>');
+            });
+            
+            $(".edit-idv").click(function(){
+                $("#qb-slider").show();
+                $(this).hide();
+                $('#defaultrange').hide();
+                $('.idv').removeClass("moovup");
+            });
+            
+            $('#memberage').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#memberlabel').show();
+               }else{
+                   $('#memberlabel').hide();
+               }
+            });
+            $('#membergender').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#genderlabel').show();
+               }else{
+                   $('#genderlabel').hide();
+               }
+            });
+            
+            
+           // Reset Hide Show on Checked
+            $(".reset").hide();
+            $(document).delegate(".splcovers", "click", function () {
+                $('.spl').show();
+                if ($('.splcovers').is(":checked")) {
+                    $('.spl').show();
+                }else{
+                    $('.spl').hide();
+                }
+            });
+            $(document).delegate(".spl", "click", function () {
+                $('.splcovers').prop('checked', false);
+                $(this).hide();
+            });
+            
+            $(document).delegate(".prexisting", "click", function () {
+                $('.pre').show();
+            });
+            $(document).delegate(".pre", "click", function () {
+                $('.prexisting').prop('checked', false);
+                $(this).hide();
+            });
+            
+        });    
+    </script>
+    
+    <script>
+        $('.modify-info').click(function(){
+            $('.top-section').css({position: 'static'});
+            $('.shrink').hide();
+        });
+        $('#reg-close').click(function(){
+            $('.top-section').css({position: 'fixed', top: '55px', zIndex: '1'});
+            $('.shrink').show();
+        });
+    </script>
+    
+    <script>
+        $(function() {
+            $('.ui.dropdown').dropdown();
+        });
+
+    </script>
+    
+</body>
+</html>
