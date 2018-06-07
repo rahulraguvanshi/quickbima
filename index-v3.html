@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+		<title>Quickbima</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/home-page.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="javascripts/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        
+        <!---link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet"--->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"> 
+        
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dropdown.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+        
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<!---[endif]--->
+
+	</head>
+	<body>  
+        
+        <nav class="navbar navbar-fixed-top navbar-default">
+		  <div class="container-fluid">
+		  <div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#"><img src="images/QuickBima_logo.svg" width="180px" height="40px" alt="quickbima logo" class="img-responsive logo"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+                  <!----
+				<li><a href="#">Home</a></li>
+                
+				<li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Insurance <i class="fa fa-angle-down"></i></a>
+				  <ul class="dropdown-menu">
+					<li><a href="#">Health</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Car</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Bikes</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Travel</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Term</a></li>
+				  </ul>
+				</li>
+                ---->
+                 <li class="call"><i class="fa fa-phone" aria-hidden="true"></i> 1800-123-2230</li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Claims</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="javascript:void(0);" data-toggle="modal" data-target="#login"><img src="images/key.png" alt="login" class="login_icon"/>Login</a>
+                 </li>
+                 <li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi User <i class="fa fa-angle-down"></i></a>
+				  <ul class="dropdown-menu">
+					<li><a href="#"><i class="fa fa-suitcase" aria-hidden="true"></i> My Account</a></li>
+					<li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+				  </ul>
+				</li>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		  </div><!-- /.container-fluid -->
+		</nav>	
+
+        
+        <div class="container-fluid home-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h1>Compare Insurance Policy Plan Online</h1>
+                        <h2>Insurance Kharidna, <span>Ab Bachhon Ka Khel</span></h2>
+                        <h4>Quickest, Easiest and Cheapest Way to Buy Insurance from 36 Different Insurers</h4>
+                    </div>
+                </div>
+                <div class="row v-center">
+                    <div class="col-sm-12 autoheight">
+                        <ul id="tabs" class="nav nav-tabs" role="tablist">
+                          <li role="presentation" class="active"><a href="#car" role="tab" data-toggle="tab">Car</a></li>
+                          <li role="presentation"><a href="#health" role="tab" data-toggle="tab">Health</a></li>
+                          <li role="presentation"><a href="#bike" role="tab" data-toggle="tab">Bike</a></li>
+                          <li role="presentation"><a href="#term" role="tab" data-toggle="tab">Term</a></li>
+                          <li role="presentation"><a href="#travel" role="tab" data-toggle="tab">Travel</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="car">
+                                <!---div class="row firstrow">
+                                    <div class="col-sm-12">
+                                        <div class="registration">
+                                            <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
+                                            <div class="error">Enter a valid Registration no.</div>
+                                            <span class="policy-type">
+                                                <input type="radio" id="new" name="motor" class="checkbox"/>
+                                                <label for="new">New</label>
+                                            </span>
+                                            <span class="policy-type">
+                                                <input type="radio" id="renew" name="motor" class="checkbox" checked/>
+                                                <label for="renew">Renew</label>
+                                            </span>
+                                            <span class="policy-type">
+                                                <input type="radio" id="expired" name="motor" class="checkbox"/>
+                                                <label for="expired">Expired</label>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div--->
+                                
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-4">
+                                            <span id="gender-title" class="title">Make and Model</span>
+                                            <select class="ui search dropdown">
+                                              <option value="">Make and Model</option>
+                                              <option value="Ad">Audi Q5</option>
+                                              <option value="ms">MARUTI SWIFT VDI</option>
+                                              <option value="msd" selected>Maruti Swift Dezire</option>
+                                              <option value="ha">Honda Amaze</option>
+                                              <option value="hc">Honda City</option>
+                                              <option value="hv">Honda Civic</option>
+                                              <option value="hi">Hundai i20</option>
+                                              <option value="ti">Tata Indica Vista</option>
+                                              <option value="tm">Tata Indica Manza</option>
+                                              <option value="tic">Tata Indigo Cs</option>
+                                            </select>
+                                        </div>	
+                                        <div class="col-sm-2">
+                                            <span id="gender-title" class="title">Fuel Type</span>
+                                            <select class="ui search dropdown" id="gendertitle">
+                                                <option value="">Fuel Type</option>
+                                                <option value="m" selected>Diesel</option>
+                                                <option value="f">Petrol</option>
+                                            </select>
+                                            <span class="error">Enter input</span>
+                                        </div>
+                                        <div class="col-sm-6 lastchild">
+                                            <select class="ui search dropdown" id="agetitle">
+                                                <option value="">Variant</option>
+                                                  <option value="AL" selected>1.4 CX CRDI 6-Speed MT</option>
+                                                  <option value="AL">LDI, 1248 CC</option>
+                                                  <option value="AL">ZDI, 1248 CC</option>
+                                            </select>
+                                            <span id="age-title" class="title" style="display:none;">Eldest Member</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row firstrow sr-only">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Registration Date" class="form-control effect datepicker">
+                                                <label>Registration Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Policy Expiry" class="form-control effect datepicker">
+                                                <label>Policy Expiry</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 last-claimed">
+                                            <span id="claimed-title" class="title">Claimed?</span>
+                                            <select class="ui search dropdown" id="madeclaim">
+                                                <option value="">Claimed</option>
+                                                <option value="m">No</option>
+                                                <option value="f">Yes</option>
+                                            </select>
+                                            <span class="claimshare sr-only">25%</span>
+                                            <ul class="previousncb animated sr-only">
+                                                <p>Select Previous NCB</p>
+                                                <li><input type="radio" id="ncb0" name="pncb" class="checkbox"/>
+                                                    <label for="ncb0">0%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb20" name="pncb" class="checkbox"/>
+                                                    <label for="ncb20">20%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb25" checked name="pncb" class="checkbox"/>
+                                                    <label for="ncb25">25%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb35" name="pncb" class="checkbox"/>
+                                                    <label for="ncb35">35%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb45" name="pncb" class="checkbox"/>
+                                                    <label for="ncb45">45%</label>
+                                                </li>
+                                                <li><input type="radio" id="ncb50" name="pncb" class="checkbox"/>
+                                                    <label for="ncb50">50%</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Mobile" class="form-control effect">
+                                                <label>Mobile</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="button" class="btn submit" data-toggle="modal" data-target="#verifydetails">Verify Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="health">
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 insured-members">
+                                            <div class="input-effect">
+                                                <input type="text" class="form-control text-capitalize members effect" placeholder="Whom to insure?" id="healthCover">
+                                                <label>Insured Members</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+
+                                            <div class="adults" style="display:none;">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">	
+                                                            <input type="radio" id="one" name="insure" class="checkbox"/>
+                                                            <label for="one">One Adult</label>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <input type="radio" id="two" name="insure" class="checkbox"/>
+                                                            <label for="two">Two Adults</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6"><p class="child"> Children</p></div>
+                                                        <div class="col-xs-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"><span class="glyphicon glyphicon-minus"></span></button>
+                                                                </span>
+                                                                <input type="text" id="children" name="quant[1]" class="form-control input-number" readonly="readonly" value="0">
+                                                                <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"> <span class="glyphicon glyphicon-plus"></span></button>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 msg">Please select atleast one adult.</div>
+                                                    </div>
+                                                </div>
+                                        </div>	
+                                        <div class="col-sm-3">
+                                            <span id="gender-title" class="title">Eldest Member</span>
+                                            <select class="ui search dropdown" id="gendertitle">
+                                                <option value="">Gender</option>
+                                                <option value="m">Male</option>
+                                                <option value="f">Female</option>
+                                            </select>
+                                            <span class="error">Enter input details.</span>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <select class="ui search dropdown" id="agetitle">
+                                                <option value="">Age</option>
+                                                <option value="a">18</option>
+                                                <option value="b">19</option>
+                                                <option value="c">20</option>
+                                                <option value="d">21</option>
+                                                <option value="e">22</option>
+                                                <option value="f">23</option>
+                                                <option value="g">24</option>
+                                                <option value="h">25</option>
+                                                <option value="h">26</option>
+                                                <option value="h">27</option>
+                                                <option value="h">28</option>
+                                                <option value="h">29</option>
+                                                <option value="h">30</option>
+                                            </select>
+                                            <span id="age-title" class="title" style="display:none;">Eldest Member</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row submitrow">
+                                            <div class="col-sm-12 text-center ">
+                                                <button type="button" class="btn submit">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 firstchild">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Email Address" class="form-control effect">
+                                                <label>Email Address</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Pincode" class="form-control effect">
+                                                <label>Pincode</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <div class="input-effect">
+                                                <input type="text" placeholder="Mobile" class="form-control effect">
+                                                <label>Mobile</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row submitrow">
+                                            <div class="col-sm-12 text-center ">
+                                                <a href="" class="back">Back</a>
+                                                <button type="button" class="btn submit">Get Free Quotes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="bike">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="registration">
+                                            <input type="text" class="form-control text-center" placeholder="CH 01 AB 1234">
+                                            <a href="">I don't know registration number.</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="term">
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 firstchild">
+                                            <select class="ui search dropdown">
+                                                <option value="">Annual Income</option>
+                                                <option value="m">Below 2 Lakhs</option>
+                                                <option value="m">2 to 3 Lakhs</option>
+                                                <option value="f">4 to 5 Lakhs</option>
+                                                <option value="f">5 to 10 Lakhs</option>
+                                                <option value="f">Above 10 Lakhs</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-sm-3">
+                                            <select class="ui search dropdown">
+                                                <option value="">Gender</option>
+                                                <option value="m">Eldest Member's</option>
+                                                <option value="m">Male</option>
+                                                <option value="f">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <select class="ui search dropdown">
+                                                <option value="">Age</option>
+                                                <option value="m">Eldest Member's</option>
+                                                <option value="a">18</option>
+                                                <option value="b">19</option>
+                                                <option value="c">20</option>
+                                                <option value="d">21</option>
+                                                <option value="e">22</option>
+                                                <option value="f">23</option>
+                                                <option value="g">24</option>
+                                                <option value="h">25</option>
+                                                <option value="h">26</option>
+                                                <option value="h">27</option>
+                                                <option value="h">28</option>
+                                                <option value="h">29</option>
+                                                <option value="h">30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-6 firstchild">
+                                            <input type="text" class="form-control" placeholder="Email address">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" placeholder="Pincode">
+                                        </div>
+                                        <div class="col-sm-3 member-age">
+                                            <select class="ui search dropdown">
+                                                <option value="">Smoker</option>
+                                                <option value="m">No</option>
+                                                <option value="f">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="travel">
+                                <div class="row firstrow">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-3 firstchild">
+                                            <span class="title">Plan Type</span>
+                                            <select class="ui search dropdown">
+                                                <option value="">Plan Type</option>
+                                                <option value="single">Individual/Family</option>
+                                                <option value="multiple">Student</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <span id="trip-title" class="title">Trip Frequency</span>
+                                            <select class="ui search dropdown" id="tripFrequency">
+                                                <option value="">Trip Frequency</option>
+                                                <option value="single">Single</option>
+                                                <option value="multiple">Multiple</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 trip-frequency" id="tripstartend">
+                                            <div class="input-effect">
+                                                <input class="effect datepicker" placeholder="Start Date" value="" id="datepicker3" type="text">
+                                                <label>Start Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <div class="input-effect">
+                                                <input class="effect datepicker" placeholder="End Date" value="" id="datepicker4" type="text">
+                                                <label>End Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 trip-frequency sr-only" id="tripduration">
+                                            <div class="input-effect">
+                                                <input class="effect datepicker" placeholder="Trip Start Date" value="" id="datepicker5" type="text">
+                                                <label>Start Date</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <span class="title">Duration</span>
+                                            <select class="ui search dropdown">
+                                                <option value="">Duration for</option>
+                                                <option value="a">30 Days</option>
+                                                <option value="b">60 Days</option>
+                                                <option value="c">90 Days</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 lastchild">
+                                            <div class="input-effect">
+                                                <input class="effect" placeholder="Travellers" type="text">
+                                                <label>Travellers</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                            <ul class="travellers">
+                                                <li>
+                                                    <p>Traveller 1</p>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 2</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 3</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                <li>
+                                                    <p>Traveller 4</p>
+                                                    <a href="" class="minus"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                                    <input type="text" placeholder="Age Yrs">
+                                                </li>
+                                                    <span class="error">1 Traveller's min. age should be 18 years.</span>
+                                                    <a href="" class="add">+ Add</a>
+                                                    <button type="submit" class="btn submit">Submit</button>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 sr-only" id="traveller-age">
+                                            <span id="yourage-title" class="title">Your Age</span>
+                                            <select class="ui search dropdown" id="yourage">
+                                                <option value="">Your Age</option>
+                                                <option value="a">18 Years</option>
+                                                <option value="b">19 Years</option>
+                                                <option value="c">20 Years</option>
+                                                <option value="d">21 Years</option>
+                                                <option value="e">22 Years</option>
+                                                <option value="f">23 Years</option>
+                                                <option value="f">24 Years</option>
+                                                <option value="f">25 Years</option>
+                                                <option value="f">26 Years</option>
+                                                <option value="f">27 Years</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="bgshadow">
+                                        <div class="col-sm-9" id="travelDestinations">
+                                            <span id="travel-title" class="title">Travelling Destinations</span>
+                                            <select class="ui search dropdown" multiple="" id="multiCountries">
+                                                <option value="">Where you want to travel?</option>
+                                                <option value="a">USA</option>
+                                                <option value="b">UK</option>
+                                                <option value="c">Singapore</option>
+                                                <option value="d">Thialand</option>
+                                                <option value="f">Afghanistan</option>
+                                                <option value="g">Albania</option>
+                                                <option value="h">Algeria</option>
+                                                <option value="i">Andorra</option>
+                                                <option value="j">Angola</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 noborder">
+                                            <div class="input-effect">
+                                                <input class="effect" placeholder="Mobile" type="text">
+                                                <label>Mobile</label>
+                                                <span class="focus-border"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!------ /Nav Tabs------>
+                        
+                    </div>
+                    
+                    <!------
+                    <div class="notification text-center">
+                        <img src="images/notification.svg" alt="img">
+                        <h4 class="text-uppercase">Save on Premium</h4>
+                        <p class="icon"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></p>
+                        <p>before <span>1 July</span></p>
+                        <p>Service tax on premium to go up by 3% under GST. </p>
+                    </div>----->
+                </div>
+                <!-- Renewal Box Starts Here --->
+                        <a href="#" class="renewel-box" data-toggle="modal" data-target="#verifyrenewal">
+                            <h2>Quick Renewal</h2>                            
+                            <p>Which Policies Bought on Quickbima</p>
+                        </a>
+                        
+                        
+                        <!-- Renewal Box Ends -->
+                <div class="licenced text-center">
+                    <a href=""><img src="images/irda-logo.svg" alt="irda">
+                    <p>Licenced by</p></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-----Comparison Website----->
+        <div class="container section-container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2><span>India's Best Insurance</span> Comparison Website</h2>
+                    <p>Providing right insurance cover by providing unbiased quotes and product comparison. </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <img src="images/insurance-comparison.png" class="comparison" alt="Insurance Comparison">
+                </div>
+                <div class="col-md-5">
+                    <div class="usertestimonials">
+                        <div class="angle"></div>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="item active">
+                                  <div class="feedback">
+                                    <p>Thanks so much for your extended support to settle my Mediclaim. It was really extraordinary support for me and my satisfactory relationship with Quickbima.</p>
+                                  </div>
+                                  <div class="bottom-part">
+                                      <div class="col-sm-5">
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                      </div>
+                                      <div class="col-sm-7 text-right">
+                                          <img src="images/male.svg" class="user-photo">
+                                          <p><span class="name">Ravi Prakash Arya</span>, Delhi</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="item">
+                                  <div class="feedback">
+                                    <p>I am very happy that I have signed a CignaTTK policy. Quickbima gave me my complete support and kept me updated from time to time and my claim was too quick, Thank you very much Quickbima.com.</p>
+                                  </div>
+                                  <div class="bottom-part">
+                                      <div class="col-sm-5">
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star-blank"></span>
+                                      </div>
+                                      <div class="col-sm-7 text-right">
+                                          <img src="images/male.svg" class="user-photo">
+                                          <p><span class="name">Jagjeet Singh</span>, Delhi</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="item">
+                                  <div class="feedback">
+                                    <p>Thanks for support to get hard copy of my policy documents.</p>
+                                  </div>
+                                  <div class="bottom-part">
+                                      <div class="col-sm-5">
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star-blank"></span>
+                                      </div>
+                                      <div class="col-sm-7 text-right">
+                                          <img src="images/male.svg" class="user-photo">
+                                          <p><span class="name">Vishant</span>, Vasai - Thane</p>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+        <div class="container-fluid graybg">
+            <div class="container section-container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>Why <span>Quickbima.com</span></h2>
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="timeline">
+                            <div class="content brdr-right">
+                                <h4>Insurance Quotes from Multiple Insurers</h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium quos voluptatum deleniti atque corrupti quos dolores et quas molestias.</p>
+                            </div>
+                            <div class="content-img arrow-right">
+                                <span class="multiple-insurers"></span>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="content-img brdr-right img-right arrow-left">
+                                <span class="expert-advice"></span>
+                            </div>
+                            <div class="content">
+                                <h4>Unbaised Expert Advice / Information</h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium quos voluptatum deleniti atque corrupti quos dolores et quas molestias.</p>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="content brdr-right">
+                                <h4>Application Assistance</h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium quos voluptatum deleniti atque corrupti quos dolores et quas molestias.</p>
+                            </div>
+                            <div class="content-img arrow-right">
+                                <span class="app-assistance"></span>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="content-img brdr-right img-right arrow-left">
+                                <span class="issuance-help"></span>
+                            </div>
+                            <div class="content">
+                                <h4>Issuance Support</h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium quos voluptatum deleniti atque corrupti quos dolores et quas molestias.</p>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="content brdr-right">
+                                <h4>Claim Assistance</h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium quos voluptatum deleniti atque corrupti quos dolores et quas molestias.</p>
+                            </div>
+                            <div class="content-img arrow-right">
+                                <span class="claim-asst"></span>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="content-img brdr-right img-right arrow-left">
+                                <span class="policy-vault"></span>
+                            </div>
+                            <div class="content">
+                                <h4>Policy Vault - All your policies in one place</h4>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium quos voluptatum deleniti atque corrupti quos dolores et quas molestias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container section-container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Insurance Products</h3>
+                </div>
+                <div class="col-sm-12">
+                    <a href="" class="box text-center">
+                        <span class="health"></span>
+                        <h4>Health <br><span>Insurance</span></h4>
+                    </a>
+                    <a href="" class="box text-center">
+                        <span class="car"></span>
+                        <h4>Car <br><span>Insurance</span></h4>
+                    </a>
+                    <a href="" class="box text-center">
+                        <span class="bike"></span>
+                        <h4>Two Wheeler <br> <span>Insurance</span></h4>
+                    </a>
+                    <a href="" class="box text-center">
+                        <span class="term"></span>
+                        <h4>Term <br> <span>Insurance</span></h4>
+                    </a>
+                    <a href="" class="box text-center">
+                        <span class="travel"></span>
+                        <h4>Travel <br> <span>Insurance</span></h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container section-container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>Our Partners</h2>
+                    <img src="images/partners-logos.svg" class="partners" alt="partners">
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid videosection">
+            <div class="container section-container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h2>Nemo Enim <span>Voluptatem</span></h2>
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                        <iframe width="760px" height="420px" src="https://www.youtube.com/embed/xhz0tRDKfOU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container section-container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Recent Posts from Articles</h3>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="articlebox text-center">
+                        <div class="article-img"><img src="images/healthinsurance.jpg" alt="Health"></div>
+                        <div class="date text-uppercase">May <br>14</div>
+                        <h4 class="article-title">Questions to Ask Your Insurance Agent</h4>
+                        <span class="category">Insurance</span>
+                        <p class="breif-detail">As a child, you may have been a witness to meetings in your living room sofa, where someone was trying to sell something to your father. We never knew what they talked about,</p>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="articlebox text-center">
+                        <div class="article-img"><img src="images/news1.jpg" alt="Health"></div>
+                        <div class="date text-uppercase">Apr <br>26</div>
+                        <h4 class="article-title">Everything You wanted to know about tax and penalties under it</h4>
+                        <span class="category">News</span>
+                        <p class="breif-detail">Advance tax refers to paying of taxes as and when you earn, instead of waiting for the end of the financial year. Taxes are paid in instalments as per the dates given by the I.T. Department rather than in lump sum at the financial year end.</p>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="articlebox text-center">
+                        <div class="article-img"><img src="images/car-insurance.jpg" alt="Car"></div>
+                        <div class="date text-uppercase">Apr <br>26</div>
+                        <h4 class="article-title">Current RBI Guidelines for Cash Deposits and Withdrawls</h4>
+                        <span class="category">Car Insurance</span>
+                        <p class="breif-detail">On 8 November 2016, the Indian government announced the demonetization of high value currency notes ?1000 and ?500. This decision was taken by the government in an attempt to eliminate corruption, black money, terror funding and counterfeit currency. </p>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="" class="articlebox text-center">
+                        <div class="article-img"><img src="images/twowheeler.jpg" alt="Health"></div>
+                        <div class="date text-uppercase">Mar <br>07</div>
+                        <h4 class="article-title">Health Insurance Cover</h4>
+                        <span class="category">Two Wheeler Insurance</span>
+                        <p class="breif-detail">Majority of the young adults tend to live under the impression that they do not need health insurance. They brush off the idea, stating that they are healthy enough right now. Unfortunately, this is one of the biggest mistakes they make.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid footerv2">
+            <div class="container">
+                <div class="row top-part">
+                    <div class="col-sm-6 col-md-4">
+                        <h5>Licensed</h5>
+                        <span class="irdai"></span>
+                        <p>Mangotree Insurance Web Aggregators Pvt. Ltd.<br>
+                         Website Approved by IRDAI (Govt. of India)<br>
+                         Registration no. IRDAI / WB35 / 2016</p>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <h5>Security</h5>
+                        <span class="security"></span>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <h5>Payment Options</h5>
+                        <span class="payment"></span>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                        <h5>We are social</h5>
+                        <a href="https://www.facebook.com/quickbima" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/quickbima" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/company/quickbima-com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://plus.google.com/+Quickbima" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="row sitelinks">
+                    <div class="col-sm-8">
+                        <ul>
+                            <li>Company</li>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Careers@Quickbima</a></li>
+                            <li><a href="">Our Partners</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                        <ul>
+                            <li>Quick Access</li>
+                            <li><a href="">Articles</a></li>
+                            <li><a href="">Claims</a></li>
+                            <li><a href="">Complaints</a></li>
+                            <li><a href="">Site Map</a></li>
+                        </ul>
+                        <ul>
+                            <li>Links</li>
+                            <li><a href="">T&amp;C's</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Disclaimer</a></li>
+                            <li><a href="">FAQ's</a></li>
+                        </ul>
+                        <ul>
+                            <li>Insurance</li>
+                            <li><a href="">Health Insurance</a></li>
+                            <li><a href="">Car Insurance</a></li>
+                            <li><a href="">Two Wheeler Insurance</a></li>
+                            <li><a href="">Term Insurance</a></li>
+                            <li><a href="">Travel Insurance</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subscribe">
+                            <h4>Subscribe to Our Newsletter</h4>
+                            <input type="text" placeholder="Your email address">
+                            <span class="error"></span>
+                            <button type="submit" class="btn ">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="disclaimer">DISCLAIMER:  All the images used on Quickbima.com have either been purchased or are used with permission of the copyright holder. Images from Quickbima.com may not be copied or used elsewhere without obtaining appropriate permissions from the copyright holders. All Rights reserved.</p>
+                        <p class="disclaimer">Insurance is the subject matter of Solicitation. Quickbima.com, India's IRDA approved web aggregator portal. We at Quickbima provide an unbiased and comprehensive online insurance comparison platform to our clients. Quickbima.com provides FREE quotes and insurance plans from the best companies at cost-effective rates. Quickbima.com helps you choose best plans for all major segments of Insurance viz. Health Insurance, Life Insurance, Car Insurance, Travel Insurance, Pension and Annuities or even specific type of Insurance like Rural or Micro Insurance. Clutter free design and innovative format is especially designed for best user experience at Quickbima.com. All product information displayed on this website is solely provided by the respective insurance company.  Kindly note that Quickbima.com can share the particulars of clients/visitors with the insurers/insurance brokers.</p>
+                    </div>
+                    <div class="col-sm-12 text-center copright">
+                        <p>Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2018 Quickbima.com. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $('#myCarousel').carousel({
+              interval: 1000,
+              cycle: true
+            }); 
+            
+            $(".article-title").text(function(index, currentText) {
+                return currentText.substr(0, 45) + ' ...';
+            });
+            $(".breif-detail").text(function(index, currentText) {
+                return currentText.substr(0, 105) + ' ...';
+            });
+        </script>
+        
+        <script>
+            window.onload = function(){
+            //canvas init
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            //canvas dimensions
+            var W = window.innerWidth;
+            var H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+
+            //snowflake particles
+            var mp = 25; //max particles
+            var particles = [];
+            for(var i = 0; i < mp; i++)
+            {
+                particles.push({
+                    x: Math.random()*W, //x-coordinate
+                    y: Math.random()*H, //y-coordinate
+                    r: Math.random()*4+1, //radius
+                    d: Math.random()*mp //density
+                })
+            }
+
+            //Lets draw the flakes
+            function draw()
+            {
+                ctx.clearRect(0, 0, W, H);
+
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.fillText = "N";
+                ctx.beginPath();
+                for(var i = 0; i < mp; i++)
+                {
+                    var p = particles[i];
+                    ctx.moveTo(p.x, p.y);
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+                }
+                ctx.fill();
+                update();
+            }
+
+            //Function to move the snowflakes
+            //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+            var angle = 0;
+            function update()
+            {
+                angle += 0.01;
+                for(var i = 0; i < mp; i++)
+                {
+                    var p = particles[i];
+                    //Updating X and Y coordinates
+                    //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+                    //Every particle has its own density which can be used to make the downward movement different for each flake
+                    //Lets make it more random by adding in the radius
+                    p.y += Math.cos(angle+p.d) + 1 + p.r/2;
+                    p.x += Math.sin(angle) * 2;
+
+                    //Sending flakes back from the top when it exits
+                    //Lets make it a bit more organic and let flakes enter from the left and right also.
+                    if(p.x > W+5 || p.x < -5 || p.y > H)
+                    {
+                        if(i%3 > 0) //66.67% of the flakes
+                        {
+                            particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
+                        }
+                        else
+                        {
+                            //If the flake is exitting from the right
+                            if(Math.sin(angle) > 0)
+                            {
+                                //Enter from the left
+                                particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
+                            }
+                            else
+                            {
+                                //Enter from the right
+                                particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
+                            }
+                        }
+                    }
+                }
+            }
+
+            //animation loop
+            setInterval(draw, 33);
+        }
+        </script>
+        
+        <script>
+            $('#madeclaim').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#claimed-title').css({'top': '4px'});
+                   $(this).parent().parent().find('.text').css('top', "14px");
+                   $(this).parent().parent().find('input').css('top', "9px");
+                   $(".claimshare").removeClass('sr-only');
+                   $(".previousncb").removeClass('sr-only');
+                   $(".previousncb").addClass('fadeInDown');
+               }else{
+                   $('#claimed-title').hide();
+               }
+            });
+            $("#close-sessionv2").click(function() {
+                $(".last-session-v2").removeClass('slideInUp');
+                $(".last-session-v2").addClass('slideOutDown');
+                $(".last-position").css({ "opacity" : "1" });
+                $(".last-position").animate({ "right" : "100px" }, 1600);
+                $(".last-position").animate({ "right" : "15px" }, 1200);
+                $(".last-position").animate({ "right" : "40px" }, 800);
+                setTimeout(function(){$('.notification').show(200);}, 4000);
+            });
+            
+            $(".last-position").click(function() {
+                $(".position-detailsv2").show();
+                $(".notification").hide();
+            });
+            $("#close-sessionv3").click(function(){
+               $(".position-detailsv2").hide();
+                $(".notification").show();
+            });
+            
+            
+            $('#tripFrequency').change(function(){
+                var frequency = $("#tripFrequency").val();
+                if(frequency == "single"){
+                    $("#tripduration").addClass('sr-only');
+                    $("#tripstartend").removeClass('sr-only');
+                    $(".tripStartDate").hide();
+                    $("#travelMembers").removeClass('sr-only');
+                    $("#traveller-age").addClass('sr-only');
+                }
+                else{
+                    $("#tripduration").removeClass('sr-only');
+                    $("#tripstartend").addClass('sr-only');
+                    $(".tripStartDate").show();
+                    $("#travelMembers").addClass('sr-only');
+                    $("#traveller-age").removeClass('sr-only');
+                }
+               if($(this).parent().parent().find('default')){
+                   $('#trip-title').css({'top': '4px'});
+                   $(this).parent().parent().find('.text').css('margin-top', "10px");
+				   $(this).parent().parent().find('input').css('top', "10px");
+               }else{
+                   $('#trip-title').hide();
+               }
+            });
+            
+            $(document).delegate('#multiCountries', 'change',function(){
+               if($(this).val() == '' || $(this).val() == null){
+                   $('#travel-title').css({'top': '-20px'});
+               }else{
+                   $('#travel-title').css({'top': '4px'});
+               }
+            });
+            
+            $('#no-travellers').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#travellers').css({'top': '4px'});
+                   $(this).parent().parent().find('.text').css('margin-top', "10px");
+				   $(this).parent().parent().find('input').css('top', "10px");
+               }else{
+                   $('#travellers').hide();
+               }
+            });
+            $('#yourage').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#yourage-title').css({'top': '4px'});
+                   $(this).parent().parent().find('.text').css('top', "9px");
+                   $(this).parent().parent().find('input').css('top', "9px");
+               }else{
+                   $('#yourage-title').hide();
+               }
+            });
+            
+            $("#session-close").click(function() {
+                $(".last-position").css({ "opacity" : "1" });
+                $(".last-position").animate({ "right" : "100px" }, 1600);
+                $(".last-position").animate({ "right" : "15px" }, 1200);
+                $(".last-position").animate({ "right" : "40px" }, 800);
+                setTimeout(function(){$('.notification').show(200);}, 4000);
+            });
+            /*---
+            $(".last-position").click(function() {
+               $(".postion-details").show(300);
+               $(".notification").hide();
+            });
+            ---*/
+            $(".close-details").click(function() {
+                $(".postion-details").hide(300);
+                $(".notification").show(600);
+            });
+        </script>
+        
+        <script>
+            $(function() {
+                $('.ui.dropdown').dropdown();
+            });
+            
+            $('#session-close').click(function(){
+               $('.last-session').hide();
+               $('body').removeClass("modal-open");
+            });
+            
+            $(".inner-box").hover(function () {
+                $(".last-session").toggleClass("blur-bg");
+            });
+            
+            $('#submitlogin').click(function(){
+               $('#userlogin').hide();
+               $('#otpverify').show();
+            });
+            $('.editmobile').click(function(){
+               $('#userlogin').show();
+               $('#otpverify').hide();
+            });
+            
+            $('#gendertitle').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#gender-title').css({'top': '4px'});
+                   $(this).parent().parent().find('.text').css('top', "9px");
+                   $(this).parent().parent().find('input').css('top', "9px");
+               }else{
+                   $('#gender-title').hide();
+               }
+            });
+            
+            $('#agetitle').change(function(){
+               if($(this).parent().parent().find('default')){
+                   $('#age-title').show();
+               }else{
+                   $('#age-title').hide();
+               }
+            });
+            
+            $(".input-effect input").focusin(function(){
+                if($(this).val() != ""){
+                    $(this).addClass("title-content");
+                }else {
+                    $(this).removeClass("title-content");
+                }
+            })
+            $(".input-effect input").focusin(function(){
+                if($(this).val() != ""){
+                    $(this).addClass("has-content");
+                }else {
+                    $(this).removeClass("has-content");
+                }
+            })
+           
+            $(document).ready(function() {
+                $("#rahul").click(function(){
+                    $("#verifydetails").removeClass('fade');
+                    $("#verifydetails").modal('hide');
+                    $("#otpwindow").modal('show');
+                    //$("body").addClass('modal-open');
+                });
+                
+                
+                
+                $("#continue1").click(function(){
+                    $("#step1").hide();
+                    $("#continue1").hide();
+                    $("#continue2").show();
+                    $("#back1").show();
+                    $("#step2").slideDown("slow");
+                });
+                $("#continue2").click(function(){
+                    $(".viewquotes").show();
+                    $("#back1").hide();
+                    $("#back2").show();
+                    $("#continue2").hide();
+                    $("#are-correct").hide();
+                    $("#claimandncb").show();
+                });
+                $("#back1").click(function(){
+                    $("#continue2").hide();
+                    $("#continue1").show();
+                    $("#step2").hide();
+                    $("#back1").hide();
+                    $("#step1").slideDown("slow");
+                });
+                $("#back2").click(function(){
+                    $("#are-correct").show();
+                    $("#step2").show();
+                    $("#step1").hide();
+                    $("#continue2").show();
+                    $("#claimandncb").hide();
+                    $("#back2").hide();
+                    $("#back1").show();
+                    $(".viewquotes").hide();
+                });
+                
+                $("#edit-number").click(function(){
+                    $("#otp-digit").hide();
+                    $("#resend").hide();
+                    $("#senton").hide();
+                    $("#edit-number").hide();
+                    $(".mob").hide();
+                    $("#updatemobile").show();
+                });
+                
+                $('#college').keyup(function(e) {
+                  var $listItems = $('.field-wrap li');
+                  var key = e.keyCode,
+                    $selected = $listItems.filter('.selected'),
+                    $current;
+
+                  $listItems.removeClass('selected');
+
+                  var menu = $('#college_list');
+                  var height = $selected.outerHeight();
+                  var top = menu.scrollTop();
+                  var menuHeight = menu[0].scrollHeight;
+
+                  if (key == 40) // Down key
+                  {
+                    if (!$selected.length || $selected.is(':last-child')) {
+                      $current = $listItems.eq(0);
+                      menu.scrollTop(0);
+                    } else {
+                      $current = $selected.next();
+                      menu.scrollTop(top + height);
+                    }
+                    $current.addClass('selected');
+                  }
+                  if (key == 38) // Up key
+                  {
+                    if (!$selected.length || $selected.is(':first-child')) {
+                      $current = $listItems.last();
+                      menu.scrollTop(menuHeight + height);
+                    } else {
+                      $current = $selected.prev();
+                      menu.scrollTop(top - height);
+                    }
+                    $current.addClass('selected');
+                  }
+                });
+                 
+            });
+        </script>
+        
+        <script>
+            $(document).ready(function () {
+            var time = 0; /* how long the timer runs for */
+            var initialOffset = '440';
+            var i = 10;
+            var interval = setInterval(function() {
+                $('.circle_animation').css('stroke-dashoffset', initialOffset-(i*(initialOffset/10)));
+                $('.timer').text(i);
+                if (i == time) {
+                    clearInterval(interval);
+                    $('.otptimer').hide();
+                    $('.sms').show();
+                    $('#resend').show();
+                }
+                i--;  
+            }, 1000);
+            });
+        </script>
+        
+        <script>
+            $(document).ready(function () {
+                $(".btn-select").each(function (e) {
+                    var value = $(this).find("ul li.selected").html();
+                    if (value != undefined) {
+                        $(this).find(".btn-select-input").val(value);
+                        $(this).find(".btn-select-value").html(value);
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-select', function (e) {
+                e.preventDefault();
+                var ul = $(this).find("ul");
+                if ($(this).hasClass("active")) {
+                    if (ul.find("li").is(e.target)) {
+                        var target = $(e.target);
+                        target.addClass("selected").siblings().removeClass("selected");
+                        var value = target.html();
+                        $(this).find(".btn-select-input").val(value);
+                        $(this).find(".btn-select-value").html(value);
+                    }
+                    ul.slideUp(300);;
+                    $(this).removeClass("active");
+                }
+                else {
+                    $('.btn-select').not(this).each(function () {
+                        $(this).removeClass("active").find("ul").slideUp(300);
+                    });
+                    ul.slideDown(300);
+                    $(this).addClass("active");
+                }
+            });
+
+            $(document).on('click', function (e) {
+                var target = $(e.target).closest(".btn-select");
+                if (!target.length) {
+                    $(".btn-select").removeClass("active").find("ul").slideUp(300);
+                }
+            });
+        </script>
+        
+        <script>
+			$(document).ready(function() {
+			 var mouseOverActiveElement = false;
+				$(document).delegate('.insured-members, .adults','mouseenter',function(){
+					mouseOverActiveElement = true;
+				});
+				
+				$(document).delegate('.insured-members, .adults','mouseleave',function(){
+					mouseOverActiveElement = false;
+				});
+				
+				$('html').bind('click',function(){
+					if(!mouseOverActiveElement){
+						$('.adults').slideUp(300);
+                    }
+				});
+				
+				$('#healthCover').click(function(){
+					
+                    if($('.adults').is(':visible')){
+                            $('.adults').slideUp(300);
+                        }else{
+						  $('.adults').slideDown(300);
+                        }
+				});
+				
+				$('.insureAdult').click(function(){
+					var children = $('#children').val();
+					
+					if($('input[type="checkbox"]:checked').length > 0){
+						updatecover(children);
+					}else{
+						$('#healthCover').val('');
+						$('#children').val(0);
+					}
+				});
+				
+				$('.btn-number').click(function(e){
+					e.preventDefault();
+					
+					if($('input[type="checkbox"]:checked').length > 0){
+					
+						var fieldName = $(this).attr('data-field');
+						var type      = $(this).attr('data-type');
+						var input = $("input[name='"+fieldName+"']");
+						var currentVal = parseInt(input.val());
+						if (!isNaN(currentVal)) {
+							if(type == 'minus') {
+								var minValue = parseInt(input.attr('min')); 
+								if(!minValue) minValue = 0;
+								if(currentVal > minValue) {
+									input.val(currentVal - 1).change();
+									
+									var children = currentVal - 1;
+									updatecover(children);
+								} 
+								if(parseInt(input.val()) == minValue) {
+									$(this).attr('disabled', true);
+								}
+					
+							} else if(type == 'plus') {
+								var maxValue = parseInt(input.attr('max'));
+								if(!maxValue) maxValue = 4;
+								if(currentVal < maxValue) {
+									input.val(currentVal + 1).change();
+									
+									var children = currentVal + 1;
+									updatecover(children);
+								}
+								if(parseInt(input.val()) == maxValue) {
+									$(this).attr('disabled', true);
+								}
+					
+							}
+						} else {
+							input.val(0);
+						}
+					}
+				});
+				$('.input-number').focusin(function(){
+				   $(this).data('oldValue', $(this).val());
+				});
+				$('.input-number').change(function() {
+					
+					var minValue =  parseInt($(this).attr('min'));
+					var maxValue =  parseInt($(this).attr('max'));
+					if(!minValue) minValue = 0;
+					if(!maxValue) maxValue = 4;
+					var valueCurrent = parseInt($(this).val());
+					
+					var name = $(this).attr('name');
+					if(valueCurrent >= minValue) {
+						$(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+					} else {
+						alert('Sorry, the minimum value was reached');
+						$(this).val($(this).data('oldValue'));
+					}
+					if(valueCurrent <= maxValue) {
+						$(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+					} else {
+						alert('Sorry, the maximum value was reached');
+						$(this).val($(this).data('oldValue'));
+					}
+					
+				});
+				
+			});
+			
+			function updatecover(children){
+				var tmpcover = '';
+				$('input[type="checkbox"]:checked').each(function() {
+					var member = $(this).val();
+					if(tmpcover == ''){
+						tmpcover = $.trim(member);
+					}else{
+						tmpcover = tmpcover+', '+$.trim(member);
+					}
+				});
+				
+				
+				if(children > 1){
+					var child = 'Children';
+				}else{
+					var child = 'Child';
+				}
+				
+				if(children >= 1){
+					tmpcover = tmpcover+', '+children+' '+child;
+				}
+			
+				$('#healthCover').val(tmpcover);
+			}
+		</script>
+		
+		<script>
+			$(document).ready(function(){
+				$("#health_gender").change(function(){
+					 $("#members").slideUp("slow",function(){
+							 $("#healthdetails, #health_back").slideDown();
+						});					
+				});
+				$("#health_gender").change(function(){
+					$("#health_gender").removeClass("error");
+				});
+				$("#health_insure").change(function(){
+					$("#validate_insure").removeClass("error");
+				});
+				$("#health_age").change(function(){
+					$("#health_age").removeClass("error");
+				});
+				$("#health_email").focus(function(){
+					$("#health_email").removeClass("error_input");
+				});
+				$("#health_pincode").focus(function(){
+					$("#health_pincode").removeClass("error_input");
+				});
+				$("#health_mobile").focus(function(){
+					$("#health_mobile").removeClass("error_input");
+				});
+				$("#health_submit").click(function(){
+					var insure = $("#health_insure").val();
+					var pincode = $("#health_pincode").val();
+					var gender = $("#health_gender").val();
+					var age = $("#health_age").val();
+					var email = $("#health_email").val();
+					var mobile = $("#health_mobile").val();
+					var mobileRegex = new RegExp(/(^[7-9]\d{0,9}$)/);
+					var pinRegex = new RegExp(/(^[1-9][0-9]{5}$)/);
+					var emailRegex = new RegExp(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i);
+					var validpin = pinRegex.test(pincode);
+					var validemail = emailRegex.test(email);
+					var validmobile = mobileRegex.test(mobile);
+					var flag = 0;
+					if (!validmobile && mobile != ''){
+						$("#health_mobile").addClass("error_input");
+						flag = 1;
+					}
+					if (!validpin && pincode != ''){
+						$("#healthdetails").slideUp("slow",function(){
+							 $("#members").slideDown();
+						});	
+						$("#health_pincode").addClass("error_input");
+						flag = 1;
+					}
+					if (!validemail && email != ''){
+						$("#health_email").addClass("error_input");
+						flag = 1;
+					}
+					if(flag == 1){
+						return false;
+					}
+					if(insure == '' || pincode == '' || gender == ''){
+						 $("#healthdetails").slideUp("slow",function(){
+							 $("#members").slideDown();
+						});	
+						if(insure == '' || insure == null){
+							$("#validate_insure").addClass("error");
+						}
+						if(pincode == ''){
+							$("#health_pincode").addClass("error_input");
+						}
+						if(gender == ''){
+							$("#health_gender").addClass("error");
+						}						
+						return false;
+					}else{
+						if(age == '' || mobile ==''){
+						 $("#members").slideUp("slow",function(){
+							 $("#healthdetails").slideDown();
+						});							
+							if(age == ''){
+								$("#health_age").addClass("error");
+							}
+							if(mobile == ''){
+								$("#health_mobile").addClass("error_input");
+							}
+							return false;
+						}
+					}
+				});
+			});			
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#datepicker2").change(function(){
+					 $("#travelMembers").slideUp("slow",function(){
+							 $("#travelDetails").slideDown();
+						});					
+					});
+				$("#travel_geographical").change(function(){
+					$("#travel_geographical").removeClass("error_input");
+				});
+				$("#datepicker").focus(function(){
+					$("#datepicker").removeClass("error_input");
+				});
+				$("#datepicker2").focus(function(){
+					$("#datepicker2").removeClass("error_input");
+				});
+				$("#travel_email").focus(function(){
+					$("#travel_email").removeClass("error_input");
+				});
+				$("#travel_age").focus(function(){
+					$("#travel_age").removeClass("error");
+				});
+				$("#travel_mobile").focus(function(){
+					$("#travel_mobile").removeClass("error_input");
+				});
+				$("#travel_submit").click(function(){
+					var geographical = $("#travel_geographical").val();
+					var start_date = $("#datepicker").val();
+					var end_date = $("#datepicker2").val();
+					var email = $("#travel_email").val();
+					var age = $("#travel_age").val();
+					var mobile = $("#travel_mobile").val();
+					var mobileRegex = new RegExp(/(^[7-9]\d{0,9}$)/);
+					var emailRegex = new RegExp(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i);
+					var validemail = emailRegex.test(email);
+					var validmobile = mobileRegex.test(mobile);
+					var flag = 0;
+					if (!validmobile && mobile != ''){
+						$("#travel_mobile").addClass("error_input");
+						flag = 1;
+					}
+					if (!validemail && email != ''){
+						$("#travel_email").addClass("error_input");
+						flag = 1;
+					}
+					if(flag == 1){
+						return false;
+					}
+							
+					if(geographical == '' || start_date == '' || end_date == ''){
+						 $("#travelDetails").slideUp("slow",function(){
+							 $("#travelMembers").slideDown();
+						});	
+						if(geographical == '' ){
+							$("#travel_geographical").addClass("error_input");
+						}
+						if(start_date == ''){
+							$("#datepicker").addClass("error_input");
+						}	
+						if(end_date == ''){
+							$("#datepicker2").addClass("error_input");
+							
+						}
+						return false;
+					}
+					else
+					{
+						if(age =='' || mobile =='' ){
+						 $("#travelMembers").slideUp("slow",function(){
+							 $("#travelDetails").slideDown();
+						});							
+							if(age == ''){
+								$("#travel_age").addClass("error");
+							}
+							if(mobile == ''){
+							$("#travel_mobile").addClass("error_input");
+							}
+							return false;
+						}
+					}
+					
+				});	
+			});			
+		</script>
+		<script>
+			$(document).ready(function(){
+			$("#term_smoker").change(function(){
+					 $("#termMembers").slideUp("slow",function(){
+							 $("#termDetails").slideDown();
+						});					
+				});
+				$("#term_income").change(function(){
+					$("#term_income").removeClass("error");
+				});
+				$("#term_gender").change(function(){
+					$("#term_gender").removeClass("error");
+				});
+				$("#term_smoker").change(function(){
+					$("#term_smoker").removeClass("error");
+				});
+				$("#term_pincode").focus(function(){
+					$("#term_pincode").removeClass("error_input");
+				});
+				$("#term_mobile").focus(function(){
+					$("#term_mobile").removeClass("error_input");
+				});
+				$("#term_submit").click(function(){
+					var income = $("#term_income").val();
+					var gender = $("#term_gender").val();
+					var smoker = $("#term_smoker").val();
+					var pincode = $("#term_pincode").val();
+					var mobile = $("#term_mobile").val();
+					var mobileRegex = new RegExp(/(^[7-9]\d{0,9}$)/);
+					var pinRegex = new RegExp(/(^[1-9][0-9]{5}$)/);
+					var validpin = pinRegex.test(pincode);
+					var validmobile = mobileRegex.test(mobile);
+					var flag = 0;
+					
+					if (!validpin && pincode != ''){
+						
+						$("#term_pincode").addClass("error_input");
+						flag = 1;
+					}
+					if (!validmobile && mobile != ''){
+					
+						$("#term_mobile").addClass("error_input");
+						flag = 1;
+					}
+					if(flag == 1){
+						return false;
+					}
+					if(income == '' || gender == '' || smoker == ''){
+						 $("#termDetails").slideUp("slow",function(){
+							 $("#termMembers").slideDown();
+						});	
+						if(income == ''){
+							$("#term_income").addClass("error");
+						}
+						if(gender == ''){
+							$("#term_gender").addClass("error");
+						}
+						if(smoker == ''){
+							$("#term_smoker").addClass("error");
+						}						
+						return false;
+					}
+					else
+					{
+						if(pincode =='' || mobile =='' ){
+						 $("#termMembers").slideUp("slow",function(){
+							 $("#termDetails").slideDown();
+						});							
+							if(pincode == ''){
+								$("#term_pincode").addClass("error_input");
+							}
+							if(mobile == ''){
+							$("#term_mobile").addClass("error_input");
+							}
+							return false;
+						}
+					}
+				});
+			});			
+		</script>
+		
+        
+        
+	</body>
+</html>
