@@ -20,32 +20,30 @@ $logo-blue:#4fbbb2;
 $logo-red:#e6253c;
 $blue-color:#5d91e3;
 
-@include font-face(Nobel-ExtraLight, "../fonts/Nobel-ExtraLight/Nobel-ExtraLight");
-@include font-face(Nobel-Light, "../fonts/Nobel-Light/Nobel-Light");
-@include font-face(Nobel-Book, "../fonts/Nobel-Book/Nobel-Book");
-@include font-face(Nobel-Regular, "../fonts/Nobel-Regular/Nobel-Regular");
-@include font-face(Nobel-Bold, "../fonts/Nobel-Bold/Nobel-Bold");
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 html, body {
     height: 100%;
 }
 body{
-	font-family: 'Nobel-Light';
+	font-family: 'Comfortaa', cursive;
     font-weight: normal;
-    font-style: normal;
 	padding-top:55px;
-	text-rendering: optimizeLegibility;
-	text-rendering: geometricPrecision;
-	font-smooth: always;
-	font-smoothing: antialiased;
-	-moz-font-smoothing: antialiased;
-	-moz-font-smoothing: subpixel-antialiased; 
 	-webkit-font-smoothing: antialiased;
-	-webkit-font-smoothing: subpixel-antialiased;
-	-o-font-smoothing: subpixel-antialiased;
-	-ms-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
+.quoteoverlay {
+    background: transparent;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 99999;
+}
 .modal-open, .modal {
     padding-right: 0px!important;
 }
@@ -53,9 +51,6 @@ body{
     background-color:$theme;
 }
 
-p {
-	font-size:17px;
-}
 a:focus{
 	outline:none;
 }
@@ -511,18 +506,22 @@ textarea:focus, textarea:active, textarea:hover {
 .ui-tooltip {
     font-size: 13px;
     color: #fff;
-    font-family: 'Nobel-Light';
     width: 220px;
+}
+#ui-datepicker-div {
+    z-index: 1051!important;
 }
 label {
     font-weight: 400;
 }
 .quotes-page {
     background: lighten($theme, 67%);
-    //height: 100%;
     min-height: 100%;
     padding: 0px;
     color: $theme;
+    p {
+        font-family: 'Roboto', sans-serif;
+    }
     .top-section {
         background: lighten($theme, 67%);
         padding-top: 30px;
@@ -532,18 +531,17 @@ label {
         width: 100%;
         z-index: 9;
         h4 {
-            font-family: 'Nobel-Light';
             margin-bottom: 10px;
-            font-size: 17px;
+            font-size: 16px;
             strong {
-                font-family: 'Nobel-Book';
+                font-weight: 700;
             }
         }
         .edit {
             background:$blue-color;
             color: #fff;
             @include border-radius(3px);
-            font-size: 12px;
+            font-size: 11px;
             padding: 4px 7px 3px 22px;
             margin-left: 10px;
             border: 1px solid darken($blue-color, 6%);
@@ -568,13 +566,15 @@ label {
             padding: 2px 7px 3px 19px;
             background: $blue-color url("../images/tick-active.svg") no-repeat 5px 7px/10px;
             &:before {
-                content: '';
+                content: '\f00c';
+                top: 2px;
             }
         }
         .change {
             top: -8px;
             @extend .apply;
             padding-left: 23px;
+            padding-top: 3px;
             background: $blue-color;
             &:before {
                 content: '\f044';
@@ -586,7 +586,7 @@ label {
             top: 24px;
             padding-top: 4px;
             padding-left: 21px;
-            font-family: 'Nobel-Book';
+            font-weight: 400;
             background:lighten($theme, 60%);
             border: 1px solid lighten($theme, 40%);
             &:before {
@@ -597,7 +597,7 @@ label {
         .idv {
             float: right;
             position: relative;
-            width: 315px;
+            width: 340px;
             .form-control {
                 border: none;
                 border-bottom: 1px solid $theme;
@@ -606,7 +606,7 @@ label {
                 display: inline-block;
                 margin-left: 6px;
                 padding: 0px;
-                font-family: 'Nobel-Regular';
+                font-weight:700;
                 font-size: 16px;
                 color: $theme;
                 letter-spacing: 1px;
@@ -617,13 +617,16 @@ label {
             .fa {
                 margin-left: 4px;
             }
+            p {
+                font-size: 12px;
+            }
         }
         p {
             font-size: 13px;
             margin-right: 20px;
             margin-bottom:0px;
             strong {
-                font-family: 'Nobel-Book';
+                font-weight: 700;
             }
         }
         
@@ -670,6 +673,7 @@ label {
                   @include border-radius(2px);
                   padding: 3px 8px;
                   margin-bottom: 15px;
+                  font-family: 'Roboto';
                   width: auto;
                   display: inline-block;
                   &:before {
@@ -704,7 +708,7 @@ label {
             }
             h3 {
                 @include border-radius(2px);
-                font-family: 'Nobel-Book';
+                font-weight: 400;
                 border: 1px solid lighten($theme, 50%);
                 padding: 5px;
                 font-size: 20px;
@@ -752,7 +756,7 @@ label {
                 }
             }
             .claim-title {
-                font-family: 'Nobel-Book';
+                font-weight: 400;
                 display: inline-block;
                 margin-top: 5px;
                 margin-bottom:0px;
@@ -779,7 +783,7 @@ label {
                 margin-top: 10px;
                 padding: 6px 15px;
                 font-size: 16px;
-                font-family: 'Nobel-Book';
+                font-weight: 400;
             }
         }
         .seperator {
@@ -789,79 +793,549 @@ label {
             margin-top: 25px;
         }
     }
-    .modal-dialog {
+    .popup-content {
         background: #fff;
-        margin: 56px 0px 0px 0px;
-        height: calc(100% - 56px);
+        position: fixed;
+        left: 0px;
+        top: 56px;
+        height:calc(100% - 56px);
         width: 100%;
-        .modal-content {
-            @include box-shadow(0px 0px 0px rgba(0,0,0,0));
-            border: none;
-            height: calc(100% - 100px);
-            .modal-body {
+        z-index: 99;
+        .close {
+            background:#fff url("../images/cross.svg") no-repeat 9px 8px/22px;
+            @include border-radius(60px);
+            @include box-shadow(0px 4px 10px rgba(0,0,0,0.1));
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            opacity: 1;
+            height: 40px;
+            width: 40px;
+        }
+        &.premium-breakup {
+            background: lighten($theme, 67%);
+            padding-top: 30px;
+            .container {
+                max-width: 1024px;
+            }
+            .premium {
+                small {
+                    color: #777;
+                }
+                span {
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+            .buybima {
+                background: lighten($logo-red, 8%);
+                border: 1px solid darken($logo-red, 6%);
+                @include border-radius(4px);
+                @include box-shadow(0px 3px 6px rgba(0,0,0,0.2));
+                color: #fff;
+                display: inline-block;
+                padding: 8px 25px;
+                &:hover {
+                    text-decoration: none;
+                }
+                &:active, &:focus {
+                    @include box-shadow(0px 3px 6px rgba(0,0,0,0));
+                }
+            }
+            .inner-part {
+                background: #fff;
+                @include box-shadow(0px 5px 10px rgba(0,0,0,0.1));
+                margin-top: 20px;
+                padding:20px 15px 50px 15px;
+                overflow-y: scroll;
+                height: calc(100vh - 280px);
+                display: none;
+                &.active {
+                    display: inherit;
+                }
+                h3 {
+                    margin-bottom: 30px;
+                }
+                h4 {
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                hr {
+                    margin-bottom: 30px;
+                }
+                $claim-case: car-accident, anti-theft, third-party, death-disability, fire-explosions, riots-strikes, earthquake, floods, terrorist-attack, transportation, pawoner, zerodeps, invoice, roadside, engine, ncb, driver, consumable, key, passenger, accessories;
+                $k: 0;
+                @each $icons in $claim-case {
+                    $bacRightP: $k * 100;
+                    $k: $k + 1;
+                    .#{$icons} {
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            left: calc(50% - 25px);
+                            top: 5px;
+                            background: url("../images/claim-icons.svg") no-repeat 0px -#{$bacRightP}px/50px;
+                            content: '';
+                            width:50px;
+                            height: 50px;
+                        }
+                    }
+                }
+                .claim-case {
+                    margin: 20px 0px -20px;
+                    padding: 0px;
+                    display: inline-block;
+                    width: 100%;
+                    &.more-options {
+                        margin-top: -10px;
+                        -moz-transition: all ease 0.4s;
+                        -webkit-transition: all ease 0.4s;
+                        transition: all ease 0.4s;
+                        overflow: hidden;
+                        height: 0px;
+                    }
+                    &.expanded {
+                        -moz-transition: all ease-in-out 0.4s;
+                        -webkit-transition: all ease-in-out 0.4s;
+                        transition: all ease-in-out 0.4s;
+                        height: auto;
+                        margin-bottom: 10px;
+                        margin-top: 15px;
+                    }
+                    > li {
+                        padding: 70px 12px 0px;
+                        position: relative;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        font-size: 12px;
+                        text-align: center;
+                        min-height: 110px;
+                        width: 20%;
+                        float: left;
+                        border-right:1px solid lighten($theme, 60%);
+                        &:last-child {
+                            border: none;
+                        }
+                        &.viewmore {
+                            padding-top: 0px;
+                            a {
+                                color: $logo-red;
+                                padding: 10px 0px 0px;
+                                display: block;
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                                .fa {
+                                    font-size: 20px;
+                                    margin-top: 15px;
+                                    margin-bottom: 10px;
+                                    display: block;
+                                    color: $theme;
+                                }
+                            }
+                        }
+                    }
+                }
+                .circliful {
+                    @include position(absolute, $top:-15px);
+                  .outer {
+                    fill: transparent;
+                    stroke: #888;
+                    stroke-width: 19.8;
+                    stroke-dasharray: 534;
+                    transition: stroke-dashoffset 1s;
+                    -webkit-animation-play-state: running;
+                    /* firefox bug fix - won't rotate at 90deg angles */
+                    -moz-transform: rotate(-89deg) translateX(-190px);
+                  }
+                  .inner {
+                    fill: transparent;
+                    stroke: blue;
+                    stroke-width: 20;
+                    stroke-dasharray: 534;
+                    transition: stroke-dashoffset 1s;
+                    -webkit-animation-play-state: running;
+                    /* firefox bug fix - won't rotate at 90deg angles */
+                    -moz-transform: rotate(-89deg) translateX(-190px);
+                    stroke-dashoffset: 0;
+                  }
+                  overflow: visible !important;
+                }
+                .share {
+                    .claim-circle {
+                        min-height: 140px;
+                        @include padding(null, 10px, null, 10px);
+                        width: 20%;
+                        float: left;
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+                    .svg-container {
+                      width:100%;
+                      overflow: hidden;
+                      position: relative;
+                      height: 74px;
+                      margin-left:auto!important;
+                      margin-right:auto!important;
+                      margin-bottom: 20px;
+                      margin-top:0px;
+                    }
+                }
+                svg .icon {
+                  font-family: FontAwesome;
+                }
+                .note {
+                    background: lighten($theme, 67%);
+                    @include border-radius(2px);
+                    margin-top: 10px;
+                    font-size: 12px;
+                    padding: 2px 6px;
+                    display: inline-block;
+                    span {
+                        color: $logo-red;
+                    }
+                }
+                .zerodep {
+                    background: $theme;
+                    @include border-radius(4px);
+                    padding: 6px 15px 7px;
+                    display: inline-block;
+                    color: #fff;
+                    text-align: center;
+                    margin-bottom: 10px;
+                    width: 200px;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    p {
+                        font-size: 12px;
+                        margin-bottom: 3px;
+                    }
+                    h4 {
+                        font-size:22px;
+                    }
+                    &.added {
+                        background: $logo-blue;
+                    }
+                }
+                .exclusions {
+                    margin-bottom: 30px;
+                    h4 {
+                        margin-bottom: 15px;
+                    }
+                    p {
+                        font-size: 14px;
+                        margin-top: 10px;
+                        margin-bottom: 0px;
+                        padding-left: 20px;
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            content: '\f00c';
+                            font-family: 'FontAwesome';
+                            color: $logo-blue;
+                        }
+                    }
+                }
+                .premium-covers {
+                    margin-bottom: 30px;
+                    h4 {
+                        padding-bottom: 10px;
+                        margin-bottom: 15px;
+                        font-weight: 700;
+                        border-bottom: 1px solid lighten($theme, 67%);
+                        .fa {
+                            color: $logo-blue;
+                            margin-right: 6px;
+                        }
+                    }
+                    p {
+                        font-weight: 300;
+                        width: 80%;
+                        .price {
+                            font-weight: 700;
+                            float: right;
+                        }
+                    }
+                }
+                .total-premium {
+                    background: lighten($theme, 67%);
+                    margin-bottom: 30px;
+                    font-size: 18px;
+                    padding: 10px;
+                    .price {
+                        margin-left: 20px;
+                        color: $logo-red;
+                    }
+                }
+                .points {
+                    position: relative;
+                    border-left: 1px dashed $theme;
+                    @include padding(null, null, 35px, 20px);
+                    @include margin(null, null, null, 10px);
+                    h4 {
+                        @include margin(0px, null, 15px, null);
+                        font-size: 18px;
+                    }
+                    .circle {
+                        @include position(absolute, $top:-5px, $left:-14px);
+                        @include padding(4px, null, null, null);
+                        font-size:14px;
+                        background: $theme;
+                        color: $body-bg;
+                        @include border-radius(50px);
+                        text-align: center;
+                        width: 26px;
+                        height:26px;
+                    }
+                    .sub-item {
+                        @include margin(null, null, null, 10px);
+                    }
+                    .tip {
+                        font-weight: 700;
+                        @include margin(15px, null, null, null);
+                        span {
+                            color: $logo-red;
+                        }
+                    }
+                }
+            }
+            .footer {
+                background: lighten($theme, 67%);
+                .tabs {
+                    color: $theme;
+                    &.active {
+                        color: $logo-red;
+                    }
+                }
+                $breakin: breakup, coverage, process;
+                $k: 0;
+                @each $icons in $breakin {
+                    $bacRightP: $k * 70;
+                    $k: $k + 1;
+                    .#{$icons} {
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            left: 5px;
+                            top: 5px;
+                            background: url("../images/breakup-icons.svg") no-repeat 4px -#{$bacRightP}px/35px;
+                            content: '';
+                            width:50px;
+                            height:40px;
+                        }
+                    }
+                }
+                .breakup {
+                    &.active {
+                        &:before {
+                            background-position:4px -210px;
+                        }
+                    }
+                }
+                .coverage {
+                    &.active{
+                        &:before {
+                            background-position:4px -280px;
+                        }
+                    }
+                }
+                .process {
+                    &.active{
+                        &:before {
+                            background-position:4px -350px;
+                        }
+                    }
+                }
+                .nav-tabs {
+                    display: inline-block;
+                    border: none;
+                    margin-top: 28px;
+                    li {
+                        padding-left:35px;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        &.active {
+                            background: $theme;
+                            @include border-radius(4px);
+                            a {
+                                color: #fff;
+                                border: none;
+                                @include border-radius(4px);
+                            }
+                        }
+                        a {
+                            background: transparent;
+                            font-size: 16px;
+                            padding: 12px 20px;
+                            color: $theme;
+                            display: block;
+                            &:hover {
+                                text-decoration: none;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .v-center {
+            position: relative;
+            height: calc(100vh - 56px);
+            padding-bottom: 120px;
+            overflow: scroll;
+            .inner-content {
                 margin: 0px auto;
-                position: relative;
-                top: 50%;
-                -webkit-transform: translateY(-50%);
-                -ms-transform: translateY(-50%);
-                transform: translateY(-50%);
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 120px;
                 width: 600px;
                 [class*="col-"] {
                     padding-left: 0px;
                     padding-right: 0px;
-                    margin-bottom: 20px;
+                    margin-bottom: 15px;
                 }
                 h3 {
-                    font-family: 'Nobel-Book';
+                    font-weight: 700;
                     border: 1px solid $theme;
                     padding: 11px 20px 8px 20px;
                     font-size: 20px;
                     @include border-radius(4px);
                     display: inline-block;
-                    margin-bottom: 60px;
+                    margin-top:35px;
+                    margin-bottom: 40px;
+                }
+                h4 {
+                    font-size: 16px;
+                }
+                hr {
+                    margin-top:10px;
+                    margin-bottom: 30px;
+                    margin-left: -15px;
+                    margin-right: -15px;
                 }
                 .droplist {
                     position: relative;
                     .titlelabel {
                         color: $logo-blue;
                         position: absolute;
+                        font-size:12px;
                         top: -8px;
                         left: 0px;
                     }
                 }
-                
-            }
-            .footer {
-                background: #fff;
-                position: fixed;
-                bottom: 0px;
-                left: 0px;
-                height: 100px;
-                width: 100%;
-                .btn {
-                    @include border-radius(3px);
-                    border: none;
-                    padding: 10px 25px;
-                    font-size: 16px;
-                    background: transparent;
-                    margin-top: 25px;
-                }
-                .update {
-                    background: lighten($logo-red, 8%);
-                    border: 1px solid darken($logo-red, 6%);
-                    @include box-shadow(0px 3px 6px rgba(0,0,0,0.2));
-                    color: #fff;
-                    padding: 10px 45px;
-                    &:active, &:focus {
-                        @include box-shadow(0px 3px 6px rgba(0,0,0,0));
+                .block-box {
+                    display: inline-block;
+                    position: relative;
+                    input.checkbox {
+                      &:empty {
+                        display: none;
+                        ~ label {
+                          position: relative;
+                          font-size: 15px;
+                          line-height:18px;
+                          text-indent:0px;
+                          cursor: pointer;
+                          color: $theme;
+                          @include user-select(none);
+                          @include border-radius(3px);
+                          border:1px solid lighten($theme, 30%);
+                          padding:5px 10px;
+                          margin-left: 10px;
+                          margin-right: 5px;
+                          display: inline-block;
+                            width: auto;
+                          &:before {
+                            position: absolute;
+                            display:inline-block;
+                            top:0px;
+                            bottom: 0;
+                            left: 0;
+                            content: '';
+                            width: 18px;
+                            height: 18px;
+                            background-color: transparent;
+                            border:none;
+                            @include border-radius(2px);
+                          }
+                        }
+                      }
+                      &:checked ~ label {
+                          background-color:$logo-blue;
+                          border:1px solid $logo-blue;
+                          color: #fff;
+                        &:before {
+                          content: '';
+                          text-indent: 2px;
+                          border:transparent;
+                          background:transparent;
+                          line-height: 14px;
+                        }
+                      }
+                    }
+                    .input-effect {
+                        min-width: 100px;
+                        margin-bottom: 0px;
+                        margin-top: -9px;
+                        margin-left: 15px;
+                        top: 12px;
+                        .error {
+                            color: $logo-red;
+                            font-size: 10px;
+                            position: absolute;
+                            right: 0px;
+                            bottom: -16px;
+                        }
                     }
                 }
-                .skip {
-                    font-family: 'Nobel-Book';
+                .lastncb {
+                    -webkit-transition: all ease 0.3s;
+                    transition: all ease 0.3s;
+                    overflow: hidden;
+                    height: 0px;
+                    &.expended {
+                        -webkit-transition: all ease-in-out 0.3s;
+                        transition: all ease-in-out 0.3s;
+                        height: 115px;
+                    }
                 }
             }
         }
+        .footer {
+            background: #fff;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            height: 100px;
+            width: 100%;
+            z-index: 99;
+            .btn {
+                @include border-radius(3px);
+                border: none;
+                padding: 10px 25px;
+                font-size: 16px;
+                background: transparent;
+                margin-top: 25px;
+            }
+            .update {
+                background: lighten($logo-red, 8%);
+                border: 1px solid darken($logo-red, 6%);
+                @include box-shadow(0px 3px 6px rgba(0,0,0,0.2));
+                color: #fff;
+                padding: 10px 45px;
+                &:active, &:focus {
+                    @include box-shadow(0px 3px 6px rgba(0,0,0,0));
+                }
+            }
+            .skip {
+                font-weight: 700;
+            }
+        }
     }
+    
     .spacer {
         height: 150px;
         width: 100%;
@@ -876,12 +1350,12 @@ label {
           height: 40px;
           font-size:16px;
           @include border-radius(0px);
-          @include padding(17px, null, null, 0px);
+          @include padding(17px, null, 5px, 0px);
           margin-bottom: 25px;
           width: 100%;
             .default.text {
                 color: lighten($theme, 40%);
-                font-family: 'Nobel-Light';
+                font-weight: 300;
             }
         }
         &.active.dropdown {
@@ -897,11 +1371,11 @@ label {
         }
       }
       &.search.dropdown > .text {
-          font-family: 'Nobel-Book';
           width: 100%;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          height: 22px;
       }
       &.search.dropdown.visible > input.search {
         padding: 14px 10px 10px 0px !important;
@@ -930,7 +1404,7 @@ label {
             display: none;
             ~ label {
               position: relative;
-              font-size: 15px;
+              font-size: 13px;
               line-height:18px;
               text-indent:5px;
               cursor: pointer;
@@ -955,7 +1429,8 @@ label {
           }
           &:checked ~ label {
             &:before {
-              content: url("../images/radio2.svg");
+              background: url("../images/radio2.svg") no-repeat 3px 4px/11px;
+              content: '';
               text-indent: 2px;
               border:1px solid $logo-blue;
               background-color:$logo-blue;
@@ -976,7 +1451,6 @@ label {
               width: 100%;
               height: 40px;
               font-size:$font-size-large - 2px;
-              font-family: 'Nobel-Book';
               @include border-radius(0px);
               @include box-shadow(0px 0px 0px rgba(0,0,0,0));
               @include position (absolute, $left:0px, $top:0px);
@@ -1007,7 +1481,7 @@ label {
               &:focus ~ label {
                 top: -12px;
                 left: 0;
-                font-size:$font-size-base - 1px;
+                font-size:12px;
                 color:$theme;
                 transition: 0.3s;
                 z-index: 99;
@@ -1015,7 +1489,7 @@ label {
             }   
             .has-content.effect ~ label {
               top: -12px;
-              font-size:$font-size-base - 1px;
+              font-size:12px;
               color: $logo-blue;
               transition: 0.3s;
             }
@@ -1026,7 +1500,7 @@ label {
             }
             .has-error.effect ~ label {
               top: -12px;
-              font-size:$font-size-base - 1px;
+              font-size:12px;
               color: $logo-red;
               transition: 0.3s;
             } 
@@ -1035,13 +1509,17 @@ label {
     /*-----Addon Covers----*/
     .left-sidebar {
         .title {
-            font: bold 17px Nobel-Book;
+            font-size:16px;
+            font-weight: 700;
             margin-bottom: 20px;
         }
         .covers {
             margin-top: 10px;
             margin-bottom: 10px;
             display: block;
+        }
+        .zerodep-icon {
+            color:#fea100;
         }
         .accessoriesfileds {
             .form-control {
@@ -1052,7 +1530,13 @@ label {
                 padding-left: 0px;
                 @include box-shadow(0px 0px 0px rgba(0,0,0,0));
                 margin-bottom: 10px;
+                font-size: 13px;
                 width: 160px;
+            }
+            .update {
+                font-size: 13px;
+                border: none;
+                @include box-shadow(0px 2px 3px rgba(0,0,0,0.1));
             }
         }
         .discount {
@@ -1067,12 +1551,12 @@ label {
                 color: #fff;
                 @include border-radius(3px);
                 font-size: 12px;
-                padding: 3px 8px 4px 8px;
+                padding: 4px 8px 4px 8px;
                 margin-left: 10px;
                 border: 1px solid darken($blue-color, 6%);
                 position: relative;
                 top: -2px;
-                font-family: 'Nobel-Light';
+                font-weight: 300;
                 text-shadow:0px 2px 2px rgba(0,0,0,0.2);
                 &:hover {
                     text-decoration: none;
@@ -1087,20 +1571,23 @@ label {
     
     /*-----Quotes----*/
     .right-section {
-    .animatable {
-      visibility: hidden;
-
-      /* initially pause animatable objects their animations */
-      -webkit-animation-play-state: paused;   
-      -moz-animation-play-state: paused;     
-      -ms-animation-play-state: paused;
-      -o-animation-play-state: paused;   
-      animation-play-state: paused; 
-    }
+        .animatable {
+          visibility: hidden;
+          /* initially pause animatable objects their animations */
+          -webkit-animation-play-state: paused;   
+          -moz-animation-play-state: paused;     
+          -ms-animation-play-state: paused;
+          -o-animation-play-state: paused;   
+          animation-play-state: paused; 
+        }
         .quote-wrapper {
             margin-bottom:20px;
             display: inline-block;
             width: 100%;
+            .animated {
+                -webkit-animation-fill-mode: none;
+                animation-fill-mode: none;
+            }
             .quote {
                 background: #fff;
                 @include box-shadow(0px 1px 2px rgba(0,0,0,0.1));
@@ -1117,16 +1604,15 @@ label {
                     padding-right: 8px;
                 }
                 p {
-                    font-family: 'Nobel-Book';
                     margin-bottom: 0px;
-                    font-size: 15px;
+                    font-size: 14px;
                 }
                 .insurer {
                     height: 60px;
                     margin-top:10px;
                     margin-bottom:20px;
                 }
-                $covers: pawoner, zerodep, invoice, roadside, engine, ncb, driver, consumable, key, passenger, accessories;
+                $covers: pawoner, zerodeps, invoice, roadside, engine, ncb, driver, consumable, key, passenger, accessories, personal-belonging, transport, repair-glass, tyre;
                 $k: 0;
                 @each $icons in $covers {
                     $bacRightP: $k * 32;
@@ -1152,8 +1638,7 @@ label {
                         padding: 0px 0px 4px 30px;
                         position: relative;
                         p {
-                            font-family: 'Nobel-Light';
-                            font-size: 13px;
+                            font-size: 12px;
                             display: inline-block;
                             padding-right: 35px;
                             &.yes {
@@ -1178,43 +1663,108 @@ label {
                     a {
                         color: $blue-color;
                         text-decoration: underline;
-                        font-family: 'Nobel-Book';
+                        font-size: 13px;
                         &:last-child {
                             float: right;
                             margin-right: 10px;
+                            margin-top: 3px;
                         }
                     }
-                    .garages {
+                    .dropdown {
                         position: relative;
-                        padding-left: 25px;
-                        //margin-right: 36%;
-                        span {
-                            font-family: 'Nobel-Regular';
-                            font-size: 16px;
-                            letter-spacing: 3px;
+                        @include padding(null, 0px, null, 0px);
+                        .dropdown-toggle {
+                            @include padding(null, null, null, 25px);
+                            position: relative;
+                            float: left;
+                            &:before {
+                                position: absolute;
+                                left:2px;
+                                top:2px;
+                                color: $theme;
+                                content: '\f0ad';
+                                font-family:'FontAwesome';
+                                -moz-transform: scaleX(-1);
+                                -o-transform: scaleX(-1);
+                                -webkit-transform: scaleX(-1);
+                                transform: scaleX(-1);
+                                filter: FlipH;
+                                -ms-filter: "FlipH";
+                            }
+                            span {
+                                font-weight: 700;
+                                font-size: 16px;
+                            }
+                            &:hover {
+                                text-decoration: none; 
+                            }
                         }
-                        &:before {
-                            position: absolute;
+                        .dropdown-menu {
+                            background:$theme;
+                            min-width: 180px;
+                            @include padding(0px, 0px, null, 0px);
+                            max-height: 180px;
                             left:0px;
-                            top:-4px;
-                            color: $theme;
-                            content: '\f0ad';
-                            font-family:'FontAwesome';
-                            -moz-transform: scaleX(-1);
-                            -o-transform: scaleX(-1);
-                            -webkit-transform: scaleX(-1);
-                            transform: scaleX(-1);
-                            filter: FlipH;
-                            -ms-filter: "FlipH";
+                            top:25px;
+                            overflow-y: scroll;
+                            z-index: 9999;
+                           li {
+                              border-bottom: 1px solid #323a42;
+                               @include padding(3px, 5px, 3px, 5px);
+                               color: $body-bg;
+                               font-size: 13px;
+                               font-family: 'Roboto';
+                              &:last-child {
+                                  border-bottom:0px solid #323a42;
+                              }
+                          }
+                        }
+                        .dropdown-menu.animated {
+                          -webkit-animation-duration: 0.3s;
+                          animation-duration: 0.3s;
+                          &:before {
+                            content: " ";
+                            display: block;
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            z-index: 99;
+                          }
+                        }
+                        .dropdownhover-top {
+                          margin-bottom: -28px;
+                          margin-top: 0;
+                        }
+                        .navbar-nav > li > .dropdown-menu {
+                          margin-bottom: 0;
+                        }
+                        .dropdownhover-bottom {
+                          -webkit-transform-origin: 50% 0;
+                          transform-origin: 50% 0;
+                        }
+                        .dropdownhover-left {
+                          -webkit-transform-origin: 100% 50%;
+                          transform-origin: 100% 50%;
+                        }
+                        .dropdownhover-right {
+                          -webkit-transform-origin: 0 50%;
+                          transform-origin: 0 50%;
+                        }
+                        .dropdownhover-top {
+                          -webkit-transform-origin: 50% 100%;
+                          transform-origin: 50% 100%;
                         }
                     }
+         
+                    
                 }
                 .premium {
                     margin-top: 20px;
                     margin-bottom: 15px;
                     font-size:22px;
                     color: $theme;
-                    font-family: 'Nobel-Book';
                     display: inline-block;
                     width: 110px;
                     text-align: center;
@@ -1222,18 +1772,30 @@ label {
                         font-size: 20px;
                         -webkit-text-stroke: 0.5px #fff;
                     }
+                    span {
+                        font-weight: 700;
+                    }
                 }
                 .buybima {
                     background: lighten($logo-red, 8%);
                     border: 1px solid darken($logo-red, 6%);
                     @include border-radius(2px);
                     color: #fff;
-                    font-size: 16px;
+                    font-size: 15px;
+                    font-weight: 700;
                     display: block;
                     width: 110px;
                     text-align: center;
                     //margin: 0px auto;
                     padding: 7px 10px 8px 10px;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    &:active {
+                        background: #fff;
+                        color: $logo-red;
+                        @include box-shadow(0px 5px 6px rgba(0,0,0,0.1));
+                    }
                 }
                 .dropdown {
                     position: absolute;
@@ -1258,6 +1820,122 @@ label {
                         left: auto;
                     }
                 }
+                .timeline-item {
+                  background: #fff;
+                  margin: 40px 2.5% 0 2%;
+                  max-width: 100%;
+                  min-height: 80px;
+                    .animated-background {
+                      animation-duration: 3s;
+                      animation-fill-mode: forwards;
+                      animation-iteration-count: infinite;
+                      animation-name: placeHolderShimmer;
+                      animation-timing-function: linear;
+                      background: #eaedf1;
+                      background: linear-gradient(to right, #eaedf1 8%, #d5dae1 18%, #eaedf1 33%);
+                      background-size: 800px 104px;
+                      height: 40px;
+                      position: relative;
+                    }
+                    .background-masker {
+                      background: #fff;
+                      position: absolute;
+                      &.header-top, &.header-bottom, &.subheader-bottom {
+                        top: 0;
+                        left: 12%;
+                        right: 0;
+                        height: 10px;
+                      }
+                      &.header-left, &.subheader-left, &.header-right, &.subheader-right {
+                        top: 10px;
+                        left: 12%;
+                        height: 8px;
+                        width: 30px;
+                      }
+                      &.header-right2 {
+                        top: 10px;
+                        left: 70%;
+                        height: 8px;
+                        width: 16%;
+                      }
+                      &.header-bottom {
+                        top: 18px;
+                        height: 6px;
+                      }
+                      &.subheader-left, &.subheader-right {
+                        top: 24px;
+                        height: 6px;
+                      }
+                      &.header-right {
+                        width: 15%;
+                        left: 36%;
+                        right: 0;
+                      }
+                      &.subheader-right {
+                        width: 10%;
+                        left: 40%;
+                        right: 0;
+                        left: 25%;
+                        width: 65%;
+                      }
+                      &.subheader-bottom {
+                        top: 30px;
+                        height: 10px;
+                      }
+                      &.content-top, &.content-second-line, &.content-third-line, &.content-second-end, &.content-third-end, &.content-first-end {
+                        top: 40px;
+                        left: 0;
+                        right: 0;
+                        height: 6px;
+                      }
+                      &.content-top {
+                        height: 20px;
+                      }
+                      &.content-first-end, &.content-second-end, &.content-third-end {
+                        width: auto;
+                        left: 380px;
+                        right: 0;
+                        top: 60px;
+                        height: 8px;
+                      }
+                      &.content-second-line {
+                        top: 68px;
+                      }
+                      &.content-second-end {
+                        left: 420px;
+                        top: 74px;
+                      }
+                      &.content-third-line {
+                        top: 82px;
+                      }
+                      &.content-third-end {
+                        left: 300px;
+                        top: 88px;
+                      }
+                    }
+
+                }
+                @keyframes placeHolderShimmer {
+                  0% {
+                    background-position: -768px 0;
+                  }
+
+                  100% {
+                    background-position: 768px 0;
+                  }
+                }
+            
+
+            }
+        }
+        .not-quote {
+            border: 2px dotted lighten($theme, 30%);
+            @include padding(15px, 10px, 10px, 10px);
+            @include margin(null, null, 40px, null);
+            display: inline-block;
+            font-family: 'Roboto';
+            span {
+                font-weight: 700;
             }
         }
     }

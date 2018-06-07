@@ -807,8 +807,8 @@ textarea:focus, textarea:active, textarea:hover {
             height: 80px;
         }
         .car {
-            height: 120px;
-            @include margin(null, null, 20px, null);
+            height: 110px;
+            @include margin(null, null, 15px, null);
             @include media(">300px", "<tablet") {
                 display: none;
             }
@@ -835,11 +835,25 @@ textarea:focus, textarea:active, textarea:hover {
         h2 {
             color: $logo-red;
             font-family: 'Nobel-Book';
-            @include margin(10px, null, null, null);
+            @include margin(6px, null, null, null);
         }
         .fa {
             font-weight: 200;
             -webkit-text-stroke: 1px #e1e6ea;
+        }
+        .paid {
+            background: url("../images/paid.svg") no-repeat 0px 0px/200px;
+            margin-top: 20px;
+            position: relative;
+            height: 100px;
+            .txn-no {
+                font-size: 13px;
+                position: absolute;
+                font-family: 'Nobel-Regular';
+                transform: rotate(-10deg);
+                bottom: 10px;
+                left: 20px;
+            }
         }
     }
     .checkout-details {
@@ -867,6 +881,24 @@ textarea:focus, textarea:active, textarea:hover {
             @include margin(50px, null, 50px, null);
             font-family: 'Nobel-Book';
         }
+        .listdetails {
+            font-size: 17px;
+            list-style: disc;
+            margin-left: 15px;
+        }
+        .pay-success {
+            background: #fff;
+            @include border-radius(3px);
+            @include box-shadow(0px 2px 4px rgba(0,0,0,0.1));
+            font-size: 16px;
+            font-family: 'Nobel-Book';
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            display: inline-block;
+            .fa {
+                color: #ffb515;
+            }
+        }
         .section-title {
             display: block;
             @include media(">300px", "<tablet") {
@@ -885,7 +917,6 @@ textarea:focus, textarea:active, textarea:hover {
                 float: left;
             }
         }
-        
         .member-name {
             @include margin(null, null, 20px, null);
             @include padding(8px, 15px, 8px, 15px);
@@ -954,7 +985,7 @@ textarea:focus, textarea:active, textarea:hover {
                 font-family: 'Nobel-Light';
             }
             .addon-icons {
-                background: url(../images/addon-covers.svg) no-repeat;
+                background: url(../images/addon-covers.svg) no-repeat 0px 0px/320px;
                 @include margin(-15px, 15px, null, null);
                 display: inline-block;
                 float: left;
@@ -996,6 +1027,10 @@ textarea:focus, textarea:active, textarea:hover {
             .discount {
                 @extend .addon-icons;
                 background-position:0px -122px;
+            }
+            .exchange {
+                @extend .addon-icons;
+                background-position:-250px -65px;
             }
             .price {
                 color: $logo-blue;
@@ -1249,6 +1284,7 @@ textarea:focus, textarea:active, textarea:hover {
             @include position(absolute, $top:-12px, $left:15px);
             font-size:$font-size-base - 1px;
             color: $logo-blue;
+            font-weight: normal;
         }
         .gainful-income {
             .input-effect {
@@ -1306,6 +1342,7 @@ textarea:focus, textarea:active, textarea:hover {
                 font-size:$font-size-large - 2px;
                 color: lighten($theme, 40%);
                 transition: 0.3s;
+                font-weight: normal;
               }
               &:focus ~ label {
                 top: -12px;
@@ -1875,5 +1912,649 @@ textarea:focus, textarea:active, textarea:hover {
     max-width: 180px;
 }
 /*------------------------------------New Proposal Start---------------------------------*/
+.emipayment {
+    background: $body-bg;
+    @include margin(8%, null, null, auto);
+    @include border-radius(6px);
+    width: 900px; 
+    min-height: auto;
+    position: relative;
+    @include media(">767px", "<992px") {
+        max-width: 750px;
+    }
+    .modal-content {
+        @include border-radius(6px);
+        @include box-shadow(0px 3px 8px rgba(0,0,0,0.3));
+        border: none;
+        .modal-body {
+            background:$body-bg;
+            @include padding(0px, 5px, 15px!important, 5px);
+            @include border-radius(6px);
+            height: auto;
+            position: relative;
+            [class*="col-"] {
+                height: auto;
+                @include padding(null, 15px, null, 15px);
+            }
+            .container {
+                @include padding(null, 10px, null, 10px); 
+            }
+            .close {
+                background:$body-bg url("../images/cross.svg") no-repeat center;
+                background-size:30px;
+                @include border-radius(50px);
+                @include box-shadow(0 3px 6px rgba(0,0,0,0.1));
+                @include position(fixed, $top:20px, $right:20px);
+                opacity: 1;
+                height: 50px;
+                width: 50px;
+                z-index: 999;
+                &:hover {
+                    background:$body-bg url("../images/red-cross.svg") no-repeat center;
+                    background-size:30px;
+                }
+            }
+            a {
+                color: $theme;
+            }
+            h3 {
+                font-family: 'Nobel-Book';
+                font-size: $font-size-h3 - 2px;
+                @include margin(20px, null, null, null);
+                @include padding(null, null, 15px, null);
+                border-bottom: 1px solid lighten($gray-light, 40%);
+            }
+            h4 {
+                font-family: 'Nobel-Book';
+                @include margin(null, null, 10px, null);
+            }
+            .close {
+                @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+                top: 4px;
+                right:10px;
+            }
+            .tandc {
+                color: $logo-blue;
+                float: right;
+            }
+            .tabs-left {
+              border-bottom: none;
+              padding-top: 2px;
+              border-right: 1px solid #ddd;
+              @include margin(20px, null, null, null);
+              text-align:left;
+              > li {
+                float: none;
+                margin-bottom: 2px;
+                margin-right: -1px;
+                  &.active > a {
+                    border: none;
+                    background: lighten($theme, 65%);
+                    @include padding(9px, null, 9px, 11px);
+                    color: $logo-red;
+                    &:hover, &:focus {
+                      border: none;
+                    }
+                  }
+                  > a {
+                    @include border-radius(0px);
+                    @include padding(8px, null, 8px, 10px);
+                    @include margin(null, 10px, null, null);
+                    display: block;
+                    font-size: $font-size-base + 2px;
+                    font-family: 'Nobel-Book';
+                      &:hover {
+                          border:none;
+                          background: lighten($theme, 65%);
+                          @include padding(9px, null, 9px, 11px);
+                      }
+                  }
+              }
+            }
+            .tab-content {
+                @include margin(20px, null, null, null);
+                text-align: left;
+            }
+            .panel-group .panel {
+              @include border-radius(0px);
+              @include box-shadow(0px 0px 0px rgba(0,0,0,0));
+              border:none;
+            }
+            .panel-default > .panel-heading {
+              @include padding(0px, 0px, 0px, 0px);
+              @include border-radius(0px);
+              background-color:transparent;
+              border:none;
+            }
+            .panel-title {
+              font-size:$font-size-large - 2px;
+              @include padding(12px, null, null, null);
+              > a {
+                display: inline-block;
+                width: 100%;
+                @include padding(6px, 0px, 6px, 0px);
+                text-decoration: none;
+                  [class*="col-"] {
+                      @include padding(null, null, null, 0px);
+                  }
+              }
+            }
+            .more-less {
+              float: right;
+              color: $theme;
+              font-size: $font-size-large + 2px;
+              -webkit-text-stroke: 0.5px #fff;
+            }
+            .panel-default > .panel-heading + .panel-collapse > .panel-body {
+              border:none;
+              background: lighten($theme, 65%);
+              @include border-radius(6px);
+              @include padding(5px, null, 10px, null);
+                [class*="col-"] {
+                    @include padding(null, null, null, 0px);
+                    &:first-child {
+                        @include padding(null, null, null, 15px);
+                    }
+                }
+                hr {
+                    border-top: 1px dashed $theme;
+                    @include margin(8px, null, 5px, -5px);
+                }
+            }
+        }
+    }
+}
+
+.shopping-cart {
+    background: lighten($theme, 67%);
+    min-height: 100%;
+    padding-top: 40px;
+    height: 100%;
+    .container {
+        max-width: 1400px;
+        [class*="col-"] {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+    .left-section {
+        border-right: 1px solid lighten($theme, 55%);
+        padding-bottom: 30px;
+        .planname {
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .insurer {
+            margin-bottom: 10px;
+            height: 70px;
+        }
+        .health-icon {
+            float: right;
+            margin-right: 10px;
+            height: 100px;
+        }
+        h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            span {
+                font-family: 'Nobel-Bold';
+            }
+            .fa-inr {
+                margin-left: 10px;
+            }
+            .ui {
+              &.selection {
+                &.dropdown {
+                  border: none;
+                  background: transparent url("../images/arrow-down.svg") no-repeat 90px 20px/17px;
+                  min-width: 40px;
+                  height: 40px;
+                  font-size:$font-small;
+                  @include border-radius(0px);
+                  @include padding(16px, null, 5px, 0px);
+                  @include margin(-3.5px, null, 0px, 5px);
+                  width: 110px;
+                    .default.text {
+                        color: lighten($theme, 40%);
+                    }
+                }
+                &.active.dropdown {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  .menu {
+                    border: none !important;
+                  }
+                  &:hover {
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  }
+                }
+              }
+              &.search.dropdown.visible > input.search {
+                padding: 16px 10px 5px 0px !important;
+                @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+              }
+              &.search.selection.dropdown > input.search {
+                padding: 16px 10px 5px 0px;
+              }
+              &.search.dropdown > .text {
+                font-family:'Nobel-Bold';
+              }
+            &.search.dropdown > .default {
+                font-family:'Nobel-Light';
+              }
+              &.selection.dropdown .menu > .item {
+                padding: 11px 10px 10px 5px !important;
+                font-size:$font-small;
+              }
+              &.dropdown .menu .active.item {
+                color: $logo-blue;
+              }
+              &.selection.dropdown > {
+                .dropdown.icon, .search.icon {
+                  display: none;
+                }
+              }
+            }
+        
+        }
+        .toggle_radio {
+          position: relative;
+          background: #fff;
+          margin-top: 20px;
+          margin-bottom: 40px;
+          padding: 0 !important;
+          @include border-radius(3px);
+          position: relative;
+          height: 26px;
+          width:100%;
+          > * {
+            float: left;
+          }
+          input[type=radio] {
+              display: none;
+          }
+          label {
+            font-size: 13px;
+            font-family: 'Nobel-Book';
+            font-weight: 400;
+            color: #000;
+            display: block;
+            width:33.3%;
+            height: 26px;
+            margin: 5px 0px;
+            @include border-radius(3px);
+            cursor: pointer;
+            z-index: 9;
+            position: relative;
+            text-align: center;
+              .save {
+                  position: absolute;
+                  color: $logo-red;
+                  bottom: -15px;
+                  font-size: 11px;
+                  left: 12%;
+                  width:90%;
+                  text-align: left;
+                  .fa {
+                      margin-left: 3px;
+                      margin-right: 2px;
+                  }
+              }
+          }
+            .toggle_option_slider {
+              width:33.3%;
+              height: 26px;
+              position: absolute;
+              top: 0px;
+              @include border-radius(3px);
+              @include box-shadow(0px 2px 4px rgba(0,0,0,0.2));
+              -webkit-transition: all .2s ease;
+              -moz-transition: all .2s ease;
+              -o-transition: all .2s ease;
+              -ms-transition: all .2s ease;
+              transition: all .2s ease;
+            }
+        }
+        #first_toggle:checked ~ #firstyear, #second_toggle:checked ~ #secondyear, #third_toggle:checked ~ #thirdyear {
+            color: #fff;
+        }
+        #first_toggle:checked {
+            ~ .toggle_option_slider {
+              background: #568ee8;
+              left: 0px;
+            }
+        }
+        #second_toggle:checked ~ .toggle_option_slider {
+          background: #568ee8;
+          left: 33.3%;
+        }
+
+        #third_toggle:checked ~ .toggle_option_slider {
+          background: #568ee8;
+          left: 66.6%;
+        }
+        .addons {
+            background: #fff;
+            border: 1px solid lighten($theme, 62%);
+            @include border-radius(4px);
+            padding-top: 16px;
+            display: inline-block;
+            width: 100%;
+            [class*="col-"] {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .amount {
+                font-family: 'Nobel-Regular';
+                font-size: 16px;
+                position: relative;
+                padding-left: 13px;
+                &:before {
+                    position: absolute;
+                    content: '\f156';
+                    font-family: 'FontAwesome';
+                    top: -3px;
+                    left: 0px;
+                }
+            }
+            .final-amount {
+                @extend .amount;
+                color: $logo-red;
+            }
+            .additional {
+                background: #ebecee;
+                display: inline-block;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                width: 100%;
+                [class*="col-"] {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                }
+                .title {
+                    text-transform: uppercase;
+                    font-family: 'Nobel-Regular';
+                    display: inline-block;
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+                .addon-amount {
+                    font-family: 'Nobel-Regular';
+                    font-size: 13px;
+                    position: relative;
+                    padding-left: 11px;
+                    &:before {
+                        position: absolute;
+                        content: '\f156';
+                        font-family: 'FontAwesome';
+                        top: -3px;
+                        left: 0px;
+                    }
+                }
+                p {
+                    font-size: 13px;
+                    margin-bottom: 4px;
+                }
+            }
+            .emi {
+                font-size: 14px;
+                font-family: 'Nobel-Book';
+                color: $theme;
+                display: inline-block;
+                position: relative;
+                padding-left:20px;
+                margin-top: 5px;
+                margin-bottom: 8px;
+                &:before {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    content: '';
+                    height: 18px;
+                    width: 18px;
+                    background: url("../images/addon-covers.svg") no-repeat -30px -22px/110px;
+                }
+                &:hover {
+                    text-decoration: none;
+                    color: #568ee8;
+                }
+                .fa {
+                    margin-left: 3px;
+                }
+            }
+            .buybima {
+                background: lighten($logo-red, 10%);
+                @include border-radius(0px 0px 4px 4px);
+                color: #fff;
+                display: inline-block;
+                font-size: 20px;
+                font-family: 'Nobel-Book';
+                text-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+                padding: 13px 10px;
+                margin-top: 6px;
+                width: 100%;
+                img {
+                    height: 24px;
+                    margin-right: 5px;
+                    margin-top: -4px;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+                &:active, &:focus {
+                    background: darken($logo-red, 6%);
+                }
+            }
+        }
+    }
+    .nav-tabs {
+        border: none;
+        margin-left: 5px;
+        > li {
+            text-align: center;
+            border-right:1px solid lighten($theme, 40%);
+            border-top:1px solid lighten($theme, 40%);
+            border-bottom:1px solid lighten($theme, 40%);
+            height: 55px;
+            width:20%;
+            &:first-child {
+                @include border-radius(5px 0px 0px 5px);
+                border-left:1px solid lighten($theme, 40%);
+                a {
+                    padding-top: 16px;
+                }
+            }
+            &:last-child {
+                @include border-radius(0px 5px 5px 0px);
+            }
+            &.active {
+                border:1px solid #568ee8;
+                a {
+                    background:#568ee8;
+                    border: none;
+                    color: #fff;
+                    @include border-radius(0px);
+                    
+                    &:hover {
+                        background:#568ee8;
+                    }
+                }
+            }
+            > a {
+                color: $theme;
+                border: none;
+                padding: 6px 5px;
+                margin: 0px;
+                font-family: 'Nobel-Regular';
+                height: 54px;
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+    }
+    .tab-content {
+        margin-left:5px;
+        .tab-pane {
+            margin-top: 30px;
+            @include media (">=tablet", "<desktop") {
+                [class*="col-"] {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+            .topup-plan {
+                padding-top: 15px;
+                padding-bottom: 2px;
+                margin-bottom: 20px;
+                display: inline-block;
+                width: 100%;
+                &.active {
+                    @include gradient-horizontal(#fff, #f0f2f5, 0%, 80%);
+                    @include box-shadow(0px 10px 10px -10px rgba(0,0,0,0.1));
+                    border-left: 1.5px solid $logo-blue;
+                }
+                .insurer {
+                    height: 55px;
+                }
+                h4 {
+                    text-transform: uppercase;
+                    font-family: 'Nobel-Book';
+                    font-size: 14px;
+                    float: left;
+                    width: 55%;
+                }
+                .ui {
+                  &.selection {
+                    &.dropdown {
+                      border: none;
+                      background: transparent url("../images/arrow-down.svg") no-repeat 80px 9px/16px;
+                      min-width: 40px;
+                      height: 30px;
+                      min-height:20px;
+                      font-size:14px;
+                      font-family:'Nobel-Book';
+                      @include border-radius(0px);
+                      @include padding(5px, 18px, 5px, 0px);
+                      @include margin(-3.5px, null, 0px, 0px);
+                      width: 95px;
+                      float: left;
+                        .default.text {
+                            color: lighten($theme, 40%);
+                        }
+                    }
+                    &.active.dropdown {
+                        @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                      .menu {
+                        border: none !important;
+                      }
+                      &:hover {
+                        @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                      }
+                    }
+                  }
+                  &.search.dropdown.visible > input.search {
+                    padding: 16px 10px 5px 0px !important;
+                    @include box-shadow(0px 0px 0px rgba(0, 0, 0, 0)!important);
+                  }
+                  &.search.selection.dropdown > input.search {
+                    padding: 16px 10px 5px 0px;
+                  }
+                  &.search.dropdown > .text {
+                    font-family:'Nobel-Regular!important';
+                  }
+                &.search.dropdown > .default {
+                    font-family:'Nobel-Regular';
+                  }
+                  &.selection.dropdown .menu > .item {
+                    padding: 11px 10px 10px 5px !important;
+                    font-size:$font-small;
+                  }
+                  &.dropdown .menu .active.item {
+                    color: $logo-blue;
+                  }
+                  &.selection.dropdown > {
+                    .dropdown.icon, .search.icon {
+                      display: none;
+                    }
+                  }
+                }
+                .content {
+                    color: #777;
+                    font-size: 14px;
+                    display: inline-block;
+                    width: 100%;
+                }
+                .premium {
+                    font-family: 'Nobel-Book';
+                    text-align: right;
+                    font-size: 14px;
+                }
+                .toggles {
+                  display: none;
+                  + label {
+                    @include border-radius(3px);
+                    cursor: pointer;
+                    display: block;
+                    height:34px;
+                    overflow: hidden;
+                    padding: 2px;
+                    position: relative;
+                    width: 76px;
+                    font-size:14px;
+                    float: right;
+                    text-align: left;
+                    &::before, &::after {
+                      @include border-radius(3px);
+                      color: $theme;
+                      display: block;
+                      @include padding(null, 0px, null, 0px);
+                      @include position(absolute, $top:3px, $left:0px);
+                    }
+                    &::before {
+                      content:'Added';
+                      right:0px;
+                      text-indent: -100px;
+                      padding: 4px 14px;
+                      border: 1px solid $theme;
+                    }
+                    &::after {
+                      background-color:$theme;
+                      content:'Add';
+                      @include margin(8px, 2px, null, 10px);
+                      text-indent: 27px;
+                      line-height: 14px;
+                      width:12px;
+                      height:12px;
+                    }
+                  }
+                  &:checked + label {
+                    &::before {
+                      background-color:$logo-blue;
+                      border: 1px solid transparent;
+                      text-indent:0px;
+                      color: #fff;
+                      padding:4px 10px;
+                    }
+                    &::after {
+                      left:45px;
+                      top: 3px;
+                      background-color:$body-bg; 
+                    }
+                  }
+                  + label {
+                    &::before, &::after {
+                      transition: all 0.5s ease 0s;
+                    }
+                  }
+                }
+            }
+
+        }
+    }
+}
 
 
